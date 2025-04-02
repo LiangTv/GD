@@ -1,350 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <title>媒體更新</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>媒體更新列表</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 20px; background-color: #f8f9fa; color: #333; }
-        h1 { color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 10px; }
-        ul { list-style: none; padding: 0; }
-        li { margin-bottom: 20px; padding: 15px; background-color: #fff; border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        strong { display: block; font-size: 1.2em; margin-bottom: 8px; color: #003975; }
-        .file-path { font-family: 'Courier New', Courier, monospace; font-size: 0.9em; color: #666; margin-bottom: 5px; word-break: break-all; }
-        blockquote { margin: 10px 0 10px 0px; padding: 10px 15px; border-left: 4px solid #007bff; background-color: #e9f5ff; color: #333; font-size: 0.95em; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 15px; background-color: #f8f9fa; color: #333; }
+        .category-section { margin-bottom: 40px; }
+        h1 { text-align: center; color: #0056b3; margin-bottom: 30px; }
+        h2 { color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 10px; margin-top: 0; margin-bottom: 25px; }
+        h3 { color: #17a2b8; margin-top: 25px; margin-bottom: 15px; border-left: 4px solid #17a2b8; padding-left: 10px; }
+        h4 { color: #6c757d; margin-top: 20px; margin-bottom: 10px; font-weight: bold; }
+        ul.update-list { list-style: none; padding: 0; }
+        li.update-item {
+            margin-bottom: 15px; padding: 12px 15px; background-color: #fff;
+            border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            transition: box-shadow 0.2s ease-in-out;
+        }
+        li.update-item:hover { box-shadow: 0 4px 8px rgba(0,0,0,0.08); }
+        .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+        .item-header strong { font-size: 1.1em; color: #003975; margin-bottom: 0; flex-grow: 1; margin-right: 10px; word-break: break-all; }
+        .item-time { font-size: 0.85em; color: #777; white-space: nowrap; }
+        .file-path { font-family: 'Courier New', Courier, monospace; font-size: 0.85em; color: #666; margin-bottom: 8px; word-break: break-all; }
+        blockquote { margin: 8px 0 8px 0px; padding: 8px 12px; border-left: 4px solid #007bff; background-color: #e9f5ff; color: #333; font-size: 0.9em; }
         a { color: #007bff; text-decoration: none; }
         a:hover { text-decoration: underline; }
-        .timestamp { font-size: 0.85em; color: #777; display: block; margin-top: 10px; text-align: right; }
-        .footer-time { margin-top: 30px; text-align: center; font-size: 0.9em; color: #888; }
+        .tmdb-link { display: inline-block; margin-top: 5px; font-size: 0.9em; }
+        .update-item.hidden-item { display: none; }
+        .load-more-button {
+            display: block; /* JS 會控制是否顯示 */
+            margin: 25px auto 15px auto; padding: 10px 20px; cursor: pointer;
+            background-color: #007bff; color: white; border: none; border-radius: 5px;
+            font-size: 1em; transition: background-color 0.2s ease;
+        }
+        .load-more-button:hover { background-color: #0056b3; }
+        .footer-time { margin-top: 40px; text-align: center; font-size: 0.9em; color: #888; }
     </style>
 </head>
 <body>
-    <h1>媒體更新列表</h1>
-    <div id="update-list">
-        <ul>
-            <li>
-                <strong>Stealing.Time.S01E18 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\黃雀 Stealing Time (2025)\Season 01\Stealing.Time.S01E18 - 4K.mkv</div>
-                <blockquote>財神在回家路上差點出了意外，他心下猜想是因為自己在行動中未聽從指示，所以佛爺對自己也起了殺心，遂買了車票準備跑路。大春在找小春的路上出了意外。背後的罪魁禍首其實是佛爺。他指揮四眼鬆動了天橋上的廣告牌，算準時機讓廣告牌墜落，砸死了天橋下的大春。四眼成了殺人的劊子手，心神不安。何小竹和小春看到大春的屍體，猜測是以廣叔為首的本地賊群所為，遂展開了報復。大鵬奉命幫領導的線人找回在美容院丟失的手機。通過零星線索鎖定偷手機的人就是在這家美容院上班的小柳。念在小柳是初犯，又是湛西老鄉，大鵬以批評教育為主對小柳做了處理。小柳感激，提起另一個老鄉方姐。大鵬由此找到了方慧的行蹤，並去方慧家堵到了人。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:46:08</div>
-            </li>
-            <li>
-                <strong>Stealing.Time.S01E17 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\黃雀 Stealing Time (2025)\Season 01\Stealing.Time.S01E17 - 4K.mkv</div>
-                <blockquote>佛爺團伙對古董販老吳展開行動，卻因為大鵬意外攪局而未得手。大鵬推測出老吳身上有寶貝，跟上他暗中保護。何小竹打算帶著兩個弟弟離開荔城，但小春爲了小痦子決意留在荔城而脫隊。何小竹偶然發現老吳身攜寶貝，遂讓大春回去找小春，自己則尾隨老吳伺機行動。財神、何小竹、佛爺和大鵬都跟著老吳上了火車。何小竹率先出手，卻被財神攪合。何小竹順走財神打火機，卻隨即被佛爺摸了回去。何小竹自知技不如人，黯然退場。老吳之前服用下的止疼片被黎小蓮替換成了安眠藥，幸而在他陷入昏睡前察覺到危險，求助乘警躲過一劫。大鵬上車后緊盯住老吳和他週遭潛在的威脅。佛爺發現了大鵬，而大鵬也注意到了佛爺。得益於大鵬的暗中保護，老吳全身而退。大鵬覆盤此事，知道是止疼藥出了問題，也由此鎖定了嫌疑人佛爺和黎小蓮。站前廣場一個丟了錢包的女孩被人販子拐走強迫賣淫，幸好李唐及時救下女孩。大鵬再次見到李唐暴力的樣子，然而經過與李唐的確認，大鵬發現每次自己看到的粗暴李唐竟都是幻覺。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:45:58</div>
-            </li>
-            <li>
-                <strong>Stealing.Time.S01E11 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\黃雀 Stealing Time (2025)\Season 01\Stealing.Time.S01E11 - 4K.mkv</div>
-                <blockquote>佛爺對阿蘭私自行動心生不滿和疑竇，潛入阿蘭家發現了阿蘭和財神同居的事實。姜吉峰按照阿蘭和財神在電話里的指示，來到一個電玩城，被戲耍一番，交易卻沒完成。一直在暗中觀察的大鵬和李紅旗也沒抓到二人。姜吉峰再次接到阿蘭電話，雙方私下約定下次交易。大鵬中暑暈倒，老董找來黎小蓮為其醫治。大鵬意識混沌，錯把黎小蓮看成方慧，清醒后二人閑聊，大鵬從黎小蓮的言語中捕捉到異樣，從醫務室出來后，大鵬給一直想當線人的老董派了任務：盯梢黎小蓮。小春因為小痦子不願再行竊，何小竹和大春只能二人外出。大春盯上佛爺的妻子齊玫紅，下手時卻被發現被圍毆。齊玫紅心生不忍，救下大春。大春感動，對齊玫紅產生了別樣情愫，撿到她掉落的髮卡悉心收藏。李唐在軟席候車室觀察到一對奇怪的男女，趕緊通知大鵬。其實，男的是做直銷的傅先生，女的是個賊。女賊對傅先生的直銷內容毫無興趣，但不遠處的大鵬卻極為關切，因為傅先生推廣的化妝品品牌，正是「曼嘉儷」 。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:45:48</div>
-            </li>
-            <li>
-                <strong>Stealing.Time.S01E12 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\黃雀 Stealing Time (2025)\Season 01\Stealing.Time.S01E12 - 4K.mkv</div>
-                <blockquote>佛爺單獨約見阿蘭，阿蘭有些忐忑。然而佛爺卻沒有為難她，反而送了她一束花，祝她生日快樂。阿蘭頗為感動。火車上，女賊和其同夥被抓獲。大鵬試圖從傅先生處得到方慧線索卻一無所獲，只好假裝對直銷課程感興趣，與傅先生建立聯繫。北風再一次以李曉麗為掩護偷竊，被抓個正著。花姐來警局接李曉麗回家。原來，李曉麗並不是花姐的女兒，她的親生母親是個女賊。小春獨自行竊，被本地賊群盯上並被夾斷了小拇指。大鵬來到傅先生的課程，小痦子也在上課，她已對直銷產品深信不疑。傅先生讓她向親友推銷產品，小痦子聯繫小春，小春忍著劇痛檢視小痦子的簡訊。阿蘭洗澡時，因為電熱水器漏電暴亡。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:45:38</div>
-            </li>
-            <li>
-                <strong>Stealing.Time.S01E10 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\黃雀 Stealing Time (2025)\Season 01\Stealing.Time.S01E10 - 4K.mkv</div>
-                <blockquote>阿蘭與財神設下美人計圈套偷了富豪林總的家，還主動報了警。林總惱羞成怒，四處報警投訴。大鵬李唐也接到了訊息。大鵬和李唐推理因為盜竊是轄區受理，這個賊極有可能是爲了故意避開報警到火車站的可能性，所以主動報警。換而言之，此案作案者很可能和盜竊眼角膜的賊是同一夥人。小春得知后小痦子遭遇后深感愧疚。在小痦子的質問下，小春萌生退意，告訴大春自己不想再當賊。北風藉著女友李曉麗的天然掩護，在美食街上肆意行竊。小痦子參與了一節直銷課程。主講人傅先生在推廣的品牌，正是大鵬尋找未婚妻方慧的線索之一——化妝品品牌「曼嘉儷」 。大鵬李紅旗盯梢姜吉峰，看見有人（財神）撞掉姜吉峰的包丟落了幾張名片。大鵬很快反應過來，讓李紅旗去追財神，自己則尾隨姜吉峯迴家，告訴他很快就會有人給他打電話。此時，姜吉峰手機真的響了，果然是財神打來打算交易眼角膜。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:45:28</div>
-            </li>
-            <li>
-                <strong>Stealing.Time.S01E09 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\黃雀 Stealing Time (2025)\Season 01\Stealing.Time.S01E09 - 4K.mkv</div>
-                <blockquote>佛爺差點強暴黎小蓮。另一邊，阿蘭和財神兩人秘密戀愛同居，開始謀劃單獨行動。眼角膜盜竊案過去五天，毫無進展。大鵬受到啓發，之前總是在找那些無業的「職業賊」，他建議把範圍縮小，重點聚焦在火車站附近，有本職工作乾的人群。工商人員來佛爺錶店登記資訊，佛爺敏感地察覺到風險，再次對團伙強調近期內誰也不許下手，但阿蘭似乎有不一樣的想法。李唐調查佛爺的錶店，未發現任何問題。財神把自己收拾得光鮮亮麗，包了一個豐厚的紅包去參加老友的婚禮，卻遭到了冷落。一氣之下，偷了禮金嫁禍於人，製造了新郎新娘各自親友間的衝突。老董纏著大鵬和李唐借錢買藥，說母親生病，若能借到錢以後愿給大鵬做線人。大鵬和李唐原以為是老董撒謊，卻沒想到是真的。大鵬動了惻隱之心，打算去醫務室幫老董母親開些藥。正好看到黎小蓮幫助了一個帶孩子來荔城看病卻被偷錢的女人，瞭解到黎小蓮此人面冷心熱。小痦子用著小春送她的手機，卻沒成想手機原來的主人就是自己的女工友。小痦子被懷疑是小偷，最終被開除。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:45:18</div>
-            </li>
-            <li>
-                <strong>Stealing.Time.S01E16 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\黃雀 Stealing Time (2025)\Season 01\Stealing.Time.S01E16 - 4K.mkv</div>
-                <blockquote>老董偷了一個錢包，裡面數額巨大，預計會被判刑。大鵬恨鐵不成鋼，卻還是拜託同事聯繫民政局辦理老董母親養老事宜。姜吉峰按照佛爺電話里的指示，甩開跟梢的李紅旗，完成了一系列指令，最後還是沒取回眼角膜。原來這次行動只是佛爺對姜吉峰的試探。大春小春陪小痦子聽課。大春拿著齊玫紅的髮卡若有所思，小春告訴小痦子他們即將離開荔城，小痦子極力挽留小春，小春動搖。大鵬也來參加了這節課。課後，他從小痦子口中得知方慧曾經常光顧一家茶餐廳。大春在回家的地鐵上偶遇齊玫紅並尾隨其出站，卻被來接妻子的佛爺注意到，誤會他們要對自己家人下手，動了殺心。古董販老吳到醫務室找黎小蓮開藥。黎小蓮聽他講電話的內容，動起了心思。方慧正在一家美容院享受一個湛西老鄉姑娘小柳的按摩。結束按摩，方慧開機，手機上竟然顯示大鵬來電，方慧驚慌失措。另一邊，大鵬終於撥通電話，接電話的卻不是方慧而是小柳，小柳冷冷地告訴大鵬他打錯了。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:45:08</div>
-            </li>
-            <li>
-                <strong>Stealing.Time.S01E15 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\黃雀 Stealing Time (2025)\Season 01\Stealing.Time.S01E15 - 4K.mkv</div>
-                <blockquote>大鵬尋跡找到了一份學員名單，找到了方慧的聯繫方式，卻始終沒有撥通對方的新號碼。佛爺讓四眼入夥參加團伙聚會，四眼認出黎小蓮。商人王正偉前來反扒大隊報警，他覺得自己被賊盯上了。大鵬和李唐察覺事有蹊蹺，決定暗中布控，甕中捉鱉。果然，此時的黎小蓮和佛爺等人正在規劃行動。螳螂捕蟬，黃雀在後，警方潛伏在王正偉身邊暗中護送，佛爺團伙找不到可乘之機，財神還險些暴露自己，差點被捕。老董向大鵬報告黎小蓮的異樣：她時常觀察人和環境。李唐分析近一年內失竊案發現規律：幾乎每次重大案件發生之前，黎小蓮都在上班，案發之後便放假休息。這讓大鵬愈發懷疑黎小蓮。佛爺避開一直跟梢姜吉峰的李紅旗，在姜吉峰身上放了一部手機，背面貼著一雙眼睛的貼畫。姜吉峰瞬間明白，賊還在他的周圍，隨後便接到了佛爺電話。大鵬再次去醫務室問診，黎小蓮叮囑大鵬不可忘吃或亂吃藥。大鵬多番言語試探，二人對話間暗流涌動。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:44:58</div>
-            </li>
-            <li>
-                <strong>Stealing.Time.S01E14 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\黃雀 Stealing Time (2025)\Season 01\Stealing.Time.S01E14 - 4K.mkv</div>
-                <blockquote>反扒大隊抓捕算命攤盜竊團伙，大鵬在對他們的審訊中收穫啓發，表面上不是賊的，才是賊。越不會下手的人越有可能。佛爺離開廣叔理髮店時和進門的何小竹擦肩而過。何小竹是來找廣叔盤道的。廣叔給何小竹刮臉，何小竹偷了廣叔身上的鑰匙，廣叔卻技高一籌，悄無聲息地把本來已被偷走的鑰匙又收了回來。何小竹求廣叔讓自己待在荔城，廣叔讓何小竹先偷下街對面民警的對講機再談。何小竹未偷成，盤道落敗。佛爺則在一旁暗中觀察著一切。老董每天幫大鵬盯著黎小蓮。被踢出算命攤團伙的小夥子獨自行動，接連受挫，還被本地街賊們狠狠收拾了一頓。一直留意並尾隨他的佛爺收留了他，因他眼窩發青給取代號為四眼，這是佛爺給自己團隊物色的新隊員。四眼在佛爺的錶店裡住下，因清理傷口來到火車站醫務室求醫，對治療自己的黎小蓮心生好感。何小竹在廣叔那碰了釘子，知道荔城呆不下去了，決定帶大春小春離開。大鵬為找方慧，聽傅先生講課請他吃飯，終於獲得了一些線索。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:44:48</div>
-            </li>
-            <li>
-                <strong>Stealing.Time.S01E13 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\黃雀 Stealing Time (2025)\Season 01\Stealing.Time.S01E13 - 4K.mkv</div>
-                <blockquote>佛爺通知黎小蓮行動組會少一個人。黎小蓮意識到佛爺下了殺手，心情複雜。對於阿蘭的死，財神心有餘悸，他猜到是佛爺下的手，爲了自保，他找到佛爺解釋私自行動的原因，佛爺恩威並施，讓財神更加惶恐。大鵬看到居民（阿蘭）因電熱水器漏電而死的新聞，疑心死者是阿蘭，打算順藤摸瓜，卻因為遺體已被火化斷了線索。火車站廣場地下通道的算命攤,一個女人來鬧事，引得路人圍觀。一個學生樣的小夥子則趁亂偷盜。其實，攤主、鬧事女和小夥子是一夥兒的。攤主發現小夥子私藏「公款」，將其教訓了一頓並踢出了團伙。小春大春和小痦子見面，小痦子一心推銷產品，絲毫沒有注意到小春受傷的手指。佛爺找廣叔理髮，二人相識多年，甚為熟稔。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:44:38</div>
-            </li>
-            <li>
-                <strong>Stealing.Time.S01E07 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\黃雀 Stealing Time (2025)\Season 01\Stealing.Time.S01E07 - 4K.mkv</div>
-                <blockquote>大鵬找到方慧曾經住過的地方，現在已是女工宿舍。大鵬在衛生間找到了一條「太鐵」毛巾，內心震盪，這十有八九是方慧用過的毛巾。一對外國男女在火車站失竊。大鵬和李唐查到當時的突發事件：一個推銷員突發過敏性哮喘被急救。黎小蓮作為對哮喘患者進行救治的醫生，也在大鵬的詢問之列。在詢問過程中，黎小蓮沉著應對，還發現了大鵬因為不按時服藥而引發的眩暈。黎小蓮的表現沒有破綻，但此案確是黎小蓮利用了推銷員對羽毛過敏而策劃的盜竊。大鵬來到佛爺的錶行修表，察覺到佛爺有些與衆不同，且店裡有鳥類飼料，可能與推銷員哮喘案有關，於是著手調查佛爺錶店。大鵬和李唐坐地鐵去見本地賊群投石問路，正巧碰到大春盯上黎小蓮的包。何小竹團伙和大鵬李唐皆伺機而動，地鐵車廂內上演著無聲的拉鋸戰。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:44:28</div>
-            </li>
-            <li>
-                <strong>Stealing.Time.S01E06 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\黃雀 Stealing Time (2025)\Season 01\Stealing.Time.S01E06 - 4K.mkv</div>
-                <blockquote>小春來到手機店，想給小痦子買臺新手機，卻因價格望而卻步。一出手機店，大春就不顧小春反對，偷了一臺同款手機。二人回家途中，被蓄意報復的本地賊群伏擊。大鵬設計讓車站的黃牛群體都成為自己的眼線，成功找到了攝像頭中晃脖子的矮個男人。此人專門倒手古董文物，卻提供不了其他有效資訊，線索中斷。大鵬與花姐商議對策，大鵬提議重點關注車展、演唱會等大型活動並盯緊相關火車車次。佛爺找黎小蓮鍼灸，給她分贓。黎小蓮擔心阿蘭和財神會心生不滿，佛爺則表示黎小蓮就好比是腦子，相較於好比手腳的另外兩人有用。佛爺邀請她吃飯，再一次被拒絕。70 歲的廣叔曾是本地賊的頭，開著一家理髮店。以前，荔城的小偷都要過廣叔這關才能自立門戶。廣叔與本地賊群有定期聚會。此次聚會上，雀仔抱怨外來團伙搶飯碗，廣叔則批評是他們端不住飯碗。花姐和佛爺都來學校參加孩子的家長會，二人的孩子竟是同班同學。大鵬肝移植手術后需按時服藥，正服藥時接到了服裝城經理黃立清電話，對方說有方慧的線索。大鵬聞訊一怔，連藥都忘了吃。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:44:18</div>
-            </li>
-            <li>
-                <strong>Stealing.Time.S01E08 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\黃雀 Stealing Time (2025)\Season 01\Stealing.Time.S01E08 - 4K.mkv</div>
-                <blockquote>地鐵車廂內，何小竹團伙未得手，黎小蓮全身而退。大鵬和李唐與以廣叔為首的本地賊群會面，貓鼠同席。一向溫和的李唐表現得與平常不太一樣，十分暴躁。大鵬與廣叔試探再三，確認廣叔處也沒有眼角膜相關線索。黎小蓮看望住在康復醫院的弟弟，與他商量搬到北方。小春到小痦子打工的工廠，把自己偷來的手機送給她。花姐女兒李曉麗在混混男友北風家裡，發現了一把又長又細的鑷子。佛爺得知大鵬去找廣叔的事，讓團伙中各人這兩天停止作案避避風頭。黎小蓮是個有原則的賊，她不偷來荔城看病的人，因此她對眼角膜事件非常反感，由此和財神發生衝突。佛爺表面上偏袒黎小蓮，但在分散之後，卻悄悄尾隨黎小蓮回家，差點強暴了她。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:44:08</div>
-            </li>
-            <li>
-                <strong>Stealing.Time.S01E05 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\黃雀 Stealing Time (2025)\Season 01\Stealing.Time.S01E05 - 4K.mkv</div>
-                <blockquote>大鵬和李唐在廣場上抓到了一個抱著孩子行竊的女賊。帶女賊回反扒大隊時大鵬還替慣犯老董解了圍，讓他少遭了頓打。路過筆錄室時，大鵬聽到前一天晚上失竊的谷鄉長在報案，大鵬聽出此案暗藏蹊蹺。果不其然，來出差的谷鄉長也遭遇了仙人跳，所以在做筆錄時故意隱瞞了一些事情。大鵬帶著李唐來到谷鄉長在酒店的房間，進行了案件還原想像：性感女人（阿蘭）進房間不久，砸門查房的聲音（財神）響起，身為公職人員的鄉長嚇破了膽，開窗逃脫崴腳。等他回到房間，此前隨身攜帶的古董早已經消失。李唐扮演小偷，找到逃離路徑和阿蘭留在現場的一根紅毛衣線頭，確認了阿蘭的衣著打扮。大鵬和李唐通過火車站廣場上為數不多的攝像頭，找到了阿蘭身影。影像里站在暗處的阿蘭把古董交給了一個總在晃脖子的矮個男人。大鵬在火車站廣場看到休閑裝扮的阿蘭，儘管身高體重習性都跟女賊形象吻合，但因為紋身和胸圍對不上放棄了追蹤。其實，阿蘭早就收到佛爺的簡訊提醒，蓋掉了紋身，脫掉了假胸，因此順利逃過一劫。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:43:58</div>
-            </li>
-            <li>
-                <strong>Stealing.Time.S01E03 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\黃雀 Stealing Time (2025)\Season 01\Stealing.Time.S01E03 - 4K.mkv</div>
-                <blockquote>何小竹三人租了一間民居。他們仨兄弟看上去像是來荔城找工作的外地人。大鵬推測賊一定會主動找上姜吉峰，然而姜吉峰拒不配合，這給警方調查造成了阻礙。為順利破案，花姐指派一心想辭職的李紅旗跟梢姜吉峰。與此同時，佛爺也盯著姜吉峰，他得想辦法銷贓。大鵬發現車站慣偷老董趁黎小蓮不在醫務室的空檔在偷盜藥品。老董解釋偷藥是因為老母親生病了。黎小蓮回來時，老董已經離開，但她依舊敏銳地發現藥被人動過。黎小蓮的細緻，敏感和專業給大鵬留下了極深的印象。一對從火車站下車前往服裝城進貨的胖瘦商人踏入佛爺團伙沿途設下的圈套，被偷走了一整個編織袋的現金。花姐帶著隊員們逮捕了一組盜賊，詢問眼角膜相關問題，但對方毫不知情。何小竹三人坐上公交，大春奪下一個女乘客的金耳環就跑，原來他們三個也是賊。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:43:48</div>
-            </li>
-            <li>
-                <strong>Stealing.Time.S01E02 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\黃雀 Stealing Time (2025)\Season 01\Stealing.Time.S01E02 - 4K.mkv</div>
-                <blockquote>夜晚的列車上，又一起盜竊案正在上演。按失竊的香港醫生薑吉峰所敘述，是有人趁他不注意偷走了裝著眼角膜的手提箱。大鵬發現了姜吉峰筆錄中的破綻，讓姜吉峰不得不說出實情，原來他是被一個女賊仙人跳了。眼角膜的儲存時間有限，警方須在十二日內破案找回。大鵬和李唐按照已知線索捕捉到女賊的一些特徵。同一時刻，達利鐘錶行老闆佛爺、遊客照相師財神和偷眼角膜的女賊阿蘭正同坐在一輛公交車上。表面上看，他們互不相識，但其實他們是一個盜竊團伙。三人聚會，佛爺點破阿蘭私自行動不合規矩。阿蘭不敢隱瞞，將眼角膜一事如實相告。剛來到荔城的何小竹帶著兩個啞巴弟弟大春和小春下火車，在等公交車時差點被行騙偷走東西。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:43:38</div>
-            </li>
-            <li>
-                <strong>Stealing.Time.S01E01 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\黃雀 Stealing Time (2025)\Season 01\Stealing.Time.S01E01 - 4K.mkv</div>
-                <blockquote>大鵬被臨時調任，參與荔城火車站區域的反扒專治行動。除了公事，大鵬還有一件私事，尋找他在荔城失蹤的未婚妻方慧。大鵬輔一抵達荔城就碰到一起搶包案，抓賊時摔碎了師傅送的表。另一邊，第一天來反扒大隊報到就任的李唐把同事阿志錯認成賊。反扒大隊老隊員李紅旗向領導花姐請辭，未獲得批準，反倒與新來的大鵬和李唐被分到一個行動小組。第一起盜竊案發生。一名旅客遺失了一瓶洗銀水，若被人誤食，後果將不堪設想。大鵬和李唐帶著失主重坐火車，結合失主供述進行情景再現，推演出洗銀水丟失的站點，告破此案。大鵬水土不服，李唐陪他到火車站醫務室看病，得知大鵬曾做過肝移植手術，一直在服藥。二人在醫務室認識了醫生黎小蓮。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:43:28</div>
-            </li>
-            <li>
-                <strong>Stealing.Time.S01E04 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\黃雀 Stealing Time (2025)\Season 01\Stealing.Time.S01E04 - 4K.mkv</div>
-                <blockquote>大鵬跟李唐調查胖瘦商人的案件，跟胖瘦商人重走失竊之路，發現諸多可疑之處。當大鵬尋跡來到服裝城，在調查胖瘦客商案之餘，他向服裝城經理黃立清打聽曾在服裝城工作過的未婚妻方慧的相關資訊，卻一無所獲。何小竹三人接連偷盜，無意中搶了本地賊群的飯碗，很快他們就被人盯上了。本地賊雀仔正在暗處觀察著三人。何小竹幫小春打電話給在荔城打工的心上人小痦子約她出來吃飯。李紅旗回家遇到債主，原來他之前很多怪異的表現都是因為老婆做生意虧了錢欠了債，債主天天上門要錢。佛爺來到火車站醫務室找黎小蓮治療手腕上的老毛病，兩人商討著如何謹慎處理那副珍貴的眼角膜。原來，黎小蓮竟是盜竊團伙的軍師，負責觀察和策劃。大鵬在宿舍自己覆盤模擬胖瘦商人案件，還原出佛爺、財神和阿蘭三人的行動。大鵬推斷出這是個盜竊團伙，也隱約感覺到案子背後還有一隻無形的手。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:43:18</div>
-            </li>
-            <li>
-                <strong>Northward.S01E38 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\北上 Northward (2025)\Season 01\Northward.S01E38 - 4K.mkv</div>
-                <blockquote>很快，謝老大收到了華子手術成功的訊息。星池的手藝終於得到了周宴臨的認可。看著運河人家來往的客人們品嚐著自己的手藝，他感到無比滿足和欣慰。與此同時，海闊的運河書苑順利開業，羅之梅竟然也在這天回來了。華子手術成功，回到家。夜裡，謝望和哥仨又在露臺聚頭，聊起以後的打算，望和說自己準備趁著蜜蜂上市，整合資源做個大病眾籌，因為他陪華子看病，見到很多人因缺錢而耽誤治療，他希望利用蜜蜂的資源，做公益。大家的生活終於步入了正規，望和不禁想到思藝，不知道她現在怎麼樣了。陳睿提著一桶湯去找母親，感謝她幫華子找到了全新的小院。母子倆久違地坐下來談心，顧阿蓮談起自己曾經的焦慮，而如今陳睿做出的成績令她感到無比驕傲。母子倆解開了心結。沒想到，陳睿主持的花街民俗文化博物館開業那天，思藝回來了，還帶來了自己祖上的訊息。原來思藝的高祖父馬福德跟在花街沉船的小波羅，是親兄弟。她沒想到，陳睿還查清了故事的另外一面——小波羅沉船上的四個中國人，正是謝家、夏家、周家和邵家的祖輩</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:35:48</div>
-            </li>
-            <li>
-                <strong>Northward.S01E37 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\北上 Northward (2025)\Season 01\Northward.S01E37 - 4K.mkv</div>
-                <blockquote>在醫院，老默最終沒能搶救過來。他臨終前提出要見星池母親一面，還讓星池母親把一張銀行卡給了星池。看著母親塞到自己手裡的銀行卡，星池一頭霧水。原來老默才是星池的親生父親。當年劉玉玲懷著孕，老默卻因失手傷人，被關進了監獄。家裡人逼著劉玉玲流產，劉玉玲一時昏頭跳河自盡，沒想到被剛好到運河邊採風的邵秉義救下。邵秉義給了劉玉玲一個家，並且把星池當做親生兒子養大。得知真相的星池一時欲哭無淚，來到老默常住的橋洞下，在他的遺物里，發現了自己幼時的玩具和照片。夜裡回到家，邵秉義和星池聊起這些年父子間的摩擦和矛盾，說出了心裡話，父子倆哭著解開了心結。海闊陪著週一仆看評話，沒想到老闆卻說評話館很快就要歇業了。於是，海闊找到陳睿，提出想做一個年輕人也會去的評話館，結合書、咖啡和茶，找到一種年輕人的文化生活方式。聽完后，陳睿決定加入。華子去找顧阿蓮，表達了自己的願望，她希望這些老鄰居還是能住在一起。之後，華子把院裡的長輩們都召集起來，說她跟望和一起找了個小院，改建后大家還是可以住一起。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:35:38</div>
-            </li>
-            <li>
-                <strong>Northward.S01E36 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\北上 Northward (2025)\Season 01\Northward.S01E36 - 4K.mkv</div>
-                <blockquote>華子生病的事終於還是被父母們知道了。華子媽媽躺在床上泣不成聲。晚上，華子和望和兩人一起闖進曾經的中學教室，看著曾經在課桌上刻下的字，華子的心願是希望她愛的人也愛她。如今，愛的人已在眼前，也算是實現了心願。等望和回到家，謝天成在客廳里跟望和聊起他和華子的婚事，謝天成很支援。謝天成找夏老二喝酒。夏老二爲了不讓場面難堪，率先表態說不同意望和與華子的婚事，哪想到謝天成並沒有要往後撤。夏老二感動極了。謝天成在家宣佈，他跟夏老二已經談好了。妻子梁海泓跟丈夫吵起來，她再次表明態度，不同意這樁婚事。她告訴望和，婚姻就像行船，船剛駛出碼頭，底就漏了，這船又怎麼能走得遠。可謝望和最終還是說服了母親。謝望和帶著華子上街散步，華子不知不覺中發現，兩人竟已走到了民政局門口。華子當即轉身要走，望和不由分說拽著華子跑進民政局，華子上樓后看見，雙方父母已等在裡面了。領完證，兩家人一路走回花街。謝天成看著正在施工改建中的花街牌樓，不由得傷感起來。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:35:28</div>
-            </li>
-            <li>
-                <strong>Northward.S01E35 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\北上 Northward (2025)\Season 01\Northward.S01E35 - 4K.mkv</div>
-                <blockquote>坐在華子家的豆花店，星池依然迷茫，不知道該找什麼工作。經由華子和父親的點撥，星池豁然開朗。在運河人家，星池找周宴臨拜師。他說，他終於知道了，只有做菜能讓他感到幸福。周宴臨答應了，並讓他先從小工做起。陳泊興沖沖地拿出一塊老懷錶給陳睿，上面刻著周義彥三個字，證實了這是周家祖上的東西。原來周家的祖先也曾跟小波羅同舟共濟過。他們把這個訊息連忙告訴了周宴臨。晚上，夏老二、邵秉義等人在小院裡小酌，有說有笑，謝老大湊過來才知道，夏家的祖上也找到了。他們還提到了謝平遙，但至於他是否就是謝老大家的祖上，還有待考證。他們叫上謝老大，打算一起去趟他的老家做田野調查。陳泊和陳睿在做田野調查時偶然走進一家宗祠，意外遇到一位老先生，他家與謝家祖上是故交，謝天成看著老先生遞過來的信紙，上面竟寫有自己太爺爺的名字。望和終於也回到了花街。在夜晚的河邊，他找到獨自躲起來的華子，兩個人擁抱在一起。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:35:17</div>
-            </li>
-            <li>
-                <strong>Northward.S01E34 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\北上 Northward (2025)\Season 01\Northward.S01E34 - 4K.mkv</div>
-                <blockquote>小何妻子走進來，哭著向望和道歉，並說當初自己想去蜜蜂鬧事，華子堅決不讓，還答應給她30萬賠償金。可能就是這30萬，讓華子把快遞站轉手了。望和無意中從華子的床墊下翻出了一板藥片，是治腫瘤的藥。望和愣住了。在華子的空房間，看著捶胸頓足、懊悔不已的望和，海闊提出乾脆一起回花街。但望和不甘心，他想從哪兒跌倒從哪兒再爬起來。 花街，邵家一家三口吃飯時，因為星池一直沒有找工作，星池父子倆鬧了彆扭。星池放下碗筷走出家門，在運河人家門口看見周宴臨。周宴臨心細，把星池叫進飯館，給他做了一晚陽春麵。記憶里的味道，讓星池得到了內心的撫慰。拖著行李箱的華子在運河人家門口看見星池，笑著說，她回來了，以後不走了。另一邊，海闊和母親羅之梅在北京的咖啡館見面。海闊沉默良久，告訴母親，他打算回花街了。在公司，望和收拾了一個紙箱往外走，邱林、宋總目送他，只以為他是被掃地出門了。咖啡廳，雲團的江平與謝望和見面，向望和拋出了橄欖枝。謝望和對江平提出的優渥條件不為所動，反而開門見山問江平，蜜蜂的內鬼究竟是誰。江平不語。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:35:07</div>
-            </li>
-            <li>
-                <strong>Northward.S01E33 - 4K.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\北上 Northward (2025)\Season 01\Northward.S01E33 - 4K.mkv</div>
-                <blockquote>謝望和急匆匆趕到快遞站找華子。華子剛醒，見到望和，便又說起小何的身後事。華子快遞站里，華子聽聞小何妻子收了雲團給的30萬，雲團還說要幫小何妻子打官司，開新聞發佈會，華子連忙制止，她一聽便知這是雲團和蜜蜂的商業競爭手段，並不是真心想要幫助小何妻子。華子讓小何妻子把錢退掉，自己補給她，並承諾在一天內讓望和及蜜蜂有所交代。另一邊，謝望和徑直闖入公司會議室，再次逼問孟總，小何的賠償事宜如何處理。孟總依然分毫不讓，謝望和從未想到過孟總會如此冷血。謝望和寫了承諾書，承諾會幫小何一家還清房貸，並資助小何的孩子上學。晚上，海闊在家提醒望和，最近網上對他的聲討很多，懷疑是雲團雇了水軍。望和並不擔心雲團，反倒認為，公司出了內鬼，不出意外便是老宋他們在行動。事態愈演愈烈。迫於壓力，蜜蜂對外召開了記者發佈會。孟威大言不慚的向著記者宣佈公司的處理結果：謝望和離開團隊。會後，謝望和在採訪時說，小何的事，他負主要責任。華子和海闊看著螢幕里的謝望和，震驚了。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:34:57</div>
-            </li>
-            <li>
-                <strong>Northward.S01E32.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\北上 Northward (2025)\Season 01\Northward.S01E32.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                <blockquote>蜜蜂在海淀區的市佔率終於過半，孟威帶著員工熱烈慶祝，望和作為功臣，在慶功宴上備受矚目。喝醉后，望和跟海闊說自己想星池了，想到無法與最好的兄弟分享這份喜悅，他流下了眼淚。與此同時，在暴雨中，送餐的何天明被一輛大貨車撞飛。
+    <h1>媒體更新總覽</h1>
+    <section class="category-section" id="movie">
+        <h2>電影更新列表</h2>
+        <h3>2025 年 04 月</h3>
+        <h4>04 月 02 日</h4>
+        <ul class="update-list" data-category="movie">
+            <li class="update-item ">
+               <div class="item-header">
+                    <strong>不破不立：哪吒之魔童鬧海幕後紀錄片 (2025) - 2160p.WEB-DL.H265.10bit.DDP2.0.mkv</strong>
+                    <span class='item-time'>22:39:57</span>
+               </div>
+                <div class='file-path'>@LiangTsaoEmby_本月更新\電影\不破不立：哪吒之魔童鬧海幕後紀錄片 (2025)\不破不立：哪吒之魔童鬧海幕後紀錄片 (2025) - 2160p.WEB-DL.H265.10bit.DDP2.0.mkv</div>
+                <a href="https://www.themoviedb.org/movie/1432009" target="_blank" class="tmdb-link">TMDb 連結</a>
+                <blockquote>"紀錄片首曝電影《哪吒之魔童鬧海》的幕後製作過程，導演餃子和全國四千多名動畫人一起墊腳觸碰創作天花板的故事。
+　　通過紀錄團隊中製作人員的工作瞬間或閒暇趣事，展現中國動畫電影人不斷突破想像力、突破自我、突破極限的頑"強精神與樂觀態度，及"人生不設限"的價值觀。"
 
-次日，海闊把宿醉的望和叫醒，望和這才知道，出大事了。外賣騎手小何離世。夏鳳華站在醫院走廊裡泣不成聲，她看著謝望和，怒火中燒，一遍又一遍地質問他，控訴他，謝望和也只能無力地說，一切都是公司規定。當孟總告訴謝望和，小何的賠償金僅3萬時，謝望和難以置信，他當即要求孟總提高賠償金額度。孟總和公司法務來回踢皮球。法務把小何車禍時的監控記錄展示給謝望和看，不斷強調這是由於小何自己闖紅燈造成的。謝望和捂著胸口，感到一陣難受。 謝望和在大雨里奔走，最近發生的一系列事讓他對工作，對公司感到從未有過的失望。謝望和病倒了，高燒不止，幸好夏鳳華及時上門照顧他。謝望和迷迷糊糊地抱著華子道歉，說自己做錯了，華子沉默。等謝望和醒來時，華子已經走了。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:34:47</div>
-            </li>
-            <li>
-                <strong>Northward.S01E31.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\北上 Northward (2025)\Season 01\Northward.S01E31.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                <blockquote>星池從派出所出來，望和沒忍住跟他打起來。兩兄弟爆發了巨大的價值觀衝突，誰也說服不了誰，最後不歡而散。這個夜晚，兄弟三人都彷徨若失。果然，邱林和宋總很快拿著星池的事，在孟威面前給望和穿小鞋。沒想到，一波未平一波又起，203站點的騎手開走了公司的電瓶車。望和幫著收拾星池的爛攤子，任命何天明為203新站長。華子的快遞站終於成爲了公司的模範站點，領導邀請她去總部工作。得到認可，讓大華子十分感動，但考慮到病情，她還是婉拒了。何天明趕回站里，華子這才知道星池遇上了麻煩。見星池失魂落魄，華子決定邀請他來快遞站幫忙。華子給星池介紹快遞站的工作，兩人打打鬧鬧，被突然造訪的望和看到，華子只好追上去解釋。沒想到華子剛跑沒兩步，就開始氣喘心悸，望和連忙把她扶進一家店裡坐下。兩人聊起星池的事，華子怪望和沒好好跟星池溝通，但望和也有自己的委屈。王元媽得知星池因為他離開了公司，跑到快遞站來給星池道歉。看著王元媽，星池想到了自己的母親。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:34:36</div>
-            </li>
-            <li>
-                <strong>Northward.S01E30.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\北上 Northward (2025)\Season 01\Northward.S01E30.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                <blockquote>謝望和發現夏鳳華提前返鄉，察覺其異常卻遭疏離。夏隱瞞腦瘤病情，婉拒邵星池表白，獨自安排快遞站合併事宜。邵因外賣員王元遭惡意投訴揮拳維權，周海闊獲期權卻因現實差距與小卉分手。謝夏在冬雪中對峙童年情愫，夏強忍病痛推進保守治療，至盛夏時病情惡化。眾人奔波于北京生計：王元疲於接單，邵周在職場與情感中掙扎，夏在生死線前佈局善後，交織出都市人的愛憾與生存困境。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:34:26</div>
-            </li>
-            <li>
-                <strong>Northward.S01E29.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\北上 Northward (2025)\Season 01\Northward.S01E29.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                <a href="https://www.themoviedb.org/tv/233961" target="_blank">TMDb 連結</a>
-                <blockquote>圍繞幾個在運河沿岸一起長大的少男少女，遠離成長的運河家長花街，時隔多年再度重聚，在歷經競爭和生活的重壓后，重新看到新生活希望的故事。通過這群江南少年的視角，不僅讓觀眾目睹他們的成長軌跡，更感受到百餘年來大運河從斷流到新生的滄桑歷史，體會博大厚重的中國運河文化在歷史的長河中生生不息。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:34:14</div>
-            </li>
-            <li>
-                <strong>Northward.S01E28.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\北上 Northward (2025)\Season 01\Northward.S01E28.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                <blockquote>孩子們和花街的長輩們，在運河人家歡聚一堂。顧阿蓮帶來花街即將原地改造的訊息，大家都對未來充滿了期待。好不容易見到華子，李燕忍不住催促她找對象。華子不小心透露出有情況，讓李燕八卦起來，李燕提醒她千萬別因為猶豫錯過了好姻緣。望和出門幫父親買酒，走到橋邊，見華子一個人坐在橋頭發呆。兩人坐下來談心，華子覺得在北京束手束腳，回了家，才好像又變成了那個天不怕地不怕的自己。華子突然鼓起勇氣問望和是不是暗戀自己，望和說，自己在北京創業慘敗時，華子給了自己一個耳光，讓他在哪裡跌到，就從哪裡爬起來，從那天開始，他就愛上了大華子。中秋節，煙火盛放，兩個相愛的人，擁吻在一起。次日，大家整理行裝，匆忙告別了家人。但回程的車上卻沒有了來時的歡樂氣氛。原來，星池昨晚意外從遠處看到了華子和望和接吻的場面，心事重重。而海闊也從父親口中得知了週一仆的病情，他深感無力。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:34:04</div>
-            </li>
-            <li>
-                <strong>Northward.S01E27.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\北上 Northward (2025)\Season 01\Northward.S01E27.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                <a href="https://www.themoviedb.org/tv/233961" target="_blank">TMDb 連結</a>
-                <blockquote>圍繞幾個在運河沿岸一起長大的少男少女，遠離成長的運河家長花街，時隔多年再度重聚，在歷經競爭和生活的重壓后，重新看到新生活希望的故事。通過這群江南少年的視角，不僅讓觀眾目睹他們的成長軌跡，更感受到百餘年來大運河從斷流到新生的滄桑歷史，體會博大厚重的中國運河文化在歷史的長河中生生不息。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:33:52</div>
-            </li>
-            <li>
-                <strong>Northward.S01E26.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\北上 Northward (2025)\Season 01\Northward.S01E26.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                <blockquote>顧阿蓮在運河申遺成功的公開慶祝活動上，提到希望年輕人能回來建設家鄉，大家紛紛表示支援。另一邊，北京，孩子們也聚在一起為此慶祝，大華子跟大家約好中秋一起回家。看著望和與華子越來越親近，星池向望和提出調自己去前線站點，積累更多的實戰經驗。望和拿自己的期權作為擔保，說服了孟威讓星池當站長，並鼓勵星池這次一定要證明自己的實力。另一邊，孫主管突然找到大華子。他得知華子站點人手流失，想來瓜分華子的業務，被華子拒絕。但人手不夠確實是個大問題，望和幫華子想到一個主意，告訴她可以招聘臨時工來做分揀。花街，鄰居們在一起開會。週一仆確診阿爾茲海默癥，大家決定先不讓周爺爺和海闊知道，梁海泓等三個媽媽自告奮勇，輪流看護。眼見週一仆的病情日益嚴重，周宴臨找到陳睿，請他在跟週一仆一起調研時，順便照顧周爺爺。海闊突然被小卉叫到一個小區看房，毫無心理準備的海闊一時與小卉吵起來。夜裡，謝望和哥仨在酒吧碰頭，海闊認為感情不需要靠房子來維繫，被小卉逼著買房，讓他感到小卉並不信任自己。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:33:42</div>
-            </li>
-            <li>
-                <strong>Northward.S01E25.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\北上 Northward (2025)\Season 01\Northward.S01E25.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                <a href="https://www.themoviedb.org/tv/233961" target="_blank">TMDb 連結</a>
-                <blockquote>圍繞幾個在運河沿岸一起長大的少男少女，遠離成長的運河家長花街，時隔多年再度重聚，在歷經競爭和生活的重壓后，重新看到新生活希望的故事。通過這群江南少年的視角，不僅讓觀眾目睹他們的成長軌跡，更感受到百餘年來大運河從斷流到新生的滄桑歷史，體會博大厚重的中國運河文化在歷史的長河中生生不息。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:33:21</div>
-            </li>
-            <li>
-                <strong>Fight.for.Beauty.S01E07 - 4K.mp4</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以美之名 Fight for Beauty (2025)\Season 01\Fight.for.Beauty.S01E07 - 4K.mp4</div>
-                <blockquote>7</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:30:52</div>
-            </li>
-            <li>
-                <strong>Fight.for.Beauty.S01E06 - 4K.mp4</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以美之名 Fight for Beauty (2025)\Season 01\Fight.for.Beauty.S01E06 - 4K.mp4</div>
-                <blockquote>6</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:30:42</div>
-            </li>
-            <li>
-                <strong>Fight.for.Beauty.S01E05 - 4K.mp4</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以美之名 Fight for Beauty (2025)\Season 01\Fight.for.Beauty.S01E05 - 4K.mp4</div>
-                <blockquote>5</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:30:32</div>
-            </li>
-            <li>
-                <strong>Fight.for.Beauty.S01E08 - 4K.mp4</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以美之名 Fight for Beauty (2025)\Season 01\Fight.for.Beauty.S01E08 - 4K.mp4</div>
-                <blockquote>8</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:30:22</div>
-            </li>
-            <li>
-                <strong>Fight.for.Beauty.S01E07.2025.1080p.WEB-DL.H264.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以美之名 Fight for Beauty (2025)\Season 01\Fight.for.Beauty.S01E07.2025.1080p.WEB-DL.H264.mkv</div>
-                <blockquote>7</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:30:12</div>
-            </li>
-            <li>
-                <strong>Fight.for.Beauty.S01E06.2025.1080p.WEB-DL.H264.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以美之名 Fight for Beauty (2025)\Season 01\Fight.for.Beauty.S01E06.2025.1080p.WEB-DL.H264.mkv</div>
-                <blockquote>6</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:30:02</div>
-            </li>
-            <li>
-                <strong>Fight.for.Beauty.S01E04.2025.1080p.WEB-DL.H264.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以美之名 Fight for Beauty (2025)\Season 01\Fight.for.Beauty.S01E04.2025.1080p.WEB-DL.H264.mkv</div>
-                <blockquote>4</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:29:52</div>
-            </li>
-            <li>
-                <strong>Fight.for.Beauty.S01E05.2025.1080p.WEB-DL.H264.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以美之名 Fight for Beauty (2025)\Season 01\Fight.for.Beauty.S01E05.2025.1080p.WEB-DL.H264.mkv</div>
-                <blockquote>5</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:29:42</div>
-            </li>
-            <li>
-                <strong>Fight.for.Beauty.S01E03 - 4K.mp4</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以美之名 Fight for Beauty (2025)\Season 01\Fight.for.Beauty.S01E03 - 4K.mp4</div>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:29:32</div>
-            </li>
-            <li>
-                <strong>Fight.for.Beauty.S01E02 - 4K.mp4</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以美之名 Fight for Beauty (2025)\Season 01\Fight.for.Beauty.S01E02 - 4K.mp4</div>
-                <blockquote>2</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:29:22</div>
-            </li>
-            <li>
-                <strong>Fight.for.Beauty.S01E01 - 4K.mp4</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以美之名 Fight for Beauty (2025)\Season 01\Fight.for.Beauty.S01E01 - 4K.mp4</div>
-                <blockquote>喬楊，三院修復整形外科醫生，敢於挑戰高難度手術。面對因「骨纖維異濱 增殖」癥，臉部帶腫物生活二十年的方婷，喬楊力主全瘤切除這一超高難. 手術，期望幫她迴歸正常生活。然而，三院主任與負責手術的主醫師季雪 因風險過高拒絕冒險，決定採取保守方案。與此同時，民營格睦醫療美容 院遭遇惡意醫鬧，李起身為運營總監，在醫院事務上壓制著周靜雯。周靜 面臨巨大壓力，需在儘快找到替補醫生，否則整形外科恐被合併。她將目 投向方婷的手術主刀醫生季雪峰，決定前往三院遊說。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:29:12</div>
-            </li>
-            <li>
-                <strong>Fight.for.Beauty.S01E04 - 4K.mp4</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以美之名 Fight for Beauty (2025)\Season 01\Fight.for.Beauty.S01E04 - 4K.mp4</div>
-                <blockquote>4</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:29:02</div>
-            </li>
-            <li>
-                <strong>Fight.for.Beauty.S01E02.2025.1080p.WEB-DL.H264.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以美之名 Fight for Beauty (2025)\Season 01\Fight.for.Beauty.S01E02.2025.1080p.WEB-DL.H264.mkv</div>
-                <blockquote>2</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:28:52</div>
-            </li>
-            <li>
-                <strong>Fight.for.Beauty.S01E01.2025.1080p.WEB-DL.H264.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以美之名 Fight for Beauty (2025)\Season 01\Fight.for.Beauty.S01E01.2025.1080p.WEB-DL.H264.mkv</div>
-                <blockquote>喬楊，三院修復整形外科醫生，敢於挑戰高難度手術。面對因「骨纖維異濱 增殖」癥，臉部帶腫物生活二十年的方婷，喬楊力主全瘤切除這一超高難. 手術，期望幫她迴歸正常生活。然而，三院主任與負責手術的主醫師季雪 因風險過高拒絕冒險，決定採取保守方案。與此同時，民營格睦醫療美容 院遭遇惡意醫鬧，李起身為運營總監，在醫院事務上壓制著周靜雯。周靜 面臨巨大壓力，需在儘快找到替補醫生，否則整形外科恐被合併。她將目 投向方婷的手術主刀醫生季雪峰，決定前往三院遊說。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:28:42</div>
-            </li>
-            <li>
-                <strong>Fight.for.Beauty.S01E03.2025.1080p.WEB-DL.H264.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以美之名 Fight for Beauty (2025)\Season 01\Fight.for.Beauty.S01E03.2025.1080p.WEB-DL.H264.mkv</div>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:28:32</div>
-            </li>
-            <li>
-                <strong>The.Studio.S01E03.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\片廠風雲／製片廠 The Studio (2025)\Season 01\The.Studio.S01E03.mkv</div>
-                <blockquote>馬特對要向傳奇導演朗·霍華德提出尖銳的反饋意見感到緊張。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:01:18</div>
-            </li>
-            <li>
-                <strong>The.Studio.S01E02.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\片廠風雲／製片廠 The Studio (2025)\Season 01\The.Studio.S01E02.mkv</div>
-                <blockquote>馬特到片場探班，讓原本就複雜的日落鏡頭變得更加棘手。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:01:08</div>
-            </li>
-            <li>
-                <strong>The.Studio.S01E01.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\片廠風雲／製片廠 The Studio (2025)\Season 01\The.Studio.S01E01.mkv</div>
-                <blockquote>馬特·雷米克被任命為大陸影業的新掌門人，負責一個可能會招來公開羞辱的專案。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:00:58</div>
-            </li>
-            <li>
-                <strong>The.Pitt.S01E13.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\匹茲堡醫魂／匹茲堡醫護前線 The Pitt (2025)\Season 01\The.Pitt.S01E13.mkv</div>
-                <blockquote>晚班開始，羅比拒絕放棄一個大規模傷亡事件的受害者。薩米拉和桑托斯各自嘗試做冒險的舉動。</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:00:16</div>
-            </li>
-            <li>
-                <strong>The.Outlaw.Doctor.S01E08.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\化外之醫 The Outlaw Doctor (2025)\Season 01\The.Outlaw.Doctor.S01E08.mkv</div>
-                <blockquote>範文寧順利獲得交保后，爲了賺更多的錢，決定設計一臺「行動醫療車」，加上鄭琬平、林靜鈺、劉天誠四個人開著車四處行醫。同一時間範文寧爲了還Palo人情，幫一名酒店女子進行手術，而跟一個地下醫療機構開始有了牽扯…</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 18:00:05</div>
-            </li>
-            <li>
-                <strong>The.Outlaw.Doctor.S01E07.mkv</strong>
-                <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\化外之醫 The Outlaw Doctor (2025)\Season 01\The.Outlaw.Doctor.S01E07.mkv</div>
-                <blockquote>範文寧跟周傳蕙做了交易，以換取提早交保，並在Pola的資助下湊足保釋金。範文寧與鄭琬平再次相遇，卻是在周傳蕙控告鄭琬平與威大醫院的法庭上…</blockquote>
-                <div class='timestamp'>偵測時間: 2025-04-02 17:59:55</div>
-            </li>
 
+The documentary reveals the behind-the-scenes production process of the film 「Ne Zha 2」, telling the story of director Jiaozi and more than 4,000 animators across the country striving to push the boundaries of creativity. Through moments of work and lighthearted interactions among the production team, the film showcases the relentless spirit, optimism, and boundless imagination of Chinese animation filmmakers as they continuously break through creative limits and personal barriers, embodying the philosophy that 「life has no limits.」</blockquote>
+            </li>
         </ul>
-    </div>
-    <p class="footer-time"><small>頁面最後生成時間: 2025-04-02 18:46:28</small></p>
+    </section>
+
+    <p class="footer-time"><small>頁面最後生成時間: 2025-04-02 22:40:18</small></p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const itemsPerPage = 30; // 從 Python 傳遞過來
+
+            function setupPagination(category) {
+                const listContainer = document.querySelector(`section#${category}`);
+                const button = document.querySelector(`.load-more-button[data-category="${category}"]`);
+                if (!listContainer || !button) {
+                    // console.log(`Pagination setup skipped for category: ${category} - elements not found.`);
+                    return; // 如果沒有列表或按鈕 (例如項目不足)，則退出
+                }
+
+                const allItemsInCategory = listContainer.querySelectorAll('.update-item');
+                let visibleCount = 0;
+
+                // 計算初始可見數量 (理論上應該是 itemsPerPage 或更少)
+                 allItemsInCategory.forEach((item, index) => {
+                    if (!item.classList.contains('hidden-item')) {
+                        visibleCount++;
+                    }
+                 });
+                // console.log(`Category: ${category}, Total items: ${allItemsInCategory.length}, Initial visible: ${visibleCount}`);
+
+                // 決定是否顯示按鈕
+                if (allItemsInCategory.length > visibleCount) {
+                    button.style.display = 'block';
+                    // console.log(`Showing button for category: ${category}`);
+                } else {
+                    button.style.display = 'none';
+                    // console.log(`Hiding button for category: ${category}`);
+                }
+
+                button.addEventListener('click', function() {
+                    let newlyShown = 0;
+                    const hiddenItems = listContainer.querySelectorAll('.update-item.hidden-item');
+                    // console.log(`Button clicked for ${category}, found ${hiddenItems.length} hidden items.`);
+
+                    hiddenItems.forEach((item) => {
+                        if (newlyShown < itemsPerPage) {
+                            item.classList.remove('hidden-item');
+                            newlyShown++;
+                        }
+                    });
+
+                    // 如果沒有更多隱藏項目，則隱藏按鈕
+                    if (listContainer.querySelectorAll('.update-item.hidden-item').length === 0) {
+                        button.style.display = 'none';
+                        // console.log(`Hiding button after load for category: ${category}`);
+                    }
+                });
+            }
+
+            // 為所有分類設置分頁
+            ['movie', 'tvshow', 'magazine', 'unknown'].forEach(setupPagination);
+        });
+    </script>
 </body>
 </html>
