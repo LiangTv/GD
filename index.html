@@ -6,1640 +6,554 @@
     <title>媒體更新列表</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 15px; background-color: #f8f9fa; color: #333; }
-        h1 { text-align: center; color: #0056b3; margin-bottom: 25px; }
-
-        /* Tab 按鈕樣式 */
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { text-align: center; color: #0056b3; margin-bottom: 20px; }
+        .search-container { margin-bottom: 20px; text-align: center; }
+        #search-input { padding: 8px 12px; font-size: 1em; border: 1px solid #ccc; border-radius: 4px; width: 60%; max-width: 400px; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+        #search-input:focus { border-color: #007bff; box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); outline: none; }
         .tab-buttons { display: flex; justify-content: center; margin-bottom: 25px; border-bottom: 2px solid #dee2e6; flex-wrap: wrap; padding: 0 10px; }
-        .tab-button { padding: 10px 20px; cursor: pointer; border: none; background-color: transparent; font-size: 1.1em; color: #007bff; margin: 0 5px 0px 5px; border-bottom: 3px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; white-space: nowrap; }
+        .tab-button { padding: 10px 15px; cursor: pointer; border: none; background-color: transparent; font-size: 1.05em; color: #007bff; margin: 0 3px 0px 3px; border-bottom: 3px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; white-space: nowrap; }
         .tab-button:hover { color: #0056b3; }
         .tab-button.active { color: #0056b3; font-weight: bold; border-bottom-color: #0056b3; }
-
-        /* Tab 內容面板樣式 */
         .tab-content { }
-        .content-pane { display: none; animation: fadeIn 0.5s ease-in-out; }
+        .content-pane { display: none; animation: fadeIn 0.3s ease-in-out; }
         .content-pane.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* 列表內部樣式 */
-        h3 { color: #17a2b8; margin-top: 25px; margin-bottom: 15px; border-left: 4px solid #17a2b8; padding-left: 10px; }
-        h4 { color: #6c757d; margin-top: 20px; margin-bottom: 10px; font-weight: bold; }
-        ul.update-list { list-style: none; padding: 0; }
-        li.update-item { margin-bottom: 15px; padding: 12px 15px; background-color: #fff; border: 1px solid #ddd; border-radius: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); transition: box-shadow 0.2s ease-in-out; }
-        li.update-item:hover { box-shadow: 0 4px 8px rgba(0,0,0,0.08); }
-        .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
-        .item-header strong { font-size: 1.1em; color: #003975; margin-bottom: 0; flex-grow: 1; margin-right: 10px; word-break: break-all; }
-        .item-time { font-size: 0.85em; color: #777; white-space: nowrap; }
-        .file-path { font-family: 'Courier New', Courier, monospace; font-size: 0.85em; color: #666; margin-bottom: 8px; word-break: break-all; }
-        blockquote { margin: 8px 0 8px 0px; padding: 8px 12px; border-left: 4px solid #007bff; background-color: #e9f5ff; color: #333; font-size: 0.9em; }
+        .day-group { margin-bottom: 15px; border: 1px solid #e9ecef; border-radius: 4px; background-color: #fff; overflow: hidden; }
+        .day-header { background-color: #f1f3f5; color: #495057; padding: 10px 15px; margin: 0; cursor: pointer; font-weight: bold; display: flex; align-items: center; transition: background-color 0.2s ease; }
+        .day-header:hover { background-color: #e9ecef; }
+        .toggle-icon { display: inline-block; width: 1em; margin-right: 8px; text-align: center; font-weight: bold; }
+        .update-list { list-style: none; padding: 0 15px 15px 15px; margin: 0; display: none; /* Accordion - 預設隱藏列表 */ }
+        .update-list.visible { display: block; /* Accordion - 由 JS 控制顯示 */ }
+        h3 { color: #17a2b8; margin-top: 20px; margin-bottom: 10px; border-left: 4px solid #17a2b8; padding-left: 10px; font-size: 1.3em; }
+        li.update-item { margin-bottom: 10px; padding: 10px 12px; background-color: #fff; border: none; border-bottom: 1px solid #eee; border-radius: 0; box-shadow: none; transition: background-color 0.1s ease; }
+        li.update-item:last-child { border-bottom: none; }
+        .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+        .item-header strong { font-size: 1.05em; color: #003975; margin-bottom: 0; flex-grow: 1; margin-right: 10px; word-break: break-all; }
+        .item-time { font-size: 0.8em; color: #777; white-space: nowrap; }
+        .file-path { font-family: 'Courier New', Courier, monospace; font-size: 0.8em; color: #666; margin-bottom: 6px; word-break: break-all; }
+        blockquote { margin: 6px 0 6px 0px; padding: 6px 10px; border-left: 3px solid #007bff; background-color: #e9f5ff; color: #333; font-size: 0.85em; }
         a { color: #007bff; text-decoration: none; }
         a:hover { text-decoration: underline; }
-        .tmdb-link { display: inline-block; margin-top: 5px; font-size: 0.9em; }
+        .tmdb-link { display: inline-block; margin-top: 4px; font-size: 0.85em; }
+        /* *** 分頁樣式 *** */
         .update-item.hidden-item { display: none; }
-        .load-more-button { display: block; margin: 25px auto 15px auto; padding: 10px 20px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 5px; font-size: 1em; transition: background-color 0.2s ease; }
-        .load-more-button:hover { background-color: #0056b3; }
+        .load-more-button.day-pagination { /* Specific to day pagination */
+            display: block; /* JS 控制顯示/隱藏 */
+            margin: 15px auto 5px auto; /* 調整邊距 */
+            padding: 8px 16px; font-size: 0.9em; /* 稍小一點 */
+            cursor: pointer; background-color: #28a745; color: white; border: none;
+            border-radius: 4px; transition: background-color 0.2s ease;
+        }
+         .load-more-button.day-pagination:hover { background-color: #218838; }
+        /* 搜尋高亮與隱藏 */
+        .highlight { background-color: yellow; font-weight: bold; }
+        .update-item.search-hidden { display: none !important; }
+        .day-group.search-hidden { display: none !important; }
+        h3.search-hidden { display: none !important; }
+        /* 搜尋時隱藏分頁按鈕 */
+        .search-active .load-more-button.day-pagination { display: none !important; }
+
         .footer-time { margin-top: 40px; text-align: center; font-size: 0.9em; color: #888; }
     </style>
 </head>
 <body>
-    <h1>媒體更新總覽</h1>
+    <div class="container">
+        <h1>媒體更新總覽</h1>
 
-    <div class="tab-buttons">
-        <button class="tab-button active" data-category="tvshow">劇集</button>
-        <button class="tab-button " data-category="movie">電影</button>
-
-    </div>
-
-    <div class="tab-content">
-        <div class="content-pane active" id="pane-tvshow">
-            <h3>2025 年 04 月</h3>
-            <h4>04 月 03 日</h4>
-            <ul class="update-list" data-category="tvshow">
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E13_父親的財產.mkv</strong>
-                        <span class='item-time'>00:30:45</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E13_父親的財產.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯即將完成他父親的遺願，這時幽靈逼近。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E12_紅玫瑰.mkv</strong>
-                        <span class='item-time'>00:30:35</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E12_紅玫瑰.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>隨著緊張局勢不斷加劇，真相即將被揭曉，賈克斯必須做出最終的決定。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E11_喪服.mkv</strong>
-                        <span class='item-time'>00:30:24</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E11_喪服.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>混亂之子總堂口襲擊紅木幫，使得賈克斯不得不面對醜陋的事實。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E10_信念與消沉.mkv</strong>
-                        <span class='item-time'>00:30:14</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E10_信念與消沉.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>對混亂之子紅木幫的成員來說，愛意在空氣中瀰漫，但死亡才是當日主題。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E09_人類是多麼了不起的傑作.mkv</strong>
-                        <span class='item-time'>00:30:04</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E09_人類是多麼了不起的傑作.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>俱樂部內部成員收拾起悲痛情緒，與總堂口發生衝突。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E08_烏鴉紛飛.mkv</strong>
-                        <span class='item-time'>00:29:54</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E08_烏鴉紛飛.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>隨著尋找失蹤成員的行動陷入僵局，眾人的注意力轉移到清除內鬼上來。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E07_綠袖子.mkv</strong>
-                        <span class='item-time'>00:29:44</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E07_綠袖子.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>爲了削弱俱樂部一個強大敵人的勢力，混亂之子紅木幫和意料之外的夥伴結盟。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E06_隨心所欲.mkv</strong>
-                        <span class='item-time'>00:29:34</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E06_隨心所欲.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯想方設法利用聯盟的優勢，保護摩托車俱樂部並進行復仇。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E05_離奇爆發.mkv</strong>
-                        <span class='item-time'>00:29:24</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E05_離奇爆發.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>尋找背叛源頭的行動導致了斯托克頓港口的暴力事件。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E04_可憐的小羊羔.mkv</strong>
-                        <span class='item-time'>00:29:14</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E04_可憐的小羊羔.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>曾經對一方盟友的支援，如今引來了與另一方的麻煩。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E03_與獸遊戲.mkv</strong>
-                        <span class='item-time'>00:29:04</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E03_與獸遊戲.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>混亂之子紅木幫把握機會，結成了一個重要的聯盟。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E02_辛勤勞作，等待育苗.mkv</strong>
-                        <span class='item-time'>00:28:54</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E02_辛勤勞作，等待育苗.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>混亂之子紅木幫向另一個幫派求助，以完成一項很有難度的任務。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E01_黑鰥夫.mkv</strong>
-                        <span class='item-time'>00:28:44</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E01_黑鰥夫.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>塔拉死後，賈克斯將復仇視為俱樂部的首要任務。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E13_母親之責.mkv</strong>
-                        <span class='item-time'>00:28:34</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E13_母親之責.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯的選擇使俱樂部和他的家庭處於危險之中。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E12_你是我的陽光.mkv</strong>
-                        <span class='item-time'>00:28:24</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E12_你是我的陽光.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>眼看事情就要塵埃落定，賈克斯的世界突然發生了翻天覆地的變化。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E11_無關私人恩怨.mkv</strong>
-                        <span class='item-time'>00:28:14</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E11_無關私人恩怨.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>俱樂部終於做出大膽嘗試，不再涉槍，內部緊張氣氛也隨之愈演愈烈。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E10_荒蕪.mkv</strong>
-                        <span class='item-time'>00:28:04</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E10_荒蕪.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯希望能推動俱樂部向前發展，但愛爾蘭人給他設定了另一個障礙。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E09_約翰8_32.mkv</strong>
-                        <span class='item-time'>00:27:54</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E09_約翰8_32.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯得知新的秘密，這讓他的世界天翻地覆。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E08_幽靈.mkv</strong>
-                        <span class='item-time'>00:27:44</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E08_幽靈.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>俱樂部的罪惡和家庭將賈克斯向不同方向拉扯，讓他倍感壓力。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E07_香消玉損.mkv</strong>
-                        <span class='item-time'>00:27:34</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E07_香消玉損.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>有一股力量既有可能增強摩托車俱樂部的實力，也有可能摧毀它。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E06_救援.mkv</strong>
-                        <span class='item-time'>00:27:24</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E06_救援.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯和摩托車俱樂部必須面對過去，併爲未來做出選擇。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E05_瘋狂的國王.mkv</strong>
-                        <span class='item-time'>00:27:14</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E05_瘋狂的國王.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>俱樂部被迫結盟，其後果無法預料，這令人難安。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E04_狼鉤.mkv</strong>
-                        <span class='item-time'>00:27:04</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E04_狼鉤.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>俱樂部遭受襲擊，混亂之子尋求復仇。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E03_懺悔.mkv</strong>
-                        <span class='item-time'>00:26:54</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E03_懺悔.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯為俱樂部找到新盟友，克雷在內部採取行動以確保安全。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E02_一一六.mkv</strong>
-                        <span class='item-time'>00:26:44</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E02_一一六.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯處理間接風險時，外部持續向混亂之子紅木幫施壓。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E01_稻草.mkv</strong>
-                        <span class='item-time'>00:26:34</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E01_稻草.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯繼續推動俱樂部從事合法買賣，卻無法擺脫混亂之子紅木幫的往日罪惡。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E13_得手.mkv</strong>
-                        <span class='item-time'>00:26:24</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E13_得手.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯達成新協議的同時，也解決了自己的陳年麻煩。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E12_上帝之禮.mkv</strong>
-                        <span class='item-time'>00:26:14</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E12_上帝之禮.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯計劃讓俱樂部朝另一個方向發展。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E11_忠於自己.mkv</strong>
-                        <span class='item-time'>00:26:04</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E11_忠於自己.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯竭力梳理自己的事務之際，尼祿則和老夥計們一起料理生意。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E10_受難.mkv</strong>
-                        <span class='item-time'>00:25:54</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E10_受難.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>預計會受到強烈反對后，賈克斯加緊落實自己的計劃。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E09_去釣魚.mkv</strong>
-                        <span class='item-time'>00:25:44</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E09_去釣魚.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯離真相越來越近，但過程中仍然存在障礙。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E08_切除.mkv</strong>
-                        <span class='item-time'>00:25:34</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E08_切除.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>聯盟受到考驗，情誼破裂。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E07_玩具青蛙的瘋狂之旅.mkv</strong>
-                        <span class='item-time'>00:25:24</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E07_玩具青蛙的瘋狂之旅.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>形勢陷入左右搖擺之際，賈克斯決定自己動手。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E06_小小地球.mkv</strong>
-                        <span class='item-time'>00:25:14</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E06_小小地球.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>利潤豐厚的商機擺在賈克斯面前，而這可能會使摩托車俱樂部分崩離析。在一次神不知鬼不覺的犯罪之後，安瑟開始著手進行調查。新敵人對杰瑪採取行動，結果令人震驚。新的盟友為混亂之子提供一個機會，讓他們得報新仇。爲了幫助摩托車俱樂部渡過難關，塔拉自願去找一份新工作。杰瑪向一方意想不到的勢力尋求幫助。安瑟和一位老朋友分享了一些殘酷的事實。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E05_殺人鯨聳肩.mkv</strong>
-                        <span class='item-time'>00:25:04</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E05_殺人鯨聳肩.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>摩托車俱樂部想要建立一個新的「合法」企業，賈克斯必須向愛爾蘭共和軍證明自己的價值，以便為羅密歐和販毒集團繼續運送槍支。查敏鎮的治安官們在調查最近一連串的入室搶劫事件時，一起新的暴力事件奪去了一位無辜受害者的生命。與此同時，克雷和杰瑪促膝長談，尼祿竭力兌現承諾，賈克斯則得到了一份特別的貨物。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E04_被偷的腳踏車.mkv</strong>
-                        <span class='item-time'>00:24:53</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E04_被偷的腳踏車.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>杰瑪向宿敵求助。回到查敏鎮后，賈克斯把監獄裡發生的情況告訴了摩托車俱樂部的成員；賈克斯提到自己談成了一項和平協議，以及這份協議對俱樂部未來的影響。溫迪似乎受到了影響，她改變了爭取艾貝爾監護權的方法。同時，賈克斯為尼祿提供幫助，並因此為俱樂部招來了新的敵人，卻不想也收穫了一個潛在的新生意夥伴。塔拉越發適應了自己在混亂之子紅木幫中的角色。俱樂部與一個倒下的兄弟告別。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E03_水管.mkv</strong>
-                        <span class='item-time'>00:24:43</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E03_水管.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>在賈克斯、提格、齊布和奧佩發現自己被敵人囚禁和包圍之際，戴蒙·蒲柏證明瞭自己深遠的影響力；戴蒙·蒲柏向賈克斯提出了一筆交易，雖然可以化解他們之間的宿怨，但代價會非常高昂。隨著塔拉和杰瑪繼續爭權，緊張的局勢愈演愈烈。杰瑪接觸了一位意想不到的盟友，而塔拉則證明她已經學會瞭如何用最好的方法保護屬於她自己的東西。克雷得知杰瑪和尼祿的關係后，決定與他們劃清界限。與此同時，賈克斯和奧佩進行了一番遲到的長談，奧佩重申了他對賈克斯和混亂之子俱樂部的忠誠。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E02_官方授權.mkv</strong>
-                        <span class='item-time'>00:24:33</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E02_官方授權.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>往日罪孽重新浮現，賈克斯和混亂之子紅木幫面臨挑戰。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E01_當權.mkv</strong>
-                        <span class='item-time'>00:24:23</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E01_當權.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯執掌了混亂之子紅木幫后，查敏鎮發生了一系列事件。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Bet.Your.Life.S01E01.mkv</strong>
-                        <span class='item-time'>00:24:13</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\賭命大翻身 Bet Your Life (2025)\Season 01\Bet.Your.Life.S01E01.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/283483" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>付不起房租又被催債的伊薩事業一落千丈，因此不得不接下一樁神秘的富商謀殺案。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Bet.Your.Life.S01E05.mkv</strong>
-                        <span class='item-time'>00:24:03</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\賭命大翻身 Bet Your Life (2025)\Season 01\Bet.Your.Life.S01E05.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/283483" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>伊薩和塞達聯手調查事件真相，卻發現爾坎一直以雷菲克的名義運輸違禁品。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Bet.Your.Life.S01E04.mkv</strong>
-                        <span class='item-time'>00:23:53</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\賭命大翻身 Bet Your Life (2025)\Season 01\Bet.Your.Life.S01E04.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/283483" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>同時留心企業和塞達的爾坎害伊薩名譽掃地。與此同時，塞達擔心伊薩可能需要接受治療。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Bet.Your.Life.S01E02.mkv</strong>
-                        <span class='item-time'>00:23:43</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\賭命大翻身 Bet Your Life (2025)\Season 01\Bet.Your.Life.S01E02.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/283483" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>目睹爾坎銷燬重要檔案后，雷菲克督促伊薩深入調查。塞達發現自己的葡萄酒庫存被人破壞。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Bet.Your.Life.S01E03.mkv</strong>
-                        <span class='item-time'>00:23:33</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\賭命大翻身 Bet Your Life (2025)\Season 01\Bet.Your.Life.S01E03.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/283483" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>從前一晚的宿醉中醒來后，伊薩將一連串令人不安的事件拼湊起來，發現塞達是罪案的核心人物。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Bet.Your.Life.S01E08.mkv</strong>
-                        <span class='item-time'>00:23:23</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\賭命大翻身 Bet Your Life (2025)\Season 01\Bet.Your.Life.S01E08.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/283483" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>伊薩再次見到了他的父親，徘徊在生與死的邊緣。當真相最終浮出水面時，隱藏的激情犯罪也隨之曝光。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Bet.Your.Life.S01E06.mkv</strong>
-                        <span class='item-time'>00:23:13</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\賭命大翻身 Bet Your Life (2025)\Season 01\Bet.Your.Life.S01E06.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/283483" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>儘管泰根的命運令人唏噓，警方依然不認為雷菲克的死亡存在疑點。然而，當爾坎不請自來時，塞達已做好了萬全準備迎戰。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Bet.Your.Life.S01E07.mkv</strong>
-                        <span class='item-time'>00:23:03</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\賭命大翻身 Bet Your Life (2025)\Season 01\Bet.Your.Life.S01E07.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/283483" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>塞達揭開了父親鬼魂出沒的真相，一段不為人知的關係浮出水面，而伊薩則重拾一段痛苦的往事。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Bet.Your.Life.S01E01.mkv</strong>
-                        <span class='item-time'>00:11:47</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\賭命大翻身 Bet Your Life (2025)\Season 01\Bet.Your.Life.S01E01.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/283483" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>付不起房租又被催債的伊薩事業一落千丈，因此不得不接下一樁神秘的富商謀殺案。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Bet.Your.Life.S01E05.mkv</strong>
-                        <span class='item-time'>00:11:37</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\賭命大翻身 Bet Your Life (2025)\Season 01\Bet.Your.Life.S01E05.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/283483" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>伊薩和塞達聯手調查事件真相，卻發現爾坎一直以雷菲克的名義運輸違禁品。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Bet.Your.Life.S01E04.mkv</strong>
-                        <span class='item-time'>00:11:27</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\賭命大翻身 Bet Your Life (2025)\Season 01\Bet.Your.Life.S01E04.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/283483" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>同時留心企業和塞達的爾坎害伊薩名譽掃地。與此同時，塞達擔心伊薩可能需要接受治療。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Bet.Your.Life.S01E02.mkv</strong>
-                        <span class='item-time'>00:11:17</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\賭命大翻身 Bet Your Life (2025)\Season 01\Bet.Your.Life.S01E02.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/283483" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>目睹爾坎銷燬重要檔案后，雷菲克督促伊薩深入調查。塞達發現自己的葡萄酒庫存被人破壞。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Bet.Your.Life.S01E03.mkv</strong>
-                        <span class='item-time'>00:11:07</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\賭命大翻身 Bet Your Life (2025)\Season 01\Bet.Your.Life.S01E03.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/283483" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>從前一晚的宿醉中醒來后，伊薩將一連串令人不安的事件拼湊起來，發現塞達是罪案的核心人物。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Bet.Your.Life.S01E08.mkv</strong>
-                        <span class='item-time'>00:10:57</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\賭命大翻身 Bet Your Life (2025)\Season 01\Bet.Your.Life.S01E08.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/283483" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>伊薩再次見到了他的父親，徘徊在生與死的邊緣。當真相最終浮出水面時，隱藏的激情犯罪也隨之曝光。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Bet.Your.Life.S01E06.mkv</strong>
-                        <span class='item-time'>00:10:47</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\賭命大翻身 Bet Your Life (2025)\Season 01\Bet.Your.Life.S01E06.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/283483" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>儘管泰根的命運令人唏噓，警方依然不認為雷菲克的死亡存在疑點。然而，當爾坎不請自來時，塞達已做好了萬全準備迎戰。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Bet.Your.Life.S01E07.mkv</strong>
-                        <span class='item-time'>00:10:37</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\賭命大翻身 Bet Your Life (2025)\Season 01\Bet.Your.Life.S01E07.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/283483" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>塞達揭開了父親鬼魂出沒的真相，一段不為人知的關係浮出水面，而伊薩則重拾一段痛苦的往事。</blockquote>
-                </li>
-            </ul>
-            <h4>04 月 02 日</h4>
-            <ul class="update-list" data-category="tvshow">
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Gangs Of London S03E08 1080p NOW WEB-DL DDP5 1 H 264-RAWR.mkv</strong>
-                        <span class='item-time'>23:48:07</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\倫敦黑幫 Gangs of London (2020)\Season 03\Gangs Of London S03E08 1080p NOW WEB-DL DDP5 1 H 264-RAWR.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/85021" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>As the series hurtles to a climax, the truth behind the spiking has far-reaching consequences for all the gangs; old foes re-emerge, once-solid alliances implode and new allegiances are forged as the gangs take revenge.</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Gangs Of London S03E01 1080p NOW WEB-DL DDP5 1 H 264-RAWR.mkv</strong>
-                        <span class='item-time'>23:47:57</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\倫敦黑幫 Gangs of London (2020)\Season 03\Gangs Of London S03E01 1080p NOW WEB-DL DDP5 1 H 264-RAWR.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/85021" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>When Elliot's drug shipment is spiked, rocking the Gangs and causing hundreds of deaths, the hunt is on for who is responsible.</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Gangs Of London S03E02 1080p NOW WEB-DL DDP5 1 H 264-RAWR.mkv</strong>
-                        <span class='item-time'>23:47:47</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\倫敦黑幫 Gangs of London (2020)\Season 03\Gangs Of London S03E02 1080p NOW WEB-DL DDP5 1 H 264-RAWR.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/85021" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>Sean, Billy and Cornelius make a drastic attempt to reclaim London, while Luan tries to take revenge and Elliot seeks answers</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Gangs Of London S03E03 1080p NOW WEB-DL DDP5 1 H 264-RAWR.mkv</strong>
-                        <span class='item-time'>23:47:37</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\倫敦黑幫 Gangs of London (2020)\Season 03\Gangs Of London S03E03 1080p NOW WEB-DL DDP5 1 H 264-RAWR.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/85021" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>Tormented by questions about his past and the spiking, Elliot believes mystery man Zeek holds the key and is determined to find him.</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Gangs Of London S03E04 1080p NOW WEB-DL DDP5 1 H 264-RAWR.mkv</strong>
-                        <span class='item-time'>23:47:27</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\倫敦黑幫 Gangs of London (2020)\Season 03\Gangs Of London S03E04 1080p NOW WEB-DL DDP5 1 H 264-RAWR.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/85021" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>With tensions between the gangs coming to boiling point, Luan decides he must take drastic action to protect his family; armed with a shocking plan, will Luan succeed in striking his enemies before they come for him?</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Gangs Of London S03E05 1080p NOW WEB-DL DDP5 1 H 264-RAWR.mkv</strong>
-                        <span class='item-time'>23:47:17</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\倫敦黑幫 Gangs of London (2020)\Season 03\Gangs Of London S03E05 1080p NOW WEB-DL DDP5 1 H 264-RAWR.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/85021" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>Lale grapples with the consequences of Sean's betrayal; separated from her people, locked in a brutal battle of wits, she will do anything to ensure her survival; Lale is determined to come out on top.</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Gangs Of London S03E06 1080p NOW WEB-DL DDP5 1 H 264-RAWR.mkv</strong>
-                        <span class='item-time'>23:47:07</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\倫敦黑幫 Gangs of London (2020)\Season 03\Gangs Of London S03E06 1080p NOW WEB-DL DDP5 1 H 264-RAWR.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/85021" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>Elliot is forced to fight for his reputation and his life; he finally confronts Zeek, but their explosive showdown triggers a shocking series of events and forces Elliot to question everything he thought he knew about the spiking and his past.</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Gangs Of London S03E07 1080p NOW WEB-DL DDP5 1 H 264-RAWR.mkv</strong>
-                        <span class='item-time'>23:46:57</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\倫敦黑幫 Gangs of London (2020)\Season 03\Gangs Of London S03E07 1080p NOW WEB-DL DDP5 1 H 264-RAWR.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/85021" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>Elliot finds himself the most wanted man in London; with time running out, he has no option but to put his trust in a surprising ally in an attempt to find out how and why his past connects to the unfolding conspiracy.</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E13_父親的財產.mkv</strong>
-                        <span class='item-time'>23:46:47</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E13_父親的財產.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯即將完成他父親的遺願，這時幽靈逼近。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E12_紅玫瑰.mkv</strong>
-                        <span class='item-time'>23:46:37</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E12_紅玫瑰.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>隨著緊張局勢不斷加劇，真相即將被揭曉，賈克斯必須做出最終的決定。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E11_喪服.mkv</strong>
-                        <span class='item-time'>23:46:27</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E11_喪服.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>混亂之子總堂口襲擊紅木幫，使得賈克斯不得不面對醜陋的事實。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E10_信念與消沉.mkv</strong>
-                        <span class='item-time'>23:46:17</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E10_信念與消沉.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>對混亂之子紅木幫的成員來說，愛意在空氣中瀰漫，但死亡才是當日主題。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E09_人類是多麼了不起的傑作.mkv</strong>
-                        <span class='item-time'>23:46:07</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E09_人類是多麼了不起的傑作.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>俱樂部內部成員收拾起悲痛情緒，與總堂口發生衝突。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E08_烏鴉紛飛.mkv</strong>
-                        <span class='item-time'>23:45:57</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E08_烏鴉紛飛.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>隨著尋找失蹤成員的行動陷入僵局，眾人的注意力轉移到清除內鬼上來。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E07_綠袖子.mkv</strong>
-                        <span class='item-time'>23:45:46</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E07_綠袖子.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>爲了削弱俱樂部一個強大敵人的勢力，混亂之子紅木幫和意料之外的夥伴結盟。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E06_隨心所欲.mkv</strong>
-                        <span class='item-time'>23:45:36</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E06_隨心所欲.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯想方設法利用聯盟的優勢，保護摩托車俱樂部並進行復仇。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E05_離奇爆發.mkv</strong>
-                        <span class='item-time'>23:45:26</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E05_離奇爆發.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>尋找背叛源頭的行動導致了斯托克頓港口的暴力事件。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E04_可憐的小羊羔.mkv</strong>
-                        <span class='item-time'>23:45:16</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E04_可憐的小羊羔.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>曾經對一方盟友的支援，如今引來了與另一方的麻煩。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E03_與獸遊戲.mkv</strong>
-                        <span class='item-time'>23:45:06</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E03_與獸遊戲.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>混亂之子紅木幫把握機會，結成了一個重要的聯盟。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E02_辛勤勞作，等待育苗.mkv</strong>
-                        <span class='item-time'>23:44:56</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E02_辛勤勞作，等待育苗.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>混亂之子紅木幫向另一個幫派求助，以完成一項很有難度的任務。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S07E01_黑鰥夫.mkv</strong>
-                        <span class='item-time'>23:44:46</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 07\飆風不歸路_S07E01_黑鰥夫.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>塔拉死後，賈克斯將復仇視為俱樂部的首要任務。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E13_母親之責.mkv</strong>
-                        <span class='item-time'>23:44:36</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E13_母親之責.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯的選擇使俱樂部和他的家庭處於危險之中。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E12_你是我的陽光.mkv</strong>
-                        <span class='item-time'>23:44:26</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E12_你是我的陽光.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>眼看事情就要塵埃落定，賈克斯的世界突然發生了翻天覆地的變化。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E11_無關私人恩怨.mkv</strong>
-                        <span class='item-time'>23:44:16</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E11_無關私人恩怨.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>俱樂部終於做出大膽嘗試，不再涉槍，內部緊張氣氛也隨之愈演愈烈。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E10_荒蕪.mkv</strong>
-                        <span class='item-time'>23:44:06</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E10_荒蕪.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯希望能推動俱樂部向前發展，但愛爾蘭人給他設定了另一個障礙。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E09_約翰8_32.mkv</strong>
-                        <span class='item-time'>23:43:56</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E09_約翰8_32.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯得知新的秘密，這讓他的世界天翻地覆。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E08_幽靈.mkv</strong>
-                        <span class='item-time'>23:43:46</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E08_幽靈.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>俱樂部的罪惡和家庭將賈克斯向不同方向拉扯，讓他倍感壓力。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E07_香消玉損.mkv</strong>
-                        <span class='item-time'>23:43:36</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E07_香消玉損.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>有一股力量既有可能增強摩托車俱樂部的實力，也有可能摧毀它。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E06_救援.mkv</strong>
-                        <span class='item-time'>23:43:26</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E06_救援.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯和摩托車俱樂部必須面對過去，併爲未來做出選擇。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E05_瘋狂的國王.mkv</strong>
-                        <span class='item-time'>23:43:16</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E05_瘋狂的國王.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>俱樂部被迫結盟，其後果無法預料，這令人難安。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E04_狼鉤.mkv</strong>
-                        <span class='item-time'>23:43:06</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E04_狼鉤.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>俱樂部遭受襲擊，混亂之子尋求復仇。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E03_懺悔.mkv</strong>
-                        <span class='item-time'>23:42:56</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E03_懺悔.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯為俱樂部找到新盟友，克雷在內部採取行動以確保安全。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E02_一一六.mkv</strong>
-                        <span class='item-time'>23:42:46</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E02_一一六.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯處理間接風險時，外部持續向混亂之子紅木幫施壓。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S06E01_稻草.mkv</strong>
-                        <span class='item-time'>23:42:36</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 06\飆風不歸路_S06E01_稻草.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯繼續推動俱樂部從事合法買賣，卻無法擺脫混亂之子紅木幫的往日罪惡。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E13_得手.mkv</strong>
-                        <span class='item-time'>23:42:26</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E13_得手.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯達成新協議的同時，也解決了自己的陳年麻煩。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E12_上帝之禮.mkv</strong>
-                        <span class='item-time'>23:42:16</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E12_上帝之禮.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯計劃讓俱樂部朝另一個方向發展。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E11_忠於自己.mkv</strong>
-                        <span class='item-time'>23:42:06</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E11_忠於自己.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯竭力梳理自己的事務之際，尼祿則和老夥計們一起料理生意。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E10_受難.mkv</strong>
-                        <span class='item-time'>23:41:56</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E10_受難.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>預計會受到強烈反對后，賈克斯加緊落實自己的計劃。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E09_去釣魚.mkv</strong>
-                        <span class='item-time'>23:41:46</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E09_去釣魚.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯離真相越來越近，但過程中仍然存在障礙。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E08_切除.mkv</strong>
-                        <span class='item-time'>23:41:36</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E08_切除.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>聯盟受到考驗，情誼破裂。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E07_玩具青蛙的瘋狂之旅.mkv</strong>
-                        <span class='item-time'>23:41:26</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E07_玩具青蛙的瘋狂之旅.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>形勢陷入左右搖擺之際，賈克斯決定自己動手。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E06_小小地球.mkv</strong>
-                        <span class='item-time'>23:41:16</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E06_小小地球.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>利潤豐厚的商機擺在賈克斯面前，而這可能會使摩托車俱樂部分崩離析。在一次神不知鬼不覺的犯罪之後，安瑟開始著手進行調查。新敵人對杰瑪採取行動，結果令人震驚。新的盟友為混亂之子提供一個機會，讓他們得報新仇。爲了幫助摩托車俱樂部渡過難關，塔拉自願去找一份新工作。杰瑪向一方意想不到的勢力尋求幫助。安瑟和一位老朋友分享了一些殘酷的事實。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E05_殺人鯨聳肩.mkv</strong>
-                        <span class='item-time'>23:41:06</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E05_殺人鯨聳肩.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>摩托車俱樂部想要建立一個新的「合法」企業，賈克斯必須向愛爾蘭共和軍證明自己的價值，以便為羅密歐和販毒集團繼續運送槍支。查敏鎮的治安官們在調查最近一連串的入室搶劫事件時，一起新的暴力事件奪去了一位無辜受害者的生命。與此同時，克雷和杰瑪促膝長談，尼祿竭力兌現承諾，賈克斯則得到了一份特別的貨物。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E04_被偷的腳踏車.mkv</strong>
-                        <span class='item-time'>23:40:56</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E04_被偷的腳踏車.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>杰瑪向宿敵求助。回到查敏鎮后，賈克斯把監獄裡發生的情況告訴了摩托車俱樂部的成員；賈克斯提到自己談成了一項和平協議，以及這份協議對俱樂部未來的影響。溫迪似乎受到了影響，她改變了爭取艾貝爾監護權的方法。同時，賈克斯為尼祿提供幫助，並因此為俱樂部招來了新的敵人，卻不想也收穫了一個潛在的新生意夥伴。塔拉越發適應了自己在混亂之子紅木幫中的角色。俱樂部與一個倒下的兄弟告別。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E03_水管.mkv</strong>
-                        <span class='item-time'>23:40:46</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E03_水管.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>在賈克斯、提格、齊布和奧佩發現自己被敵人囚禁和包圍之際，戴蒙·蒲柏證明瞭自己深遠的影響力；戴蒙·蒲柏向賈克斯提出了一筆交易，雖然可以化解他們之間的宿怨，但代價會非常高昂。隨著塔拉和杰瑪繼續爭權，緊張的局勢愈演愈烈。杰瑪接觸了一位意想不到的盟友，而塔拉則證明她已經學會瞭如何用最好的方法保護屬於她自己的東西。克雷得知杰瑪和尼祿的關係后，決定與他們劃清界限。與此同時，賈克斯和奧佩進行了一番遲到的長談，奧佩重申了他對賈克斯和混亂之子俱樂部的忠誠。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E02_官方授權.mkv</strong>
-                        <span class='item-time'>23:40:36</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E02_官方授權.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>往日罪孽重新浮現，賈克斯和混亂之子紅木幫面臨挑戰。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>飆風不歸路_S05E01_當權.mkv</strong>
-                        <span class='item-time'>23:40:26</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\飆風不歸路／混亂之子 Sons of Anarchy (2008)\Season 05\飆風不歸路_S05E01_當權.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/1409" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賈克斯執掌了混亂之子紅木幫后，查敏鎮發生了一系列事件。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>SI.JIN.S01E40.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                        <span class='item-time'>23:19:57</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\似錦 SI JIN (2025)\Season 01\SI.JIN.S01E40.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/263043" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>姜似也順利回到了餘七的身邊，姜似也從大長老那裡得知原來自己的母親就是南烏人，而之所以能重活一世，就是因為上一世餘七在射殺姜似之後才發現，非常的後悔，就用命交換換成了姜似重活一世。明白了餘七為自己做的犧牲，姜似對餘七愛意更深，兩人也順利的完婚，姜似也成爲了大周的皇后。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>SI.JIN.S01E39.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                        <span class='item-time'>23:19:47</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\似錦 SI JIN (2025)\Season 01\SI.JIN.S01E39.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/263043" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>姜似說服大長老退兵，開始的時候，大長老還怕一旦退兵會被人家趁虛而入。不過最後還是聽從了姜似的話。南烏果然退兵了，餘七也說服了崔旭帶兵回陵安平叛，而大長老看到了大周退兵，想要帶著軍隊趁機打過去。姜似堅決反對大長老提出了疑問，現在南烏與大周是此消彼長，若是不趁此機會趕緊壯大的話，等到大周壯大起來，那麼自己就變得渺小了。姜似告訴大長老自己曾經在夢裡夢到過這場戰爭死了很多人，雙方都沒有得到好處，而自己有辦法可以不通過戰爭就能夠讓南烏變得強大。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>SI.JIN.S01E38.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                        <span class='item-time'>23:19:37</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\似錦 SI JIN (2025)\Season 01\SI.JIN.S01E38.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/263043" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>東平伯府四小姐姜似死在愛人郁錦手中后，重啟人生的故事。這一次，姜似勇敢退婚、智鬥惡毒嬸嬸、開設香鋪、助好友、查少女連環被害案……一點點將悲劇改寫。姜似與少年將軍郁錦再度相遇，二人雖各懷心事，卻依舊陷入糾纏。姜似與郁錦聯手改變了哥哥姜湛落水而亡、姐姐姜依自縊的命運，也改寫了父親被長公主嫁禍斬首的結局。兩人共同戰勝艱難險阻，姜似對郁錦的態度也在悄悄轉變，願意再與郁錦相愛一次。二人攜手維護大周和平，收穫一世繁花。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>SI.JIN.S01E36.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                        <span class='item-time'>23:19:26</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\似錦 SI JIN (2025)\Season 01\SI.JIN.S01E36.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/263043" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>太子脫離了長公主的掌控，長公主立刻就拉攏齊王，齊王殿前告發姜似南烏聖女的身份。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>For.Eagle.Brothers.S01E17.mkv</strong>
-                        <span class='item-time'>23:18:55</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E17.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>Kwang-sook rushes to the hospital after hearing that Chun-soo is unconscious from an overdose, and ends up in a holding cell following a heated confrontation with So-yeon. Meanwhile, Dong-seok comes to realize that he had misunderstood Kwang-sook and tries to make amends, but she remains cold and distant.</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>For.Eagle.Brothers.S01E18.mkv</strong>
-                        <span class='item-time'>23:18:44</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E18.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>As Chun-soo joins Eagle Brewery, the team steps up makgeolli production by making nuruk, while Dokgo Tak secretly plots against the brewery. Meanwhile, Dong-seok invites Kwang-sook to a tasting for dishes to be paired with her traditional liquor at the upcoming festival, but she ends up getting drunk.</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>With.Love.With.You.S01E09 - 4K.mp4</strong>
-                        <span class='item-time'>23:18:27</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\有你的時光裡 With Love With You (2025)\Season 01\With.Love.With.You.S01E09 - 4K.mp4</div>
-                    <a href="https://www.themoviedb.org/tv/256887" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>王家兩姐妹自小性格迥異,姐姐王焱患先天性貧血癥,妹妹王靈均任性頑劣。王靈均不顧家人反對來到深 圳,打破了同在深圳的王焱的看似平靜的生活。失業的王靈均住進了王焱家裡,二人的相處從最初的雞飛狗跳逐漸變得 和諧溫馨起來,姐妹倆也慢慢收穫了屬於各自的感情。王焱舊病復發,曾一心想擺脫姐姐的王靈均選擇守護在她身邊。 在經歷了工作和生活風波后,王焱卸下了心理包袱,王靈均也放下了芥蒂,姐妹倆一起開啟了新的生活</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>With.Love.With.You.S01E10 - 4K.mp4</strong>
-                        <span class='item-time'>23:18:17</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\有你的時光裡 With Love With You (2025)\Season 01\With.Love.With.You.S01E10 - 4K.mp4</div>
-                    <a href="https://www.themoviedb.org/tv/256887" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>王家兩姐妹自小性格迥異,姐姐王焱患先天性貧血癥,妹妹王靈均任性頑劣。王靈均不顧家人反對來到深 圳,打破了同在深圳的王焱的看似平靜的生活。失業的王靈均住進了王焱家裡,二人的相處從最初的雞飛狗跳逐漸變得 和諧溫馨起來,姐妹倆也慢慢收穫了屬於各自的感情。王焱舊病復發,曾一心想擺脫姐姐的王靈均選擇守護在她身邊。 在經歷了工作和生活風波后,王焱卸下了心理包袱,王靈均也放下了芥蒂,姐妹倆一起開啟了新的生活</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>With.Love.With.You.S01E07 - 4K.mp4</strong>
-                        <span class='item-time'>23:18:07</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\有你的時光裡 With Love With You (2025)\Season 01\With.Love.With.You.S01E07 - 4K.mp4</div>
-                    <a href="https://www.themoviedb.org/tv/256887" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>王家兩姐妹自小性格迥異,姐姐王焱患先天性貧血癥,妹妹王靈均任性頑劣。王靈均不顧家人反對來到深 圳,打破了同在深圳的王焱的看似平靜的生活。失業的王靈均住進了王焱家裡,二人的相處從最初的雞飛狗跳逐漸變得 和諧溫馨起來,姐妹倆也慢慢收穫了屬於各自的感情。王焱舊病復發,曾一心想擺脫姐姐的王靈均選擇守護在她身邊。 在經歷了工作和生活風波后,王焱卸下了心理包袱,王靈均也放下了芥蒂,姐妹倆一起開啟了新的生活</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>With.Love.With.You.S01E08 - 4K.mp4</strong>
-                        <span class='item-time'>23:17:57</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\有你的時光裡 With Love With You (2025)\Season 01\With.Love.With.You.S01E08 - 4K.mp4</div>
-                    <a href="https://www.themoviedb.org/tv/256887" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>王家兩姐妹自小性格迥異,姐姐王焱患先天性貧血癥,妹妹王靈均任性頑劣。王靈均不顧家人反對來到深 圳,打破了同在深圳的王焱的看似平靜的生活。失業的王靈均住進了王焱家裡,二人的相處從最初的雞飛狗跳逐漸變得 和諧溫馨起來,姐妹倆也慢慢收穫了屬於各自的感情。王焱舊病復發,曾一心想擺脫姐姐的王靈均選擇守護在她身邊。 在經歷了工作和生活風波后,王焱卸下了心理包袱,王靈均也放下了芥蒂,姐妹倆一起開啟了新的生活</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>With.Love.With.You.S01E02 - 4K.mp4</strong>
-                        <span class='item-time'>23:17:47</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\有你的時光裡 With Love With You (2025)\Season 01\With.Love.With.You.S01E02 - 4K.mp4</div>
-                    <a href="https://www.themoviedb.org/tv/256887" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>王家兩姐妹自小性格迥異,姐姐王焱患先天性貧血癥,妹妹王靈均任性頑劣。王靈均不顧家人反對來到深 圳,打破了同在深圳的王焱的看似平靜的生活。失業的王靈均住進了王焱家裡,二人的相處從最初的雞飛狗跳逐漸變得 和諧溫馨起來,姐妹倆也慢慢收穫了屬於各自的感情。王焱舊病復發,曾一心想擺脫姐姐的王靈均選擇守護在她身邊。 在經歷了工作和生活風波后,王焱卸下了心理包袱,王靈均也放下了芥蒂,姐妹倆一起開啟了新的生活</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>With.Love.With.You.S01E01 - 4K.mp4</strong>
-                        <span class='item-time'>23:17:37</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\有你的時光裡 With Love With You (2025)\Season 01\With.Love.With.You.S01E01 - 4K.mp4</div>
-                    <a href="https://www.themoviedb.org/tv/256887" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>王家兩姐妹自小性格迥異,姐姐王焱患先天性貧血癥,妹妹王靈均任性頑劣。王靈均不顧家人反對來到深 圳,打破了同在深圳的王焱的看似平靜的生活。失業的王靈均住進了王焱家裡,二人的相處從最初的雞飛狗跳逐漸變得 和諧溫馨起來,姐妹倆也慢慢收穫了屬於各自的感情。王焱舊病復發,曾一心想擺脫姐姐的王靈均選擇守護在她身邊。 在經歷了工作和生活風波后,王焱卸下了心理包袱,王靈均也放下了芥蒂,姐妹倆一起開啟了新的生活</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>With.Love.With.You.S01E03 - 4K.mp4</strong>
-                        <span class='item-time'>23:17:27</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\有你的時光裡 With Love With You (2025)\Season 01\With.Love.With.You.S01E03 - 4K.mp4</div>
-                    <a href="https://www.themoviedb.org/tv/256887" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>王家兩姐妹自小性格迥異,姐姐王焱患先天性貧血癥,妹妹王靈均任性頑劣。王靈均不顧家人反對來到深 圳,打破了同在深圳的王焱的看似平靜的生活。失業的王靈均住進了王焱家裡,二人的相處從最初的雞飛狗跳逐漸變得 和諧溫馨起來,姐妹倆也慢慢收穫了屬於各自的感情。王焱舊病復發,曾一心想擺脫姐姐的王靈均選擇守護在她身邊。 在經歷了工作和生活風波后,王焱卸下了心理包袱,王靈均也放下了芥蒂,姐妹倆一起開啟了新的生活</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>With.Love.With.You.S01E05 - 4K.mp4</strong>
-                        <span class='item-time'>23:17:17</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\有你的時光裡 With Love With You (2025)\Season 01\With.Love.With.You.S01E05 - 4K.mp4</div>
-                    <a href="https://www.themoviedb.org/tv/256887" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>王家兩姐妹自小性格迥異,姐姐王焱患先天性貧血癥,妹妹王靈均任性頑劣。王靈均不顧家人反對來到深 圳,打破了同在深圳的王焱的看似平靜的生活。失業的王靈均住進了王焱家裡,二人的相處從最初的雞飛狗跳逐漸變得 和諧溫馨起來,姐妹倆也慢慢收穫了屬於各自的感情。王焱舊病復發,曾一心想擺脫姐姐的王靈均選擇守護在她身邊。 在經歷了工作和生活風波后,王焱卸下了心理包袱,王靈均也放下了芥蒂,姐妹倆一起開啟了新的生活</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>With.Love.With.You.S01E04 - 4K.mp4</strong>
-                        <span class='item-time'>23:17:07</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\有你的時光裡 With Love With You (2025)\Season 01\With.Love.With.You.S01E04 - 4K.mp4</div>
-                    <a href="https://www.themoviedb.org/tv/256887" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>王家兩姐妹自小性格迥異,姐姐王焱患先天性貧血癥,妹妹王靈均任性頑劣。王靈均不顧家人反對來到深 圳,打破了同在深圳的王焱的看似平靜的生活。失業的王靈均住進了王焱家裡,二人的相處從最初的雞飛狗跳逐漸變得 和諧溫馨起來,姐妹倆也慢慢收穫了屬於各自的感情。王焱舊病復發,曾一心想擺脫姐姐的王靈均選擇守護在她身邊。 在經歷了工作和生活風波后,王焱卸下了心理包袱,王靈均也放下了芥蒂,姐妹倆一起開啟了新的生活</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>With.Love.With.You.S01E06 - 4K.mp4</strong>
-                        <span class='item-time'>23:16:57</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\有你的時光裡 With Love With You (2025)\Season 01\With.Love.With.You.S01E06 - 4K.mp4</div>
-                    <a href="https://www.themoviedb.org/tv/256887" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>王家兩姐妹自小性格迥異,姐姐王焱患先天性貧血癥,妹妹王靈均任性頑劣。王靈均不顧家人反對來到深 圳,打破了同在深圳的王焱的看似平靜的生活。失業的王靈均住進了王焱家裡,二人的相處從最初的雞飛狗跳逐漸變得 和諧溫馨起來,姐妹倆也慢慢收穫了屬於各自的感情。王焱舊病復發,曾一心想擺脫姐姐的王靈均選擇守護在她身邊。 在經歷了工作和生活風波后,王焱卸下了心理包袱,王靈均也放下了芥蒂,姐妹倆一起開啟了新的生活</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Cinderella.Game.S01E78.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                        <span class='item-time'>23:16:25</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E78.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>Ha-na reveals that she's the chief auditor to Yeo-jin and that she's looking to take revenge. The news about Se-young's fake pregnancy breaks out, resulting in a boycott against Hyesung Group. Meanwhile, Yeo-jin sets up an appointment to meet Richard Han to solve the issue with the Goo siblings.</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>Cinderella.Game.S01E77.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                        <span class='item-time'>23:16:14</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E77.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>Jin-goo finds Se-young unconscious, so he takes her to the hospital. As soon as she wakes up, Se-young demands Jin-goo to take responsibility for her. Myung-ji suggests Yeo-jin send Eun-chong abroad to make him grow distant from Ha-na. Yeo-jin finally realizes who the Goo siblings are on the day of the company's external audit.</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>The.White.Lotus.S03E07.mkv</strong>
-                        <span class='item-time'>23:15:53</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\白蓮花大飯店／白蓮花度假村 The White Lotus (2021)\Season 03\The.White.Lotus.S03E07.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/111803" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>貝琳達帶著賽昂參加克蘿伊的外國人派對。薩克森對蒂姆的怪異舉動提出質疑。蓋濤和珍珠準備第一次約會。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>House.of.David.S01E07 - 4K.mkv</strong>
-                        <span class='item-time'>23:14:06</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\大衛王朝 House of David (2025)\Season 01\House.of.David.S01E07 - 4K.mkv</div>
-                    <a href="https://www.themoviedb.org/tv/243881" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>國王、英雄和反派們為爭奪王冠展開最後的對決。戰爭在所難免，在古老的戰場上，各方勢力在為一場決定以色列命運的宏大戰鬥做準備。</blockquote>
-                </li>
-            </ul>
-            <button class="load-more-button" data-category="tvshow" style="display: none;">顯示更多 劇集</button>
+        <div class="search-container">
+            <input type="search" id="search-input" placeholder="搜尋 劇集/電影(依路徑) 或 雜誌(依檔名)...">
         </div>
-        <div class="content-pane " id="pane-movie">
+
+        <div class="tab-buttons">
+        <button class="tab-button active" data-category="movie">電影</button>
+
+        </div>
+
+        <div class="tab-content">
+        <div class="content-pane active" id="pane-movie">
             <h3>2025 年 04 月</h3>
-            <h4>04 月 02 日</h4>
-            <ul class="update-list" data-category="movie">
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>邊境奇襲 Contraataque (2025).mkv</strong>
-                        <span class='item-time'>23:01:32</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\邊境奇襲 Contraataque (2025)\邊境奇襲 Contraataque (2025).mkv</div>
-                    <a href="https://www.themoviedb.org/movie/1356039" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>營救人質任務招來新敵人，格雷洛上尉和他率領的精銳士兵必須面對犯罪集團的伏擊。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>隱形猛禽 The Invisible Raptor (2024) - BluRay.1080p.DTS-HDMA5.1.x265.10bit-DreamHD.mkv</strong>
-                        <span class='item-time'>23:01:22</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\隱形猛禽 The Invisible Raptor (2024)\隱形猛禽 The Invisible Raptor (2024) - BluRay.1080p.DTS-HDMA5.1.x265.10bit-DreamHD.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/1181212" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>一位遊樂園古生物學家和一名倒楣的保全聯手阻止一隻看不見的猛禽對他們的小鎮造成嚴重破壞。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>請別相信她 Too Beautiful To Lie (2023).mkv</strong>
-                        <span class='item-time'>23:01:12</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\請別相信她 Too Beautiful To Lie (2023)\請別相信她 Too Beautiful To Lie (2023).mkv</div>
-                    <a href="https://www.themoviedb.org/movie/1079536" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>「江湖女騙子」白娜（章若楠 飾）與「小鎮憨憨男」方耀東（吳昱翰 飾）在船上不打不相識，誰料冤家路窄白娜陰差陽錯竟被當成方耀東媳婦，受到方家人的熱情款待。而方耀東為了戳穿白娜謊言、贏回家人信任，與白娜鬥智鬥勇惹出笑料不斷，家庭保衞戰一觸即發，「女騙子」與「憨憨男」高手過招相愛相殺  。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>潛水 The Dive (2023) - 1080p.BluRay.x264.DTS-QuickIO.mkv</strong>
-                        <span class='item-time'>23:01:02</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\潛水 The Dive (2023)\潛水 The Dive (2023) - 1080p.BluRay.x264.DTS-QuickIO.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/1109534" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>兩姐妹去一個美麗而偏遠的地方潛水。其中一名姐妹被巖石擊中，被困在 28 米深的地方。由於氧氣含量極低且氣溫寒冷，她的妹妹必須為自己的生命而戰。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>慾情故縱／為何是你 Why Do You？ (2024).mkv</strong>
-                        <span class='item-time'>23:00:52</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\慾情故縱／為何是你 Why Do You？ (2024)\慾情故縱／為何是你 Why Do You？ (2024).mkv</div>
-                    <a href="https://www.themoviedb.org/movie/1267217" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>叛逆又熱情的大學生艾拉，為了反抗母親的控制，透過「乾爹」交友軟體意外邂逅了充滿魅力的已婚企業家安德烈，一夜情後挑起的慾望令她逐漸沉淪其中，兩人激情的痕跡遍及各處，一段錯誤的感情似乎也在悄悄滋長...。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>酷玩樂隊：艾哈默德巴德現場 Coldplay Live in Ahmedabad (2025).mkv</strong>
-                        <span class='item-time'>23:00:42</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\酷玩樂隊：艾哈默德巴德現場 Coldplay Live in Ahmedabad (2025)\酷玩樂隊：艾哈默德巴德現場 Coldplay Live in Ahmedabad (2025).mkv</div>
-                    <a href="https://www.themoviedb.org/movie/1431072" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>Coldplay presents their iconic Music of the Spheres World Tour concert live from Ahmedabad, in their biggest ever concert.</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>酷狗寶貝之復仇企鵝／超級無敵掌門狗：企鵝的復仇 Wallace & Gromit：Vengeance Most Fowl (2025) - 1080p.NF.WEB-DL.DDP5.1.Atmos.H.264-華堅馮力士.mp4</strong>
-                        <span class='item-time'>23:00:32</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\酷狗寶貝之復仇企鵝／超級無敵掌門狗：企鵝的復仇 Wallace & Gromit：Vengeance Most Fowl (2025)\酷狗寶貝之復仇企鵝／超級無敵掌門狗：企鵝的復仇 Wallace & Gromit：Vengeance Most Fowl (2025) - 1080p.NF.WEB-DL.DDP5.1.Atmos.H.264-華堅馮力士.mp4</div>
-                    <a href="https://www.themoviedb.org/movie/929204" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>華力士的高科技發明開始任意妄為，華力士也被誣陷犯下各種可疑罪行，最棒的酷狗阿高立刻採取行動，拯救主人。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>監視與報告／我要當員警 Observe and Report (2009).mkv</strong>
-                        <span class='item-time'>23:00:22</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\監視與報告／我要當員警 Observe and Report (2009)\監視與報告／我要當員警 Observe and Report (2009).mkv</div>
-                    <a href="https://www.themoviedb.org/movie/16991" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>作為商場的保安主管，羅尼（塞斯·羅根 Seth Rogen 飾）對自己的職業很不滿意。在他的幻想裡，他應該穿著挺括的制服，攜帶著警徽和配槍，沒錯，羅尼的夢想是成為一名員警。對於羅尼的夢想，周圍的同時和朋友們都不以為然，尤其是漂亮的收銀員布蘭迪（安娜·法瑞絲 Anna Faris 飾），更是常常對羅尼這不切實際的夢想冷嘲熱諷。
-　　這一天，改變一切的機會到來了，一幫劫匪闖進了商場。得知消息的羅尼迅速在心裡打起了算盤，他打算親手逮捕這幫劫匪以彰顯自己“傑出的”員警天賦。然而，現實卻並沒有想像的那麼樂觀，羅尼莽撞的行為不僅為自己帶來了麻煩，同時也讓負責此案的警官哈里森（雷·利奧塔 Ray Liotta 飾）大為火光。夾在狡詐的劫匪和憤怒的員警之間，羅尼的情況可謂是千鈞一髮。
-
-Mall security guard Ronnie Barnhardt is called into action to stop a flasher from turning shopper's paradise into his personal peep show. But when Barnhardt can't bring the culprit to justice, a surly police detective is recruited to close the case.</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>愛樂唯她：紐約愛樂首位女團員 The Only Girl in the Orchestra (2024).mp4</strong>
-                        <span class='item-time'>23:00:12</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\愛樂唯她：紐約愛樂首位女團員 The Only Girl in the Orchestra (2024)\愛樂唯她：紐約愛樂首位女團員 The Only Girl in the Orchestra (2024).mp4</div>
-                    <a href="https://www.themoviedb.org/movie/1195310" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>這部紀錄短片向低音提琴家奧林奧布萊恩致敬，她曾開創先河，成為紐約愛樂聘任的第一位女性正式團員。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>焚城 Cesium Fallout (2024) - 4K.mkv</strong>
-                        <span class='item-time'>23:00:02</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\焚城 Cesium Fallout (2024)\焚城 Cesium Fallout (2024) - 4K.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/1305642" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>香港史上首部天價輻射災難鉅製！一場意外引發輻射洩漏，全港命運危在旦夕。為應付這場毀滅性災難，專家范偉立（劉德華 飾）加入由署理行政長官Cecilia（莫文蔚 飾）主持的緊急危機應變小組。700萬人家園隨時毀於一旦，消防隊臨危受命深入輻射區，拚死阻止輻射擴散全港。面對前所未見的末日浩劫，香港會否一夜滅城？</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>焚城 Cesium Fallout (2024) - 2160p.EDR.WEB-DL.H265.DDP5.1.mkv</strong>
-                        <span class='item-time'>22:59:52</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\焚城 Cesium Fallout (2024)\焚城 Cesium Fallout (2024) - 2160p.EDR.WEB-DL.H265.DDP5.1.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/1305642" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>香港史上首部天價輻射災難鉅製！一場意外引發輻射洩漏，全港命運危在旦夕。為應付這場毀滅性災難，專家范偉立（劉德華 飾）加入由署理行政長官Cecilia（莫文蔚 飾）主持的緊急危機應變小組。700萬人家園隨時毀於一旦，消防隊臨危受命深入輻射區，拚死阻止輻射擴散全港。面對前所未見的末日浩劫，香港會否一夜滅城？</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>荷蘭鎮 Holland (2025).mkv</strong>
-                        <span class='item-time'>22:59:42</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\荷蘭鎮 Holland (2025)\荷蘭鎮 Holland (2025).mkv</div>
-                    <a href="https://www.themoviedb.org/movie/257094" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>在這部劇情難料的驚悚片中，妮可基嫚飾演細心敏銳兼顧家庭與工作的學校老師，南希范德格魯特。南希和她廣受鄰里仰賴的丈夫與兒子一家三口在盛產鬱金香的密西根州荷蘭鎮過著人人稱羨的完美生活。不料事情有了意外的發展，南希和同事好友為了釐清不尋常之處，意外發現小鎮不如表面單純。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>荷蘭鎮 Holland (2025) - 2160p.AMZN.WEB-DL.DDP5.1.Atmos.DV.HDR.H.265.mkv</strong>
-                        <span class='item-time'>22:59:32</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\荷蘭鎮 Holland (2025)\荷蘭鎮 Holland (2025) - 2160p.AMZN.WEB-DL.DDP5.1.Atmos.DV.HDR.H.265.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/257094" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>在這部劇情難料的驚悚片中，妮可基嫚飾演細心敏銳兼顧家庭與工作的學校老師，南希范德格魯特。南希和她廣受鄰里仰賴的丈夫與兒子一家三口在盛產鬱金香的密西根州荷蘭鎮過著人人稱羨的完美生活。不料事情有了意外的發展，南希和同事好友為了釐清不尋常之處，意外發現小鎮不如表面單純。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>異種 Species (1995) - BluRay.mkv</strong>
-                        <span class='item-time'>22:59:22</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\異種 Species (1995)\異種 Species (1995) - BluRay.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/9348" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>人類長久以來的夢想之一，是証明自己並不是宇宙中唯一生物。為了這答案人類不斷地發出訊號，其中包括人類的DNA結構。  幾年前有了迴音科學家將之解讀，一種是對人類有益的能源另一種則是加上外星生物基因。為了看結果，實驗人員將它培育出成半人半外星生物的「賽兒」（Natasha Henstridge 飾）。當科學人員欲將她殺掉時，她逃了出來，政府秘密組成狙殺小組，以防她繁殖導致毀滅人類。  然「賽兒」成長速度極快又是金髮高挑美人，一般人很難不動心也因而有數名男性死於她手中，為了順利繁衍後代，賽兒設計了一場假車禍，讓世人以為她已身亡。雖然組員中仍有人不相信她已死但行動暫時停擺。  賽兒趁眾人鬆懈時和其中一名組員「完成交配」眾人警覺一路追至下水道殺了她及剛出生的小孩，但事情尚未落幕，異種仍然存在。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>從不，很少，有時，總是 Never Rarely Sometimes Always (2020).mp4</strong>
-                        <span class='item-time'>22:59:11</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\從不，很少，有時，總是 Never Rarely Sometimes Always (2020)\從不，很少，有時，總是 Never Rarely Sometimes Always (2020).mp4</div>
-                    <a href="https://www.themoviedb.org/movie/595671" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>賓夕法尼亞州兩位互為表親的少女意外懷孕後，踏上了前往紐約墮胎的旅程。  影片於2020年1月24日在日舞影展全球首映，之後入選第70屆柏林影展金熊獎主競賽單元，最終獲得評審團大獎銀熊獎.</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>寄生獸2：完結篇 Parasyte：Part 2 (2015).mkv</strong>
-                        <span class='item-time'>22:59:01</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\寄生獸2：完結篇 Parasyte：Part 2 (2015)\寄生獸2：完結篇 Parasyte：Part 2 (2015).mkv</div>
-                    <a href="https://www.themoviedb.org/movie/282070" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>最強物種現身 大戰一觸即發！全人類V.S寄生生物 終極之戰即將引爆。我能夠守護我所愛的人嗎？</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>偷香 Stealing Beauty (1996) - BluRay.1080p.DTS-HD.MA.5.1.x265.10bit-DreamHD.mkv</strong>
-                        <span class='item-time'>22:58:51</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\偷香 Stealing Beauty (1996)\偷香 Stealing Beauty (1996) - BluRay.1080p.DTS-HD.MA.5.1.x265.10bit-DreamHD.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/14553" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>19歲的美國少女露西（麗芙泰勒飾），在母親死後決定前往義大利的一個小鎮尋找母親的昔日故友，並在當地擔任一名雕塑家的模特兒。但是，仍為處女的露西無法靜心領會這一片鄉間的寧靜，她遲疑良久才敢再見四年前吻過的男孩，並體會到她母親日記中那一段莫名的情結。  露西這樣一名美國少女的出現，為群居於當地的藝術家及文人帶來一股新生氣，而且她那純潔無暇之美，也挑起了這群人的情慾面，使得她尚未解開母親一生的謎團前，已使得眾人的生活秩序大亂。  最後露西終於找到自己的生父，並與一名男孩展開甜蜜的戀情，也體會了自由奔放的母親所留下的一切。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>寄生獸 Parasyte：Part 1 (2014) - 4K.mkv</strong>
-                        <span class='item-time'>22:58:41</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\寄生獸 Parasyte：Part 1 (2014)\寄生獸 Parasyte：Part 1 (2014) - 4K.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/282069" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>超高人氣漫畫改編，橋本愛主演。某天於地球上空出現許多孢子，其中誕生的幼蟲侵入身體後，以寄生於腦部為目標，寄生完成後與腦部細胞同化。他能任意變形，其食物是與寄生體相同的物種─人類。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>泰勒派瑞之口是心非／表裡不一 Tyler Perry's Duplicity (2025).mkv</strong>
-                        <span class='item-time'>22:58:31</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\泰勒派瑞之口是心非／表裡不一 Tyler Perry's Duplicity (2025)\泰勒派瑞之口是心非／表裡不一 Tyler Perry's Duplicity (2025).mkv</div>
-                    <a href="https://www.themoviedb.org/movie/1145725" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>精明能幹的瑪莉律師接下最私人的案件，她必須找出閨密費拉的丈夫慘遭殺害的真相。曾任警員的私家偵探男友協助瑪莉調查事發經過，卻也讓她步步走向充滿欺騙與背叛的詭譎謎團。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>拿針的女孩 The Girl with the Needle (2024) - 4K.mkv</strong>
-                        <span class='item-time'>22:58:21</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\拿針的女孩 The Girl with the Needle (2024)\拿針的女孩 The Girl with the Needle (2024) - 4K.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/1232827" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>《拿針的女孩》是一部 2024 年歷史心理恐怖電影，由馬格努斯·馮·霍恩執導，劇本由馮·霍恩和萊恩·蘭格貝克編劇。本片以1919 年為背景，維克·卡門·索恩(Vic Carmen Sonne) 飾演一名年輕女子，她開始在一家為弱勢母親服務的秘密收養機構擔任奶媽，但她對經營該機構的女性產生了懷疑。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>柏靈頓：熊熊去秘魯 (2024)／帕丁頓熊3：秘魯大冒險 Paddington in Peru (2024) - 4K.mkv</strong>
-                        <span class='item-time'>22:58:11</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\柏靈頓：熊熊去秘魯 (2024)／帕丁頓熊3：秘魯大冒險 Paddington in Peru (2024)\柏靈頓：熊熊去秘魯 (2024)／帕丁頓熊3：秘魯大冒險 Paddington in Peru (2024) - 4K.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/516729" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>柏靈頓熊熊來到祕魯的退休熊之家，拜訪他親愛的露西姑姑，他們與布朗一家又再次被捲入一起神秘事件，前往亞馬遜雨林和秘魯的深山之中，展開一場刺激的冒險之旅。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>非常男人／不同的男人 A Different Man (2024).mkv</strong>
-                        <span class='item-time'>22:58:01</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\非常男人／不同的男人 A Different Man (2024)\非常男人／不同的男人 A Different Man (2024).mkv</div>
-                    <a href="https://www.themoviedb.org/movie/989662" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>臉上生了巨瘤的愛德華懷抱著演員夢，卻因外貌感到自卑，即使愛慕美麗的鄰居英格麗，也只敢暗藏在心內。直到一場實驗手術讓他脫胎換骨獲得俊俏臉龐，愛德華決定改名換姓展開新生。沒想到一齣以昔日自己為主角的戲劇正在排練，編導竟是英格麗。他戴上面具爭取這場非他莫屬的演出，好不容易迎來女神一親芳澤，登臺秀卻殺出程咬金，原以為的夢想成真，竟一夕間成了噩夢。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>雨中的慾情／雨中的情欲 Lust in the Rain (2024).mp4</strong>
-                        <span class='item-time'>22:57:51</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\雨中的慾情／雨中的情欲 Lust in the Rain (2024)\雨中的慾情／雨中的情欲 Lust in the Rain (2024).mp4</div>
-                    <a href="https://www.themoviedb.org/movie/1283793" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>時代未知，地點不明。潦倒漫畫家義男窩居北町小鎮，對寡婦福子一見鍾情，卻被小說家伊守捷足先登。有生意頭腦的伊守學起富饒南町創辦商場雜誌，義男負責招商，八字還沒一撇，業務就捲款潛逃。為躲避債主，三人被迫展開同居生活。福子與伊守夜夜性愛，義男只能在暗處窺伺，性慾、愛慾、生之慾交錯的異次元在眼前無限膨脹，一切變得超乎預期。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>妻人太甚／我妻子的一切 내 아내의 모든 것 All About My Wife (2012) - BluRay.1080p.x264.DTS-CMCT.mkv</strong>
-                        <span class='item-time'>22:57:41</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\妻人太甚／我妻子的一切 내 아내의 모든 것 All About My Wife (2012)\妻人太甚／我妻子的一切 내 아내의 모든 것 All About My Wife (2012) - BluRay.1080p.x264.DTS-CMCT.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/116488" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>出門是貴婦、在家是巧婦、床上是蕩婦 美麗出眾又擁有完美廚藝的正茵，在眾人眼中是宛如天使般的美嬌娘，但在丈夫斗賢眼中，卻是最恐怖的野蠻人妻。她刁蠻任性，在公眾場合更時常口不擇言，丈夫忍辱偷生卻不敢提­出離婚，終於在崩潰邊緣覓得一線生機：重金禮聘知名花花公子來誘惑正茵，好讓這夢魘般的惡妻主動提出離婚。 愛情文藝片還能玩出什麼花樣？本片再度證明韓國電影擁有卓越的編劇與商業操作能力。網羅韓國首席女星林秀晶與李善均、柳昇龍主演。超級有梗的情節以及令人忍不住想拚命劃重­點的絕妙對白，加上片中時而大秀曼妙美腿，時而如機關槍喋喋不休的小惡魔林秀晶，告訴你什麼才叫正港的犀利人妻！ 導演閔奎東是韓國票房常勝軍：「我想藉由全新的輕喜劇方式來描繪這些時刻，從中發掘出愛情的另一種意義。」</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>刺激驚爆點／非常嫌疑犯 The Usual Suspects (1995).mkv</strong>
-                        <span class='item-time'>22:57:31</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\刺激驚爆點／非常嫌疑犯 The Usual Suspects (1995)\刺激驚爆點／非常嫌疑犯 The Usual Suspects (1995).mkv</div>
-                    <a href="https://www.themoviedb.org/movie/629" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>美國加州的聖佩雷羅港一艘貨輪爆炸，死亡27人，9000萬美元失蹤。事故發生以後，聯邦調查局探員白基奇在醫院等待昏迷不醒的倖存者；海關特派員大衛（查茲•帕明特裡 飾）則對另外一名拿到特赦令的倖存者金特（凱文•史派西 飾）進行了審問。金特供認，在事故中喪生的基頓（加布裡埃爾•伯恩 飾）、法特（本尼西奧•德托羅 飾）、麥曼諾（斯蒂芬•鮑爾文 飾）和杜學尼（凱文•波拉克 飾），以及他本人，六個月前被警察局作為卡車搶劫案的疑犯帶到警局過了一夜，五人因此結成了一個犯罪團伙，狼狽為奸……</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>來自誰的啟示 계시록 Revelations (2025).mkv</strong>
-                        <span class='item-time'>22:57:21</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\來自誰的啟示 계시록 Revelations (2025)\來自誰的啟示 계시록 Revelations (2025).mkv</div>
-                    <a href="https://www.themoviedb.org/movie/1210938" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>相信神諭的牧師與深受幻覺所苦的刑警都在追查同一樁失蹤案，他倆各自的心魔也在過程中浮現。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>里斯本的故事 Lisbon Story (1994) - 1080p.BluRay.x265.10bit.DTS-SONYHD.mkv</strong>
-                        <span class='item-time'>22:57:11</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\里斯本的故事 Lisbon Story (1994)\里斯本的故事 Lisbon Story (1994) - 1080p.BluRay.x265.10bit.DTS-SONYHD.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/390" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>一張寫著求救字眼的風景明信片，讓電影錄音師菲利普(魯迪格福格勒飾)風塵僕僕趕往葡萄牙里斯本，途中他的車壞了，最後千辛萬苦抵達時卻只找到了沒有完成音效的電影膠卷，他的導演朋友菲德利希(派屈克波查飾)消失了，於是菲利普留在里斯本，發掘被人們忽略的城市聲音，並結識了一群樂團好友，他甚至迷戀上歌聲如黃鶯出谷的女歌手泰瑞莎…</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>辛辛監獄劇團／監獄劇院 Sing Sing (2023).mp4</strong>
-                        <span class='item-time'>22:57:01</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\辛辛監獄劇團／監獄劇院 Sing Sing (2023)\辛辛監獄劇團／監獄劇院 Sing Sing (2023).mp4</div>
-                    <a href="https://www.themoviedb.org/movie/1155828" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>因未犯下的罪行而被關押在監獄的神聖G，與其他被監禁的人一起在劇團中表演，找到了人生意義。</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>你的婚禮 My Love (2021) - 2160p.WEB-DL.60Fps.H265.10bit.DTS5.1-UBWEB.mkv</strong>
-                        <span class='item-time'>22:56:51</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\你的婚禮 My Love (2021)\你的婚禮 My Love (2021) - 2160p.WEB-DL.60Fps.H265.10bit.DTS5.1-UBWEB.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/723640" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>高中時期，功課不好、整天打架鬧事的體育生周瀟齊（許光漢 飾）對轉學生尤詠慈（章若楠 飾）一見鍾情；年少懵懂的週瀟齊純純愛戀著尤詠慈，他默默守護，卻換來尤詠慈的不告而別。此後的人生，一段長達15年的愛情故事即將展開……</blockquote>
-                </li>
-                <li class="update-item ">
-                   <div class="item-header">
-                        <strong>沙漠妖姬 The Adventures of Priscilla, Queen of the Desert (1994) - 4K.mkv</strong>
-                        <span class='item-time'>22:56:41</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\沙漠妖姬 The Adventures of Priscilla, Queen of the Desert (1994)\沙漠妖姬 The Adventures of Priscilla, Queen of the Desert (1994) - 4K.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/2759" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>異裝癖表演者班麗娜（Terence Stamp 飾）、米芝（Hugo Weaving 飾）因一位好友去世而再度聚首，米芝得到澳洲中部城市的表演機會邀請班麗娜同往，同行費莉茜（Guy Pearce 飾）為圓“沙漠女王”之夢要求搭夥，並借來了經改裝的大巴作為代步工具。三人風風火火的踏上旅程，上了年紀的班麗娜于路對往事諱莫如深，與年輕躁動的費莉茜生出不少瑣碎口角，米芝則不時陷入對自己那場婚姻的回憶。他們在沿途經過的小鎮大秀妖冶，得到了不少驚愕的目光，當然也有贊許。因為一次拋錨，對班麗娜昔日表演難以忘懷的修理工老巴得以加入他們的旅程。眾人終於抵達目的地，雖然觀眾不甚熱情，但米芝終於見到了兒子，而班麗娜決定和老巴在一起……
-　　本片獲1995年奧斯卡最佳服裝設計獎等多項褒獎。
+            <div class="day-group expanded">
+                <h4 class="day-header" data-target="#list-movie-20250403"><span class="toggle-icon">-</span> 04 月 03 日 (Thursday)</h4>
+                <ul class="update-list visible" id="list-movie-20250403" data-category="movie">
+                    <li class="update-item " data-filename="艾爾頓強：Never Too Late／愛爾頓．約翰：永遠不遲 Elton John：Never Too Late　(2024).mkv" data-path="@LiangTsaoEmby_本月更新\電影\艾爾頓強：Never Too Late／愛爾頓．約翰：永遠不遲 Elton John：Never Too Late　(2024)\艾爾頓強：Never Too Late／愛爾頓．約翰：永遠不遲 Elton John：Never Too Late　(2024).mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>艾爾頓強：Never Too Late／愛爾頓．約翰：永遠不遲 Elton John：Never Too Late　(2024).mkv</strong>
+                            <span class='item-time'>02:11:44</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\艾爾頓強：Never Too Late／愛爾頓．約翰：永遠不遲 Elton John：Never Too Late　(2024)\艾爾頓強：Never Too Late／愛爾頓．約翰：永遠不遲 Elton John：Never Too Late　(2024).mkv</div>
+                        <a href="https://www.themoviedb.org/movie/977326" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>在這段飽含情感的旅程中，艾爾頓強回顧了自己的一生以及他50年職業生涯中較早期令人驚嘆的時光。艾爾頓準備在道奇體育場舉辦北美的最後一場音樂會。在此期間，他帶我們回顧過往，講述了他如何努力克服逆境、擺脫濫用藥物和毒癮，從而成為當今的偶像。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="忙愛不如盲婚／與愛何關 What's Love Got To Do With It？ (2022) - 1080p.WEB-DL.x264.DD2.0-4U.mkv" data-path="@LiangTsaoEmby_本月更新\電影\忙愛不如盲婚／與愛何關 What's Love Got To Do With It？ (2022)\忙愛不如盲婚／與愛何關 What's Love Got To Do With It？ (2022) - 1080p.WEB-DL.x264.DD2.0-4U.mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>忙愛不如盲婚／與愛何關 What's Love Got To Do With It？ (2022) - 1080p.WEB-DL.x264.DD2.0-4U.mkv</strong>
+                            <span class='item-time'>02:11:33</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\忙愛不如盲婚／與愛何關 What's Love Got To Do With It？ (2022)\忙愛不如盲婚／與愛何關 What's Love Got To Do With It？ (2022) - 1080p.WEB-DL.x264.DD2.0-4U.mkv</div>
+                        <a href="https://www.themoviedb.org/movie/800301" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>紀錄片導演柔伊（莉莉詹姆斯 飾）是交友軟體的狂熱使用者，但上面的男人總是讓她失望，讓媽媽凱絲（艾瑪湯普遜 飾）替她的感情生活擔憂。某天，柔伊的鄰居兼青梅竹馬凱茲（沙扎德拉提夫 飾）決定聽從父母的建議，前往巴基斯坦與一位素昧平生的女孩結婚，並堅稱這才是最理想的婚姻形式。正在為新片題材煩惱的柔伊，決定跟著凱茲前往巴基斯坦，拍下他的結婚過程……。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="死命必達 Rider (2024).mp4" data-path="@LiangTsaoEmby_本月更新\電影\死命必達 Rider (2024)\死命必達 Rider (2024).mp4" data-category="movie">
+                       <div class="item-header">
+                            <strong>死命必達 Rider (2024).mp4</strong>
+                            <span class='item-time'>02:11:22</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\死命必達 Rider (2024)\死命必達 Rider (2024).mp4</div>
+                        <a href="https://www.themoviedb.org/movie/1288175" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Nat（馬力歐莫瑞爾 飾）是個擁有靈異體質的外送員，他的工作因此變得與眾不同，他和兩位外送員好友經常接到奇怪的訂單，在深夜將詭異的物品送到毛骨悚然的地方。這種賺錢方式雖然不尋常，但大多數時候Nat和朋友通常能對這些恐怖經歷一笑置之。某天Nat將手機拿給安靜又可愛的手機技師Pai（莎露彩查金哈飾）維修，卻接連開始發生怪事。Nat回去取手機時，Pai卻神秘消失了，而他手機上的GPS開始將他導向一些詭異且無法解釋的地方。這會是引導他與失聯的女友重逢的古怪信號嗎？還是潛伏著某種更邪惡的東西？</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="她們的盛夏微愛 Little Loves (2024) - 1080p.Web-DL.AAC-JJ.mkv" data-path="@LiangTsaoEmby_本月更新\電影\她們的盛夏微愛 Little Loves (2024)\她們的盛夏微愛 Little Loves (2024) - 1080p.Web-DL.AAC-JJ.mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>她們的盛夏微愛 Little Loves (2024) - 1080p.Web-DL.AAC-JJ.mkv</strong>
+                            <span class='item-time'>02:11:11</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\她們的盛夏微愛 Little Loves (2024)\她們的盛夏微愛 Little Loves (2024) - 1080p.Web-DL.AAC-JJ.mkv</div>
+                        <a href="https://www.themoviedb.org/movie/1088851" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>熱愛旅行、獨立自主的都會女子泰莉莎，於42歲之際再度開啟一段新曖昧，預計暑假遠赴美國幽會。然而計劃趕不上變化。獨居鄉間的母親意外跌傷腳，粉刷老家的任務戛然而止。儘管旅程在即，泰莉莎仍舊趕回家協助母親打理一切。但同處一室，對母女倆都不容易。習慣獨活的她們，再瑣碎的日常小事也無法意見一致。正因如此，那些最細微的隱匿情感，也在這些拌嘴的生活隙縫中，熠熠發光。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="名模殺機／名模夜驚魂 Model House‎ (2024) - 1080p.Web-DL.AAC-JJ.mkv" data-path="@LiangTsaoEmby_本月更新\電影\名模殺機／名模夜驚魂 Model House‎ (2024)\名模殺機／名模夜驚魂 Model House‎ (2024) - 1080p.Web-DL.AAC-JJ.mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>名模殺機／名模夜驚魂 Model House‎ (2024) - 1080p.Web-DL.AAC-JJ.mkv</strong>
+                            <span class='item-time'>02:11:00</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\名模殺機／名模夜驚魂 Model House‎ (2024)\名模殺機／名模夜驚魂 Model House‎ (2024) - 1080p.Web-DL.AAC-JJ.mkv</div>
+                        <a href="https://www.themoviedb.org/movie/1252552" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>拍攝完影片後，模特兒們在僻靜的房子裡過夜，被突如其來的入侵者挾持為人質。女孩們必須為自己的生命而戰，才能活下來並揭露邪惡的意圖。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="印度刺客：薩達爾．辛格 Sardar Udham (2021) - 1080p.AMZN.WEB-DL.DDP5.1.Atmos.H264-ParkHD.mkv" data-path="@LiangTsaoEmby_本月更新\電影\印度刺客：薩達爾．辛格 Sardar Udham (2021)\印度刺客：薩達爾．辛格 Sardar Udham (2021) - 1080p.AMZN.WEB-DL.DDP5.1.Atmos.H264-ParkHD.mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>印度刺客：薩達爾．辛格 Sardar Udham (2021) - 1080p.AMZN.WEB-DL.DDP5.1.Atmos.H264-ParkHD.mkv</strong>
+                            <span class='item-time'>02:10:50</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\印度刺客：薩達爾．辛格 Sardar Udham (2021)\印度刺客：薩達爾．辛格 Sardar Udham (2021) - 1080p.AMZN.WEB-DL.DDP5.1.Atmos.H264-ParkHD.mkv</div>
+                        <a href="https://www.themoviedb.org/movie/598826" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>年輕的薩達爾·辛格深受札連瓦拉園大屠殺創傷。他逃進阿富汗的深山裡，在1933年到1934年期間到達倫敦。辛格在那裡過了最關鍵的六年，重燃革命。在1940年3月13日，薩達爾·辛格帶著21年來從未治癒的創傷，暗殺了麥可·奧德懷爾，就是在1919年4月主導旁遮普邦事件的那個人。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="白鯨記 Moby Dick (1956) - 1080p.BluRay.x265.10bit.FLAC-QuickIO.mkv" data-path="@LiangTsaoEmby_本月更新\電影\白鯨記 Moby Dick (1956)\白鯨記 Moby Dick (1956) - 1080p.BluRay.x265.10bit.FLAC-QuickIO.mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>白鯨記 Moby Dick (1956) - 1080p.BluRay.x265.10bit.FLAC-QuickIO.mkv</strong>
+                            <span class='item-time'>02:10:39</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\白鯨記 Moby Dick (1956)\白鯨記 Moby Dick (1956) - 1080p.BluRay.x265.10bit.FLAC-QuickIO.mkv</div>
+                        <a href="https://www.themoviedb.org/movie/10339" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>阿哈博（格利高裡·派克 Gregory Peck 飾）是裴龐德號的船長，在一次航行中，阿哈博遇見了白鯨莫比迪克，莫比迪克襲擊了阿哈博，咬斷了他的一條腿，從此往後，阿哈博和莫比迪克成為了一生之敵。
+　　傷勢痊癒後，阿哈博便開始了他的復仇計畫，整天駕駛著裴龐德號在茫茫大海中尋找莫比迪克的蹤跡。仇恨的火焰燒灼著阿哈博的腦神經，讓他的神智逐漸混亂。終於有一天，阿哈博發現了莫比迪克的蹤跡，在長達三天的追蹤之後，阿哈博終於刺中了莫比迪克，令其身受重傷，然而，莫比迪克並沒有就此認輸，而是負死頑抗，爭鬥之中，莫比迪克咬碎了小船，借用繩索套住了阿哈博，欲與他同歸於盡。
 
 
-Two drag queens and a transgender woman contract to perform a drag show at a resort in Alice Springs, a town in the remote Australian desert. As they head west from Sydney aboard their lavender bus, Priscilla, the three friends come to the forefront of a comedy of errors, encountering a number of strange characters, as well as incidents of homophobia, whilst widening comfort zones and exploring new horizons.</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>我依然在此／我仍在此 I'm Still Here (2024) - 720p.SCREENER.WEB-DL.x264-NGP.mkv</strong>
-                        <span class='item-time'>22:56:31</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\我依然在此／我仍在此 I'm Still Here (2024)\我依然在此／我仍在此 I'm Still Here (2024) - 720p.SCREENER.WEB-DL.x264-NGP.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/1000837" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>1970年的里約熱內盧，沙灘上到處是嬉鬧人群，魯本斯與尤妮絲一家七口就住在海濱街區，與朋友聚會、歡笑暢談、拍照留念是他們的日常；但同時，不滿獨裁政府的反對聲浪四起，也讓白色恐怖逐漸蔓延每個角落。一日，意外的訪客打破平靜，魯本斯遭軍方強行帶走，自此下落不明。悲痛的尤妮絲被迫挺身而出，找尋丈夫失蹤的真相，並獨自撐起這個家，以堅定的心持續帶給孩子們完整的愛與希望。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>你的國，我的家／唯一的家園 No Other Land (2024).mp4</strong>
-                        <span class='item-time'>22:47:31</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\你的國，我的家／唯一的家園 No Other Land (2024)\你的國，我的家／唯一的家園 No Other Land (2024).mp4</div>
-                    <a href="https://www.themoviedb.org/movie/1232493" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>位於巴勒斯坦西岸的馬薩費爾亞塔，自八〇年代起被以色列政府劃為軍用「開火區」，土地上的巴勒斯坦居民被裁定為非法居住，展開面對軍方恐嚇迫遷、強拆騷擾的漫長抗爭。年輕的巴勒斯坦居民巴索，追隨父親成為運動者及公民記者，他與以色列記者尤法成為朋友，致力以鏡頭作為反抗，直擊以色列軍隊對待巴勒斯坦平民的暴力日常，呈現抗爭中的脆弱與韌性。但隨著軍隊暴力升級，絕望、無力與憂鬱如煙延綿，兩人也不禁對紀錄這件事產生懷疑。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>印度刺客：薩達爾．辛格 Sardar Udham (2021) - 1080p.AMZN.WEB-DL.DDP5.1.Atmos.H264-ParkHD.mkv</strong>
-                        <span class='item-time'>22:47:21</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\印度刺客：薩達爾．辛格 Sardar Udham (2021)\印度刺客：薩達爾．辛格 Sardar Udham (2021) - 1080p.AMZN.WEB-DL.DDP5.1.Atmos.H264-ParkHD.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/598826" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>年輕的薩達爾·辛格深受札連瓦拉園大屠殺創傷。他逃進阿富汗的深山裡，在1933年到1934年期間到達倫敦。辛格在那裡過了最關鍵的六年，重燃革命。在1940年3月13日，薩達爾·辛格帶著21年來從未治癒的創傷，暗殺了麥可·奧德懷爾，就是在1919年4月主導旁遮普邦事件的那個人。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>你好陌生人 Hello Stranger (2010).mp4</strong>
-                        <span class='item-time'>22:47:10</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\你好陌生人 Hello Stranger (2010)\你好陌生人 Hello Stranger (2010).mp4</div>
-                    <a href="https://www.themoviedb.org/movie/50938" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>泰國男生Dak（辰塔維·塔納西維 Chantawit Thanasewee 飾）因拒絕與女友結婚而被拋棄。喝得爛醉後隔天獨自踏上原先和女友預訂的韓國旅程。宿醉語言又不通的Dak只能向，只能向一名泰國女生May求助（努娜能提妲莎彭 Noona Nuength ida Sophon 飾）。May有一位大男子主義，對她管得徹頭徹尾的男友金哥，這一次是背著男友偷跑來韓國參加好友的婚禮。因為漏接金哥的電話導致兩人大吵一頓最後分手。Dak一直留在她身邊安慰，兩人一起去酒吧，一起去參觀韓劇的拍攝地點。雖然彼此都不知道對方的名字，但兩人慢慢從冤家慢慢聊成知己，就在情愫漸生之時，Dak的女友突然出現。Dak是會選擇重新回到女朋友的身邊，還是這一對熟悉的陌生人最終會終成眷屬。
-
-Two strangers meet in South Korea, each on a vacation.  When he misses his tour bus, he asks a woman if he can hang out with her for a few days.  They have fun together, but never tell each other their names.  So when the trip is over they don't know how to contact each other.</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>西游降魔篇之快活城 (2025).mkv</strong>
-                        <span class='item-time'>22:47:00</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\西遊降魔篇之快活城 (2025)\西游降魔篇之快活城 (2025).mkv</div>
-                    <a href="https://www.themoviedb.org/movie/1452244" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>「半妖」驅魔人常平安，為去除自身妖性前往快活城尋丹，受殷夫子蠱惑，錯殺了善良且深愛自己的女妖小紅癲，體內邪惡的妖魔元靈被喚醒，妖魔肆虐人間。最終，變成人的他選擇吃下妖丹變成妖，攜手眾驅魔人收服妖魔。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>印度先生 Mr.India (1987) - 1080p.BluRay.x265.10bit.DTS.2Audio-QuickIO.mkv</strong>
-                        <span class='item-time'>22:46:40</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\印度先生 Mr.India (1987)\印度先生 Mr.India (1987) - 1080p.BluRay.x265.10bit.DTS.2Audio-QuickIO.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/41903" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>艾倫（亞尼·卡普 Anil Kapoor 飾）的父親，瓦爾馬博士，是一位傑出的科學家，他憑藉光學原理發明瞭一款神奇的手鐲，能夠讓人隱形。然而，穆甘博得知了這個發明，並派人前來索取，但瓦爾馬博士拒絕交出。於是，穆甘博野心勃勃，為了謀取利益，不惜殺害了瓦爾馬博士。穆甘博企圖稱霸印度，他在軒市進行軍火交易，建立了導彈基地，威脅著印度各個重要設施。艾倫長大後，收養了七八個孩童，並租出空房，其中一位名叫西瑪的姑娘成為了他們的承租人，與孩子們逐漸打成一片。
+The sole survivor of a lost whaling ship relates the tale of his captain's self-destructive obsession to hunt the white whale, Moby Dick.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="印度先生 Mr.India (1987) - 1080p.BluRay.x265.10bit.DTS.2Audio-QuickIO.mkv" data-path="@LiangTsaoEmby_本月更新\電影\印度先生 Mr.India (1987)\印度先生 Mr.India (1987) - 1080p.BluRay.x265.10bit.DTS.2Audio-QuickIO.mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>印度先生 Mr.India (1987) - 1080p.BluRay.x265.10bit.DTS.2Audio-QuickIO.mkv</strong>
+                            <span class='item-time'>02:10:28</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\印度先生 Mr.India (1987)\印度先生 Mr.India (1987) - 1080p.BluRay.x265.10bit.DTS.2Audio-QuickIO.mkv</div>
+                        <a href="https://www.themoviedb.org/movie/41903" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>艾倫（亞尼·卡普 Anil Kapoor 飾）的父親，瓦爾馬博士，是一位傑出的科學家，他憑藉光學原理發明瞭一款神奇的手鐲，能夠讓人隱形。然而，穆甘博得知了這個發明，並派人前來索取，但瓦爾馬博士拒絕交出。於是，穆甘博野心勃勃，為了謀取利益，不惜殺害了瓦爾馬博士。穆甘博企圖稱霸印度，他在軒市進行軍火交易，建立了導彈基地，威脅著印度各個重要設施。艾倫長大後，收養了七八個孩童，並租出空房，其中一位名叫西瑪的姑娘成為了他們的承租人，與孩子們逐漸打成一片。
 　　某一天，穆甘博的手下在街上遇到了瓦爾馬博士的助手辛哈教授，教授成功逃脫後，告知了艾倫手鐲的下落。艾倫得到手鐲後，變成了隱形人，並自稱為「印度先生」，開始行動懲惡揚善。穆甘博得知此事後，綁架了艾倫、西瑪和孩子們，企圖引出「印度先生」。在匪巢裡，艾倫利用手鐲的力量嚴懲了眾匪徒，而穆甘博卻瘋狂到要炸毀整個印度，被艾倫制服。
 
 
 A poor but big-hearted man takes orphans into his home. After discovering his scientist father's invisibility device, he rises to the occasion and fights to save his children and all of India from the clutches of a megalomaniac.</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>生命清單 The Life List (2025).mkv</strong>
-                        <span class='item-time'>22:46:20</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\生命清單 The Life List (2025)\生命清單 The Life List (2025).mkv</div>
-                    <a href="https://www.themoviedb.org/movie/1254786" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>年輕女子遵從母親的願望，努力去完成十幾歲時寫下的人生願望清單，過程中不僅挖掘出家族祕密、找到愛情，也重新認識了自己。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>生命清單 The Life List (2025) - 2160p.NF.WEB-DL.DDP5.1.Atmos.HDR.H.265.mkv</strong>
-                        <span class='item-time'>22:46:10</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\生命清單 The Life List (2025)\生命清單 The Life List (2025) - 2160p.NF.WEB-DL.DDP5.1.Atmos.HDR.H.265.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/1254786" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>年輕女子遵從母親的願望，努力去完成十幾歲時寫下的人生願望清單，過程中不僅挖掘出家族祕密、找到愛情，也重新認識了自己。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>尼克男孩／五分錢男孩 Nickel Boys (2024).mkv</strong>
-                        <span class='item-time'>22:44:57</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\尼克男孩／五分錢男孩 Nickel Boys (2024)\尼克男孩／五分錢男孩 Nickel Boys (2024).mkv</div>
-                    <a href="https://www.themoviedb.org/movie/1028196" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>入圍2025金球獎最佳劇情片獎。描述1960年代兩位非裔男孩被送到佛羅里達州一個充斥虐待的感化院的故事。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>尼克男孩／五分錢男孩 Nickel Boys (2024) - 1080p.web.h264.mp4</strong>
-                        <span class='item-time'>22:44:46</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\尼克男孩／五分錢男孩 Nickel Boys (2024)\尼克男孩／五分錢男孩 Nickel Boys (2024) - 1080p.web.h264.mp4</div>
-                    <a href="https://www.themoviedb.org/movie/1028196" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>入圍2025金球獎最佳劇情片獎。描述1960年代兩位非裔男孩被送到佛羅里達州一個充斥虐待的感化院的故事。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>尼克男孩／五分錢男孩 Nickel Boys (2024) - 2160p.WEB-DL.DDP5.1.Atmos.SDR.H265.mkv</strong>
-                        <span class='item-time'>22:44:35</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\尼克男孩／五分錢男孩 Nickel Boys (2024)\尼克男孩／五分錢男孩 Nickel Boys (2024) - 2160p.WEB-DL.DDP5.1.Atmos.SDR.H265.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/1028196" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>入圍2025金球獎最佳劇情片獎。描述1960年代兩位非裔男孩被送到佛羅里達州一個充斥虐待的感化院的故事。</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>四度誘惑 Temptation summary II (1991).mp4</strong>
-                        <span class='item-time'>22:44:25</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\四度誘惑 Temptation summary II (1991)\四度誘惑 Temptation summary II (1991).mp4</div>
-                    <a href="https://www.themoviedb.org/movie/436042" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>在《三度誘惑》誘人的成績下，《四度誘惑》開拍，而男角人選亦不作他選，仍由李中寧出任，扮演戇直CID阿志。在一次放蛇行動中，阿志巧遇徐曼華飾演的阿華，竟對她留下深刻印象，並不惜放她一馬。 與華一起自大陸來港的有小芳，二人均為自己的目標而奮鬥，華一心移民他方，而小芳則希望賺多些錢與大陸男友建立一美滿家庭。華以出賣肉體的積蓄購來一本護照，誰知該國突然發生政變，新政府對過去所發出的護照一概不承認，害得華欲哭無淚；而此時小芳又接獲男友來電錶示要與她...
+                    </li>
+                    <li class="update-item " data-filename="生死試煉 Death Game (2024) - 2160p.WEB-DL.DDP2.0.H265.60fps-ParkHD.mkv" data-path="@LiangTsaoEmby_本月更新\電影\生死試煉 Death Game (2024)\生死試煉 Death Game (2024) - 2160p.WEB-DL.DDP2.0.H265.60fps-ParkHD.mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>生死試煉 Death Game (2024) - 2160p.WEB-DL.DDP2.0.H265.60fps-ParkHD.mkv</strong>
+                            <span class='item-time'>02:10:17</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\生死試煉 Death Game (2024)\生死試煉 Death Game (2024) - 2160p.WEB-DL.DDP2.0.H265.60fps-ParkHD.mkv</div>
+                        <a href="https://www.themoviedb.org/movie/1327843" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>江湖傳說「五毒試煉」是一場生死遊戲，只有一位生還者可獲黃金千兩。神秘浪客林雲與喬雨、風益陽等人一起過五關斬六將，闖關中相互廝殺，五毒心貪婪、憤怒、癡念、傲慢、猜忌的人性黑暗面暴露無遺。林雲和喬雨，上演計中計，一舉除掉幕後主使，成功復仇。
+
+The legend of the "Five Poisons Trial" in the martial world is a life-and-death game where only one person can survive to claim a reward of a thousand taels of gold. The mysterious wanderer Lin Yun teams up with Qiao Yu, Feng Yiyang, and others to face various challenges and adversaries, engaging in fierce battles along the way. The trial reveals the dark sides of human nature—greed, anger, obsession, arrogance, and suspicion. Amidst the chaos, Lin Yun and Qiao Yu devise a clever plan to confront the true forces at play, seeking justice and resolution.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="尼克男孩／五分錢男孩 Nickel Boys (2024).mkv" data-path="@LiangTsaoEmby_本月更新\電影\尼克男孩／五分錢男孩 Nickel Boys (2024)\尼克男孩／五分錢男孩 Nickel Boys (2024).mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>尼克男孩／五分錢男孩 Nickel Boys (2024).mkv</strong>
+                            <span class='item-time'>02:10:07</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\尼克男孩／五分錢男孩 Nickel Boys (2024)\尼克男孩／五分錢男孩 Nickel Boys (2024).mkv</div>
+                        <a href="https://www.themoviedb.org/movie/1028196" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>入圍2025金球獎最佳劇情片獎。描述1960年代兩位非裔男孩被送到佛羅里達州一個充斥虐待的感化院的故事。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="尼克男孩／五分錢男孩 Nickel Boys (2024) - 1080p.web.h264.mp4" data-path="@LiangTsaoEmby_本月更新\電影\尼克男孩／五分錢男孩 Nickel Boys (2024)\尼克男孩／五分錢男孩 Nickel Boys (2024) - 1080p.web.h264.mp4" data-category="movie">
+                       <div class="item-header">
+                            <strong>尼克男孩／五分錢男孩 Nickel Boys (2024) - 1080p.web.h264.mp4</strong>
+                            <span class='item-time'>02:09:56</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\尼克男孩／五分錢男孩 Nickel Boys (2024)\尼克男孩／五分錢男孩 Nickel Boys (2024) - 1080p.web.h264.mp4</div>
+                        <a href="https://www.themoviedb.org/movie/1028196" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>入圍2025金球獎最佳劇情片獎。描述1960年代兩位非裔男孩被送到佛羅里達州一個充斥虐待的感化院的故事。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="尼克男孩／五分錢男孩 Nickel Boys (2024) - 2160p.WEB-DL.DDP5.1.Atmos.SDR.H265.mkv" data-path="@LiangTsaoEmby_本月更新\電影\尼克男孩／五分錢男孩 Nickel Boys (2024)\尼克男孩／五分錢男孩 Nickel Boys (2024) - 2160p.WEB-DL.DDP5.1.Atmos.SDR.H265.mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>尼克男孩／五分錢男孩 Nickel Boys (2024) - 2160p.WEB-DL.DDP5.1.Atmos.SDR.H265.mkv</strong>
+                            <span class='item-time'>02:09:45</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\尼克男孩／五分錢男孩 Nickel Boys (2024)\尼克男孩／五分錢男孩 Nickel Boys (2024) - 2160p.WEB-DL.DDP5.1.Atmos.SDR.H265.mkv</div>
+                        <a href="https://www.themoviedb.org/movie/1028196" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>入圍2025金球獎最佳劇情片獎。描述1960年代兩位非裔男孩被送到佛羅里達州一個充斥虐待的感化院的故事。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="四度誘惑 Temptation summary II (1991).mp4" data-path="@LiangTsaoEmby_本月更新\電影\四度誘惑 Temptation summary II (1991)\四度誘惑 Temptation summary II (1991).mp4" data-category="movie">
+                       <div class="item-header">
+                            <strong>四度誘惑 Temptation summary II (1991).mp4</strong>
+                            <span class='item-time'>02:09:34</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\四度誘惑 Temptation summary II (1991)\四度誘惑 Temptation summary II (1991).mp4</div>
+                        <a href="https://www.themoviedb.org/movie/436042" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>在《三度誘惑》誘人的成績下，《四度誘惑》開拍，而男角人選亦不作他選，仍由李中寧出任，扮演戇直CID阿志。在一次放蛇行動中，阿志巧遇徐曼華飾演的阿華，竟對她留下深刻印象，並不惜放她一馬。 與華一起自大陸來港的有小芳，二人均為自己的目標而奮鬥，華一心移民他方，而小芳則希望賺多些錢與大陸男友建立一美滿家庭。華以出賣肉體的積蓄購來一本護照，誰知該國突然發生政變，新政府對過去所發出的護照一概不承認，害得華欲哭無淚；而此時小芳又接獲男友來電錶示要與她...
 
 When two prostitutes Wah and Fong find their dreams shattered, they turn to be starred in the sex movies. A second class actress Tracy intentionally exposes her body that brings her lots of movie contract and a wealthy guy. She also seduces her sister's boyfriend and gets him caught. Her despairingly sister, losing all she uses to have, chooses to play in the pornographic movies</blockquote>
-                </li>
-                <li class="update-item hidden-item">
-                   <div class="item-header">
-                        <strong>不破不立：哪吒之魔童鬧海幕後紀錄片 (2025) - 2160p.WEB-DL.H265.10bit.DDP2.0.mkv</strong>
-                        <span class='item-time'>22:39:57</span>
-                   </div>
-                    <div class='file-path'>@LiangTsaoEmby_本月更新\電影\不破不立：哪吒之魔童鬧海幕後紀錄片 (2025)\不破不立：哪吒之魔童鬧海幕後紀錄片 (2025) - 2160p.WEB-DL.H265.10bit.DDP2.0.mkv</div>
-                    <a href="https://www.themoviedb.org/movie/1432009" target="_blank" class="tmdb-link">TMDb 連結</a>
-                    <blockquote>"紀錄片首曝電影《哪吒之魔童鬧海》的幕後製作過程，導演餃子和全國四千多名動畫人一起墊腳觸碰創作天花板的故事。
+                    </li>
+                    <li class="update-item " data-filename="太空學員／太空訓練生 Space Cadet (2024) - 1080p.AMZN.WEB-DL.DDP5.1.H264-AY.mkv" data-path="@LiangTsaoEmby_本月更新\電影\太空學員／太空訓練生 Space Cadet (2024)\太空學員／太空訓練生 Space Cadet (2024) - 1080p.AMZN.WEB-DL.DDP5.1.H264-AY.mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>太空學員／太空訓練生 Space Cadet (2024) - 1080p.AMZN.WEB-DL.DDP5.1.H264-AY.mkv</strong>
+                            <span class='item-time'>02:09:24</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\太空學員／太空訓練生 Space Cadet (2024)\太空學員／太空訓練生 Space Cadet (2024) - 1080p.AMZN.WEB-DL.DDP5.1.H264-AY.mkv</div>
+                        <a href="https://www.themoviedb.org/movie/1019411" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>蒂芬妮「雷克斯」辛普森（艾瑪羅勃茲飾）一直夢想著進入太空，她被「篡改」的申請書讓她進入了美國太空總署競爭異常激烈的太空人培訓計畫。在超出她能力所及之下，這個佛羅里達女孩能否在暴露身份之前，憑藉著自己的聰明才智、勇氣和決心，通過培訓並進入宇宙呢？</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="生命清單 The Life List (2025).mkv" data-path="@LiangTsaoEmby_本月更新\電影\生命清單 The Life List (2025)\生命清單 The Life List (2025).mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>生命清單 The Life List (2025).mkv</strong>
+                            <span class='item-time'>02:09:13</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\生命清單 The Life List (2025)\生命清單 The Life List (2025).mkv</div>
+                        <a href="https://www.themoviedb.org/movie/1254786" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>年輕女子遵從母親的願望，努力去完成十幾歲時寫下的人生願望清單，過程中不僅挖掘出家族祕密、找到愛情，也重新認識了自己。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="生命清單 The Life List (2025) - 2160p.NF.WEB-DL.DDP5.1.Atmos.HDR.H.265.mkv" data-path="@LiangTsaoEmby_本月更新\電影\生命清單 The Life List (2025)\生命清單 The Life List (2025) - 2160p.NF.WEB-DL.DDP5.1.Atmos.HDR.H.265.mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>生命清單 The Life List (2025) - 2160p.NF.WEB-DL.DDP5.1.Atmos.HDR.H.265.mkv</strong>
+                            <span class='item-time'>02:09:02</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\生命清單 The Life List (2025)\生命清單 The Life List (2025) - 2160p.NF.WEB-DL.DDP5.1.Atmos.HDR.H.265.mkv</div>
+                        <a href="https://www.themoviedb.org/movie/1254786" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>年輕女子遵從母親的願望，努力去完成十幾歲時寫下的人生願望清單，過程中不僅挖掘出家族祕密、找到愛情，也重新認識了自己。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="巴布狄倫：搖滾詩人／無名小輩 A Complete Unknown (2024) - 2160p.AMZN.WEB-DL.DDP5.1.HDR.H.265.mkv" data-path="@LiangTsaoEmby_本月更新\電影\巴布狄倫：搖滾詩人／無名小輩 A Complete Unknown (2024)\巴布狄倫：搖滾詩人／無名小輩 A Complete Unknown (2024) - 2160p.AMZN.WEB-DL.DDP5.1.HDR.H.265.mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>巴布狄倫：搖滾詩人／無名小輩 A Complete Unknown (2024) - 2160p.AMZN.WEB-DL.DDP5.1.HDR.H.265.mkv</strong>
+                            <span class='item-time'>02:08:51</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\巴布狄倫：搖滾詩人／無名小輩 A Complete Unknown (2024)\巴布狄倫：搖滾詩人／無名小輩 A Complete Unknown (2024) - 2160p.AMZN.WEB-DL.DDP5.1.HDR.H.265.mkv</div>
+                        <a href="https://www.themoviedb.org/movie/661539" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>以充滿活力的音樂圈和動盪的文化劇變為背景，一個神祕的19歲男孩帶著吉他和非同小可的才華，從明尼蘇達來到紐約西村，註定要改變美國音樂的軌跡。隨著在成名過程中建立起最親密的關係，民謠音樂的變化也逐漸令他感到躁動不安，並且拒絕被定義，最後做出一個極具爭議的選擇，為全球文化帶來顛覆性的影響。提摩西夏勒梅在詹姆士曼格執導的《巴布狄倫：搖滾詩人》中飾演巴布狄倫，並負責演唱，本片講述了史上最具標誌性的創作歌手崛起背後那振奮人心的真實故事。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="巴布狄倫：搖滾詩人／無名小輩 A Complete Unknown (2024).mp4" data-path="@LiangTsaoEmby_本月更新\電影\巴布狄倫：搖滾詩人／無名小輩 A Complete Unknown (2024)\巴布狄倫：搖滾詩人／無名小輩 A Complete Unknown (2024).mp4" data-category="movie">
+                       <div class="item-header">
+                            <strong>巴布狄倫：搖滾詩人／無名小輩 A Complete Unknown (2024).mp4</strong>
+                            <span class='item-time'>02:08:40</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\巴布狄倫：搖滾詩人／無名小輩 A Complete Unknown (2024)\巴布狄倫：搖滾詩人／無名小輩 A Complete Unknown (2024).mp4</div>
+                        <a href="https://www.themoviedb.org/movie/661539" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>In 1961, an unknown 19-year-old Bob Dylan arrives in New York City with his guitar and forges relationships with musical icons on his meteoric rise, culminating in a groundbreaking performance that reverberates around the world.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="不死戀人 不死身ラヴァーズ Undead Lovers (2024) - 1080p.WEB-DL.x264.DD2.0-4U.mkv" data-path="@LiangTsaoEmby_本月更新\電影\不死戀人 不死身ラヴァーズ Undead Lovers (2024)\不死戀人 不死身ラヴァーズ Undead Lovers (2024) - 1080p.WEB-DL.x264.DD2.0-4U.mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>不死戀人 不死身ラヴァーズ Undead Lovers (2024) - 1080p.WEB-DL.x264.DD2.0-4U.mkv</strong>
+                            <span class='item-time'>02:08:30</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\不死戀人 不死身ラヴァーズ Undead Lovers (2024)\不死戀人 不死身ラヴァーズ Undead Lovers (2024) - 1080p.WEB-DL.x264.DD2.0-4U.mkv</div>
+                        <a href="https://www.themoviedb.org/movie/1240834" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>長谷部梨乃（見上愛 飾演）年幼時認為遇見了自己命中註定的王子甲野潤（佐藤寛太 飾演），從此對他無法忘懷。到了中學時，梨乃終於再次見到了成為田徑選手的潤，鼓起勇氣告白的她，以為兩人的感情終於開花結果…卻就在那一瞬間，他眼睜睜的消失了，彷彿從來沒有在這世界上存在過似的，沒有任何一個人記得潤...。而後，潤以不同的身份多次出現在梨乃面前，高中輕音樂社的前輩、坐在輪椅上的男性，還有打工地點的店主…，但每一次，梨乃只要墜入愛河，用力告白後，潤就會消失，梨乃那份始終如一的「喜歡」，究竟會帶來什麼奇蹟呢？</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="不破不立：哪吒之魔童鬧海幕後紀錄片 (2025) - 2160p.WEB-DL.H265.10bit.DDP2.0.mkv" data-path="@LiangTsaoEmby_本月更新\電影\不破不立：哪吒之魔童鬧海幕後紀錄片 (2025)\不破不立：哪吒之魔童鬧海幕後紀錄片 (2025) - 2160p.WEB-DL.H265.10bit.DDP2.0.mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>不破不立：哪吒之魔童鬧海幕後紀錄片 (2025) - 2160p.WEB-DL.H265.10bit.DDP2.0.mkv</strong>
+                            <span class='item-time'>02:08:19</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\不破不立：哪吒之魔童鬧海幕後紀錄片 (2025)\不破不立：哪吒之魔童鬧海幕後紀錄片 (2025) - 2160p.WEB-DL.H265.10bit.DDP2.0.mkv</div>
+                        <a href="https://www.themoviedb.org/movie/1432009" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>"紀錄片首曝電影《哪吒之魔童鬧海》的幕後製作過程，導演餃子和全國四千多名動畫人一起墊腳觸碰創作天花板的故事。
 　　通過紀錄團隊中製作人員的工作瞬間或閒暇趣事，展現中國動畫電影人不斷突破想像力、突破自我、突破極限的頑"強精神與樂觀態度，及"人生不設限"的價值觀。"
 
 
 The documentary reveals the behind-the-scenes production process of the film 「Ne Zha 2」, telling the story of director Jiaozi and more than 4,000 animators across the country striving to push the boundaries of creativity. Through moments of work and lighthearted interactions among the production team, the film showcases the relentless spirit, optimism, and boundless imagination of Chinese animation filmmakers as they continuously break through creative limits and personal barriers, embodying the philosophy that 「life has no limits.」</blockquote>
-                </li>
-            </ul>
-            <button class="load-more-button" data-category="movie" style="display: none;">顯示更多 電影</button>
+                    </li>
+                    <li class="update-item " data-filename="九月五日 September 5 (2024) - 4K.mkv" data-path="@LiangTsaoEmby_本月更新\電影\九月五日 September 5 (2024)\九月五日 September 5 (2024) - 4K.mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>九月五日 September 5 (2024) - 4K.mkv</strong>
+                            <span class='item-time'>02:08:08</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\九月五日 September 5 (2024)\九月五日 September 5 (2024) - 4K.mkv</div>
+                        <a href="https://www.themoviedb.org/movie/1211472" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>1972年的德國慕尼黑，正舉行夏季奧運會。美國廣播公司ABC，在慕尼黑報導這項體育盛事期間，發生巴勒斯坦恐怖分子，殺害並綁架以色列隊伍的教練與選手。ABC 電視臺的體育團隊，決定現場直播這起人質危機。做出這個決定的是，在現場的高層主管Roone Arledge。他拒絕把這歷史性事件的報導工作，交給在美國的新聞組。而工作中的軸心人物，是導播Geoffrey Mason。他必須斡旋於攝影棚和控制室中的上司，和考慮在美國的老闆和其他競爭電視臺的舉措。正也因為這個團隊沒有新聞製作的經驗，過程中也必須應對新聞報導道德的決策，在具歷史性事件的採訪中留下足跡。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="九月五日 September 5 (2024) - 2160p.WEB.DL.SDR.HEVC.DDP5.1.Atoms.mkv" data-path="@LiangTsaoEmby_本月更新\電影\九月五日 September 5 (2024)\九月五日 September 5 (2024) - 2160p.WEB.DL.SDR.HEVC.DDP5.1.Atoms.mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>九月五日 September 5 (2024) - 2160p.WEB.DL.SDR.HEVC.DDP5.1.Atoms.mkv</strong>
+                            <span class='item-time'>02:07:57</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\九月五日 September 5 (2024)\九月五日 September 5 (2024) - 2160p.WEB.DL.SDR.HEVC.DDP5.1.Atoms.mkv</div>
+                        <a href="https://www.themoviedb.org/movie/1211472" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>1972年的德國慕尼黑，正舉行夏季奧運會。美國廣播公司ABC，在慕尼黑報導這項體育盛事期間，發生巴勒斯坦恐怖分子，殺害並綁架以色列隊伍的教練與選手。ABC 電視臺的體育團隊，決定現場直播這起人質危機。做出這個決定的是，在現場的高層主管Roone Arledge。他拒絕把這歷史性事件的報導工作，交給在美國的新聞組。而工作中的軸心人物，是導播Geoffrey Mason。他必須斡旋於攝影棚和控制室中的上司，和考慮在美國的老闆和其他競爭電視臺的舉措。正也因為這個團隊沒有新聞製作的經驗，過程中也必須應對新聞報導道德的決策，在具歷史性事件的採訪中留下足跡。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="一念菩提／神聖無花果之種 The Seed of the Sacred Fig (2024).mkv" data-path="@LiangTsaoEmby_本月更新\電影\一念菩提／神聖無花果之種 The Seed of the Sacred Fig (2024)\一念菩提／神聖無花果之種 The Seed of the Sacred Fig (2024).mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>一念菩提／神聖無花果之種 The Seed of the Sacred Fig (2024).mkv</strong>
+                            <span class='item-time'>02:07:46</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\一念菩提／神聖無花果之種 The Seed of the Sacred Fig (2024)\一念菩提／神聖無花果之種 The Seed of the Sacred Fig (2024).mkv</div>
+                        <a href="https://www.themoviedb.org/movie/1278263" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>故事背景根植於「頭巾革命」，在伊朗革命法院工作擔任檢察官的父親伊曼，家中配槍無端失蹤，是否為家中妻子與兩位女兒所偷，掀起了令人意想不到的風暴。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="Umjolo：戀愛腦沒藥醫／ Umjolo：無解愛情 Umjolo：There is No Cure (2025).mkv" data-path="@LiangTsaoEmby_本月更新\電影\Umjolo：戀愛腦沒藥醫／ Umjolo：無解愛情 Umjolo：There is No Cure (2025)\Umjolo：戀愛腦沒藥醫／ Umjolo：無解愛情 Umjolo：There is No Cure (2025).mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>Umjolo：戀愛腦沒藥醫／ Umjolo：無解愛情 Umjolo：There is No Cure (2025).mkv</strong>
+                            <span class='item-time'>02:07:35</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\Umjolo：戀愛腦沒藥醫／ Umjolo：無解愛情 Umjolo：There is No Cure (2025)\Umjolo：戀愛腦沒藥醫／ Umjolo：無解愛情 Umjolo：There is No Cure (2025).mkv</div>
+                        <a href="https://www.themoviedb.org/movie/1425200" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>曾經的選美皇后因公開揭發醜聞而失去后冠，她開始寫一本說出一切的書，但感情生活卻是一片空白。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="187美國社會檔案 One Eight Seven (1997) - 1080p.BluRay.x264.DTS-QuickIO.mkv" data-path="@LiangTsaoEmby_本月更新\電影\187美國社會檔案 One Eight Seven (1997)\187美國社會檔案 One Eight Seven (1997) - 1080p.BluRay.x264.DTS-QuickIO.mkv" data-category="movie">
+                       <div class="item-header">
+                            <strong>187美國社會檔案 One Eight Seven (1997) - 1080p.BluRay.x264.DTS-QuickIO.mkv</strong>
+                            <span class='item-time'>02:07:24</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\電影\187美國社會檔案 One Eight Seven (1997)\187美國社會檔案 One Eight Seven (1997) - 1080p.BluRay.x264.DTS-QuickIO.mkv</div>
+                        <a href="https://www.themoviedb.org/movie/6072" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>一部反映美國校園暴力的神密恐怖驚險片，由凱文．雷諾茲執導，撒母耳．L．傑克遜在劇中扮演了一位神密、陰鬱、難以捉磨的老師。187是美國刑法中兇殺案的代號。老師加菲爾德不論他在那裡，都有著兇殺案陪同著他。在員警多次調查之後，發現這一切都是他做的。故事開頭都在反映著校園的暴力，黑幫成員的學生在淩辱老師，後來老師加菲爾德製造了很多校園慘案。整個影片真實反映了美國教育機制的黑暗面，也展示了美國校園暴力根源，使人深思。
+
+After surviving a stabbing by a student, teacher Trevor Garfield moves from New York to Los Angeles. There, he resumes teaching as a substitute teacher. The education system, where violent bullies control the classrooms and the administration is afraid of lawsuits, slowly drives Garfield mad.</blockquote>
+                    </li>
+                </ul>
+            </div>
         </div>
 
+        </div>
+
+        <p class="footer-time"><small>頁面最後生成時間: 2025-04-03 02:12:05</small></p>
     </div>
 
-    <p class="footer-time"><small>頁面最後生成時間: 2025-04-03 00:31:05</small></p>
-
     <script>
+        // *** 簡易繁簡轉換字典 (同 V4) ***
+        const tsMap = {'剧':'劇','集':'集','电':'電','影':'影','杂':'雜','志':'誌','时':'時','间':'間','档':'檔','案':'案','更':'更','新':'新','列':'列','表':'表','签':'簽','标':'標','题':'題','内':'內','容':'容','搜':'搜','寻':'尋','显':'顯','示':'示','隐':'隱','藏':'藏','数':'數','据':'據','库':'庫','简':'簡','繁':'繁','体':'體','字':'字','转':'轉','换':'換','优':'優','化':'化','验':'驗','证':'證','权':'權','限':'限','设':'設','置':'置','错':'錯','误':'誤','讯':'訊','息':'息','系':'系','统':'統','环':'環','境':'境','版':'版','本':'本','处':'處','理': '理','回':'回','应':'應','网':'網','页':'頁','浏':'瀏','览':'覽','器':'器','缓':'緩','存':'存','清':'清','除':'除','模':'模','块':'塊','组':'組','织':'織','结':'結','构':'構','状':'狀','态':'態','负':'負','载':'載','压':'壓','力':'力','测':'測','试':'試','性':'性','能':'能','调':'調','优':'優','部':'部','署':'署','迭':'疊','代':'代','开':'開','发':'發','周':'週','期':'期','计':'計','划':'劃','实':'實','现':'現','功':'功','能':'能','需':'需','求':'求','规':'規','范':'範','说': '說','明':'明','书':'書','用':'用','户':'戶','体':'體','验':'驗','界':'界','面':'面','计':'計','交互':'互動','动':'動','画':'畫','视':'視','觉':'覺','元':'元','素':'素','图':'圖','标':'標','颜':'顏','色':'色','体':'體','排':'排','版':'版','布':'佈','局':'局','响':'響','应':'應','式':'式','适':'適','配':'配','不':'不','同':'同','备':'備','屏':'屏','幕':'幕','尺':'尺','寸':'寸', ' ': ' '};
+        const stMap = {}; for (const t in tsMap) { stMap[tsMap[t]] = t; }
+        function toSimp(t) { if(!t) return ""; let r=""; for(let i=0;i<t.length;i++) { r += stMap[t[i]]||t[i]; } return r; }
+        function toTrad(t) { if(!t) return ""; let r=""; for(let i=0;i<t.length;i++) { r += tsMap[t[i]]||t[i]; } return r; }
+
+        // --- DOMContentLoaded ---
         document.addEventListener('DOMContentLoaded', function() { // Start DOMContentLoaded
-            const itemsPerPage = 30;
+            const itemsPerPage = 30; // 從 Python 獲取設定
             const tabButtons = document.querySelectorAll('.tab-button');
             const contentPanes = document.querySelectorAll('.content-pane');
             const tabContainer = document.querySelector('.tab-buttons');
+            const searchInput = document.getElementById('search-input');
+            const container = document.querySelector('.container'); // 主容器，用於搜尋狀態 class
 
             // --- Tab 切換邏輯 ---
-            if (tabContainer) { // Start if(tabContainer)
-                tabContainer.addEventListener('click', function(event) { // Start addEventListener
-                    if (event.target.classList.contains('tab-button')) { // Start if(event.target)
+            if (tabContainer) {
+                tabContainer.addEventListener('click', function(event) {
+                    if (event.target.classList.contains('tab-button')) {
                         const targetCategory = event.target.getAttribute('data-category');
-
-                        // 更新按鈕狀態
                         tabButtons.forEach(button => { button.classList.remove('active'); });
                         event.target.classList.add('active');
-
-                        // 更新內容面板狀態
                         contentPanes.forEach(pane => {
-                            // Use JS template literal `${...}` - this does NOT need Python doubling
-                            if (pane.id === `pane-${targetCategory}`) {
-                                pane.classList.add('active');
-                            } else {
-                                pane.classList.remove('active');
-                            }
+                            pane.classList.toggle('active', pane.id === `pane-${targetCategory}`);
                         });
-                    } // End if(event.target)
-                }); // End addEventListener
-            } else { // Start else
-                console.error("Tab button container not found!");
-            } // End else
+                        filterItems(); // 切換 tab 時應用搜尋 (如果搜尋框有值)
+                        resetAccordionState(targetCategory); // 切換 tab 時重置 accordion
+                        updateAllPaginationButtonsVisibility(); // 切換 tab 時更新分頁按鈕狀態
+                    }
+                });
+            } else { console.error("Tab container not found!"); }
 
-            // --- 分頁邏輯 ---
-            function setupPagination(category) { // Start setupPagination
-                // Use JS template literal `${...}` - this does NOT need Python doubling
-                const pane = document.getElementById(`pane-${category}`);
-                if (!pane) return;
+            // --- Accordion 邏輯 ---
+            contentPanes.forEach(pane => {
+                pane.addEventListener('click', function(event) {
+                    const header = event.target.closest('.day-header');
+                    if (header && !event.target.closest('.load-more-button')) { // 避免點擊 "載入更多" 時觸發 accordion
+                        const targetListId = header.getAttribute('data-target');
+                        const targetList = pane.querySelector(targetListId);
+                        const dayGroup = header.parentElement;
+                        const icon = header.querySelector('.toggle-icon');
+                        if (targetList && dayGroup) {
+                            dayGroup.classList.toggle('expanded');
+                            targetList.classList.toggle('visible');
+                            if (icon) { icon.textContent = dayGroup.classList.contains('expanded') ? '-' : '+'; }
+                        }
+                    }
+                });
+            });
 
-                // Use JS template literal `${...}` - this does NOT need Python doubling
-                const button = pane.querySelector(`.load-more-button[data-category="${category}"]`);
+             // --- 按日分頁邏輯 ---
+             function setupDayPagination(listElement) {
+                 if (!listElement) return;
+                 const listId = listElement.id;
+                 const button = listElement.parentElement.querySelector(`.load-more-button.day-pagination[data-target-list="#${listId}"]`);
 
-                if (!button) { return; } // No button means no pagination needed
+                 if (!button) return; // 如果沒有按鈕 (表示該日項目 <= ITEMS_PER_PAGE)，則結束
 
-                const allItems = pane.querySelectorAll('.update-item');
-                let visibleCount = 0;
-                // Use JS arrow function {...} and if block {...} - needs doubling
-                allItems.forEach((item, index) => { if (!item.classList.contains('hidden-item')) { visibleCount++; } });
+                 const allItemsInList = listElement.querySelectorAll('.update-item');
+                 let visibleCount = 0;
+                 allItemsInList.forEach(item => { if (!item.classList.contains('hidden-item')) visibleCount++; });
 
-                // Use JS if/else blocks {...} - needs doubling
-                if (allItems.length > visibleCount) { button.style.display = 'block'; }
-                else { button.style.display = 'none'; }
+                 // 根據是否有隱藏項決定按鈕初始狀態
+                 button.style.display = (allItemsInList.length > visibleCount) ? 'block' : 'none';
 
-                button.addEventListener('click', function() { // Start button click function {...} - needs doubling
-                    let newlyShown = 0;
-                    const hiddenItems = pane.querySelectorAll('.update-item.hidden-item');
-                    // Use JS arrow function {...} and if block {...} - needs doubling
-                    hiddenItems.forEach((item) => { if (newlyShown < itemsPerPage) { item.classList.remove('hidden-item'); newlyShown++; } });
-                    // Use JS if block {...} - needs doubling
-                    if (pane.querySelectorAll('.update-item.hidden-item').length === 0) { button.style.display = 'none'; }
-                }); // End button click
-            } // End setupPagination
+                 // 為按鈕添加一次性事件監聽器 (如果之前沒有的話)
+                 if (!button.dataset.listenerAttached) {
+                      button.addEventListener('click', function() {
+                          let newlyShown = 0;
+                          const hiddenItems = listElement.querySelectorAll('.update-item.hidden-item');
+                          hiddenItems.forEach((item) => {
+                              if (newlyShown < itemsPerPage) {
+                                  item.classList.remove('hidden-item');
+                                  newlyShown++;
+                              }
+                          });
+                          // 如果沒有更多隱藏項目了，隱藏按鈕
+                          if (listElement.querySelectorAll('.update-item.hidden-item').length === 0) {
+                              button.style.display = 'none';
+                          }
+                      });
+                      button.dataset.listenerAttached = 'true'; // 標記已添加監聽器
+                 }
+             }
 
-            // 為所有可能的分類設置分頁
-            ['movie', 'tvshow', 'magazine', 'unknown'].forEach(setupPagination);
+            // --- 更新所有分頁按鈕可見性 ---
+            function updateAllPaginationButtonsVisibility() {
+                document.querySelectorAll('ul.update-list').forEach(list => {
+                    setupDayPagination(list);
+                    // 在搜尋模式下隱藏所有分頁按鈕
+                    const button = list.parentElement.querySelector(`.load-more-button.day-pagination[data-target-list="#${list.id}"]`);
+                     if (button && container.classList.contains('search-active')) {
+                         button.style.display = 'none';
+                     }
+                });
+            }
+
+
+            // --- 搜尋邏輯 ---
+            function filterItems() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                const activeTabButton = document.querySelector('.tab-button.active');
+                const activeCategory = activeTabButton ? activeTabButton.getAttribute('data-category') : null;
+
+                // 切換搜尋狀態 class
+                container.classList.toggle('search-active', searchTerm !== "");
+
+                if (!activeCategory) return; // 如果沒有 active tab，不做事
+
+                const searchTrad = toTrad(searchTerm);
+                const searchSimp = toSimp(searchTerm);
+                let visibleMonths = new Set();
+                let visibleDays = new Set();
+
+                document.querySelectorAll('.update-item').forEach(item => {
+                    const itemCategory = item.getAttribute('data-category');
+                    let isMatch = false;
+                    let isVisibleInitially = false; // 標記在搜尋前是否可見(非隱藏分頁項)
+
+                    // 只有 active tab 的項目需要判斷匹配
+                    if (itemCategory === activeCategory) {
+                         isVisibleInitially = !item.classList.contains('hidden-item'); // 記錄初始可見狀態
+
+                        if (searchTerm === "") { // 如果搜尋為空
+                            isMatch = true; // 所有項目都算匹配
+                        } else {
+                            const filename = item.getAttribute('data-filename').toLowerCase();
+                            const path = item.getAttribute('data-path').toLowerCase();
+                            let textToSearch = (itemCategory === 'magazine') ? filename : path;
+                            const targetTrad = toTrad(textToSearch);
+                            const targetSimp = toSimp(textToSearch);
+                            if ((targetTrad.includes(searchTrad) || targetTrad.includes(searchSimp)) ||
+                                (targetSimp.includes(searchTrad) || targetSimp.includes(searchSimp))) {
+                                isMatch = true;
+                            }
+                        }
+                    }
+
+                    // 控制項目顯示 (搜尋時只顯示匹配的，忽略分頁的 hidden-item)
+                    item.classList.toggle('search-hidden', !isMatch);
+
+                    // 如果匹配，記錄其父級元素
+                    if (isMatch) {
+                        const dayGroup = item.closest('.day-group');
+                        if (dayGroup) {
+                            visibleDays.add(dayGroup);
+                            const monthHeader = dayGroup.previousElementSibling;
+                            if (monthHeader && monthHeader.tagName === 'H3') { visibleMonths.add(monthHeader); }
+                            // *** 搜尋時強制展開匹配項目所在的日期 ***
+                            if (!dayGroup.classList.contains('expanded')) {
+                                dayGroup.classList.add('expanded');
+                                const list = dayGroup.querySelector('.update-list');
+                                if (list) list.classList.add('visible');
+                                const icon = dayGroup.querySelector('.toggle-icon');
+                                if (icon) icon.textContent = '-';
+                            }
+                        }
+                    }
+                });
+
+                // 控制日期和月份標題的顯示
+                document.querySelectorAll('.day-group').forEach(group => {
+                    const parentPane = group.closest('.content-pane');
+                    // 只處理 active tab 下的 group
+                    if (parentPane && parentPane.id === `pane-${activeCategory}`) {
+                        group.classList.toggle('search-hidden', !visibleDays.has(group));
+                    } else if (!parentPane || !parentPane.classList.contains('active')) {
+                         // 確保非 active pane 的 group 也是隱藏的 (雖然 pane 本身已隱藏)
+                         group.classList.add('search-hidden');
+                    }
+                });
+                 document.querySelectorAll('.tab-content h3').forEach(h3 => {
+                     const parentPane = h3.closest('.content-pane');
+                     if (parentPane && parentPane.id === `pane-${activeCategory}`) {
+                        h3.classList.toggle('search-hidden', !visibleMonths.has(h3));
+                     } else if (!parentPane || !parentPane.classList.contains('active')) {
+                          h3.classList.add('search-hidden');
+                     }
+                 });
+
+                 // 如果搜尋詞為空，重置 Accordion 狀態並更新分頁按鈕
+                 if (searchTerm === "") {
+                     resetAccordionState(activeCategory);
+                     updateAllPaginationButtonsVisibility();
+                 } else {
+                      // 搜尋時隱藏所有分頁按鈕
+                       document.querySelectorAll('.load-more-button.day-pagination').forEach(btn => btn.style.display = 'none');
+                 }
+            }
+
+            // --- 重置 Accordion 狀態函數 ---
+            function resetAccordionState(activeCategory) {
+                const latestDateStr = "2025-04-03";
+                document.querySelectorAll('.day-group').forEach(group => {
+                    const parentPane = group.closest('.content-pane');
+                    const dayHeader = group.querySelector('.day-header');
+                    const list = group.querySelector('.update-list');
+                    const icon = group.querySelector('.toggle-icon');
+
+                    if (parentPane && dayHeader && list && icon) { // 確保所有元素存在
+                        if(parentPane.id === `pane-${activeCategory}`) { // 只處理 Active Pane
+                            const listId = list.id;
+                            const dateStrFromId = listId ? listId.split('-').pop() : null;
+                            const isLatestDay = latestDateStr && dateStrFromId && dateStrFromId === latestDateStr.replace(/-/g, '');
+
+                            group.classList.toggle('expanded', isLatestDay);
+                            list.classList.toggle('visible', isLatestDay);
+                            icon.textContent = isLatestDay ? '-' : '+';
+                        } else { // 非 Active Pane 全部收合
+                            group.classList.remove('expanded');
+                            list.classList.remove('visible');
+                            icon.textContent = '+';
+                        }
+                    }
+                });
+            }
+
+            // --- 初始化 ---
+            if (searchInput) { searchInput.addEventListener('input', filterItems); }
+            // 為所有列表設置初始分頁狀態
+            updateAllPaginationButtonsVisibility();
+            // 初始化 Accordion 狀態
+            const initialActiveTabButton = document.querySelector('.tab-button.active');
+            const initialActiveCategory = initialActiveTabButton ? initialActiveTabButton.getAttribute('data-category') : null;
+            if(initialActiveCategory) { resetAccordionState(initialActiveCategory); }
 
         }); // End DOMContentLoaded
     </script>
