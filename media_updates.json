@@ -1,5 +1,25 @@
 [
     {
+        "filename": "Season 01",
+        "absolute_path": "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集\\心跳一線間 PULSE (2025)\\Season 01",
+        "relative_path": "心跳一線間 PULSE (2025)\\Season 01",
+        "timestamp": "2025-04-04T22:45:44.261136",
+        "category": "collection",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": null
+    },
+    {
+        "filename": "心跳一線間 PULSE (2025)",
+        "absolute_path": "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集\\心跳一線間 PULSE (2025)",
+        "relative_path": "心跳一線間 PULSE (2025)",
+        "timestamp": "2025-04-04T22:45:39.254147",
+        "category": "collection",
+        "tmdb_id": "247784",
+        "tmdb_url": "https://www.themoviedb.org/tv/247784",
+        "plot": "邁阿密的一家醫院裡，一群急診住院醫師必須應付緊急醫療狀況與私人恩怨，同時院內還出現了一樁引發分歧的指控。"
+    },
+    {
         "filename": "Season 02",
         "absolute_path": "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集\\SAS：叛逆英雄／叛逆勇士 SAS：Rogue Heroes (2022)\\Season 02",
         "relative_path": "SAS：叛逆英雄／叛逆勇士 SAS：Rogue Heroes (2022)\\Season 02",
