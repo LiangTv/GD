@@ -1,6 +1,26 @@
 [
     {
         "filename": "Season 01",
+        "absolute_path": "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集\\神話任務：支線挑戰／支線任務 Side Quest (2025)\\Season 01",
+        "relative_path": "神話任務：支線挑戰／支線任務 Side Quest (2025)\\Season 01",
+        "timestamp": "2025-04-04T22:52:11.145676",
+        "category": "collection",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": null
+    },
+    {
+        "filename": "神話任務：支線挑戰／支線任務 Side Quest (2025)",
+        "absolute_path": "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集\\神話任務：支線挑戰／支線任務 Side Quest (2025)",
+        "relative_path": "神話任務：支線挑戰／支線任務 Side Quest (2025)",
+        "timestamp": "2025-04-04T22:52:06.140122",
+        "category": "collection",
+        "tmdb_id": "216412",
+        "tmdb_url": "https://www.themoviedb.org/tv/216412",
+        "plot": "深入《神話任務》的宇宙，藉由四個獨立的故事，跟隨玩家、漫畫店業者、巡演交響樂團樂手，以及遊戲美術部門成員的腳步，看他們踏上尋找歸屬感、成功與愛的旅程。"
+    },
+    {
+        "filename": "Season 01",
         "absolute_path": "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集\\費城燦亮長河／長明河 Long Bright River (2025)\\Season 01",
         "relative_path": "費城燦亮長河／長明河 Long Bright River (2025)\\Season 01",
         "timestamp": "2025-04-04T22:51:19.018762",
