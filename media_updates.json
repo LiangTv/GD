@@ -1,6 +1,26 @@
 [
     {
         "filename": "Season 01",
+        "absolute_path": "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集\\極北故事／極北以北 North of North (2025)\\Season 01",
+        "relative_path": "極北故事／極北以北 North of North (2025)\\Season 01",
+        "timestamp": "2025-04-15T23:07:01.395962",
+        "category": "collection",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": null
+    },
+    {
+        "filename": "極北故事／極北以北 North of North (2025)",
+        "absolute_path": "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集\\極北故事／極北以北 North of North (2025)",
+        "relative_path": "極北故事／極北以北 North of North (2025)",
+        "timestamp": "2025-04-15T23:06:56.381259",
+        "category": "collection",
+        "tmdb_id": "249023",
+        "tmdb_url": "https://www.themoviedb.org/tv/249023",
+        "plot": "影片將在努納武特地區取景拍攝，講述一位年輕的因紐特母親想要為自己創造新未來的故事。但問題在於，在她所在的這個北極小鎮，人人都對別人的事瞭如指掌，這絕非易事。"
+    },
+    {
+        "filename": "Season 01",
         "absolute_path": "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集\\園丁 The Gardener (2025)\\Season 01",
         "relative_path": "園丁 The Gardener (2025)\\Season 01",
         "timestamp": "2025-04-15T23:06:19.240470",
