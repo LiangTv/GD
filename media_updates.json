@@ -1,5 +1,205 @@
 [
     {
+        "filename": "Season 01",
+        "absolute_path": "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集\\不良影響：小網紅大黑幕 Bad Influence：The Dark Side of Kidfluencing (2025)\\Season 01",
+        "relative_path": "不良影響：小網紅大黑幕 Bad Influence：The Dark Side of Kidfluencing (2025)\\Season 01",
+        "timestamp": "2025-04-15T23:04:17.689787",
+        "category": "collection",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": null
+    },
+    {
+        "filename": "不良影響：小網紅大黑幕 Bad Influence：The Dark Side of Kidfluencing (2025)",
+        "absolute_path": "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集\\不良影響：小網紅大黑幕 Bad Influence：The Dark Side of Kidfluencing (2025)",
+        "relative_path": "不良影響：小網紅大黑幕 Bad Influence：The Dark Side of Kidfluencing (2025)",
+        "timestamp": "2025-04-15T23:04:12.673838",
+        "category": "collection",
+        "tmdb_id": "286338",
+        "tmdb_url": "https://www.themoviedb.org/tv/286338",
+        "plot": "在這部令人大開眼界的揭秘紀錄片中，青少年和父母揭露了兒童網紅圈令人不安的虐待和剝削現象。"
+    },
+    {
+        "filename": "Moonrise.S01E05.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E05.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E05.mkv",
+        "timestamp": "2025-04-15T23:04:05.615885",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Moonrise.S01E04.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E04.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E04.mkv",
+        "timestamp": "2025-04-15T23:04:00.597837",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Moonrise.S01E02.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E02.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E02.mkv",
+        "timestamp": "2025-04-15T23:03:55.578203",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Moonrise.S01E03.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E03.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E03.mkv",
+        "timestamp": "2025-04-15T23:03:50.560487",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Moonrise.S01E01.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E01.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E01.mkv",
+        "timestamp": "2025-04-15T23:03:45.542954",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Moonrise.S01E15.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E15.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E15.mkv",
+        "timestamp": "2025-04-15T23:03:40.522446",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Moonrise.S01E14.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E14.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E14.mkv",
+        "timestamp": "2025-04-15T23:03:35.500415",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Moonrise.S01E13.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E13.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E13.mkv",
+        "timestamp": "2025-04-15T23:03:30.476783",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Moonrise.S01E12.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E12.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E12.mkv",
+        "timestamp": "2025-04-15T23:03:25.459483",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Moonrise.S01E11.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E11.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E11.mkv",
+        "timestamp": "2025-04-15T23:03:20.442933",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Moonrise.S01E10.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E10.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E10.mkv",
+        "timestamp": "2025-04-15T23:03:15.423259",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Moonrise.S01E09.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E09.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E09.mkv",
+        "timestamp": "2025-04-15T23:03:10.403329",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Moonrise.S01E08.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E08.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E08.mkv",
+        "timestamp": "2025-04-15T23:03:05.389190",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Moonrise.S01E06.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E06.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E06.mkv",
+        "timestamp": "2025-04-15T23:03:00.370678",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Moonrise.S01E07.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E07.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E07.mkv",
+        "timestamp": "2025-04-15T23:02:55.354413",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Moonrise.S01E18.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E18.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E18.mkv",
+        "timestamp": "2025-04-15T23:02:50.337171",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Moonrise.S01E17.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E17.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E17.mkv",
+        "timestamp": "2025-04-15T23:02:45.319993",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Moonrise.S01E16.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E16.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\日本\\月出之戰 ムーンライズ Moonrise (2025)\\Season 01\\Moonrise.S01E16.mkv",
+        "timestamp": "2025-04-15T23:02:40.305325",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
         "filename": "BanG.Dream.Ave.Mujica.S01E13.2025.1080p.CR.WEB-DL.x264.AAC.mkv",
         "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\日本\\頌樂人偶 BanG Dream！Ave Mujica (2025) (1)\\Season 01\\BanG.Dream.Ave.Mujica.S01E13.2025.1080p.CR.WEB-DL.x264.AAC.mkv",
         "relative_path": "LiangTsaoEmbyAnimation\\日本\\頌樂人偶 BanG Dream！Ave Mujica (2025) (1)\\Season 01\\BanG.Dream.Ave.Mujica.S01E13.2025.1080p.CR.WEB-DL.x264.AAC.mkv",
