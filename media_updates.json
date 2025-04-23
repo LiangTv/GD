@@ -1,6 +1,26 @@
 [
     {
         "filename": "Season 01",
+        "absolute_path": "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集\\蘭森峽谷 Ransom Canyon (2025)\\Season 01",
+        "relative_path": "蘭森峽谷 Ransom Canyon (2025)\\Season 01",
+        "timestamp": "2025-04-23T20:41:13.678209",
+        "category": "collection",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": null
+    },
+    {
+        "filename": "蘭森峽谷 Ransom Canyon (2025)",
+        "absolute_path": "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集\\蘭森峽谷 Ransom Canyon (2025)",
+        "relative_path": "蘭森峽谷 Ransom Canyon (2025)",
+        "timestamp": "2025-04-23T20:41:08.656949",
+        "category": "collection",
+        "tmdb_id": "240993",
+        "tmdb_url": "https://www.themoviedb.org/tv/240993",
+        "plot": "一部充滿浪漫氣息的家庭劇和當代西部傳奇故事，講述了三個牧場家庭在德克薩斯州山區廣闊的苔原和滾滾河流的背景下相互交織的生活和愛情。"
+    },
+    {
+        "filename": "Season 01",
         "absolute_path": "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集\\惡緣 악연 Karma (2025) (1)\\Season 01",
         "relative_path": "惡緣 악연 Karma (2025) (1)\\Season 01",
         "timestamp": "2025-04-23T20:40:31.467098",
