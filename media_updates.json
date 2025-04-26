@@ -1,6 +1,26 @@
 [
     {
         "filename": "Season 01",
+        "absolute_path": "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集\\阿爾卡拉斯：我的網球之道 Carlos Alcaraz：A mi manera (2025)\\Season 01",
+        "relative_path": "阿爾卡拉斯：我的網球之道 Carlos Alcaraz：A mi manera (2025)\\Season 01",
+        "timestamp": "2025-04-26T09:40:39.368209",
+        "category": "collection",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": null
+    },
+    {
+        "filename": "阿爾卡拉斯：我的網球之道 Carlos Alcaraz：A mi manera (2025)",
+        "absolute_path": "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集\\阿爾卡拉斯：我的網球之道 Carlos Alcaraz：A mi manera (2025)",
+        "relative_path": "阿爾卡拉斯：我的網球之道 Carlos Alcaraz：A mi manera (2025)",
+        "timestamp": "2025-04-26T09:40:34.346759",
+        "category": "collection",
+        "tmdb_id": "280885",
+        "tmdb_url": "https://www.themoviedb.org/tv/280885",
+        "plot": "這部紀錄片劇集跟拍卡洛斯·阿爾卡拉斯，瞭解他如何平衡輝煌網球事業帶來的壓力與 20 歲的年輕人所渴望的放鬆與自由。"
+    },
+    {
+        "filename": "Season 01",
         "absolute_path": "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集\\企鵝之謎 Secrets of the Penguins (2025)\\Season 01",
         "relative_path": "企鵝之謎 Secrets of the Penguins (2025)\\Season 01",
         "timestamp": "2025-04-26T09:40:12.201703",
