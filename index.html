@@ -1,69 +1,980 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>媒體更新列表 (最新 500 筆)</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 15px; background-color: #f8f9fa; color: #333; }
-        .container { max-width: 1200px; margin: 0 auto; }
-        h1 { text-align: center; color: #0056b3; margin-bottom: 20px; }
-        .search-container { margin-bottom: 20px; text-align: center; }
-        #search-input { padding: 8px 12px; font-size: 1em; border: 1px solid #ccc; border-radius: 4px; width: 60%; max-width: 400px; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
-        #search-input:focus { border-color: #007bff; box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); outline: none; }
-        .tab-buttons { display: flex; justify-content: center; margin-bottom: 25px; border-bottom: 2px solid #dee2e6; flex-wrap: wrap; padding: 0 10px; }
-        .tab-button { padding: 10px 15px; cursor: pointer; border: none; background-color: transparent; font-size: 1.05em; color: #007bff; margin: 0 3px 0px 3px; border-bottom: 3px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; white-space: nowrap; }
-        .tab-button:hover { color: #0056b3; }
-        .tab-button.active { color: #0056b3; font-weight: bold; border-bottom-color: #0056b3; }
-        .tab-content { }
-        .content-pane { display: none; animation: fadeIn 0.3s ease-in-out; }
-        .content-pane.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .day-group { margin-bottom: 15px; border: 1px solid #e9ecef; border-radius: 4px; background-color: #fff; overflow: hidden; }
-        .day-header { background-color: #f1f3f5; color: #495057; padding: 10px 15px; margin: 0; cursor: pointer; font-weight: bold; display: flex; align-items: center; transition: background-color 0.2s ease; }
-        .day-header:hover { background-color: #e9ecef; }
-        .toggle-icon { display: inline-block; width: 1em; margin-right: 8px; text-align: center; font-weight: bold; }
-        .update-list { list-style: none; padding: 0 15px 15px 15px; margin: 0; display: none; }
-        .update-list.visible { display: block; }
-        h3 { color: #17a2b8; margin-top: 20px; margin-bottom: 10px; border-left: 4px solid #17a2b8; padding-left: 10px; font-size: 1.3em; }
-        li.update-item { margin-bottom: 10px; padding: 10px 12px; background-color: #fff; border: none; border-bottom: 1px solid #eee; border-radius: 0; box-shadow: none; transition: background-color 0.1s ease; }
-        li.update-item:last-child { border-bottom: none; }
-        .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
-        .item-header strong { font-size: 1.05em; color: #003975; margin-bottom: 0; flex-grow: 1; margin-right: 10px; word-break: break-all; }
-        .item-time { font-size: 0.8em; color: #777; white-space: nowrap; }
-        .file-path { font-family: 'Courier New', Courier, monospace; font-size: 0.8em; color: #666; margin-bottom: 6px; word-break: break-all; }
-        blockquote { margin: 6px 0 6px 0px; padding: 6px 10px; border-left: 3px solid #007bff; background-color: #e9f5ff; color: #333; font-size: 0.85em; }
-        a { color: #007bff; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .tmdb-link { display: inline-block; margin-top: 4px; font-size: 0.85em; }
-        .update-item.hidden-item { display: none; }
-        .load-more-button.day-pagination { display: block; margin: 15px auto 5px auto; padding: 8px 16px; font-size: 0.9em; cursor: pointer; background-color: #28a745; color: white; border: none; border-radius: 4px; transition: background-color 0.2s ease; }
-        .load-more-button.day-pagination:hover { background-color: #218838; }
-        .highlight { background-color: yellow; font-weight: bold; }
-        .update-item.search-hidden { display: none !important; }
-        .day-group.search-hidden { display: none !important; }
-        h3.search-hidden { display: none !important; }
-        .search-active .load-more-button.day-pagination { display: none !important; }
-        .footer-time { margin-top: 40px; text-align: center; font-size: 0.9em; color: #888; }
-    </style>
+    <style> body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 15px; background-color: #f8f9fa; color: #333; } .container { max-width: 1200px; margin: 0 auto; } h1 { text-align: center; color: #0056b3; margin-bottom: 20px; } .search-container { margin-bottom: 20px; text-align: center; } #search-input { padding: 8px 12px; font-size: 1em; border: 1px solid #ccc; border-radius: 4px; width: 60%; max-width: 400px; transition: border-color 0.2s ease, box-shadow 0.2s ease; } #search-input:focus { border-color: #007bff; box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); outline: none; } .tab-buttons { display: flex; justify-content: center; margin-bottom: 25px; border-bottom: 2px solid #dee2e6; flex-wrap: wrap; padding: 0 10px; } .tab-button { padding: 10px 15px; cursor: pointer; border: none; background-color: transparent; font-size: 1.05em; color: #007bff; margin: 0 3px 0px 3px; border-bottom: 3px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; white-space: nowrap; } .tab-button:hover { color: #0056b3; } .tab-button.active { color: #0056b3; font-weight: bold; border-bottom-color: #0056b3; } .tab-content { } .content-pane { display: none; animation: fadeIn 0.3s ease-in-out; } .content-pane.active { display: block; } @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } } .day-group { margin-bottom: 15px; border: 1px solid #e9ecef; border-radius: 4px; background-color: #fff; overflow: hidden; } .day-header { background-color: #f1f3f5; color: #495057; padding: 10px 15px; margin: 0; cursor: pointer; font-weight: bold; display: flex; align-items: center; transition: background-color 0.2s ease; } .day-header:hover { background-color: #e9ecef; } .toggle-icon { display: inline-block; width: 1em; margin-right: 8px; text-align: center; font-weight: bold; } .update-list { list-style: none; padding: 0 15px 15px 15px; margin: 0; display: none; } .update-list.visible { display: block; } h3 { color: #17a2b8; margin-top: 20px; margin-bottom: 10px; border-left: 4px solid #17a2b8; padding-left: 10px; font-size: 1.3em; } li.update-item { margin-bottom: 10px; padding: 10px 12px; background-color: #fff; border: none; border-bottom: 1px solid #eee; border-radius: 0; box-shadow: none; transition: background-color 0.1s ease; } li.update-item:last-child { border-bottom: none; } .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; } .item-header strong { font-size: 1.05em; color: #003975; margin-bottom: 0; flex-grow: 1; margin-right: 10px; word-break: break-all; } .item-time { font-size: 0.8em; color: #777; white-space: nowrap; } .file-path { font-family: 'Courier New', Courier, monospace; font-size: 0.8em; color: #666; margin-bottom: 6px; word-break: break-all; } blockquote { margin: 6px 0 6px 0px; padding: 6px 10px; border-left: 3px solid #007bff; background-color: #e9f5ff; color: #333; font-size: 0.85em; } a { color: #007bff; text-decoration: none; } a:hover { text-decoration: underline; } .tmdb-link { display: inline-block; margin-top: 4px; font-size: 0.85em; } .update-item.hidden-item { display: none; } .load-more-button.day-pagination { display: block; margin: 15px auto 5px auto; padding: 8px 16px; font-size: 0.9em; cursor: pointer; background-color: #28a745; color: white; border: none; border-radius: 4px; transition: background-color 0.2s ease; } .load-more-button.day-pagination:hover { background-color: #218838; } .highlight { background-color: yellow; font-weight: bold; } .update-item.search-hidden { display: none !important; } .day-group.search-hidden { display: none !important; } h3.search-hidden { display: none !important; } .search-active .load-more-button.day-pagination { display: none !important; } .footer-time { margin-top: 40px; text-align: center; font-size: 0.9em; color: #888; } </style>
 </head>
-<body>
-    <div class="container">
-        <h1>媒體更新總覽 (最新 500 筆)</h1>
-        <div class="search-container">
-            <input type="search" id="search-input" placeholder="搜尋 劇集/電影/全集/動漫(依路徑) 或 雜誌(依檔名)...">
-        </div>
-        <div class="tab-buttons">
-        <button class="tab-button active" data-category="tvshow">劇集</button>
-
-        </div>
-        <div class="tab-content">
-        <div class="content-pane active" id="pane-tvshow">
+<body> <div class="container"> <h1>媒體更新總覽 (最新 500 筆)</h1> <div class="search-container"> <input type="search" id="search-input" placeholder="搜尋 劇集/電影/全集/動漫(依路徑) 或 雜誌(依檔名)..."> </div> <div class="tab-buttons">         <button class="tab-button active" data-category="tvshow">劇集</button>
+        <button class="tab-button " data-category="animation">動漫</button>
+        <button class="tab-button " data-category="magazine">雜誌</button>
+ </div> <div class="tab-content">         <div class="content-pane active" id="pane-tvshow">
             <h3>2025 年 05 月</h3>
             <div class="day-group expanded">
-                <h4 class="day-header" data-target="#list-tvshow-20250511"><span class="toggle-icon">-</span> 05 月 11 日 (Sunday)</h4>
-                <ul class="update-list visible" id="list-tvshow-20250511" data-category="tvshow">
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E04.mkv" data-category="tvshow">
+                <h4 class="day-header" data-target="#list-tvshow-20250512"><span class="toggle-icon">-</span> 05 月 12 日 (Monday)</h4>
+                <ul class="update-list visible" id="list-tvshow-20250512" data-category="tvshow">
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\日本第一的爛男人 日本一の最低男 ※私の家族はニセモノだった (2025)\Season 01\Japans.Number.One.Jerk.Salaryman.S01E04.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Japans.Number.One.Jerk.Salaryman.S01E04.mkv</strong>
+                            <span class='item-time'>00:04:42</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\日本第一的爛男人 日本一の最低男 ※私の家族はニセモノだった (2025)\Season 01\Japans.Number.One.Jerk.Salaryman.S01E04.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/278338" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>一平逐漸習慣了與正助一家共同生活，甚至開始產生或許養育孩子是件樂事的錯覺。面對這樣的一平，真壁告誡他 「不要混淆目的和手段」，並提議接下來著手開展 「社區貢獻活動」。真壁表示，無論是對自己的家庭，還是對社區里的孩子們都關懷備至，這樣的 「實績打造」 在選舉中很有必要，能夠為選舉所用。有一天，一平與日向、朝陽一同前往都經營的意大利咖啡館。工作結束后的正助也來到此處會合，一平他們享受著一家人齊聚的用餐時光。在回家的路上，一平與正助討論起一家人外出就餐的頻率，話題順勢轉到了 「兒童食堂」 上。原來，陽菜院期間，正助自己也曾得到由志願者運營的兒童食堂的幫助。從正助的講述中獲得靈感的一平，想到可以讓新聞節目對自己主辦兒童食堂的事進行專題報道，進而將這一舉措運用到自己的選舉活動中。不僅如此，爲了在電視上呈現更好的效果，他還打算拉攏在社交網路上頗具人氣、能引發話題的都，一同策劃開辦兒童食堂。與此同時，日向心中懷有 「某個煩惱」。然而，她卻無法向一平或正助傾訴……</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\日本第一的爛男人 日本一の最低男 ※私の家族はニセモノだった (2025)\Season 01\Japans.Number.One.Jerk.Salaryman.S01E05.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Japans.Number.One.Jerk.Salaryman.S01E05.mkv</strong>
+                            <span class='item-time'>00:04:32</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\日本第一的爛男人 日本一の最低男 ※私の家族はニセモノだった (2025)\Season 01\Japans.Number.One.Jerk.Salaryman.S01E05.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/278338" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>一平在與正助等人共同生活的過程中，漸漸覺得演繹家庭生活劇不再是一件痛苦的事。面對這樣的一平，真壁提醒他 「別忘了原本的目的」，一平也迴應道 「所謂的家人不過是墊腳石罷了」，然而……就在這時，正助工作的 「四片保育園」 迎來了新任園長鮫島文。鮫島表示，受少子化影響，爭奪生源的競爭愈發激烈，她宣佈要將保育園打造成受家長認可、被 「選中」 的幼兒園，併爲此進行改革。她決定引入英語教育和程式設計教育。對此，資深保育員林千鶴子呼籲解決人手不足的問題並提高工作效率，但鮫島卻充耳不聞。此前就對嚴苛工作環境心懷不滿的栗田好美等五名保育員，竟提出要集體辭職。一平將四片保育園的情況告知真壁后，真壁認為 「這不是個絕佳的機會嗎」，便提議一平以保育志願者的身份進入園內，助力保育園重整旗鼓……</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E87.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E87.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:04:22</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E87.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ji-seok discovers the shocking truth about Mr. Han, turning his quest for revenge completely upside down. While Chairwoman Shin fights for her life in the hospital after a sudden collapse, Ji-seok grapples with the ultimate betrayal. Trust is broken, perhaps beyond repair.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E88.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E88.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:04:12</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E88.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Sung-ho finds himself arrested for attempted murder after Yeo-jin's respirator is tampered with, a clear frame job orchestrated by Myung-ji. Convinced Myung-ji is also tied to Du-na's past hit-and-run, Ha-na pushes to reopen the cold case using new evidence. Just as the past resurfaces, Myung-ji confronts Ha-na, now armed with legal power over Eun-chong. Old secrets refuse to die.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E89.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E89.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:04:01</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E89.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Armed with questionable legal rights, Myung-ji forcibly takes a terrified Eun-chong away from Ha-na's protection. As Ha-na and Ji-seok race against time to free Sung-ho and expose Myung-ji's dangerous past, Myung-ji secretly plots a swift escape abroad with the boy. Every second counts before they vanish.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E90.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E90.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:03:51</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E90.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Although Myung-ji is relieved that Yeon-jin wakes up with amnesia, she also trembles that Yeo-jin remembers everything. Meanwhile, Jin-goo stops Se-young from leaving the country, and Sung-ho asks Ha-na to pretend to be Yu-jin by Yeo-jin's side, hoping it will help bring back Yeo-jin's memories.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E91.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E91.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:03:41</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E91.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>After hearing and thinking deeply about how Yeon-jin believes she is Yu-jin and is looking for her, Ha-na decides to help her recover her memories as Yu-jin. Myung-ji overhears about Ha-na's decision to help Yeo-jin and takes matters into her own hands. Meanwhile, Se-young is shocked to learn Myung-ji knew about Yu-jin being alive and even visited her at the orphanage.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E71.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E71.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:03:31</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E71.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>After accompanying Se-young to the OB-GYN, Jin-goo is touched when he hears a doctored recording of the baby's heartbeat, evoking strong feelings of fatherly responsibility and bringing him to tears. Meanwhile, Myung-ji and Se-young, wary of Ha-na's intentions and presence, visit Bang-ul to persuade her to register Se-young and Jin-goo's marriage without Jin-goo's knowledge.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E92.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E92.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:03:21</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E92.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Yeon-jin's lost memories return in a sudden terrifying rush revealing Myung-ji's deadly attempts on her life and role in Yu-jin's death. Now Yeo-jin feigns weakness playing a dangerous game to trap the woman who tore her family apart. In this house of secrets, the hunter becomes the hunted.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E70.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E70.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:03:11</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E70.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na's return as Eun-chong's live-in babysitter sets off a chain reaction. She strategically positions herself as Eun-chong's sole protector, driving a wedge between him and his family. Se-young's anxieties and Shin's desperation heighten the tension, as Ha-na's long-game revenge begins to take shape, using the boy as a pawn.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E78.2024.1080p (1).Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E78.2024.1080p (1).Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:03:01</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E78.2024.1080p (1).Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na reveals that she's the chief auditor to Yeo-jin and that she's looking to take revenge. The news about Se-young's fake pregnancy breaks out, resulting in a boycott against Hyesung Group. Meanwhile, Yeo-jin sets up an appointment to meet Richard Han to solve the issue with the Goo siblings.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E79.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E79.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:02:51</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E79.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Yeo-jin faces a devastating betrayal when she learns her husband's secret identity and his involvement in a plot to destroy her. Richard Han's hidden agenda brings past sins to light, pushing Yeo-jin to her breaking point. Who will pay the ultimate price?</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E80.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E80.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:02:41</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E80.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Jin-goo asks Yeo-jin to let Bang-ul and himself go in exchange for taking the fall for the embezzlement. Ha-na and Ji-seok fail to log into the security server, leaving them without decisive evidence against Yeo-jin. Meanwhile, Ji-seok and his people prepare a special surprise for the company's founding anniversary as it nears.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E82.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E82.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:02:31</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E82.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Chairwoman Shin Yeo-jin reels after uncovering decades of deceit, finding her trusted confidante Choi Myung-ji secretly manipulated events surrounding Yu-jin's disappearance. As Myung-ji's ruthless ambition becomes terrifyingly clear, Yeo-jin realizes her young grandson Eun-chong is now the target. The most dangerous enemy might be the one smiling beside her.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E83.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E83.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:02:21</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E83.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na is forced to confront her family's deepest wound when disgraced Chairwoman Shin begs her to save young Eun-chong from a hidden danger. Sheltering the boy means choosing him over her siblings' burning quest for vengeance against the woman who destroyed their lives. Some ties are stained by the past.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E81.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E81.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:02:11</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E81.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>After learning from the Reverend Mother about Myung-ji's past, Sung-ho tries to tell Yeo-jin but gets met with a locked door. Meanwhile, Ji-seok prepares a statement demanding Yeo-jin's resignation, and Ha-na, the head of the victim's alliance, gives a profound interview, capturing the people's attention.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E86.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E86.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:02:01</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E86.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>After putting Yeo-jin in a coma, Myung-ji pretends to be sad, shedding tears while watching her. Meanwhile, Ji-seok begins to sense something is wrong when Sung-ho doesn't return home after rushing frantically out of the house, and Ha-na believes Myung-ji and Se-young have something to do with how Du-na disappeared.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E85.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E85.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:01:51</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E85.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>When Yeo-jin refuses to get involved in Se-young's embezzlement case, leaving Myung-ji to handle it alone, Myung-ji feels deeply betrayed. Meanwhile, as Ha-na and Jin-goo's relationship takes a new turn, Eun-chong drops a shocking revelation about the juice Myung-ji used to serve him.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E84.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E84.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:01:40</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E84.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>As Chairwoman Shin reels from the intentional news leak targeting her, she begins investigating Myung-ji and a corrupt detective linked to another dark secret. While the siblings grapple with their pain, Ha-na makes a calculated move, arresting Yoon Se-young for massive embezzlement. One enemy falls, but the real battle is just beginning.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E78.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E78.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:01:30</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E78.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na reveals that she's the chief auditor to Yeo-jin and that she's looking to take revenge. The news about Se-young's fake pregnancy breaks out, resulting in a boycott against Hyesung Group. Meanwhile, Yeo-jin sets up an appointment to meet Richard Han to solve the issue with the Goo siblings.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E77.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E77.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:01:20</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E77.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Jin-goo finds Se-young unconscious, so he takes her to the hospital. As soon as she wakes up, Se-young demands Jin-goo to take responsibility for her. Myung-ji suggests Yeo-jin send Eun-chong abroad to make him grow distant from Ha-na. Yeo-jin finally realizes who the Goo siblings are on the day of the company's external audit.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E75.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E75.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:01:10</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E75.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na keeps acting and pretends to believe that Se-young is pregnant. Myung-ji installs a hacking phone to see if it's true, but Ha-na manages to fool her as well. On the day of the wedding, Ha-na reveals to Jin-goo that Se-young faked her pregnancy, leading Jin-goo to call off the wedding.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E74.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E74.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:01:00</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E74.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na battles Chairwoman Shin who destroys her family with debt and lies. She manipulates Eun-chong's adoption to expose Shin's fake pregnancy and corporate crimes. Ji-seok helps Ha-na uncover Shin's past. Will Ha-na's risky gambit shatter Shin's empire?</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E73.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E73.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:00:50</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E73.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Se-young's elaborate deception is challenged by Ha-na's relentless pursuit of the truth. Family bonds are strained, and hidden motives are exposed. The fight for Eun-chong's custody reaches a boiling point, with devastating consequences.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E76.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E76.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:00:40</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E76.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Se-young's family spirals into chaos after the wedding gets canceled. As the suspense rises, Ha-na tells Yeo-jin she'll take Eun-chong home and return in the morning. Meanwhile, Jin-goo breaks things off with Se-young, but she threatens to end her life if he leaves her.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E72.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E72.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>00:00:30</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E72.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>After receiving the anonymous text revealing Se-young's supposed infidelity, Bang-ul urges Jin-goo to break off their engagement. Se-young, desperate to salvage her relationship, insists that the message is a malicious lie meant to ruin her reputation, adamantly denying it. However, Bang-ul remains unmoved by her pleas, prompting Se-young to resort to even more drastic measures.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E66.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E66.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</strong>
+                            <span class='item-time'>00:00:20</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E66.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Upon discovering that Yeo-jin put the fake daughter scam on Ha-na, Ji-seok confronts her, sternly warning that she must not harm Ha-na. Meanwhile, Myung-ji, accompanied by Bang-ul, pays a visit to Ha-na, delivering a stark warning about the delicate engagement situation between Se-young and Jin-goo, using a compromising photo of the two as leverage. Amid the tension, Se-young thinks of a plan that could potentially salvage her engagement.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E65.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E65.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</strong>
+                            <span class='item-time'>00:00:10</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E65.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na hears from Bang-ul that Eun-chong has fallen into depression and tries to bring Eun-chong from Yeo-jin』s house. Meanwhile, Se-young asks Jin-goo about their broken engagement, and Jin-goo replies that he will take responsibility for the child but will still go through with the breakup.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E64.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E64.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</strong>
+                            <span class='item-time'>00:00:00</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E64.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Se-young, devastated by Jin-goo's unilateral announcement of their breakup without consulting her, desperately threatens to take her own life before collapsing. Meanwhile, Eun-chong, whose condition worsens rapidly after being unable to meet Ha-na, is diagnosed with depression.</blockquote>
+                    </li>
+                </ul>
+            </div>
+            <div class="day-group">
+                <h4 class="day-header" data-target="#list-tvshow-20250511"><span class="toggle-icon">+</span> 05 月 11 日 (Sunday)</h4>
+                <ul class="update-list " id="list-tvshow-20250511" data-category="tvshow">
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E63.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E63.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</strong>
+                            <span class='item-time'>23:59:50</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E63.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Yeo-jin asks Ha-na to sever ties with Eun-chong after Eun-chong expresses a desire to live with her. Meanwhile, Jin-goo seeks out Ha-na, falls to his knees, and begs for forgiveness, admitting his mistakes. However, Ha-na ignores him and walks past.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E61.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E61.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</strong>
+                            <span class='item-time'>23:59:40</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E61.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na is left reeling in disbelief upon discovering that she is not Yeo-jin's biological daughter. Confronting Yeo-jin, she demands answers, questioning why she was deceived. As the truth unravels, Ha-na desperately searches for Eun-chong, who has disappeared with Myung-ji and Se-young.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E67.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E67.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</strong>
+                            <span class='item-time'>23:59:30</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E67.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>After contemplating Ha-na's desire for him to marry Se-young, Jin-goo visits Yeo-jin. Meanwhile, Ji-seok is consumed by rage upon discovering that Yeo-jin still intends to harm Ha-na despite his previous warnings. Later, when Eun-chong arrives at Ha-na's house for a visit, Ji-seok intervenes, determined to stop him.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E60.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E60.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</strong>
+                            <span class='item-time'>23:59:20</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E60.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Doubt surrounds Ha-na's age when she vanished, forcing Jin-goo to push for a dangerous public reveal. Rivals race to expose her true identity before the world sees her as a daughter. The stage is set for a devastating confrontation.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E59.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E59.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</strong>
+                            <span class='item-time'>23:59:09</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E59.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na observes Yeo-jin's efforts to mend relationships, but a detail unsettles her. The child's age, a simple number, does not align with what she knows. The truth warps, and Ha-na knows something is fundamentally wrong.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E69.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E69.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</strong>
+                            <span class='item-time'>23:58:59</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E69.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ji Seok e Ha Na discutem a ética da vingança, especialmente em relação a Eun Chong. As tentativas de Shin Yeo Jin de controlar Ha Na se intensificam, levando-a a tomar uma decisão crucial. Enquanto isso, a saudade de Eun Chong por Ha Na se torna uma arma, testando os limites de sua conexão.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E68.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E68.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</strong>
+                            <span class='item-time'>23:58:49</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E68.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Sem entender o motivo, Eun Chong é rejeitado por Ha Na, o que o deixa chocado e o faz agir de forma violenta. Enquanto isso, com o estado de Eun Chong se agravando, Yeo Jin procura Ha Na, se desculpando e implorando para que ela se encontre com Eun Chong.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E62.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E62.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</strong>
+                            <span class='item-time'>23:58:39</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E62.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB (1).mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Jin-goo attempts to convince Yeo-jin to allow Eun-chong to rejoin Ha-na, but she remains resolutely opposed. Meanwhile, Ji-seok and Jin-goo identify potential suspects behind the anonymous letter containing the newspaper clipping that Ha-na saw. Later, Yeo-jin confronts Eun-chong, asking him whether he prefers to live with her or with Ha-na.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E58.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E58.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:58:29</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E58.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na becomes suspicious of Se-young after the home visit assessment for Eun-chong's adoption gets canceled twice. Meanwhile, Yeo-jin starts to overprotect Eun-chong and even tells Ha-na not to proceed with the adoption.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E57.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E57.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:58:19</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E57.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na uncovers the identity of Eun-chong's abductor through the hospital's CCTV footage. When Yeo-jin learns of this, she spirals into panic and rushes to get to Eun-chong. Meanwhile, as Ha-na stays by Yeo-jin's side, tending to her through the night, she overhears Yeo-jin speaking in her sleep, still revealing a deep yearning for Yu-jin.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E56.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E56.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:58:09</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E56.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>After hearing that Ha-na has started to suspect her, Ji-seok tells Se-young to be careful. Myung-ji sees her chance to get between Ha-na and Yeo-jin by telling Yeo-jin about the child abuse case she overheard. Meanwhile, Se-young overhears Ha-na requesting a surprise visit from the adoption center and tells Myung-ji about it, making her take extreme measures.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E55.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E55.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:57:59</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E55.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Discovering through Myung-ji that Ha-na is actually Yeo-jin』s fake daughter, Se-young bursts into laughter, mocking the situation and vowing revenge on Ha-na. Meanwhile, Jin-goo becomes suspicious after spotting Ji-seok and Myung-ji together in the company lobby.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E54.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E54.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:57:49</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E54.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Myung-ji, noticing Se-young』s growing anxiety over Ha-na remembering everything, urges her to stop worrying and gives her medication. Meanwhile, Ji-seok apologizes to Ha-na for his past actions and supports her in adopting Eun-chong.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E53.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E53.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:57:39</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E53.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Se-young becomes a suspect in a child abuse case and is called in for police questioning after playfully flicking Eun-chong on the forehead. Meanwhile, an angry Yeo-jin tells Myung-ji and Se-young that if they』re going to keep causing trouble like this, they should just move out.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E52.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E52.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:57:29</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E52.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Se-young hears about Ha-na and Jin-goo hiding under the table while working late at night during overtime. Meanwhile, at Yeo-jin's house, Myung-ji suggests playing Treasure Hunt with Eun-chong and entices him to find the missing photo Yeo-jin had taken, while Ji-seok visits Ji-chang and Ji-eun at the new business they just started.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E51.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E51.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:57:19</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E51.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Eun-chong burns himself with hot chocolate while searching for Yali, the cat, at Bang-ul's house, and Ha-na watches her old self on the camcorder Jin-goo had kept. Meanwhile, Jin-goo finds something suspicious about Se-young, who says she is going to a friend's bridal shower when he asks to spend time with her.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E50.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E50.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:57:09</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E50.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Jin-goo asks Yeo-jin to establish a travel department within the hotel to take responsibility for employees facing the risk of unemployment. Meanwhile, after learning that Eun-chong is Yeo-jin's grandson, Myung-ji tells Se-young to treat Eun-chong well.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E49.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E49.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:56:58</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E49.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na and Jin-goo cautiously come out of the cabinet but get caught by someone. Meanwhile, Jin-goo presents the completed shredded document as evidence to Ji-seok in an attempt to stop the sale of Hyesung Tour.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E48.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E48.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:56:48</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E48.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>After punching Ji-seok, Jin-goo sees a notice on the company's intranet that a disciplinary committee for violence in the workplace will take place. Meanwhile, Ha-na discovers evidence that could stop the disposal of Hyesung Tour inside Ji-seok's trash can. She stays late after work with Jin-goo and the team to piece it together while Se-young and Ji-seok have dinner.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E47.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E47.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:56:38</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E47.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Se-young warns Ha-na to be wary of spreading dirty rumors after she learns she took Jin-goo, who was drunk, home. Meanwhile, Ji-seok shows Se-young the article revealing the disposal of Hyesung Tour, and Se-young requests he wait one more day.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E46.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E46.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:56:28</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E46.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ji-seok sees a photo of Yeo-jin and Ha-na together, which leaves him feeling conflicted. Meanwhile, Jin-goo accidentally overhears a phone conversation and begins to suspect that Bang-ul might be working as a helper at Yeo-jin's house.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E45.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E45.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:56:18</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E45.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ji-seok learns through Jin-goo that rumors are circulating about the death of Yeo-jin's missing daughter. Meanwhile, Ji-eun sees Se-young trip Ha-na at the company cafeteria and hits Se-young on the head with a tray.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E44.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E44.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:40:26</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E44.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Myung-ji asks Detective Cho to investigate the orphanage and uncover information about Ha-na and Du-na. Meanwhile, Ji-eun and Ji-chang are invited to Yeo-jin's house and spend time together, but they receive a call informing them that their home has been broken into.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E42.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E42.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:40:16</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E42.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na confronts Se-young after seeing Eun-chong's doll Kongkong ruined and blames her, but Se-young denies it. Meanwhile, Yeo-jin becomes sad from thinking about Yu-jin during her date with Ha-na, and Ha-na wonders what could be making her feel that way. Later, Ha-na notices the picture she kept in her room is missing.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E43.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E43.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:40:06</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E43.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Seo-jin punishes Ha-na and Se-young for fighting by making them clean the entire house together. While cleaning, Se-young sees Ha-na discover Yu-jin's hat, which makes her believe Ha-na is regaining her memories, making her anxious. Meanwhile, Jin-goo gets an urgent call about a possible attempt to sell off Hyesung Tour.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E41.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E41.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:39:56</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E41.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Se-young resents Jin-goo for deceiving her, while Ha-na spends her first night at Yeo-jin's house. Meanwhile, Eun-chong, who is sleeping with Yeo-jin, wakes up in the middle of the night and, still half-asleep, accidentally enters Se-young's room instead of Ha-na's.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E40.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E40.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:39:46</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E40.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Se-young collapses and crumbles after learning Ha-na is Yu-jin. Seeing Se-young in a weak-minded state, ready to give up, Myung-ji suggests dying together. Meanwhile, Se-young tries to figure out if Ha-na remembers anything from the past, and in return, Ha-na asks if there is anything she should remember.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E39.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E39.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:39:36</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E39.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>After seeing how Eun-chong is excited about going to live with Yeo-jin, Sung-ho thinks twice about exposing the truth. However, he still heads to the hotel where he promised to meet Yeo-jin. Meanwhile, Ji-seok learns about the room Yeo-jin had secretly reserved.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E38.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E38.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:39:26</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E38.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na and Eun-chong pack their bags excitedly while they think about moving into Yeo-jin's house. Meanwhile, Se-young sees Eun-chong, who had come to play with Yali at Jin-goo's house, and she also hears that Ji-seok told Ji-eun and Ji-chang to cut ties with Ha-na.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E37.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E37.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:39:16</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E37.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na, after being slapped by Se-young, finds comfort in a basket of flowers delivered by someone. Meanwhile, upon receiving a contract termination notice from a partner company, Ha-na and Jin-goo head to the rental car office, where Jin-goo discovers a clue related to Ji-seok.</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E36.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E36.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:39:06</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E36.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ji-seok declares his intention to cut ties, leaving Ha-na shocked and Jin-goo feeling deeply regretful. Meanwhile, as Ha-na helps a drunk Ji-seok get home, they unexpectedly run into Jin-goo and Se-young. Tensions rise when Ji-seok, still under the influence, blurts out something that leaves the three of them on edge.</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E35.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E35.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:38:56</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E35.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ji-seok is shocked at learning Ha-na is Yeo-jin's biological daughter and struggles with confused emotions. While suspecting a discrepancy in Yu-jin's age at her disappearance, he tells Yeo-jin and Ha-na to retake the DNA parentage test. Meanwhile, Yeo-jin introduces herself as Ha-na's mother to her family and asks them to keep it a secret.</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E34.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E34.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:38:46</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E34.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Yeo-jin asks Myung-ji and Se-young to refrain from talking about the past in front of Yu-jin. Se-young, worried about Yu-jin, has nightmares about her, and Ha-na sees the talisman Se-young was trying to stick to her desk after spilling coffee over it. Meanwhile, Sung-ho worries deeply about Ji-seok and Ha-na when he figures out Yeo-jin's plans.</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E33.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E33.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:38:36</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E33.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na reunites with Yeo-jin in an emotional, tearful meeting after discovering that she is Yoon Yu-jin. Meanwhile, Se-young, feeling uneasy upon hearing that Yu-jin has been found, heads to the newlywed home with Ji-seok. At the same time, Jin-goo also makes his way to the newlywed home.</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E32.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E32.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:38:25</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E32.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na decides to meet Yeo-jin to conduct a paternity test. Meanwhile, Myung-ji and Se-young, who have been tailing Yeo-jin, attempt to identify the person Yeo-jin met through CCTV footage. At the same time, Danny watches from outside the store, waiting for Yeo-jin and their group to come out.</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E31.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E31.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:38:15</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E31.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Yeo-jin removes the fireplace and wooden swing that are tied to Ha-na's memories of Yu-jin. Meanwhile, Ha-na feels hurt and cries when "that person" insists on starting with a DNA test. Se-young, however, misunderstands and thinks Ha-na is crying because of Jin-goo.</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E30.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E30.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:38:05</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E30.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>發佈頁:https://link3.cc/panclub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E29.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E29.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:37:55</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E29.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>發佈頁:https://link3.cc/panclub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E28.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E28.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:37:45</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E28.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>發佈頁:https://link3.cc/panclub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E27.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E27.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:37:35</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E27.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>發佈頁:https://link3.cc/panclub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E26.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E26.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:37:25</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E26.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>發佈頁:https://link3.cc/panclub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E25.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E25.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:37:15</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E25.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>發佈頁:https://link3.cc/panclub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E24.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E24.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:37:05</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E24.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>發佈頁:https://link3.cc/panclub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E23.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E23.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:36:55</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E23.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Yeo-jin can't get the man she saw at the orphanage out of her mind and orders someone to find out if it is Sung-ho. Meanwhile at Ji-seok's house, Ji-seok and Se-young engage in a psychological battle while a sudden downpour falls on Ha-na and Jin-goo at the playground. Later, Yeo-jin gets a text message with a picture of Eun-chong.</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E22.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E22.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:36:45</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E22.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Myung-ji finds it puzzling that Yeo-jin seems surprisingly fine, despite knowing about Yu-jin』s hit-and-run death, and is unsettled by Yeo-jin』s quick recovery. Meanwhile, Yeo-jin heads to an orphanage to search for Lee Ha-na, the person depicted in Yu-jin』s painting.</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E21.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E21.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:36:35</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E21.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Jin-goo feels upset seeing Bang-ul go through so much trouble because of the duck soup she prepared for Yeo-jin. Meanwhile, after collapsing upon receiving documents from an unknown sender, Yeo-jin begins investigating Yu-jin's hit-and-run incident and sends Jin-goo to the orphanage.</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E20.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E20.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:36:25</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E20.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E19.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E19.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:36:14</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E19.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E17.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E17.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:36:04</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E17.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E18.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E18.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:35:54</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E18.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E15.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E15.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:35:44</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E15.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E16.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E16.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:35:34</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E16.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E14.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E14.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:35:24</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E14.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E13.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E13.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:35:14</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E13.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E12.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E12.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:35:04</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E12.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E11.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E11.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:34:54</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E11.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E10.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E10.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:34:44</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E10.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E09.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E09.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:34:34</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E09.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E08.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E08.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:34:24</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E08.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E07.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E07.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:34:14</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E07.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E06.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E06.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:34:03</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E06.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E04.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E04.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:33:53</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E04.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na gets adopted by Ji-seok's family and begins living a happy life with them. Meanwhile, Myung-ji sees someone unexpected at the restaurant where she had taken Yeo-jin and Se-young to have dinner, and she is horrified. Years go by and tragedy strikes Ha-na's foster parents while driving to see Ha-na perform at a piano competition.</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E05.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E05.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:33:43</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E05.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>On the day of Ha-na's piano competition 13 years ago, Ji-seok's parents died in a car accident. Feeling responsible, Ha-na gives up on her studies to look after Ji-seok, Ji-eun, and Ji-chang, while Chairwoman Shin takes everything Ji-seok's parents own. Meanwhile, Ji-seok wishes Ha-na would leave them to fend for themselves.</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E03.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E03.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:33:33</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E03.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na and Du-na become indispensable friends at the children's home, and someone comes to meet Ha-na. Meanwhile, Se-young has nightmares about Yu-jin, and Yeo-jin and Sung-ho fall into despair after learning that the search for Yu-jin was called off. They desperately search for her on their own.</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E02.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E02.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:33:23</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E02.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na is rushed to the emergency room suffering from hypothermia after enduring abuse from her adoptive parents. Meanwhile, Se-young, terrified by what happened to Yu-jin, keeps silent as instructed by Myung-ji. Elsewhere, Yeo-jin and Sung-ho receive a shocking call from the police.</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E01.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Cinderella.Game.S01E01.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>23:33:13</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E01.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Ha-na, who has been abused by her adoptive parents, encounters Jin-goo, who is suffering from heart disease, at the hospital. Meanwhile, Yu-jin and her cousin Se-young are excited about their upcoming trip to the island.</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E09.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Kiss.de.Fusaide.Barenaide.S01E09.mkv</strong>
+                            <span class='item-time'>23:33:03</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E09.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/279415" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>塩谷（藤井流星）は再會した大學時代の元戀人・ミサキ（森香澄）に當時言われた「そんなんじゃ、みんな塩谷君の元から離れていくよ」という言葉が忘れられず、ミサキと向き合えずにいた。
+「ちゃんと話してみろよ」との溝口（川島如恵留）の助言にも、「みんな溝口の方にいく…」と呟き俯く。
+さらにミサキから「もう一度付き合ってみる？」とまさかの言葉に塩谷は…！？
+
+一方、楓（紺野彩夏）は社內で噂になる塩谷とミサキの元戀人話に混亂し、悩みの理由を話してくれない塩谷に落ち込む。
+溝口は楓から「好きな人は塩谷だ」と明かされショックを隠し切れず、塩谷は「溝口といる方が楓は幸せなのかもしれない」と悩む…
+
+三人は苦悩しながら、譲れない想いに気づきはじめ物語は佳境へと突き進んでいく！</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E08.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Kiss.de.Fusaide.Barenaide.S01E08.mkv</strong>
+                            <span class='item-time'>23:32:53</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E08.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/279415" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>楓（紺野彩夏）との泊り出張を控えた溝口（川島如恵留）は、塩谷（藤井流星）からの「変なことすんなよ」という言葉に「お前みたいに間違えねえから」と言い放つ。
+
+塩谷によぎる大學時代の元戀人・夏目ミサキ（森香澄）との記憶。
+そのミサキとまさかの仕事の場で再會し、「相変わらず噓がつけないんだね」と言われ動揺する塩谷。
+
+一方楓は、出張先で溝口の見事なプレゼンに感動し、更にクライアントとの交流會でも楓のお酒を代わりに飲んでくれる姿に感謝が止まらない。
+フラフラでホテルに戻り楓に介抱された溝口は「お前の好きな奴なんか知らねぇ…もっと俺の事でいっぱいになれよ」と楓とベッドに倒れ込み…！？
+
+翌日出張から戻ると普段と様子が違う塩谷の姿が…
+
+ミサキとの過去にいったい何があったのか？
+ミサキとの衝撃の再會から少しずつ狂い始めた歯車。
+塩谷、楓、溝口、それぞれの熱い想いがあふれ出す展開から目が離せない！</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E10.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Kiss.de.Fusaide.Barenaide.S01E10.mkv</strong>
+                            <span class='item-time'>23:32:43</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E10.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/279415" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>楓（紺野彩夏）と想いを確かめ合った塩谷（藤井流星）は意を決して溝口（川島如恵留）に「佐藤さんと付き合ってる」と伝えると、溝口は驚きつつも「お前が本気で好きになるなんて思えない。俺の本気見せてやる」と言い放つ。
+
+翌日、楓を誘い出した溝口は夜道で手を引きながら、「この勝負だけは負けたくないんだ。お前をかけた」と決意表明、塩谷に宣戦佈告の2ショット寫真を送り付ける。
+「今は俺のことだけ考えて」の言葉と共に楓にかかってきた塩谷の電話を切った溝口の「俺の本気「とは？
+そして塩谷が取った予想外の行動で物語は衝撃のフィナーレを迎える…
+
+最終回、ついにバレた秘密の関係の行き先を見守って下さい！</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E07.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Kiss.de.Fusaide.Barenaide.S01E07.mkv</strong>
+                            <span class='item-time'>23:32:33</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E07.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/279415" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>総務部時代からの辛い過去を塩谷（藤井流星）がずっと見守ってくれていたと知った楓（紺野彩夏）。
+溝口（川島如恵留）から謝罪を受け、塩谷の帰宅を待ちながら盛大にビールで乾杯。いきなり溝口に抱きしめられた楓だが、酔いと疲れで二人で抱き合って眠ってしまう。
+
+仕事を終え帰宅した塩谷は二人を見て思わず溝口を引き離し、楓を起こす。
+キスで応える楓だが、塩谷はやきもち気味ですねた表情…
+後日ご褒美のスイーツバイキングに出かけ甘い時間を堪能するも、やはり塩谷は浮かない顔。
+さらに楓も、會社で塩谷のイケメンぶりがバレて大騒ぎになり、戀人だとバラせない現狀に不安を感じる。
+
+そんな中、楓は溝口との泊まりの出張が決まり塩谷に報告すると、「力づくで押さえられたらどうにもできないよ。ほら、本気で抵抗してみて」と塩谷の秘密のレッスンがはじまる……。
+愛と友情と嫉妬が渦巻く展開にドキドキが止まらない！？</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E06.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Kiss.de.Fusaide.Barenaide.S01E06.mkv</strong>
+                            <span class='item-time'>23:32:23</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E06.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/279415" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>楓（紺野彩夏）は、業務を意図的に妨害していた臼田（我妻三輪子）の真意を聞き出すため呼び出す。そこで臼田は、同期でかつて総務部で楓の先輩だった織部（佐津川愛美）を楓が退職に追いやったと迫るが、密かに一部始終を聞いていた塩谷（藤井流星）が部屋に飛び込み、「織部さんを辭めさせたのは俺です」と衝撃の告白。
+一緒にいた溝口（川島如恵留）も動揺を隠せない。
+さらに総務部時代の楓と塩谷の真実が明らかになり、楓は涙が止まらない…。
+
+全てが終わった夜、臼田の言葉を鵜呑みにして楓に辛く當たっていたことを謝罪する溝口。そしてついに、胸に秘めていた気持ちを解き放ってしまう…！？
+
+塩谷、楓、溝口、それぞれの想いが交差し、物語は新たな局面を迎える！</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E05.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Kiss.de.Fusaide.Barenaide.S01E05.mkv</strong>
+                            <span class='item-time'>23:32:12</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E05.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/279415" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>「佐藤さんの事も、食べさせて…」という塩谷（藤井流星）の甘いセリフが忘れられず、職場でもニヤニヤが漏れ出てしまう楓（紺野彩夏）。そんな楓に神妙な顔で近づいてきた溝口（川島如恵留）は「俺の家に來い」と言い放つ。
+
+驚きながら家に行くと、ルームシェアをしている塩谷も同席しており、臼田（我妻三輪子）の引継ぎ資料に明らかな不備があり、意図的に楓の仕事を妨害していると告げられる。
+會社への報告を提案する溝口に楓は、「臼田の真意を確かめないと本當の解決にはならない。會社任せじゃなく自分で話したい」と訴え、そのまっすぐさに心が揺れる溝口。
+そんな溝口を見た塩谷は「溝口が觸ったとこ、消毒しないと」と囁き、楓が觸れられた場所にキスを重ねていく……。
+
+一方、會社に向かった溝口は新たに改ざんされた契約書を目の當たりにし……。
+楓に急接近する溝口に、塩谷の想いは……。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E04.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Kiss.de.Fusaide.Barenaide.S01E04.mkv</strong>
                             <span class='item-time'>17:53:36</span>
@@ -75,7 +986,7 @@
 
 一方楓は、溝口から大學時代の塩谷が「爆モテ」で様々な女の子を「その気」にさせていたと衝撃の事実を知らされ、「勘違いするなよ」と諭される。さらに塩谷の大學時代にある女性の影が…楓の知らない塩谷の一面が明らかになっていく……。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E03.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E03.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Kiss.de.Fusaide.Barenaide.S01E03.mkv</strong>
                             <span class='item-time'>17:53:26</span>
@@ -89,7 +1000,7 @@
 
 一方で溝口は楓への誤解が解けるにつれ大きくなる、」ある思い」を感じていた……。塩谷、楓、溝口、揺れ動く三人の関係性とそれぞれの想いが交差していく……。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\淮水竹亭 Love in Pavilion (2025)\Season 01\Love.in.Pavilion.S01E28.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\淮水竹亭 Love in Pavilion (2025)\Season 01\Love.in.Pavilion.S01E28.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Love.in.Pavilion.S01E28.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
                             <span class='item-time'>17:53:24</span>
@@ -98,7 +1009,7 @@
                         <a href="https://www.themoviedb.org/tv/226270" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>珈藍失去肉身，在黑苦情樹下化身黑狐娘娘，濤濤恨意，渴望滅世。是傲來三少將她困於圈外，護住了人妖兩族。弘業意識到只有消滅黑狐才能真正拯救世間，向國主要來困於萬靈之陣中無辜者的姓名，希望找到破解之法。夜晚，弘業向秦蘭坦白自己就是面具團老大，也正是秦蘭心心念唸的面具姐夫，李去濁將秦蘭帶走為淮竹、弘業留下獨處空間，告訴她自己也是面具團成員。李去濁與秦蘭二人互贈信物，情深義重。淮竹回到神火山莊后，與父親東方初日講起在御妖國的遭遇，東方初日則舞劍回憶起與江倦雪相知相愛的種種過往，江倦雪雖已經離開世間，但東方家父女三人會永遠懷念她。面具團成員們再次齊聚破天觀，王權弘業將笑臉面具更換成淮竹為他製作的金蘭面具，而張正也加入了面具團，成為新的一員，弘業向眾人提出了消滅黑狐的新計劃。在王權醉的請求下，淮竹來到王權山莊為弘業舉辦生辰宴。弘業向淮竹解釋自己不過生辰的原因——十六歲生辰前父親王權守拙離開，自己始終思念著父親。最終，在眾人的精心安排下，弘業放下心結，度過了一個難忘的生辰。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E01.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E01.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Kiss.de.Fusaide.Barenaide.S01E01.mkv</strong>
                             <span class='item-time'>17:53:16</span>
@@ -110,7 +1021,7 @@
 その矢先、突如帰宅したのは塩谷の同期でシェアメイトの溝口だった。
 溝口だけにはバレたくない楓は、咄嗟に塩谷と一緒にクローゼットの中に身を潛めた…。憧れの先輩がこんなに近くに！密著し、思わず聲をあげてしまいそうになる楓の目前に塩谷の唇が迫る！？</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\淮水竹亭 Love in Pavilion (2025)\Season 01\Love.in.Pavilion.S01E27.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\淮水竹亭 Love in Pavilion (2025)\Season 01\Love.in.Pavilion.S01E27.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Love.in.Pavilion.S01E27.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
                             <span class='item-time'>17:53:13</span>
@@ -119,7 +1030,7 @@
                         <a href="https://www.themoviedb.org/tv/226270" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>青木媛在地宮戰鬥中，為救眾人而重傷昏迷，張正將她帶回如意樓，得知青木媛的妖毒是從自己身上轉移的，張正不惜一切代價，用靈力為青木媛療傷，並坦白自己從兩人還是同窗時就已愛上了她。最後一刻，淮竹和弘業帶回了藥草，治好了青木媛的妖毒。青木媛再次向張正表白，張正承諾將永遠陪伴她，兩人深情相吻。黑狐珈藍通過小狐貍木雕與九惑對話，言語間責怪九惑失敗。九惑回憶起與珈藍的過往，思考自己何時愛上了珈藍。珈藍曾為九惑屠龍，為九惑蕩平世間的一切阻礙，甘願與天下為敵，九惑與珈藍密不可分，渴望將她救回。弘業、淮竹與新任御妖國國主布木親王探索密室，瞭解到了御妖國的歷史和御妖符的由來，這一切都與珈藍、九惑有關——當年，北山老祖以九惑為誘餌將珈藍誆騙至此，與御妖國國王一起設下萬靈之陣，用上萬人的生命和珈藍的靈力製造御妖之力，珈藍為救九惑身死消散，御妖國國主獻祭珈藍，封印九惑。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E02.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E02.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Kiss.de.Fusaide.Barenaide.S01E02.mkv</strong>
                             <span class='item-time'>17:53:05</span>
@@ -129,7 +1040,7 @@
                         <blockquote>會社を閉め出されたことがきっかけで、憧れの先輩・塩谷大輔（藤井流星）と一夜を過ごした佐藤楓（紺野彩夏）。昨夜の出來事は現実なのか……。戸惑いながら塩谷のベッドで目覚めるが、あまりにも冷靜な塩谷を前に拍子抜けした楓は昨夜のキスを夢だと思いこむ。さらに塩谷から突然「もう佐藤さんに関わらないようにするから」と告げられ落ち込む楓。
 しかし、塩谷の家に下著を忘れていたことに気づいて意を決し回収に向かうが、またもや溝口悟（川島如恵留）が帰宅。焦る楓を見て塩谷は浴室に飛び込み、シャワーでびしょ濡れになりながら隠そうとする。「バレてないと良いんですけど……」とつぶやく楓に「溝口のこと好きなんじゃないの？」と返す塩谷。営業部の飲み會の後、介抱され急接近する溝口と楓。動き出した三人の関係から目が離せない。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\淮水竹亭 Love in Pavilion (2025)\Season 01\Love.in.Pavilion.S01E26.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\淮水竹亭 Love in Pavilion (2025)\Season 01\Love.in.Pavilion.S01E26.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Love.in.Pavilion.S01E26.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
                             <span class='item-time'>17:52:58</span>
@@ -138,7 +1049,7 @@
                         <a href="https://www.themoviedb.org/tv/226270" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>淮竹與秦蘭通過夕霧花見到了江倦雪留下的殘影，得知自己的身世之謎。江倦雪原是北山派聖女，被迫成為獻祭品用於安撫封印九惑而產生的怨靈。黑狐珈藍的靈魂碎片選擇她作為宿主，命令她前往神火山莊，生下擁有東方靈血的女兒作為自己的新容器。江倦雪卻被東方初日打動，真心與他相愛，但她自知被黑狐控制，靈魂碎片已經進入尚在腹中的女兒淮竹體內。江倦雪為保住淮竹，隻身來到御妖國，犧牲自己催生了夕霧花，希望將來能夠幫助淮竹壓制黑狐，儘管江倦雪無法陪伴女兒們長大，但她一直深愛著女兒們。眾人帶著夕霧花回到醉夢樓，遭遇御妖國國主和阿那顏的圍攻。張正及時出現，弘業以氣盟威脅，迫使國主放走他們。淮竹融合夕霧花凈化體內的黑狐之息，弘業守護在她身側。青木媛獨自等待張正，張正卻在她熟睡后才出現。九惑通過金蓮法器迴歸，將能夠召集怨靈的七星怨鐘交給阿那顏。心術不正的阿那顏殺死御妖國國主，以國主之血釋放地宮怨靈，妄圖毀滅一切。眾人合力與怨靈大戰，淮竹在戰鬥中與弘業配合，最終煉化夕霧花。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E28.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E28.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>For.Eagle.Brothers.S01E28.mkv</strong>
                             <span class='item-time'>17:52:55</span>
@@ -147,7 +1058,7 @@
                         <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>Kwang-sook decides to take ten days to think over Dong-seok's confession. Meanwhile, Eagle Brewery begins to regain stability after overcoming its recent financial crisis and gaining an export opportunity. With Heung-soo and Beom-soo on board, the Five Eagle Siblings are finally reunited under one roof.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\淮水竹亭 Love in Pavilion (2025)\Season 01\Love.in.Pavilion.S01E25.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\淮水竹亭 Love in Pavilion (2025)\Season 01\Love.in.Pavilion.S01E25.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Love.in.Pavilion.S01E25.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
                             <span class='item-time'>17:52:46</span>
@@ -156,7 +1067,7 @@
                         <a href="https://www.themoviedb.org/tv/226270" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>淮竹与弘业来到传说中的在半月湖畔，许下心愿，希望对方幸福平安，湖面奇迹般地由半月变为圆月。秦兰在李去浊的劝说下放弃打扰姐姐，两人在湖边共饮，气氛微妙。张正也下定决心，与阿那颜割席，不再受制于她的威胁。阿那颜恼羞成怒，试图用御妖符控制他，不料张妖毒已解，成功脱身。金人凤找到败走的阿那颜，催促她找到夕颜花。青木媛为救张正自己身中妖毒，却不愿让他知道真相，她将醉梦楼擂妖赛的消息告知弘业和淮竹，二人察觉到她的异常。弘业、淮竹、秦兰、李去浊参加醉梦楼的擂妖赛，需在幻境中寻找夕雾花。淮竹和弘业找到夕雾花，面临善恶审判，淮竹被认可为善，而弘业因杀戮被判定为恶，并被石化。淮竹为了唤醒弘业，进入了弘业的内心幻境，见证了他少年时的苦难，帮助他净化心灵。夕雾花被淮竹收复，将真相告知了淮竹——原来它是淮竹母亲江倦雪历尽千辛养长，并困在此处，只为了等待淮竹的到来，而夕雾花也保留了江倦雪一丝灵力。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E27.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E27.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>For.Eagle.Brothers.S01E27.mkv</strong>
                             <span class='item-time'>17:52:44</span>
@@ -165,7 +1076,7 @@
                         <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>Kwang-sook is caught off guard by Dong-seok's unexpected confession. She struggles to process his sudden honesty, but Dong-seok, undeterred by her hesitation, continues to express his feelings, leaving her flustered. Meanwhile, Dokgo Tak decides to step in front of the cameras and issue a public apology.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E26.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E26.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>For.Eagle.Brothers.S01E26.mkv</strong>
                             <span class='item-time'>17:52:34</span>
@@ -174,7 +1085,7 @@
                         <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>Determined to hold Dokgo Tak accountable, Kwang-sook heads to Silla Brewery to confront him face-to-face but leaves empty-handed. Refusing to back down, she stages a one-person protest outside the brewery. Dong-seok, unwilling to watch her struggle any longer, decides to meet with Dokgo Tak himself.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\淮水竹亭 Love in Pavilion (2025)\Season 01\Love.in.Pavilion.S01E24.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\淮水竹亭 Love in Pavilion (2025)\Season 01\Love.in.Pavilion.S01E24.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Love.in.Pavilion.S01E24.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
                             <span class='item-time'>17:52:25</span>
@@ -183,7 +1094,7 @@
                         <a href="https://www.themoviedb.org/tv/226270" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>《狐妖小紅娘竹業篇》改編自國漫頭部IP，講述了兩大家族東方家和王權家的掌舵人東方淮竹（劉詩詩 飾）、王權弘業（張雲龍 飾）因一場意外相識，許下「七月初七， 淮水竹亭」的約定，與各路夥伴一起走上重振一氣盟，共同努力安定局勢的道 路，就此展開了一段互相救贖的故事。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E25.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E25.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>For.Eagle.Brothers.S01E25.mkv</strong>
                             <span class='item-time'>17:52:24</span>
@@ -192,7 +1103,7 @@
                         <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>Eagle Brewery is on the brink of bankruptcy as the unpaid invoices pile up while the loan deadline approaches. The suspect is in police custody but refuses to confess or cooperate with the investigation. Dong-seok sends Attorney Jeong from LX's legal team to persuade the suspect to talk and discovers a shocking truth behind the incident at Eagle Brewery.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E24.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E24.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>For.Eagle.Brothers.S01E24.mkv</strong>
                             <span class='item-time'>17:52:13</span>
@@ -201,7 +1112,7 @@
                         <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>Dong-seok remembers that his acquaintance runs an orchard that uses makgeolli as fertilizer and takes Kwang-sook there to help her get rid of the returned makgeolli. The two of them enjoy their day together at the orchard without realizing that they are getting closer. Meanwhile, the police arrest the woman who sent in the false tip about Eagle Brewery, and Dokgo Tak panics when he hears about the arrest.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\淮水竹亭 Love in Pavilion (2025)\Season 01\Love.in.Pavilion.S01E23.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\淮水竹亭 Love in Pavilion (2025)\Season 01\Love.in.Pavilion.S01E23.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Love.in.Pavilion.S01E23.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
                             <span class='item-time'>17:52:03</span>
@@ -210,7 +1121,7 @@
                         <a href="https://www.themoviedb.org/tv/226270" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>醉夢樓樓主正是御妖國國師阿那顏，她爲了得到夕霧花，不惜犧牲他人的生命，預備再辦御妖擂召集更多人手，同時她命令侍衛繼續查詢弘業的下落。而這個秘密也被潛入醉夢樓的淮竹、弘業發現，二人計劃先揪出刺殺弘業的那個高手。青木媛跟蹤張正到了巖塔，質問張正的種種反常，張正冷漠不語，青木媛設計用咒符控制住他，從而問出了真相。面前的張正原名阿那然，原是張家為病弱張正買來的替身，青木媛大為震驚。真正的張正爲了讓阿那然的未來，自願服用了加速死亡的藥物，將身份讓給了張正。張正內心深受愧疚，從此他變得像苦行僧一樣生活，努力練劍，但內心深處始終無法釋懷。他承認自己對青木媛的感情，但也意識到揹負太多的自己無法與她在一起。青木媛瞭解到張正變化的原因后，承諾會幫張正保守秘密，決定幫助他擺脫過去的陰影，希望他能為自己而活 。另一邊，秦蘭和李去濁發現了阿那顏的暗探的據點，準備採取行動。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E22.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E22.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>For.Eagle.Brothers.S01E22.mkv</strong>
                             <span class='item-time'>17:52:03</span>
@@ -219,7 +1130,7 @@
                         <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>Kwang-sook and Dong-seok grow close as they enjoy reading comic books and playing cards together during their hospital stay. Without realizing it, Dong-seok's feelings for Kwang-sook grow even stronger. Meanwhile, after being discharged, Kwang-sook is left in shock by a news report about Eagle Brewery.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E21.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E21.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>For.Eagle.Brothers.S01E21.mkv</strong>
                             <span class='item-time'>17:51:53</span>
@@ -228,7 +1139,7 @@
                         <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>Ju-sil finds herself in a dilemma over the designer bag she received from Sang-nam when he demands it back. While still in denial about his feelings for Kwang-sook, Dong-seok is admitted to the hospital for a checkup. Meanwhile, Kwang-sook gets into a minor car accident while making a delivery to LX Hotel.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E20.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E20.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>For.Eagle.Brothers.S01E20.mkv</strong>
                             <span class='item-time'>17:51:42</span>
@@ -237,7 +1148,7 @@
                         <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>After discovering Sang-nam's shady plan, Dong-seok joins Kwang-sook and Sang-nam for dinner. There, he teams up with Kwang-sook to foil Sang-nam's scheme and protect her. Later, while reviewing the data from his heart monitor, Dong-seok realizes that the reason behind his racing heart was Kwang-sook.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\落花時節又逢君 Love Never Fails (2025)\Season 01\Love.Never.Fails.S01E18.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\落花時節又逢君 Love Never Fails (2025)\Season 01\Love.Never.Fails.S01E18.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Love.Never.Fails.S01E18.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
                             <span class='item-time'>17:51:42</span>
@@ -246,7 +1157,7 @@
                         <a href="https://www.themoviedb.org/tv/204160" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>紅凝與白泠尋陸玖至惡龍潭，洞玄真人實為妖所化。錦繡救紅凝入潭，經歷心魔考驗。白泠與陸瑤趕來相助，紅凝墜潭遇黑蛇認主，暗示前世關聯。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E19.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E19.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>For.Eagle.Brothers.S01E19.mkv</strong>
                             <span class='item-time'>17:51:32</span>
@@ -255,7 +1166,7 @@
                         <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>Kwang-sook hosts a celebration with the brothers to mark Chun-soo's promotion to Vice-CEO of Eagle Brewery. Meanwhile, Dong-seok visits a doctor after experiencing recurring heart palpitations and unexpectedly discovers that Sang-nam is secretly plotting to win Kwang-sook's heart with a shady scheme.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E18.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E18.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>For.Eagle.Brothers.S01E18.mkv</strong>
                             <span class='item-time'>17:51:22</span>
@@ -264,7 +1175,7 @@
                         <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>As Chun-soo joins Eagle Brewery, the team steps up makgeolli production by making nuruk, while Dokgo Tak secretly plots against the brewery. Meanwhile, Dong-seok invites Kwang-sook to a tasting for dishes to be paired with her traditional liquor at the upcoming festival, but she ends up getting drunk.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E17.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E17.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>For.Eagle.Brothers.S01E17.mkv</strong>
                             <span class='item-time'>17:51:11</span>
@@ -273,7 +1184,7 @@
                         <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>Kwang-sook rushes to the hospital after hearing that Chun-soo is unconscious from an overdose, and ends up in a holding cell following a heated confrontation with So-yeon. Meanwhile, Dong-seok comes to realize that he had misunderstood Kwang-sook and tries to make amends, but she remains cold and distant.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E16.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E16.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>For.Eagle.Brothers.S01E16.mkv</strong>
                             <span class='item-time'>17:51:01</span>
@@ -282,7 +1193,7 @@
                         <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>Kwang-sook is furious with Dong-seok for mistaking her for a gold digger, and Sang-nam throws her off once again by showing up unannounced at the brewery, insisting on a date. Meanwhile, Dokgo Tak hears that Jang-Kwang Makgeolli from Eagle Brewery has been chosen as the official drink for the festival.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E15.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E15.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>For.Eagle.Brothers.S01E15.mkv</strong>
                             <span class='item-time'>17:50:51</span>
@@ -291,7 +1202,7 @@
                         <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>Kwang-sook is worried about Chun-soo who is on the verge of divorce. Ok-bun continues to dig into Seon-ah's past and tells Kwang-sook not to let Heung-soo date her. At LX Hotel, Kwang-sook is disappointed that the hotel will also test other breweries' products for the festival, and Dong-seok sees her with a man in the hotel elevator.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E14.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E14.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>For.Eagle.Brothers.S01E14.mkv</strong>
                             <span class='item-time'>17:50:41</span>
@@ -300,7 +1211,7 @@
                         <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>Kwang-sook reluctantly goes on blind dates under pressure from Ju-sil but tries to end them quickly by making up various lies. Unaware of her situation, Dong-seok is shocked to see her meeting three different men in a single day. Meanwhile, Sang-nam, her final date, takes a liking to her and asks her out.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E13.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E13.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>For.Eagle.Brothers.S01E13.mkv</strong>
                             <span class='item-time'>17:50:31</span>
@@ -309,7 +1220,7 @@
                         <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>Eagle Brewery launches Jang-Kwang Yakju, a refined rice wine based on Jang-Kwang Makgeolli. However, as Dong-seok's misunderstanding of Kwang-sook deepens, he hesitates to choose Eagle Brewery for the upcoming festival. Meanwhile, under pressure from Ju-sil, Kwang-sook reluctantly agrees to go on blind dates.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E11.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E11.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>For.Eagle.Brothers.S01E11.mkv</strong>
                             <span class='item-time'>17:50:21</span>
@@ -318,7 +1229,7 @@
                         <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>As Kwang-sook suggested, Kang-soo moves in with her and Ju-sil at the brewery after his discharge, and she finds herself unable to refuse Ju-sil's request. Meanwhile, Ju-sil visits Dong-seok in his office with a porcelain jar as a token of gratitude, leading to more conflict between him and Kwang-sook.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E12.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E12.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>For.Eagle.Brothers.S01E12.mkv</strong>
                             <span class='item-time'>17:50:11</span>
@@ -327,7 +1238,7 @@
                         <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>So-yeon asks Chun-soo for a divorce and meets Kwang-sook at LX Hotel to demand her share of the family inheritance tied to the brewery. Dong-seok's misunderstanding of Kwang-sook deepens after he overhears her argument with So-yeon and later meets Dokgo Tak, who fuels his doubts with false rumors about her.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E10.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E10.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>For.Eagle.Brothers.S01E10.mkv</strong>
                             <span class='item-time'>17:50:01</span>
@@ -336,7 +1247,7 @@
                         <a href="https://www.themoviedb.org/tv/271890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>Dong-seok is briefed on Eagle Brewery's situation and begins to suspect Kwang-sook. Meanwhile, after securing a deal to supply makgeolli to LX Hotel, Kwang-sook appears in a TV news interview as the brewery's CEO. She also makes a significant decision for Kang-soo after his discharge from the hospital.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E09.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\老鷹五兄弟拜託了 독수리 5형제를 부탁해！ For Eagle Brothers (2025)\Season 01\For.Eagle.Brothers.S01E09.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>For.Eagle.Brothers.S01E09.mkv</strong>
                             <span class='item-time'>17:49:50</span>
@@ -3193,140 +4104,79 @@
                 <button class="load-more-button day-pagination" data-target-list="#list-tvshow-20250511" style="display: none;">顯示更多</button>
             </div>
         </div>
-
+        <div class="content-pane " id="pane-animation">
+            <h3>2025 年 05 月</h3>
+            <div class="day-group">
+                <h4 class="day-header" data-target="#list-animation-20250511"><span class="toggle-icon">+</span> 05 月 11 日 (Sunday)</h4>
+                <ul class="update-list " id="list-animation-20250511" data-category="animation">
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\歐美\無限可能：假如…？ What If...？ (2021)\Season 01\What.If.2021.S01E04.What.If.Doctor.Strange.Lost.His.Heart.Instead.of.His.Hands.1080p.DSNP.WEB-DL.DDP5.1.Atmos.H.264-FLUX.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>What.If.2021.S01E04.What.If.Doctor.Strange.Lost.His.Heart.Instead.of.His.Hands.1080p.DSNP.WEB-DL.DDP5.1.Atmos.H.264-FLUX.mkv</strong>
+                            <span class='item-time'>23:40:42</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\歐美\無限可能：假如…？ What If...？ (2021)\Season 01\What.If.2021.S01E04.What.If.Doctor.Strange.Lost.His.Heart.Instead.of.His.Hands.1080p.DSNP.WEB-DL.DDP5.1.Atmos.H.264-FLUX.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <p class="footer-time"><small>頁面最後生成時間: 2025-05-11 17:53:44</small></p>
-    </div>
-
+        <div class="content-pane " id="pane-magazine">
+            <h3>2025 年 05 月</h3>
+            <div class="day-group">
+                <h4 class="day-header" data-target="#list-magazine-20250511"><span class="toggle-icon">+</span> 05 月 11 日 (Sunday)</h4>
+                <ul class="update-list " id="list-magazine-20250511" data-category="magazine">
+                    <li class="update-item " data-filename="ABC 互動英語 2019-11 第209期 - 機場實用英語.pdf" data-path="LiangTsaoEBooks\《雜誌》\2019\201911\ABC 互動英語 2019-11 第209期 - 機場實用英語.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>ABC 互動英語 2019-11 第209期 - 機場實用英語.pdf</strong>
+                            <span class='item-time'>23:40:37</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2019\201911\ABC 互動英語 2019-11 第209期 - 機場實用英語.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                </ul>
+            </div>
+        </div>
+ </div> <p class="footer-time"><small>頁面最後生成時間: 2025-05-12 00:04:52</small></p> </div>
     <script>
         const tsMap = {'剧':'劇','集':'集','电':'電','影':'影','杂':'雜','志':'誌','时':'時','间':'間','档':'檔','案':'案','更':'更','新':'新','列':'列','表':'表','签':'簽','标':'標','题':'題','内':'內','容':'容','搜':'搜','寻':'尋','显':'顯','示':'示','隐':'隱','藏':'藏','数':'數','据':'據','库': '庫','简':'簡','繁':'繁','体':'體','字':'字','转':'轉','换':'換','优':'優','化':'化','验':'驗','证':'證','权':'權','限':'限','设':'設','置':'置','错':'錯','误':'誤','讯':'訊','息':'息','系':'系','统':'統','环':'環','境':'境','版':'版','本':'本','处':'處','理':'理','回':'回','应': '應','网':'網','页':'頁','浏':'瀏','览':'覽','器':'器','缓':'緩','存':'存','清':'清','除':'除','模':'模','块':'塊','组':'組','织':'織','结':'結','构':'構','状':'狀','态':'態','负':'負','载':'載','压':'壓','力':'力','测':'測','试':'試','性':'性','能':'能','调':'調','优':'優','部':'部', '署':'署','迭':'疊','代':'代','开':'開','发':'發','周':'週','期':'期','计':'計','划':'劃','实':'實','现':'現','功':'功','能':'能','需':'需','求':'求','规':'規','范':'範','说':'說','明':'明','书':'書','用':'用','户':'戶','体':'體','验':'驗','界':'界','面':'面','计':'計','交互':'互動', '动':'動','画':'畫','视':'視','觉':'覺','元':'元','素':'素','图':'圖','标':'標','颜':'顏','色':'色','体':'體','排':'排','版':'版','布':'佈','局':'局','响':'響','应':'應','式':'式','适':'適','配':'配','不':'不','同':'同','备':'備','屏':'屏','幕':'幕','尺':'尺','寸':'寸','全':'全','漫':'漫', ' ': ' '};
         const stMap = {}; for (const t in tsMap) { stMap[tsMap[t]] = t; }
         function toSimp(t) { if(!t) return ""; let r=""; for(let i=0;i<t.length;i++) { r += stMap[t[i]]||t[i]; } return r; }
         function toTrad(t) { if(!t) return ""; let r=""; for(let i=0;i<t.length;i++) { r += tsMap[t[i]]||t[i]; } return r; }
-
         document.addEventListener('DOMContentLoaded', function() {
             const itemsPerPage = 30;
-            const tabButtons = document.querySelectorAll('.tab-button');
-            const contentPanes = document.querySelectorAll('.content-pane');
-            const tabContainer = document.querySelector('.tab-buttons');
-            const searchInput = document.getElementById('search-input');
-            const container = document.querySelector('.container');
-            const latestDateStr = "2025-05-11";
-
-            if (tabContainer) {
-                tabContainer.addEventListener('click', function(event) {
-                    if (event.target.classList.contains('tab-button')) {
-                        const targetCategory = event.target.getAttribute('data-category');
-                        tabButtons.forEach(button => { button.classList.remove('active'); });
-                        event.target.classList.add('active');
-                        contentPanes.forEach(pane => { pane.classList.toggle('active', pane.id === `pane-${targetCategory}`); });
-                        filterItems(); resetAccordionState(targetCategory); updateAllPaginationButtonsVisibility();
-                    } });
+            const tabButtons = document.querySelectorAll('.tab-button'); const contentPanes = document.querySelectorAll('.content-pane');
+            const tabContainer = document.querySelector('.tab-buttons'); const searchInput = document.getElementById('search-input');
+            const container = document.querySelector('.container'); const latestDateStr = "2025-05-12";
+            if (tabContainer) { tabContainer.addEventListener('click', function(event) { if (event.target.classList.contains('tab-button')) {
+                const targetCategory = event.target.getAttribute('data-category'); tabButtons.forEach(button => { button.classList.remove('active'); }); event.target.classList.add('active');
+                contentPanes.forEach(pane => { pane.classList.toggle('active', pane.id === `pane-${targetCategory}`); });
+                filterItems(); resetAccordionState(targetCategory); updateAllPaginationButtonsVisibility(); } });
             } else { console.error("Tab container not found!"); }
-
-            contentPanes.forEach(pane => {
-                pane.addEventListener('click', function(event) {
-                    const header = event.target.closest('.day-header');
-                    if (header && !event.target.closest('.load-more-button')) {
-                        const targetListId = header.getAttribute('data-target');
-                        const targetList = pane.querySelector(targetListId);
-                        const dayGroup = header.parentElement;
-                        const icon = header.querySelector('.toggle-icon');
-                        if (targetList && dayGroup && icon) {
-                            dayGroup.classList.toggle('expanded'); targetList.classList.toggle('visible');
-                            icon.textContent = dayGroup.classList.contains('expanded') ? '-' : '+';
-                        } } });
-            });
-
-             function setupDayPagination(listElement) {
-                 if (!listElement) return; const listId = listElement.id;
-                 const button = listElement.parentElement.querySelector(`.load-more-button.day-pagination[data-target-list="#${listId}"]`);
-                 if (!button) { return; }
+            contentPanes.forEach(pane => { pane.addEventListener('click', function(event) {
+                const header = event.target.closest('.day-header');
+                if (header && !event.target.closest('.load-more-button')) {
+                    const targetListId = header.getAttribute('data-target'); const targetList = pane.querySelector(targetListId);
+                    const dayGroup = header.parentElement; const icon = header.querySelector('.toggle-icon');
+                    if (targetList && dayGroup && icon) { dayGroup.classList.toggle('expanded'); targetList.classList.toggle('visible'); icon.textContent = dayGroup.classList.contains('expanded') ? '-' : '+'; } } }); });
+             function setupDayPagination(listElement) { if (!listElement) return; const listId = listElement.id; const button = listElement.parentElement.querySelector(`.load-more-button.day-pagination[data-target-list="#${listId}"]`); if (!button) { return; }
                  const allItemsInList = listElement.querySelectorAll('.update-item'); let visibleCount = 0;
                  allItemsInList.forEach(item => { if (!item.classList.contains('hidden-item') && !item.classList.contains('search-hidden')) { visibleCount++; } });
                  const totalVisibleItems = Array.from(allItemsInList).filter(item => !item.classList.contains('search-hidden')).length;
                  button.style.display = (totalVisibleItems > visibleCount && !container.classList.contains('search-active')) ? 'block' : 'none';
-                 if (!button.dataset.listenerAttached) {
-                      button.addEventListener('click', function() {
-                          let newlyShown = 0;
-                          const hiddenItems = listElement.querySelectorAll('.update-item.hidden-item:not(.search-hidden)');
-                          hiddenItems.forEach((item) => { if (newlyShown < itemsPerPage) { item.classList.remove('hidden-item'); newlyShown++; } });
-                          if (listElement.querySelectorAll('.update-item.hidden-item:not(.search-hidden)').length === 0) { button.style.display = 'none'; }
-                      }); button.dataset.listenerAttached = 'true';
-                 } }
-
-            function updateAllPaginationButtonsVisibility() {
-                document.querySelectorAll('ul.update-list').forEach(list => {
-                    setupDayPagination(list);
-                    const button = list.parentElement.querySelector(`.load-more-button.day-pagination[data-target-list="#${list.id}"]`);
-                     if (button && container.classList.contains('search-active')) { button.style.display = 'none'; }
-                }); }
-
-            function filterItems() {
-                const searchTerm = searchInput.value.toLowerCase().trim();
-                const activeTabButton = document.querySelector('.tab-button.active');
-                const activeCategory = activeTabButton ? activeTabButton.getAttribute('data-category') : null;
-                container.classList.toggle('search-active', searchTerm !== "");
-                if (!activeCategory) return;
-                const searchTrad = toTrad(searchTerm); const searchSimp = toSimp(searchTerm);
-                let visibleMonths = new Set(); let visibleDays = new Set();
-                document.querySelectorAll('.update-item').forEach(item => {
-                    const itemCategory = item.getAttribute('data-category'); let isMatch = false;
-                    if (itemCategory === activeCategory) {
-                        if (searchTerm === "") { isMatch = true; }
-                        else {
-                            const filename = item.getAttribute('data-filename').toLowerCase();
-                            const path = item.getAttribute('data-path').toLowerCase();
-                            let textToSearch = (itemCategory === 'magazine') ? filename : path;
-                            const targetTrad = toTrad(textToSearch); const targetSimp = toSimp(textToSearch);
-                            if ((targetTrad.includes(searchTrad) || targetTrad.includes(searchSimp)) || (targetSimp.includes(searchTrad) || targetSimp.includes(searchSimp))) { isMatch = true; }
-                        } }
+                 if (!button.dataset.listenerAttached) { button.addEventListener('click', function() { let newlyShown = 0; const hiddenItems = listElement.querySelectorAll('.update-item.hidden-item:not(.search-hidden)'); hiddenItems.forEach((item) => { if (newlyShown < itemsPerPage) { item.classList.remove('hidden-item'); newlyShown++; } }); if (listElement.querySelectorAll('.update-item.hidden-item:not(.search-hidden)').length === 0) { button.style.display = 'none'; } }); button.dataset.listenerAttached = 'true'; } }
+            function updateAllPaginationButtonsVisibility() { document.querySelectorAll('ul.update-list').forEach(list => { setupDayPagination(list); const button = list.parentElement.querySelector(`.load-more-button.day-pagination[data-target-list="#${list.id}"]`); if (button && container.classList.contains('search-active')) { button.style.display = 'none'; } }); }
+            function filterItems() { const searchTerm = searchInput.value.toLowerCase().trim(); const activeTabButton = document.querySelector('.tab-button.active'); const activeCategory = activeTabButton ? activeTabButton.getAttribute('data-category') : null; container.classList.toggle('search-active', searchTerm !== ""); if (!activeCategory) return; const searchTrad = toTrad(searchTerm); const searchSimp = toSimp(searchTerm); let visibleMonths = new Set(); let visibleDays = new Set();
+                document.querySelectorAll('.update-item').forEach(item => { const itemCategory = item.getAttribute('data-category'); let isMatch = false;
+                    if (itemCategory === activeCategory) { if (searchTerm === "") { isMatch = true; } else { const filename = item.getAttribute('data-filename').toLowerCase(); const path = item.getAttribute('data-path').toLowerCase(); let textToSearch = (itemCategory === 'magazine') ? filename : path; const targetTrad = toTrad(textToSearch); const targetSimp = toSimp(textToSearch); if ((targetTrad.includes(searchTrad) || targetTrad.includes(searchSimp)) || (targetSimp.includes(searchTrad) || targetSimp.includes(searchSimp))) { isMatch = true; } } }
                     item.classList.toggle('search-hidden', !isMatch);
-                    if (isMatch) {
-                        const dayGroup = item.closest('.day-group');
-                        if (dayGroup) {
-                            visibleDays.add(dayGroup);
-                            const monthHeader = dayGroup.previousElementSibling;
-                            if (monthHeader && monthHeader.tagName === 'H3') { visibleMonths.add(monthHeader); }
-                            if (!dayGroup.classList.contains('expanded')) {
-                                dayGroup.classList.add('expanded');
-                                const list = dayGroup.querySelector('.update-list');
-                                if (list) list.classList.add('visible');
-                                const icon = dayGroup.querySelector('.toggle-icon');
-                                if (icon) icon.textContent = '-';
-                            } } } });
-                document.querySelectorAll('.day-group').forEach(group => {
-                     const parentPane = group.closest('.content-pane');
-                     if (parentPane && parentPane.id === `pane-${activeCategory}`) { group.classList.toggle('search-hidden', !visibleDays.has(group)); }
-                     else if (!parentPane || !parentPane.classList.contains('active')) { group.classList.add('search-hidden'); } });
-                 document.querySelectorAll('.tab-content h3').forEach(h3 => {
-                     const parentPane = h3.closest('.content-pane');
-                     if (parentPane && parentPane.id === `pane-${activeCategory}`) { h3.classList.toggle('search-hidden', !visibleMonths.has(h3)); }
-                     else if (!parentPane || !parentPane.classList.contains('active')) { h3.classList.add('search-hidden'); } });
-                 if (searchTerm === "") { resetAccordionState(activeCategory); updateAllPaginationButtonsVisibility(); }
-                 else { document.querySelectorAll('.load-more-button.day-pagination').forEach(btn => { btn.style.display = 'none'; }); }
-            }
-
-            function resetAccordionState(activeCategory) {
-                document.querySelectorAll('.day-group').forEach(group => {
-                    const parentPane = group.closest('.content-pane');
-                    const dayHeader = group.querySelector('.day-header');
-                    const list = group.querySelector('.update-list');
-                    const icon = group.querySelector('.toggle-icon');
-                    if (parentPane && dayHeader && list && icon) {
-                        if(parentPane.id === `pane-${activeCategory}`) {
-                            const listId = list.id; const dateStrFromId = listId ? listId.split('-').pop() : null;
-                            const isLatestDay = latestDateStr && dateStrFromId && dateStrFromId === latestDateStr.replace(/-/g, '');
-                            group.classList.toggle('expanded', isLatestDay); list.classList.toggle('visible', isLatestDay);
-                            icon.textContent = isLatestDay ? '-' : '+';
-                        } else { group.classList.remove('expanded'); list.classList.remove('visible'); icon.textContent = '+'; }
-                    } }); }
-
+                    if (isMatch) { const dayGroup = item.closest('.day-group'); if (dayGroup) { visibleDays.add(dayGroup); const monthHeader = dayGroup.previousElementSibling; if (monthHeader && monthHeader.tagName === 'H3') { visibleMonths.add(monthHeader); } if (!dayGroup.classList.contains('expanded')) { dayGroup.classList.add('expanded'); const list = dayGroup.querySelector('.update-list'); if (list) list.classList.add('visible'); const icon = dayGroup.querySelector('.toggle-icon'); if (icon) icon.textContent = '-'; } } } });
+                document.querySelectorAll('.day-group').forEach(group => { const parentPane = group.closest('.content-pane'); if (parentPane && parentPane.id === `pane-${activeCategory}`) { group.classList.toggle('search-hidden', !visibleDays.has(group)); } else if (!parentPane || !parentPane.classList.contains('active')) { group.classList.add('search-hidden'); } });
+                 document.querySelectorAll('.tab-content h3').forEach(h3 => { const parentPane = h3.closest('.content-pane'); if (parentPane && parentPane.id === `pane-${activeCategory}`) { h3.classList.toggle('search-hidden', !visibleMonths.has(h3)); } else if (!parentPane || !parentPane.classList.contains('active')) { h3.classList.add('search-hidden'); } });
+                 if (searchTerm === "") { resetAccordionState(activeCategory); updateAllPaginationButtonsVisibility(); } else { document.querySelectorAll('.load-more-button.day-pagination').forEach(btn => { btn.style.display = 'none'; }); } }
+            function resetAccordionState(activeCategory) { document.querySelectorAll('.day-group').forEach(group => { const parentPane = group.closest('.content-pane'); const dayHeader = group.querySelector('.day-header'); const list = group.querySelector('.update-list'); const icon = group.querySelector('.toggle-icon');
+                if (parentPane && dayHeader && list && icon) { if(parentPane.id === `pane-${activeCategory}`) { const listId = list.id; const dateStrFromId = listId ? listId.split('-').pop() : null; const isLatestDay = latestDateStr && dateStrFromId && dateStrFromId === latestDateStr.replace(/-/g, ''); group.classList.toggle('expanded', isLatestDay); list.classList.toggle('visible', isLatestDay); icon.textContent = isLatestDay ? '-' : '+'; } else { group.classList.remove('expanded'); list.classList.remove('visible'); icon.textContent = '+'; } } }); }
             if (searchInput) { searchInput.addEventListener('input', filterItems); }
-            updateAllPaginationButtonsVisibility();
-            const initialActiveTabButton = document.querySelector('.tab-button.active');
-            const initialActiveCategory = initialActiveTabButton ? initialActiveTabButton.getAttribute('data-category') : null;
-            if(initialActiveCategory) { resetAccordionState(initialActiveCategory); }
+            updateAllPaginationButtonsVisibility(); const initialActiveTabButton = document.querySelector('.tab-button.active'); const initialActiveCategory = initialActiveTabButton ? initialActiveTabButton.getAttribute('data-category') : null; if(initialActiveCategory) { resetAccordionState(initialActiveCategory); }
         });
     </script>
 </body>
