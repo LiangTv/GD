@@ -6,11 +6,192 @@
     <style> body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 15px; background-color: #f8f9fa; color: #333; } .container { max-width: 1200px; margin: 0 auto; } h1 { text-align: center; color: #0056b3; margin-bottom: 20px; } .search-container { margin-bottom: 20px; text-align: center; } #search-input { padding: 8px 12px; font-size: 1em; border: 1px solid #ccc; border-radius: 4px; width: 60%; max-width: 400px; transition: border-color 0.2s ease, box-shadow 0.2s ease; } #search-input:focus { border-color: #007bff; box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); outline: none; } .tab-buttons { display: flex; justify-content: center; margin-bottom: 25px; border-bottom: 2px solid #dee2e6; flex-wrap: wrap; padding: 0 10px; } .tab-button { padding: 10px 15px; cursor: pointer; border: none; background-color: transparent; font-size: 1.05em; color: #007bff; margin: 0 3px 0px 3px; border-bottom: 3px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; white-space: nowrap; } .tab-button:hover { color: #0056b3; } .tab-button.active { color: #0056b3; font-weight: bold; border-bottom-color: #0056b3; } .tab-content { } .content-pane { display: none; animation: fadeIn 0.3s ease-in-out; } .content-pane.active { display: block; } @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } } .day-group { margin-bottom: 15px; border: 1px solid #e9ecef; border-radius: 4px; background-color: #fff; overflow: hidden; } .day-header { background-color: #f1f3f5; color: #495057; padding: 10px 15px; margin: 0; cursor: pointer; font-weight: bold; display: flex; align-items: center; transition: background-color 0.2s ease; } .day-header:hover { background-color: #e9ecef; } .toggle-icon { display: inline-block; width: 1em; margin-right: 8px; text-align: center; font-weight: bold; } .update-list { list-style: none; padding: 0 15px 15px 15px; margin: 0; display: none; } .update-list.visible { display: block; } h3 { color: #17a2b8; margin-top: 20px; margin-bottom: 10px; border-left: 4px solid #17a2b8; padding-left: 10px; font-size: 1.3em; } li.update-item { margin-bottom: 10px; padding: 10px 12px; background-color: #fff; border: none; border-bottom: 1px solid #eee; border-radius: 0; box-shadow: none; transition: background-color 0.1s ease; } li.update-item:last-child { border-bottom: none; } .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; } .item-header strong { font-size: 1.05em; color: #003975; margin-bottom: 0; flex-grow: 1; margin-right: 10px; word-break: break-all; } .item-time { font-size: 0.8em; color: #777; white-space: nowrap; } .file-path { font-family: 'Courier New', Courier, monospace; font-size: 0.8em; color: #666; margin-bottom: 6px; word-break: break-all; } blockquote { margin: 6px 0 6px 0px; padding: 6px 10px; border-left: 3px solid #007bff; background-color: #e9f5ff; color: #333; font-size: 0.85em; } a { color: #007bff; text-decoration: none; } a:hover { text-decoration: underline; } .tmdb-link { display: inline-block; margin-top: 4px; font-size: 0.85em; } .update-item.hidden-item { display: none; } .load-more-button.day-pagination { display: block; margin: 15px auto 5px auto; padding: 8px 16px; font-size: 0.9em; cursor: pointer; background-color: #28a745; color: white; border: none; border-radius: 4px; transition: background-color 0.2s ease; } .load-more-button.day-pagination:hover { background-color: #218838; } .highlight { background-color: yellow; font-weight: bold; } .update-item.search-hidden { display: none !important; } .day-group.search-hidden { display: none !important; } h3.search-hidden { display: none !important; } .search-active .load-more-button.day-pagination { display: none !important; } .footer-time { margin-top: 40px; text-align: center; font-size: 0.9em; color: #888; } </style>
 </head>
 <body> <div class="container"> <h1>媒體更新總覽 (最新 500 筆)</h1> <div class="search-container"> <input type="search" id="search-input" placeholder="搜尋 劇集/電影/全集/動漫(依路徑) 或 雜誌(依檔名)..."> </div> <div class="tab-buttons">         <button class="tab-button active" data-category="tvshow">劇集</button>
+        <button class="tab-button " data-category="magazine">雜誌</button>
  </div> <div class="tab-content">         <div class="content-pane active" id="pane-tvshow">
             <h3>2025 年 05 月</h3>
             <div class="day-group expanded">
                 <h4 class="day-header" data-target="#list-tvshow-20250512"><span class="toggle-icon">-</span> 05 月 12 日 (Monday)</h4>
                 <ul class="update-list visible" id="list-tvshow-20250512" data-category="tvshow">
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E01.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E01.mkv</strong>
+                            <span class='item-time'>02:06:55</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E01.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/287339" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>詩穗是一名 「全職主婦」，和溫柔開朗、作為居酒屋店長每天工作到很晚的丈夫虎朗，以及可愛的女兒小莓一起生活。由於過去的一段經歷，她覺得 「自己無法同時做好兩件事」，於是主動選擇了成為全職主婦這條路。然而，每天除了和小莓相處之外別無其他社交的日子，也讓她感到有些寂寞。有一天，詩穗帶著小莓一起參加了育兒支援中心舉辦的 「手工遊戲教室」 活動。主動熱情地和有些因許久未與家人以外的人接觸而有些畏縮的詩穗搭話的，是一位爲了兼顧育兒和工作而充滿幹勁的媽媽禮子。但是，禮子一得知詩穗是全職主婦，就像對待其他媽媽朋友那樣，把詩穗當作 「跟不上時代潮流、瀕臨滅絕的物種」 來對待……而且在那之後，搬到詩穗所住公寓隔壁房間的人竟然是禮子！ 一段無比尷尬的鄰里生活就此開始了。此外，出現在詩穗面前的，有宣揚著完美育兒計劃的 「休育兒假的爸爸」 中谷，還有在各種不同境遇中為家務和工作而奮鬥的人們。與這些原本以為和自己毫無關係的 「彼岸之人」 的相遇，拉開了詩穗波瀾起伏的生活的帷幕！</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E06.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E06.mkv</strong>
+                            <span class='item-time'>02:06:45</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E06.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/287339" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>詩穗家收到了一封寫著 「像你這樣的全職主婦就是個累贅」 的信。不小心拆開了信的禮子，出於為詩穗著想，決定把這件事藏在自己心裡。在這樣的情況下，詩穗被中谷帶去霞關的厚生勞動省，接受一個旨在為結婚、生育、護理以及兼顧工作和復職提供支援的 「重返職場專案」 的訪談。一位致力於推動雙職工模式的工作人員對詩穗說：「明明有一技之長卻不復職，真是太可惜了。」 這讓詩穗開始思考，從為社會做貢獻的角度來說，自己是不是還是重返職場比較好。另一方面，禮子正在尋找能在公司內部舉辦的演講會上登臺的人，她把公司里成為 「榜樣」 的人選，鎖定為在營業部時期自己一直仰慕的前輩、公司里第一位成為女性管理職位的陽子，並向她發出了邀請，然而……</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E05.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E05.mkv</strong>
+                            <span class='item-time'>02:06:34</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E05.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/287339" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>中谷幹勁十足地想讓佳戀學習新東西，在他的邀請下，詩穗和莓前往英語體驗課堂。詩穗覺得 「日語還說得不利索，現在學英語太早了！」 興致缺缺，但中谷卻表示 「『體驗』是父母給予孩子的武器」，並講述了為什麼要讓孩子從幼時起就儘可能多地去嘗試各種事情。有一天，在禮子的邀請下，長野一家和村上一家決定去露營。回國的中谷妻子樹裡帶著佳戀也加入其中，三個家庭意外大集合！大家各自享受燒烤時，禮子看到平時在家不幫忙做家務的丈夫量平在外面卻手腳麻利地幹活，心裡不是滋味…… 而詩穗看到莓和平時難得接觸的同齡孩子們一起玩耍，學會新詞語，玩得很開心，不禁將過去的自己與之重疊，開始苦惱是不是因為自己作為全職主婦，每天只和莓兩人相處，才剝奪了莓 「體驗」 新事物的機會。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E04.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E04.mkv</strong>
+                            <span class='item-time'>02:06:23</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E04.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/287339" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>莓身體不舒服，詩穗前往主治醫生所在的蔦村醫院。在前臺迎接他們的年輕醫生的妻子晶子曾是一名保育員，結婚後便辭職了。她總是面帶笑容，很會照顧人，不僅是莓和詩穗，還受到很多患者的喜愛。在大先生住院，年輕醫生忙著兼顧兒科和內科事務的蔦村醫院裡，老病號們一直以來最關心的就是醫院的 「接班人」 問題。這天，晶子也在不知不覺中因患者那句 「要是有了孫子，大先生也會恢復精神的」 這種並無惡意的 「催生壓力」 而感到苦惱。就在這時，詩穗在附近的女士診所偶然遇到了晶子，並傾聽了晶子內心的痛苦。另一方面，在村上家，詩穗和虎朗在談論彼此父母的過程中吵了起來。隨後，詩穗開始回憶起已經去世的自己的母親……</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E03.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E03.mkv</strong>
+                            <span class='item-time'>02:06:12</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E03.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/287339" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>禮子的女兒星夏得了腮腺炎，禮子因無法請假，便拜託詩穂照顧星夏。詩穂看著莓和星夏一起愉快玩耍的樣子，心裡暖融融的，開心地度過了一天。然而，中谷聽聞此事後，告誡詩穂 「既然是照顧別人的女兒，就應該收取相應的報酬」，詩穂被這意想不到的話驚到了。另一方面，禮子向公司提出想請幾天假照顧星夏。禮子一直擔心總是幫自己分擔工作的今井會不高興，但沒想到今井爽快地答應了接手禮子的工作。幾天後，禮子順利回到了公司，然而這時，她的長子篤正又得了腮腺炎……</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E02.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E02.mkv</strong>
+                            <span class='item-time'>02:06:01</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E02.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/287339" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>詩穗因為對被家務和工作逼得喘不過氣的禮子給予了關懷陪伴，兩人雖然立場不同，但成爲了能夠互相傾訴煩惱的媽媽朋友。就在這時，詩穗在公園遇到了厚生勞動省的一名官僚中谷，他正在休為期兩年的育兒假。詩穗一開始因為有了第一個和自己女兒莓年齡相仿的爸爸朋友而感到高興。然而，中谷對自己的育兒計劃充滿自信，還反覆對詩穗說出諸如 「全職主婦這種生活太奢侈了」「你丈夫真可憐」 這樣帶有輕視意味的話。與因為能和中谷的女兒佳戀成為朋友而開心的莓相反，詩穗覺得無法和中谷友好相處，心中一直悶悶不樂。即便把中谷的那些讓人不快的言行說給坂上女士聽，詩穗的愁緒還是無法消散。可是毫不知情的中谷，卻帶著詩穗和莓去了水族館……</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E02.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E02.mkv</strong>
+                            <span class='item-time'>02:05:50</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E02.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/287341" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>每天在相同的時間，能夠與棗生活的世界交融，並一起度過幾分鐘的干太，將這種現象命名為 「融合」。另一方面，距離棗在酒店與 「山君」 見面只剩 3 天了。對方會是同事田村、上司守谷，還是遊戲廳店長丸山呢 —— 干太始終無法消除對深愛的棗出軌的疑慮，就這樣煩悶地度日。那時，在沒有干太的世界中生活的棗，爲了填補干太離職后工作上留下的空缺，似乎覺得無需顧及周圍人的感受，表現得十分堅強。然而，在公司整理干太的辦公桌時，棗在抽屜深處發現了大量自己寫給干太的便籤。原來干太一直小心翼翼地保管著棗寫給他的便籤。與干太的回憶涌上心頭，棗難以抑制情緒，下班后在順路去的遊戲廳里喝得爛醉。那天晚上，與棗世界 「融合」 的干太，在雜亂的房間里看到醉倒沉睡的棗，感到十分震驚。而且，堆積如山的待洗衣物中，不知為何有男性的內褲。此外，桌子上還留著一張寫有 「鑰匙放在信箱裡哦」 的便籤，干太由此察覺到 「山君」 來過房間……</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E01.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E01.mkv</strong>
+                            <span class='item-time'>02:05:40</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E01.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/287341" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>在廣告製作公司工作的並川干太和棗，無論是在工作上還是生活中都是相互支援的搭檔，是人人都羨慕的關係很好的夫妻。然而，兩人相識 5 年，結婚也已經 3 年了，棗對干太那甚至可以說是過度的溺愛，暗自抱有不滿。對於妻子內心的這種想法毫無察覺的干太，有一天，看到了棗手機上收到的來自一個叫 「山君」 的人的資訊。資訊內容是，在自己因外出拍攝工作而晚歸的日子裡，兩人約好在酒店見面。一直以為夫妻關係美滿的干太，受到了巨大的衝擊，懷疑棗可能在出軌。第二天，干太被棗避開了每天早上慣例的 「出門前的親吻」，他終於無法再保持內心的平靜，決定向棗確認事實真相。然而就在這時，先出門的棗遭遇了交通事故，不幸喪命。那天晚上，面對如此突如其來的變故，被獨自留下的干太茫然若失。在充滿了夫妻幸福回憶的房間里，他流下了眼淚，而就在時鐘指向 11 點 22 分的瞬間，房間被一道神秘的光芒籠罩，本應已經死去的棗出現在了他的眼前。而且，據重逢后的棗所說，在交通事故中死去的人竟然是干太……</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E06.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E06.mkv</strong>
+                            <span class='item-time'>02:05:29</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E06.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/287341" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>從 「兩個世界的偏差」 中獲得與犯人有關線索的干太，拜託身為刑警的實獲取公寓的監控錄像。實表示 「警方已經調查過了」，但干太爲了找到鎖定犯人的關鍵證據，無論如何都想親自確認。爲了支援干太的這份熱情，廣告公司的成員們 —— 身為 「影像專業人士」 的守谷和田村也加入了調查。眾人通宵達旦仔細檢視錄像。到了清晨，因長時間耐心工作而疲憊不堪的干太，發現錄像存在被剪輯過的痕跡。由此成功鎖定了篡改錄像的人 —— 也就是犯人。在干太所在的世界裡，被逮捕的犯人在接受實的審訊時，說出了出人意料的犯罪動機。另一方面，接到干太報告的棗立刻聯繫了自己世界裡的實，請求對方重新調查監控錄像。在棗的世界裡，犯人也被鎖定，警方準備實施逮捕，然而察覺到情況的犯人選擇了逃跑。最後，犯人闖入並川家，拿起房間里的菜刀，企圖將棗作為人質。但此時剛好是晚上 11 點 22 分。由於夫婦二人在這個時空重合，犯人見到本以為已經被自己殺害的干太，頓時陷入了恐慌……</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E05.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E05.mkv</strong>
+                            <span class='item-time'>02:05:19</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E05.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/287341" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>儘管棗曾一度選擇與干太分開，但在得知有人企圖取他們性命后，爲了彼此相救，她決定再次與干太聯手。此外，根據實的說法，事故當天早上，兇手很可能在現場埋伏，若真是如此，兇手必然掌握了兩人當天的行程安排。因為干太和棗會根據目的地不同，選擇乘坐兩個不同的車站，進而決定在 Y 字路口向左還是向右行進。得知此事的干太立刻請守谷和田村幫忙，在事故現場附近發放收集目擊情報的傳單。公寓管理員服部也前來獻花，兩人對他的暖心舉動心懷感激。當晚，干太出門扔垃圾時，再次看到一個身穿黑衣的人在公寓附近徘徊。他慌忙追趕，卻在差一步之遙時被對方逃脫，干太隨即向實報告了此事。然而，在棗已離世的世界線中，實依舊行動遲緩，心急如焚的干太決定採取 「某個禁忌的手段」。與此同時，無論是黑衣人的存在，還是實的狀態，干太和棗都察覺到兩個平行世界中出現了奇妙的偏差，而他們對另一個人的行動也產生了強烈的違和感……</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E04.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E04.mkv</strong>
+                            <span class='item-time'>02:05:09</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E04.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/287341" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>棗從伯父實那裡得知，撞傷干太后逃逸的車輛是被盜車輛，而且這起事件存在因仇殺而導致的可能性，她察覺到自己和生活在另一個世界的干太正面臨著生命危險。然而，如果把這件事告訴干太，他很可能會情緒失控。棗認為最好不要輕易刺激犯人，於是決定先瞞著干太一段時間，自己一個人去調檢視看。話雖如此，棗對懷有他們夫婦仇恨的人完全沒有頭緒，她只好向實尋求調查上的幫助，也不得不向公司的同事們說明情況。守谷等人對干太可能樹敵這件事掩飾不住驚訝之情，但還是按照棗的請求，配合她對干太的人際關係和工作情況進行了詢問。另一方面，干太對自己正被人盯上一事毫不知情，他回想著棗說過的話，猛然意識到自己不知不覺間一直在 「管控」 著妻子。然後，在回到家的公寓前，干太注意到有個穿著黑色衣服的不明身份的人站在那裡。幾乎同一時間，棗也在公寓前感覺到身後似乎有什麼人的氣息。她強忍著恐懼好不容易走到房間並打開門，可就在下一瞬間，被那個穿黑衣服的人從背後襲擊了……</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E03.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E03.mkv</strong>
+                            <span class='item-time'>02:04:59</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E03.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/287341" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>在週六晚上，棗和 「山君」 約好在酒店見面，干太不祥的預感應驗了，棗即使到了預定的聚會時間也沒有回來。干太在不知道對方是誰的情況下，焦急感愈發強烈。那時，棗正在孃家享用母親楓精心烹製的家常菜。另一方面，恰恰是被幹太懷疑出軌這件事成了導火索，棗意識到在三年的婚姻生活中，自己一直刻意迴避了對干太抱有的那種違和感，也就是 「夫妻之間觀念上的差異」，並開始為今後夫妻關係的走向而苦惱。就在這時，擔心著棗複雜心境的丸山，抑制不住內心的愛慕之情，情緒失控了。而在干太這邊，心煩意亂坐立不安的干太來到了遊戲酒吧，想要向丸山詢問他和棗之間的關係。就在這時，莉子來了，丸山點了一款據說 「是棗從以前就很喜歡的」 雞尾酒。干太被 「從以前」 這個詞吸引，不由自主地追問丸山是從什麼時候開始認識棗的，沒想到丸山口中說出了意想不到的話。在這樣的情況下，棗身為刑警的伯父實，獨自在對干太的意外死亡進行調查，他發現了一些接近死亡真相的線索……</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\親愛的仇敵 Dear Enemy (2025)\Season 01\Dear.Enemy.S01E01 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Dear.Enemy.S01E01 - 4K.mp4</strong>
+                            <span class='item-time'>02:04:48</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\親愛的仇敵 Dear Enemy (2025)\Season 01\Dear.Enemy.S01E01 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/256888" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>講述羅曼和陳凱西，兩位曾經起點相似、旗鼓相當的閨蜜，在畢業數年後重逢，境遇卻大相逕庭。小有名氣的編劇羅曼不滿足事業上的成就，希望通過婚姻實現人生躍升，與陳凱西平起平坐；豪門闊太陳凱西面對羅曼的揶揄挖苦，雖有所反擊，但她深陷婚姻泥潭，挽回愛情與婚姻更迫在眉睫。在兩人暗潮洶涌之時，年輕貌美的鐘傾城成爲了兩人較量中的關鍵人物......</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\親愛的仇敵 Dear Enemy (2025)\Season 01\Dear.Enemy.S01E03 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Dear.Enemy.S01E03 - 4K.mp4</strong>
+                            <span class='item-time'>02:04:37</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\親愛的仇敵 Dear Enemy (2025)\Season 01\Dear.Enemy.S01E03 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/256888" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>講述羅曼和陳凱西，兩位曾經起點相似、旗鼓相當的閨蜜，在畢業數年後重逢，境遇卻大相逕庭。小有名氣的編劇羅曼不滿足事業上的成就，希望通過婚姻實現人生躍升，與陳凱西平起平坐；豪門闊太陳凱西面對羅曼的揶揄挖苦，雖有所反擊，但她深陷婚姻泥潭，挽回愛情與婚姻更迫在眉睫。在兩人暗潮洶涌之時，年輕貌美的鐘傾城成爲了兩人較量中的關鍵人物......</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\親愛的仇敵 Dear Enemy (2025)\Season 01\Dear.Enemy.S01E02 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Dear.Enemy.S01E02 - 4K.mp4</strong>
+                            <span class='item-time'>02:04:27</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\親愛的仇敵 Dear Enemy (2025)\Season 01\Dear.Enemy.S01E02 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/256888" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>講述羅曼和陳凱西，兩位曾經起點相似、旗鼓相當的閨蜜，在畢業數年後重逢，境遇卻大相逕庭。小有名氣的編劇羅曼不滿足事業上的成就，希望通過婚姻實現人生躍升，與陳凱西平起平坐；豪門闊太陳凱西面對羅曼的揶揄挖苦，雖有所反擊，但她深陷婚姻泥潭，挽回愛情與婚姻更迫在眉睫。在兩人暗潮洶涌之時，年輕貌美的鐘傾城成爲了兩人較量中的關鍵人物......</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\親愛的仇敵 Dear Enemy (2025)\Season 01\Dear.Enemy.S01E04 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Dear.Enemy.S01E04 - 4K.mp4</strong>
+                            <span class='item-time'>02:04:16</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\親愛的仇敵 Dear Enemy (2025)\Season 01\Dear.Enemy.S01E04 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/256888" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>講述羅曼和陳凱西，兩位曾經起點相似、旗鼓相當的閨蜜，在畢業數年後重逢，境遇卻大相逕庭。小有名氣的編劇羅曼不滿足事業上的成就，希望通過婚姻實現人生躍升，與陳凱西平起平坐；豪門闊太陳凱西面對羅曼的揶揄挖苦，雖有所反擊，但她深陷婚姻泥潭，挽回愛情與婚姻更迫在眉睫。在兩人暗潮洶涌之時，年輕貌美的鐘傾城成爲了兩人較量中的關鍵人物......</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\青春之春／四季之春 사계의 봄 Spring of Youth (2025)\Season 01\Spring.of.Youth.S01E01.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Spring.of.Youth.S01E01.mkv</strong>
+                            <span class='item-time'>02:04:06</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\青春之春／四季之春 사계의 봄 Spring of Youth (2025)\Season 01\Spring.of.Youth.S01E01.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/280016" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>A drunken accident takes Sa-gye — the leader of a chart-topping band — from the stage to a university campus, where he meets the girl of his destiny.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成功路上 Love Leads to the Success (2025)\Season 01\Love.Leads.to.the.Success.S01E02.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Love.Leads.to.the.Success.S01E02.mkv</strong>
+                            <span class='item-time'>02:03:55</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成功路上 Love Leads to the Success (2025)\Season 01\Love.Leads.to.the.Success.S01E02.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/271911" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>建中回到 1989 年，目睹了父母的情感波折與家族事業危機。他憑藉對未來的瞭解，替父親解危，試圖阻止命運悲劇重演。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成功路上 Love Leads to the Success (2025)\Season 01\Love.Leads.to.the.Success.S01E01.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Love.Leads.to.the.Success.S01E01.mkv</strong>
+                            <span class='item-time'>02:03:43</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成功路上 Love Leads to the Success (2025)\Season 01\Love.Leads.to.the.Success.S01E01.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/271911" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>2012 年，建中在夜市打拼，夢想著發財，卻因一場混亂意外穿越回 1989 年，決心改寫家庭命運、重寫自己的人生。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E01.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Apple.of.My.Eye.S01E01.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
+                            <span class='item-time'>02:03:32</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E01.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/221934" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>以金子和領養的兒子玉的未來為中心，講述了一家人帶著孩子成長的愉快而心酸的故事。</blockquote>
+                    </li>
                     <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E02.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Apple.of.My.Eye.S01E02.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
@@ -101,7 +282,7 @@
                         <a href="https://www.themoviedb.org/tv/221934" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>以金子和領養的兒子玉的未來為中心，講述了一家人帶著孩子成長的愉快而心酸的故事。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E11.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E11.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Apple.of.My.Eye.S01E11.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
                             <span class='item-time'>02:01:36</span>
@@ -110,7 +291,7 @@
                         <a href="https://www.themoviedb.org/tv/221934" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>以金子和領養的兒子玉的未來為中心，講述了一家人帶著孩子成長的愉快而心酸的故事。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E17.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E17.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Apple.of.My.Eye.S01E17.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
                             <span class='item-time'>02:01:25</span>
@@ -119,7 +300,7 @@
                         <a href="https://www.themoviedb.org/tv/221934" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>以金子和領養的兒子玉的未來為中心，講述了一家人帶著孩子成長的愉快而心酸的故事。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E13.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E13.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Apple.of.My.Eye.S01E13.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
                             <span class='item-time'>02:01:14</span>
@@ -128,7 +309,7 @@
                         <a href="https://www.themoviedb.org/tv/221934" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>以金子和領養的兒子玉的未來為中心，講述了一家人帶著孩子成長的愉快而心酸的故事。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E14.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E14.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Apple.of.My.Eye.S01E14.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
                             <span class='item-time'>02:01:03</span>
@@ -137,7 +318,7 @@
                         <a href="https://www.themoviedb.org/tv/221934" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>以金子和領養的兒子玉的未來為中心，講述了一家人帶著孩子成長的愉快而心酸的故事。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E19.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E19.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Apple.of.My.Eye.S01E19.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
                             <span class='item-time'>02:00:53</span>
@@ -146,7 +327,7 @@
                         <a href="https://www.themoviedb.org/tv/221934" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>以金子和領養的兒子玉的未來為中心，講述了一家人帶著孩子成長的愉快而心酸的故事。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E04.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E04.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Apple.of.My.Eye.S01E04.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
                             <span class='item-time'>02:00:43</span>
@@ -155,7 +336,7 @@
                         <a href="https://www.themoviedb.org/tv/221934" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>以金子和領養的兒子玉的未來為中心，講述了一家人帶著孩子成長的愉快而心酸的故事。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E18.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E18.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Apple.of.My.Eye.S01E18.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
                             <span class='item-time'>02:00:33</span>
@@ -164,7 +345,7 @@
                         <a href="https://www.themoviedb.org/tv/221934" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>以金子和領養的兒子玉的未來為中心，講述了一家人帶著孩子成長的愉快而心酸的故事。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E20.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E20.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Apple.of.My.Eye.S01E20.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
                             <span class='item-time'>02:00:22</span>
@@ -173,7 +354,7 @@
                         <a href="https://www.themoviedb.org/tv/221934" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>以金子和領養的兒子玉的未來為中心，講述了一家人帶著孩子成長的愉快而心酸的故事。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E16.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\金枝玉葉 금이야 옥이야 Apple of My Eye (2023)\Season 01\Apple.of.My.Eye.S01E16.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Apple.of.My.Eye.S01E16.2023.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
                             <span class='item-time'>02:00:10</span>
@@ -182,7 +363,7 @@
                         <a href="https://www.themoviedb.org/tv/221934" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>以金子和領養的兒子玉的未來為中心，講述了一家人帶著孩子成長的愉快而心酸的故事。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\刑警的日子 Into the Heat (2025)\Season 01\Into.the.Heat.S01E05 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\刑警的日子 Into the Heat (2025)\Season 01\Into.the.Heat.S01E05 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Into.the.Heat.S01E05 - 4K.mp4</strong>
                             <span class='item-time'>02:00:00</span>
@@ -191,7 +372,7 @@
                         <a href="https://www.themoviedb.org/tv/282890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>魏杰被借調，劉子明等人查辦王允被殺案，鎖定養子鹿冰為兇手。鹿冰因不滿王允干涉戀情，酒後行兇，被當場抓獲。案件告破后，劉子明約會途中制服小偷受傷，方婷婷陪他去醫院包紮，意外遇到前女友。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\刑警的日子 Into the Heat (2025)\Season 01\Into.the.Heat.S01E06 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\刑警的日子 Into the Heat (2025)\Season 01\Into.the.Heat.S01E06 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Into.the.Heat.S01E06 - 4K.mp4</strong>
                             <span class='item-time'>01:59:49</span>
@@ -200,7 +381,7 @@
                         <a href="https://www.themoviedb.org/tv/282890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>刘子明查出汤小茹被舅舅汤小秋侵害，将其抓捕归案，并资助母女做手术。除夕夜，刘子明带方婷婷回家吃年夜饭，曹磊回家团聚，马所长值班，妻子陪他守岁。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\刑警的日子 Into the Heat (2025)\Season 01\Into.the.Heat.S01E02 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\刑警的日子 Into the Heat (2025)\Season 01\Into.the.Heat.S01E02 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Into.the.Heat.S01E02 - 4K.mp4</strong>
                             <span class='item-time'>01:59:38</span>
@@ -209,7 +390,7 @@
                         <a href="https://www.themoviedb.org/tv/282890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>刘子明找寻凶器屡次受挫，最终在垃圾场找到关键证据，案件告破。2001年，他因父亲醉酒晕倒被姐姐叫回家，家中矛盾不断。一起男孩被害案发生，刘子明参与调查，死者身份为失踪的金笛，调查初期毫无线索，办案受阻。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\刑警的日子 Into the Heat (2025)\Season 01\Into.the.Heat.S01E03 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\刑警的日子 Into the Heat (2025)\Season 01\Into.the.Heat.S01E03 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Into.the.Heat.S01E03 - 4K.mp4</strong>
                             <span class='item-time'>01:59:27</span>
@@ -218,7 +399,7 @@
                         <a href="https://www.themoviedb.org/tv/282890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>刘子明和魏杰调查金笛案，查出他案发当晚曾在酒吧聚会，并锁定嫌疑人沈福。两人通过女服务员、小弟坎子等线索排查，蹲守至天亮却抓错人。最终确定沈福藏身地下室，魏杰决定租房埋伏，刘子明回家向父亲交代情况。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\刑警的日子 Into the Heat (2025)\Season 01\Into.the.Heat.S01E01 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\刑警的日子 Into the Heat (2025)\Season 01\Into.the.Heat.S01E01 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Into.the.Heat.S01E01 - 4K.mp4</strong>
                             <span class='item-time'>01:59:16</span>
@@ -227,7 +408,7 @@
                         <a href="https://www.themoviedb.org/tv/282890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>2000年，刑警魏杰、刘子明调查东方乡站街女林春苗被杀案，通过血衣锁定民工李刚，追踪其老乡张昊后抓获李刚。李刚供认因嫖资纠纷杀人，但因未寻获凶器，魏杰拒绝结案。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\刑警的日子 Into the Heat (2025)\Season 01\Into.the.Heat.S01E04 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\刑警的日子 Into the Heat (2025)\Season 01\Into.the.Heat.S01E04 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Into.the.Heat.S01E04 - 4K.mp4</strong>
                             <span class='item-time'>01:59:05</span>
@@ -236,7 +417,7 @@
                         <a href="https://www.themoviedb.org/tv/282890" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>魏杰带人蹲守地下室，成功抓获沈福等人，案件告破后金笛父母反应冷淡。转年，刘子明和方婷婷感情升温，魏杰在一起持炸药挟持案中立功，被调入专案组。刘子明等人随后接到花园小区凶杀案报警，迅速赶往现场。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\傲骨博斯：傳奇再現／博斯：傳承 Bosch：Legacy (2022)\Season 03\Bosch.Legacy.S03E10.1080p.WEB.h264-ETHEL.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\傲骨博斯：傳奇再現／博斯：傳承 Bosch：Legacy (2022)\Season 03\Bosch.Legacy.S03E10.1080p.WEB.h264-ETHEL.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Bosch.Legacy.S03E10.1080p.WEB.h264-ETHEL.mkv</strong>
                             <span class='item-time'>01:58:54</span>
@@ -245,7 +426,7 @@
                         <a href="https://www.themoviedb.org/tv/153657" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>博斯與搶劫及兇案組的雷內·巴拉德警探發生衝突，因為他們試圖抓到殺害「花姑娘」的連環殺手，趕在他還未對另一名受害者作案之前。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\傲骨博斯：傳奇再現／博斯：傳承 Bosch：Legacy (2022)\Season 03\Bosch.Legacy.S03E09.1080p.WEB.h264-ETHEL.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\傲骨博斯：傳奇再現／博斯：傳承 Bosch：Legacy (2022)\Season 03\Bosch.Legacy.S03E09.1080p.WEB.h264-ETHEL.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Bosch.Legacy.S03E09.1080p.WEB.h264-ETHEL.mkv</strong>
                             <span class='item-time'>01:58:44</span>
@@ -254,7 +435,7 @@
                         <a href="https://www.themoviedb.org/tv/153657" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>博斯找來一位老戰友對付芬巴·麥克肖恩，但麥迪擔心父親可能會越過一條危險的界限。瓦斯奎茲處理尾隨入室搶劫案帶來的情感餘波。錢德勒負責一起高風險的案</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\傲骨博斯：傳奇再現／博斯：傳承 Bosch：Legacy (2022)\Season 03\Bosch.Legacy.S03E08.1080p.WEB.H264-SuccessfulCrab.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\傲骨博斯：傳奇再現／博斯：傳承 Bosch：Legacy (2022)\Season 03\Bosch.Legacy.S03E08.1080p.WEB.H264-SuccessfulCrab.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Bosch.Legacy.S03E08.1080p.WEB.H264-SuccessfulCrab.mkv</strong>
                             <span class='item-time'>01:58:33</span>
@@ -263,7 +444,7 @@
                         <a href="https://www.themoviedb.org/tv/153657" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>博斯和洛佩茲繼續調查無名男屍案。錢德勒開始贏得團隊的信任。麥迪和瓦斯奎茲盯準了尾隨入室搶劫團伙。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\傲骨博斯：傳奇再現／博斯：傳承 Bosch：Legacy (2022)\Season 03\Bosch.Legacy.S03E07.1080p.WEB.H264-SuccessfulCrab.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\傲骨博斯：傳奇再現／博斯：傳承 Bosch：Legacy (2022)\Season 03\Bosch.Legacy.S03E07.1080p.WEB.H264-SuccessfulCrab.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Bosch.Legacy.S03E07.1080p.WEB.H264-SuccessfulCrab.mkv</strong>
                             <span class='item-time'>01:58:23</span>
@@ -272,7 +453,7 @@
                         <a href="https://www.themoviedb.org/tv/153657" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>錢德勒受到警長的攻擊。博斯正在調查一起無名男屍案，他認為這可能與另一起謀殺案有關，而莫則試圖找到芬巴·麥克肖恩。瓦斯奎茲證實了自己的懷疑，而麥迪則繼續調查尾隨入室搶劫案。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\傲骨博斯：傳奇再現／博斯：傳承 Bosch：Legacy (2022)\Season 03\Bosch.Legacy.S03E06.1080p.WEB.H264-SuccessfulCrab.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\傲骨博斯：傳奇再現／博斯：傳承 Bosch：Legacy (2022)\Season 03\Bosch.Legacy.S03E06.1080p.WEB.H264-SuccessfulCrab.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Bosch.Legacy.S03E06.1080p.WEB.H264-SuccessfulCrab.mkv</strong>
                             <span class='item-time'>01:58:12</span>
@@ -4093,470 +4274,268 @@
                         <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>27</blockquote>
                     </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E28 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E28 - 4K.mkv</strong>
-                            <span class='item-time'>00:46:51</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E28 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>28</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E29 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E29 - 4K.mkv</strong>
-                            <span class='item-time'>00:46:41</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E29 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>29</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E30 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E30 - 4K.mkv</strong>
-                            <span class='item-time'>00:46:31</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E30 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>30</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E24.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E24.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:46:21</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E24.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>半夏與失散的父母重逢，一切看似都已結束，迴歸了平靜的生活。段父、段母也開始考慮半夏婚事的問題。段英恒感受到了半夏對宣夜日漸升溫的情感，可在半夏父母眼中看來，儘管宣夜對自家有恩，但女兒半夏畢竟還有婚約在身，且捉妖師宣夜的身份更不會是半夏婚配的良人。但半夏還是勇敢地表明瞭自己對宣夜的心意，並且極力撮合父母與宣夜見面。與此同時，遙遠的無憂境內，古老的大門緩緩開啟，子空擦拭著少鵹槍上沾染過的血跡。這血是他的弟弟蠻瑛留下的，十二年弟弟爲了保護一個人類的女孩離開了家園。現在他要把流落在外的弟弟抓回來。子空施展起交換五識的妖族法術，定位到了蠻瑛所在之地——正是現在宣夜所居住的趕山堂。隨後，宣夜感受到了一股強大的危險來襲，敵暗我明，他對半夏的安全感到擔憂。家宴上，宣夜明白了段英恒請自己吃飯的用意，雖然與半夏幾次出生入死，早已知道自己對半夏的心意，但如今半夏一家終得團圓，更是不會在廣平城久留。同時自己身為捉妖師整日與危險相伴，可能真的無法與半夏相配。宣夜開始重新思考他對半夏的感情。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E23.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E23.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:46:10</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E23.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>原來在信安王的幫助下，宣夜明白了喚醒畫中世界失憶之人的訣竅是月亮。他終於和半夏聯手打敗了沙滿繪製出來的墨兵墨將。宣夜早就推測出三兄弟之中的四毛正是一直潛伏在自己身邊的幕後真兇。這妖是一名畫師，原名為「蜃」，自稱是上古神獸，其真身只不過是一隻擁有創造「小千世界」特殊能力的怯月蟲，見月即死。宣夜拆穿蜃的謊言，蜃大怒發起攻擊，宣夜為保護半夏擋在前面，蜃奮力一擊全數落在他的護身手鐲不二環上，不二環裂了一道橫紋。與此同時，正在畫外查案的司馬令贏也找到了醍醐書齋，撞見了舉止詭異瘋狂改畫的沙滿。沙滿正對著廣平春日圖向宣夜發起攻擊，司馬令贏意外看到幽篁遺落的仙人指路立馬察覺到危機，一腳踹開店門與沙滿開戰。司馬令贏的刀刺穿了沙滿的後心，月蟲也把廣平春日圖啃食出了一個洞，月蟲的光輝逐漸灑向畫中世界，蜃在月光的照耀下漸漸消散。畫中的人紛紛化作濃墨散落在地。半夏終於救出了父母。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E25. - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E25. - 4K.mkv</strong>
-                            <span class='item-time'>00:46:00</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E25. - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>25</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E26. - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E26. - 4K.mkv</strong>
-                            <span class='item-time'>00:45:50</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E26. - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>26</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E25.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E25.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:45:40</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E25.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>25</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E26.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E26.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:45:30</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E26.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>26</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E27.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E27.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:45:20</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E27.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>27</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E28.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E28.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:45:10</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E28.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>28</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E24 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E24 - 4K.mkv</strong>
-                            <span class='item-time'>00:45:00</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E24 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>半夏與失散的父母重逢，一切看似都已結束，迴歸了平靜的生活。段父、段母也開始考慮半夏婚事的問題。段英恒感受到了半夏對宣夜日漸升溫的情感，可在半夏父母眼中看來，儘管宣夜對自家有恩，但女兒半夏畢竟還有婚約在身，且捉妖師宣夜的身份更不會是半夏婚配的良人。但半夏還是勇敢地表明瞭自己對宣夜的心意，並且極力撮合父母與宣夜見面。與此同時，遙遠的無憂境內，古老的大門緩緩開啟，子空擦拭著少鵹槍上沾染過的血跡。這血是他的弟弟蠻瑛留下的，十二年弟弟爲了保護一個人類的女孩離開了家園。現在他要把流落在外的弟弟抓回來。子空施展起交換五識的妖族法術，定位到了蠻瑛所在之地——正是現在宣夜所居住的趕山堂。隨後，宣夜感受到了一股強大的危險來襲，敵暗我明，他對半夏的安全感到擔憂。家宴上，宣夜明白了段英恒請自己吃飯的用意，雖然與半夏幾次出生入死，早已知道自己對半夏的心意，但如今半夏一家終得團圓，更是不會在廣平城久留。同時自己身為捉妖師整日與危險相伴，可能真的無法與半夏相配。宣夜開始重新思考他對半夏的感情。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E23 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E23 - 4K.mkv</strong>
-                            <span class='item-time'>00:44:50</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E23 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>原來在信安王的幫助下，宣夜明白了喚醒畫中世界失憶之人的訣竅是月亮。他終於和半夏聯手打敗了沙滿繪製出來的墨兵墨將。宣夜早就推測出三兄弟之中的四毛正是一直潛伏在自己身邊的幕後真兇。這妖是一名畫師，原名為「蜃」，自稱是上古神獸，其真身只不過是一隻擁有創造「小千世界」特殊能力的怯月蟲，見月即死。宣夜拆穿蜃的謊言，蜃大怒發起攻擊，宣夜為保護半夏擋在前面，蜃奮力一擊全數落在他的護身手鐲不二環上，不二環裂了一道橫紋。與此同時，正在畫外查案的司馬令贏也找到了醍醐書齋，撞見了舉止詭異瘋狂改畫的沙滿。沙滿正對著廣平春日圖向宣夜發起攻擊，司馬令贏意外看到幽篁遺落的仙人指路立馬察覺到危機，一腳踹開店門與沙滿開戰。司馬令贏的刀刺穿了沙滿的後心，月蟲也把廣平春日圖啃食出了一個洞，月蟲的光輝逐漸灑向畫中世界，蜃在月光的照耀下漸漸消散。畫中的人紛紛化作濃墨散落在地。半夏終於救出了父母。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E18.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E18.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:44:40</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E18.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>宣夜和半夏在沈圖南的幫助下，找到了醍醐書齋，老闆沙滿對半夏的身世遭遇感到難過，但對半夏口中的母親卻沒有任何印象，宣夜半夏不好繼續叨擾便要離開，離開之時沙滿和半夏索要了地址，等有線索了便會前去告訴半夏。宣夜和半夏回客棧的路上，遇到了一個賣神奇物件的小攤販，小攤販極力向半夏推薦仙人指路，說能找到自己心愛之人或者想見的人，並要高價賣給半夏，但被宣夜點破了只是低階的術法，連一兩銀子都不值。但半夏還是挑選了一件物品——能夠記錄聲音的迴音螺，並偷偷記錄下自己喜歡上宣夜的心意。但他們二人不知道，上一個花高價把仙人指路買走的人是司馬令贏和幽篁。而此刻司馬令贏和幽篁正按照仙人指路指的方向搜查著，可二人手上的仙人指路只有在指向幽篁的時候是準確的，司馬令贏不耐煩，決定和幽篁分開各自尋找線索。幽篁在仙人指路的指引下來到了醍醐書齋門前，突然被眼前一副巨大的廣平春日圖所吸引，隨後被猛地吸入圖中。沙滿來到半夏住處，聲稱有了她父母的線索，便迫切的要將半夏帶走。半夏察覺沙滿來者不善拔腿就跑，卻還是被沙滿抓走。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E17.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E17.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:44:30</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E17.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>半夏知道此行前去地下城危機四伏，她不忍再連累宣夜，夜半之時和汀州二人拿著通行符節決定前往地下城。但宣夜無法對半夏的事情坐視不管，雖然愧對父親臨終前下的禁令，但還是下定決心前往地下城。宣夜與遲雪一路來到了通往地下城的碼頭。奈何地下城是個處處看錢辦事的勢利之地，二人並無什麼銀兩，竟被巡城馬嘲諷了一番。宣夜和遲雪囊中羞澀，只能入住了地下城五更客棧的下等房。而此刻，半夏與幾日前在趕山堂結識的捉妖師姜尚雲師徒也下榻了五更客棧。幽篁和司馬令贏坐在路邊攤上，靜靜等待著地下城最好的巡城馬帶著線索回來，隨後二人在巡城馬的帶領下找到一名神醫，在其口中得到了信安王已死的訊息，並勸幽篁和司馬令贏不要再找了。半夏和汀州決定自行前往母親信中所提到的醍醐書齋，與此同時，姜尚雲師徒也一路追殺在地下城做巡城馬生意的河豚妖，半夏見二人追殺的正是幫助過自己的巡城馬，便挺身而出將其救下。姜尚云薛橋正想強攻，宣夜突然出現護住半夏幾人，姜尚云打不過宣夜便指責宣夜身為八柱門的捉妖師是非混淆人妖不分。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E19.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E19.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:44:19</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E19.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>宣夜醒來，身邊圍著的三兄弟竟稱呼自己為大哥，宣夜一時疑惑，很快便明白自己身在妖怪的畫中。三兄弟要求宣夜一起上工去抬轎，宣夜有意反抗卻意外發現自己使不出一點力氣，一身的招數武功竟然受限於畫中「轎伕」的身份，被封印了。宣夜只好跟著三兄弟去抬轎。一個意氣風發的新郎官從府內出來，竟然是幽篁，可他似乎不認識宣夜了。而新娘竟然是半夏。宣夜攪亂了二人的婚禮，決定去半夏處問個究竟，可半夏也什麼都不記得，她只知道自己是何氏武館的大小姐——何鵲憐。隨後，宣夜被趕來的幽篁一拳打暈。宣夜再次醒來，發現眼前的人和事竟然和昨日一模一樣，三兄弟仍是叫自己去抬轎上工。宣夜明白過來，廣平春日圖只繪製了一日之景，進入畫中之人也會被永遠困在這一天。他並未理會三兄弟，直接去見幽篁，開誠佈公說明事情的始末，卻被當成瘋子再次被扔進了柴房。宣夜又一次在畫中世界醒來，這次他沒有被三兄弟裹挾著去抬轎，而是告訴他們自己喜歡上了何氏武館的小姐。宣夜幾番話術後獲得了三兄弟的支援，決定一起去搶親。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E21.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E21.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:44:09</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E21.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>宣夜半夏二人來到六絕之一的姻緣古樹佔了一支親緣卦后，被何家家僕撞見。畫中世界的半夏假爹聞訊趕來，怒斥半夏的不孝行為。宣夜帶著半夏滿城逃跑，最後在法恩寺佛堂的香案下躲過了一劫。因在姻緣古樹沒有得到任何線索，半夏有點失落，宣夜試著安慰半夏，卻被不遠處的吵鬧聲吸引過去。宣夜和半夏不可置信的走進趕山堂，眼前的趕山堂一看便是一戶溫馨家庭，與宣夜之前居住的趕山堂全然不同。半夏瞬間明白，這是畫了宣夜已經死去的父母。進入趕山堂后，半夏看出來宣夜的侷促不安，也看出了宣夜對家人的思念，便找了個借口留在趕山堂吃飯。飯後宣夜在和父親久滄溟的談話中參悟到了破解幻術的法門。半夏女扮男裝，和宣夜假以德信書院張夫子的學生之名混進了主辦南湖夜宴的臨江酒樓。宴會正式開始，來自各學院的學子競相獻上詩詞，宣夜高談闊論聊表雄云壯志贏得滿堂高贊，便以歃血為盟為由試探宴會上的學子。經過幾番試探，二人在這最後一絕之中未見到父親。回來的路上半夏對前一次宣夜向自己的告白做了迴應，半夏再次反問宣夜對自己的喜歡，卻被策馬趕來的幽篁撞個正著。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E20.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E20.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:43:59</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E20.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>宣夜吸取上次被打暈的教訓，對半夏小心提防。眼見喚醒不成，宣夜將計就計，告訴半夏自己對她傾慕已久，哪怕豁出性命，只求半夏陪她「一天」。半夏被宣夜的誠意打動，同意陪他在廣平城內走走逛逛，見識一下廣平的六絕名勝。宣夜藉此達成了他真正的目的，帶著半夏探索走出畫中世界的方法。夜晚到來之際，和半夏同遊一天的宣夜想到第二天畫中世界會重新開啟，半夏不會再記得他，於是鼓足勇氣對半夏告白，壓抑在心裡許久的感情終於得到了釋放。半夏被宣夜打動，感嘆今夜真美，可惜沒有月亮。第二天，半夏居然神奇地恢復了記憶，想起了真實的身份。她從何府偷溜出來，和宣夜覆盤幾日的經歷，覺得父母可能都在這幅畫中，並且與廣平六絕有著深刻的關係。幽篁突然趕來，一副捉姦的樣子要與眾人拳腳相向但很快被制服。半夏試圖向幽篁解釋三人的關係，幽篁未信，只覺得是二人合夥誆騙自己。宣夜半夏無奈，只得先將幽篁控制在三兄弟的小院，兩人繼續深入畫中的廣平的六絕名勝調查。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E22.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E22.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:43:49</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E22.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>宣夜拉起半夏在長夜之中逃到了法恩寺。法恩寺大殿之中一座觀音矗立寺內，神情悲憫俯視眾生，宣夜發現封在觀音像內的正是半夏的母親唐如雲，而她的父親段英恒就被困在觀音像的旁邊。半夏終於找到了父母的下落，下一步的關鍵就是逃離畫中。時間再次來到了新的一天。此時和宣夜一同捲入畫中的醍醐書齋老闆沙滿在牢房中也醒了過來，在殺害獄卒之後越了獄。沙滿一點點的恢復了法力，向宣夜和半夏發起攻擊，可宣夜在這畫中世界卻失了所有法力，好在半夏的設定是個武館家的練家子，一拳正中沙滿心窩。沙滿向宣夜發起攻擊，半夏挺身向前為宣夜擋刀。半夏鮮血流了一地，宣夜看著失血而死的半夏心痛至極。沙滿也趁機逃出畫中。一切歸零，畫中世界又一次重啟。宣夜強闖武館要見半夏，穿著大紅喜服的半夏聞聲推開窗。宣夜癡癡的看著半夏，但半夏卻再次忘記了宣夜。半夏的婚事每天都在繼續，漸漸的宣夜鬥志全失，萎靡不振。他自暴自棄，開始在一次次循環往復之中，渾噩度日。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E15.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E15.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:43:39</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E15.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>多年以來，鳳伍娘早就想逃離團圓客棧，一場陰謀在她心中醞釀，她計劃假扮成半夏，開啟新的人生。半夏與鳳伍娘激烈爭，半夏手中的護身符瞬間將鳳伍娘一掌擊飛。半夏見機逃跑並躲了起來。而此刻鳳伍娘假扮的半夏已混入幽篁等人的隊伍，準備一同逃離團圓客棧。鳳伍娘以半夏的樣子出現在鳳天面前，暗暗向鳳天告別。但她的行跡很快被宣夜拆穿，兩人激烈開戰。鳳天喊住了與宣夜激戰暴走的鳳伍娘，他後悔縱容伍娘作惡，明明知道伍娘妖性未改，殺人作惡，依舊念在伍娘陪伴他鎮守邊塞二十年的父女情意上，不願看清真相，以至於無法挽回。鳳天流下眼淚，哄騙伍娘來到他跟前，隨後點燃大火發誓與鳳伍娘葬身火海。大火過後，黑貓再次出現在宣夜和半夏面前，它看著奄奄一息的鳳天，流下眼淚，將自己全部的內力度給鳳天，保住他的性命。多年之前，鳳天曾對黑貓有一飯之恩，此後黑貓一直念念不忘，悄悄跟隨在鳳天左右。它目睹了鳳伍娘作惡的始末，於是決定引來宣夜，幫助鳳天看清伍孃的真面目。黑貓雖然救活了鳳天，但隨著內力耗盡，它也失去了生命。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E16.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E16.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:43:29</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E16.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>半夏撿到宣夜從房內扔出的紙鳥，誤以為是以紙鳥言情向自己表白，卻意外發現紙鳥中竟寫著自己母親的名字。半夏找到宣夜，從貓妖的遺物中發現了一封母親的書信，信上畫著地下城洞冥草的圖案。宣夜決定陪同半夏前往地下城尋找父親，卻引來的遲雪的擔心。遲雪多嘴，把宣夜父親久滄溟臨終前囑咐宣夜不可進入地下城的事情告訴了半夏。半夏更是得知宣夜每一次拔劍除妖，都會對身體造成不可逆轉的傷害，她看著眼前的宣夜因為自己的事情變得憔悴，心生愧疚。另一邊，幽篁回神都述職，遇到了司馬令贏，將兩人的回憶拉至六年前。那年司馬令贏為救家人放榜招婿，不知情的幽篁幫司馬令贏救回親人，卻死不答應成親一事。當街悔婚的那天，幽篁的拒絕讓司馬令贏淪為全城的笑柄。如今兩人正因為六年前的事情爭執，卻被街上突然發生的打鬥打斷，幽篁和司馬令贏將證物帶回神都，證物上洞冥草的標誌讓眾人聯想到幾年前信安王失蹤的案子，司馬令贏跟著幽篁決定前往地下城調查信安王一案。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E14.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E14.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:43:19</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E14.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>喝了浮白飲的宣夜回到房間，藉著未散的酒勁很快便睡了過去。半夏覺得宣夜醉酒或許也是在想念家人。夜空深邃，萬籟俱寂。宣夜靜靜地躺在床上，雙目禁閉，靜靜的聽著周圍的一切。隔天，半夏發現宣夜生病了，便叫遲雪去找幽篁過來幫忙。可眾人不知，此刻前去尋求救兵的幽篁已身處危險之中，幽篁不堪兇手的猛烈攻擊被打昏在地。但危險遠不止此，段言秋、李捕頭、半夏，甚至宣夜都被鳳伍孃的手下抓了起來。鳳伍娘將眾人綁在大堂，美其名曰邀請大家來她慶生，逼迫幽篁等人為她講故事當做給自己的生辰禮物，但卻沒有一個故事打動鳳伍娘，鳳伍娘只覺得眼前的這些人愚蠢、虛偽、滿嘴謊話。鳳伍娘情緒高亢之時道出了多年的不滿與憤懣。宣夜告知鳳天自己受人所託，要讓鳳天清楚的看到眼前的女兒是人個還是妖，隨即掙脫了鳳伍孃的束縛救下眾人，與鳳伍娘等傀儡開啟一場激烈的戰鬥。半夏留在原地為段言秋等人治傷，但鳳天卻似受了鳳伍孃的打擊，對半夏等人的問話毫不迴應。半夏無奈只好隻身一人去給大家找藥材，殊不知鳳伍娘早已在暗處等待著半夏的到來。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E13.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E13.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:43:09</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E13.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>次日，幽篁接到山民報案，發現了燕李的屍體。宣夜、幽篁便跟隨山民的腳步一路上山，果然燕李已經死去。他們通過對現場的勘查，決定把燕李的屍體帶回客棧，封鎖客棧尋找兇手。半夏和遲雪再次探望段言秋，發現他滿面醉容，行為詭異，像是在聽死去的蠻娘演唱小曲兒，可屋內並沒有任何人。半夏不禁擔心起來，但並未發現有妖。半晌過後，段言秋從醉夢中醒來，自顧自地感慨半年來的奇幻經歷，並勸半夏同他一起飲酒。原來客棧中有一種神奇的酒漿——浮白飲，喝下去就能看到日思夜想之人。半夏勸段言秋不要再飲，但段言秋聽不進半夏的任何勸告。同時希望半夏也可以喝下浮白飲，這樣就可以見到思念的父母。段言秋坦言自己見到的不是虛無的幻象，而是感受到真實的人就在自己身前。深夜，半夏從段言秋房間回房的途中迷了路，鳳伍娘無比期待半夏能夠闖入自己的院子，黑貓的突然出現壞了鳳伍孃的盤算，鳳伍娘氣急敗壞。宣夜聽到半夏說段言秋一直在喝浮白飲，隨後找到段言秋，了卻了段言秋的心結。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E16 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E16 - 4K.mkv</strong>
-                            <span class='item-time'>00:42:59</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E16 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>半夏撿到宣夜從房內扔出的紙鳥，誤以為是以紙鳥言情向自己表白，卻意外發現紙鳥中竟寫著自己母親的名字。半夏找到宣夜，從貓妖的遺物中發現了一封母親的書信，信上畫著地下城洞冥草的圖案。宣夜決定陪同半夏前往地下城尋找父親，卻引來的遲雪的擔心。遲雪多嘴，把宣夜父親久滄溟臨終前囑咐宣夜不可進入地下城的事情告訴了半夏。半夏更是得知宣夜每一次拔劍除妖，都會對身體造成不可逆轉的傷害，她看著眼前的宣夜因為自己的事情變得憔悴，心生愧疚。另一邊，幽篁回神都述職，遇到了司馬令贏，將兩人的回憶拉至六年前。那年司馬令贏為救家人放榜招婿，不知情的幽篁幫司馬令贏救回親人，卻死不答應成親一事。當街悔婚的那天，幽篁的拒絕讓司馬令贏淪為全城的笑柄。如今兩人正因為六年前的事情爭執，卻被街上突然發生的打鬥打斷，幽篁和司馬令贏將證物帶回神都，證物上洞冥草的標誌讓眾人聯想到幾年前信安王失蹤的案子，司馬令贏跟著幽篁決定前往地下城調查信安王一案。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E15 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E15 - 4K.mkv</strong>
-                            <span class='item-time'>00:42:49</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E15 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>多年以來，鳳伍娘早就想逃離團圓客棧，一場陰謀在她心中醞釀，她計劃假扮成半夏，開啟新的人生。半夏與鳳伍娘激烈爭，半夏手中的護身符瞬間將鳳伍娘一掌擊飛。半夏見機逃跑並躲了起來。而此刻鳳伍娘假扮的半夏已混入幽篁等人的隊伍，準備一同逃離團圓客棧。鳳伍娘以半夏的樣子出現在鳳天面前，暗暗向鳳天告別。但她的行跡很快被宣夜拆穿，兩人激烈開戰。鳳天喊住了與宣夜激戰暴走的鳳伍娘，他後悔縱容伍娘作惡，明明知道伍娘妖性未改，殺人作惡，依舊念在伍娘陪伴他鎮守邊塞二十年的父女情意上，不願看清真相，以至於無法挽回。鳳天流下眼淚，哄騙伍娘來到他跟前，隨後點燃大火發誓與鳳伍娘葬身火海。大火過後，黑貓再次出現在宣夜和半夏面前，它看著奄奄一息的鳳天，流下眼淚，將自己全部的內力度給鳳天，保住他的性命。多年之前，鳳天曾對黑貓有一飯之恩，此後黑貓一直念念不忘，悄悄跟隨在鳳天左右。它目睹了鳳伍娘作惡的始末，於是決定引來宣夜，幫助鳳天看清伍孃的真面目。黑貓雖然救活了鳳天，但隨著內力耗盡，它也失去了生命。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E22 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E22 - 4K.mkv</strong>
-                            <span class='item-time'>00:42:39</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E22 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>宣夜拉起半夏在長夜之中逃到了法恩寺。法恩寺大殿之中一座觀音矗立寺內，神情悲憫俯視眾生，宣夜發現封在觀音像內的正是半夏的母親唐如雲，而她的父親段英恒就被困在觀音像的旁邊。半夏終於找到了父母的下落，下一步的關鍵就是逃離畫中。時間再次來到了新的一天。此時和宣夜一同捲入畫中的醍醐書齋老闆沙滿在牢房中也醒了過來，在殺害獄卒之後越了獄。沙滿一點點的恢復了法力，向宣夜和半夏發起攻擊，可宣夜在這畫中世界卻失了所有法力，好在半夏的設定是個武館家的練家子，一拳正中沙滿心窩。沙滿向宣夜發起攻擊，半夏挺身向前為宣夜擋刀。半夏鮮血流了一地，宣夜看著失血而死的半夏心痛至極。沙滿也趁機逃出畫中。一切歸零，畫中世界又一次重啟。宣夜強闖武館要見半夏，穿著大紅喜服的半夏聞聲推開窗。宣夜癡癡的看著半夏，但半夏卻再次忘記了宣夜。半夏的婚事每天都在繼續，漸漸的宣夜鬥志全失，萎靡不振。他自暴自棄，開始在一次次循環往復之中，渾噩度日。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E20 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E20 - 4K.mkv</strong>
-                            <span class='item-time'>00:42:29</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E20 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>宣夜吸取上次被打暈的教訓，對半夏小心提防。眼見喚醒不成，宣夜將計就計，告訴半夏自己對她傾慕已久，哪怕豁出性命，只求半夏陪她「一天」。半夏被宣夜的誠意打動，同意陪他在廣平城內走走逛逛，見識一下廣平的六絕名勝。宣夜藉此達成了他真正的目的，帶著半夏探索走出畫中世界的方法。夜晚到來之際，和半夏同遊一天的宣夜想到第二天畫中世界會重新開啟，半夏不會再記得他，於是鼓足勇氣對半夏告白，壓抑在心裡許久的感情終於得到了釋放。半夏被宣夜打動，感嘆今夜真美，可惜沒有月亮。第二天，半夏居然神奇地恢復了記憶，想起了真實的身份。她從何府偷溜出來，和宣夜覆盤幾日的經歷，覺得父母可能都在這幅畫中，並且與廣平六絕有著深刻的關係。幽篁突然趕來，一副捉姦的樣子要與眾人拳腳相向但很快被制服。半夏試圖向幽篁解釋三人的關係，幽篁未信，只覺得是二人合夥誆騙自己。宣夜半夏無奈，只得先將幽篁控制在三兄弟的小院，兩人繼續深入畫中的廣平的六絕名勝調查。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E21 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E21 - 4K.mkv</strong>
-                            <span class='item-time'>00:42:19</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E21 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>宣夜半夏二人來到六絕之一的姻緣古樹佔了一支親緣卦后，被何家家僕撞見。畫中世界的半夏假爹聞訊趕來，怒斥半夏的不孝行為。宣夜帶著半夏滿城逃跑，最後在法恩寺佛堂的香案下躲過了一劫。因在姻緣古樹沒有得到任何線索，半夏有點失落，宣夜試著安慰半夏，卻被不遠處的吵鬧聲吸引過去。宣夜和半夏不可置信的走進趕山堂，眼前的趕山堂一看便是一戶溫馨家庭，與宣夜之前居住的趕山堂全然不同。半夏瞬間明白，這是畫了宣夜已經死去的父母。進入趕山堂后，半夏看出來宣夜的侷促不安，也看出了宣夜對家人的思念，便找了個借口留在趕山堂吃飯。飯後宣夜在和父親久滄溟的談話中參悟到了破解幻術的法門。半夏女扮男裝，和宣夜假以德信書院張夫子的學生之名混進了主辦南湖夜宴的臨江酒樓。宴會正式開始，來自各學院的學子競相獻上詩詞，宣夜高談闊論聊表雄云壯志贏得滿堂高贊，便以歃血為盟為由試探宴會上的學子。經過幾番試探，二人在這最後一絕之中未見到父親。回來的路上半夏對前一次宣夜向自己的告白做了迴應，半夏再次反問宣夜對自己的喜歡，卻被策馬趕來的幽篁撞個正著。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E17 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E17 - 4K.mkv</strong>
-                            <span class='item-time'>00:42:08</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E17 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>半夏知道此行前去地下城危機四伏，她不忍再連累宣夜，夜半之時和汀州二人拿著通行符節決定前往地下城。但宣夜無法對半夏的事情坐視不管，雖然愧對父親臨終前下的禁令，但還是下定決心前往地下城。宣夜與遲雪一路來到了通往地下城的碼頭。奈何地下城是個處處看錢辦事的勢利之地，二人並無什麼銀兩，竟被巡城馬嘲諷了一番。宣夜和遲雪囊中羞澀，只能入住了地下城五更客棧的下等房。而此刻，半夏與幾日前在趕山堂結識的捉妖師姜尚雲師徒也下榻了五更客棧。幽篁和司馬令贏坐在路邊攤上，靜靜等待著地下城最好的巡城馬帶著線索回來，隨後二人在巡城馬的帶領下找到一名神醫，在其口中得到了信安王已死的訊息，並勸幽篁和司馬令贏不要再找了。半夏和汀州決定自行前往母親信中所提到的醍醐書齋，與此同時，姜尚雲師徒也一路追殺在地下城做巡城馬生意的河豚妖，半夏見二人追殺的正是幫助過自己的巡城馬，便挺身而出將其救下。姜尚云薛橋正想強攻，宣夜突然出現護住半夏幾人，姜尚云打不過宣夜便指責宣夜身為八柱門的捉妖師是非混淆人妖不分。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E19 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E19 - 4K.mkv</strong>
-                            <span class='item-time'>00:41:58</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E19 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>宣夜醒來，身邊圍著的三兄弟竟稱呼自己為大哥，宣夜一時疑惑，很快便明白自己身在妖怪的畫中。三兄弟要求宣夜一起上工去抬轎，宣夜有意反抗卻意外發現自己使不出一點力氣，一身的招數武功竟然受限於畫中「轎伕」的身份，被封印了。宣夜只好跟著三兄弟去抬轎。一個意氣風發的新郎官從府內出來，竟然是幽篁，可他似乎不認識宣夜了。而新娘竟然是半夏。宣夜攪亂了二人的婚禮，決定去半夏處問個究竟，可半夏也什麼都不記得，她只知道自己是何氏武館的大小姐——何鵲憐。隨後，宣夜被趕來的幽篁一拳打暈。宣夜再次醒來，發現眼前的人和事竟然和昨日一模一樣，三兄弟仍是叫自己去抬轎上工。宣夜明白過來，廣平春日圖只繪製了一日之景，進入畫中之人也會被永遠困在這一天。他並未理會三兄弟，直接去見幽篁，開誠佈公說明事情的始末，卻被當成瘋子再次被扔進了柴房。宣夜又一次在畫中世界醒來，這次他沒有被三兄弟裹挾著去抬轎，而是告訴他們自己喜歡上了何氏武館的小姐。宣夜幾番話術後獲得了三兄弟的支援，決定一起去搶親。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E18 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E18 - 4K.mkv</strong>
-                            <span class='item-time'>00:41:48</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E18 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>宣夜和半夏在沈圖南的幫助下，找到了醍醐書齋，老闆沙滿對半夏的身世遭遇感到難過，但對半夏口中的母親卻沒有任何印象，宣夜半夏不好繼續叨擾便要離開，離開之時沙滿和半夏索要了地址，等有線索了便會前去告訴半夏。宣夜和半夏回客棧的路上，遇到了一個賣神奇物件的小攤販，小攤販極力向半夏推薦仙人指路，說能找到自己心愛之人或者想見的人，並要高價賣給半夏，但被宣夜點破了只是低階的術法，連一兩銀子都不值。但半夏還是挑選了一件物品——能夠記錄聲音的迴音螺，並偷偷記錄下自己喜歡上宣夜的心意。但他們二人不知道，上一個花高價把仙人指路買走的人是司馬令贏和幽篁。而此刻司馬令贏和幽篁正按照仙人指路指的方向搜查著，可二人手上的仙人指路只有在指向幽篁的時候是準確的，司馬令贏不耐煩，決定和幽篁分開各自尋找線索。幽篁在仙人指路的指引下來到了醍醐書齋門前，突然被眼前一副巨大的廣平春日圖所吸引，隨後被猛地吸入圖中。沙滿來到半夏住處，聲稱有了她父母的線索，便迫切的要將半夏帶走。半夏察覺沙滿來者不善拔腿就跑，卻還是被沙滿抓走。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E14 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E14 - 4K.mkv</strong>
-                            <span class='item-time'>00:41:38</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E14 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>喝了浮白飲的宣夜回到房間，藉著未散的酒勁很快便睡了過去。半夏覺得宣夜醉酒或許也是在想念家人。夜空深邃，萬籟俱寂。宣夜靜靜地躺在床上，雙目禁閉，靜靜的聽著周圍的一切。隔天，半夏發現宣夜生病了，便叫遲雪去找幽篁過來幫忙。可眾人不知，此刻前去尋求救兵的幽篁已身處危險之中，幽篁不堪兇手的猛烈攻擊被打昏在地。但危險遠不止此，段言秋、李捕頭、半夏，甚至宣夜都被鳳伍孃的手下抓了起來。鳳伍娘將眾人綁在大堂，美其名曰邀請大家來她慶生，逼迫幽篁等人為她講故事當做給自己的生辰禮物，但卻沒有一個故事打動鳳伍娘，鳳伍娘只覺得眼前的這些人愚蠢、虛偽、滿嘴謊話。鳳伍娘情緒高亢之時道出了多年的不滿與憤懣。宣夜告知鳳天自己受人所託，要讓鳳天清楚的看到眼前的女兒是人個還是妖，隨即掙脫了鳳伍孃的束縛救下眾人，與鳳伍娘等傀儡開啟一場激烈的戰鬥。半夏留在原地為段言秋等人治傷，但鳳天卻似受了鳳伍孃的打擊，對半夏等人的問話毫不迴應。半夏無奈只好隻身一人去給大家找藥材，殊不知鳳伍娘早已在暗處等待著半夏的到來。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E13 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E13 - 4K.mkv</strong>
-                            <span class='item-time'>00:41:28</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E13 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>次日，幽篁接到山民報案，發現了燕李的屍體。宣夜、幽篁便跟隨山民的腳步一路上山，果然燕李已經死去。他們通過對現場的勘查，決定把燕李的屍體帶回客棧，封鎖客棧尋找兇手。半夏和遲雪再次探望段言秋，發現他滿面醉容，行為詭異，像是在聽死去的蠻娘演唱小曲兒，可屋內並沒有任何人。半夏不禁擔心起來，但並未發現有妖。半晌過後，段言秋從醉夢中醒來，自顧自地感慨半年來的奇幻經歷，並勸半夏同他一起飲酒。原來客棧中有一種神奇的酒漿——浮白飲，喝下去就能看到日思夜想之人。半夏勸段言秋不要再飲，但段言秋聽不進半夏的任何勸告。同時希望半夏也可以喝下浮白飲，這樣就可以見到思念的父母。段言秋坦言自己見到的不是虛無的幻象，而是感受到真實的人就在自己身前。深夜，半夏從段言秋房間回房的途中迷了路，鳳伍娘無比期待半夏能夠闖入自己的院子，黑貓的突然出現壞了鳳伍孃的盤算，鳳伍娘氣急敗壞。宣夜聽到半夏說段言秋一直在喝浮白飲，隨後找到段言秋，了卻了段言秋的心結。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E11 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E11 - 4K.mkv</strong>
-                            <span class='item-time'>00:41:18</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E11 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>貓妖留下的線索也將眾人指向了一間名叫「團圓客棧」的地方。客棧地處深山之中，宣夜、遲雪決定陪半夏前往。三人在山林里迷了路，在人蔘精的幫助下來到了團圓客棧，但老闆鳳天卻以客棧修繕不招待客人為由拒絕幾人下榻。在他女兒鳳伍孃的堅持下，老闆鳳天雖不願意但也默許幾人住進了團圓客棧。宣夜和半夏一進客棧便起了疑惑，這到底是一傢什么樣的客棧，竟用養神香當做薰香四處燃放？宣夜覺得既然貓妖把他們引來此地就一定有目的，他們決定將計就計，留下繼續調查。黑貓在途中突然出現，宣夜便追著黑貓腳步來到了辛字院，老闆鳳天制止了宣夜向辛字院的探索。與此同時，半夏被溫泉池內的一顆詭異木珠嚇得大叫，宣夜尋聲返回到小湯泉，縱身跳入水中將半夏救出。另一邊，幽篁也來到了「團圓客棧」附近，繼續調查紈绔「死而復生」一事。他在林間發現了紈绔的屍體，附近山民猜測此為山貓所為。幽篁疑惑。但天色漸晚，幽篁命下屬燕李留在原地看守屍體，其餘人找一處地方歇腳，碰巧也住進了團圓客棧。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E10 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E10 - 4K.mkv</strong>
-                            <span class='item-time'>00:41:08</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E10 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>半夏從宣夜口中知道了崆峒子是騙子，決定不再找其他法子了，專心等宣夜幫她。就在這時，傳來了崆峒子的死訊。半夏迅速回憶起這幾次看到的白色烏鴉，並將這一切都關聯在了一起。原來半夏是被遲望川詛咒，得到了預知死亡的能力。半夏來到趕山堂，看到溫劍正和宣夜聊著城中縱馬行兇的紈绔「死而復生」的事，可半夏看到捕頭溫劍的肩頭也落了白烏鴉，這似乎說明溫劍的劫難已至。幾人苦惱如何解救溫劍，然而令誰也想不到的是，在溫劍娘子的祈求下，一隻黑貓在黑暗之中如期而至。宣夜因溫劍一事一夜未睡，不停翻看百妖譜找著解救溫劍的方法。與此同時，溫劍在黑貓的幫助下假死而後生。半夏想到父親可能也是找了貓妖，才想出假死脫身之計，於是在宣夜和溫劍娘子的幫助下，半夏找到了妖貓，並向它打聽父親段英恒的下落。深夜，段言秋扣響了「團圓客棧」的大門。在一個小姑娘鳳伍孃的帶領下入住了團圓客棧。可鳳伍娘言行詭異，偏要留他多住幾日。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E09 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E09 - 4K.mkv</strong>
-                            <span class='item-time'>00:40:58</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E09 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>半夏找到宣夜聊起了遲望川死前所說的父親假死一事，幫助父親假死的妖成為新線索，可這妖是誰？宣夜、半夏一時也沒有頭緒。堂兄段言秋趕來廣平城，他此次前來的目的，是勸半夏跟他回到柟陽城，不要一個女孩子家在外面「瘋瘋癲癲」地過日子。半夏無奈，只能請宣夜幫忙，告知兄長新婦蠻娘是割喉賊的真兇。至此，段言秋終於接受妻子是惡妖的事實，將半夏託付給宣夜，獨自一人離開了廣平。一日，宣夜和半夏在街上遇到一個紈绔縱馬踩傷路人，受害的路人當場死亡，半夏看到死去那人身上落著白烏鴉感覺很奇怪。官府索拿紈绔問罪，得知此人之前已經多次傷人性命，判他斬首。可死刑當日，此人居然一臉鎮定，毫無懼意。當晚，他的屍體竟然在府衙內不翼而飛。另一邊，半夏為父親沒有線索而苦惱，從路人口中聽說了一位名為崆峒子的捉妖師。此人仙風道骨手持木劍，身子飄逸靈動，肩上的白烏鴉巍然不動，儼然一副大師的做派，便打算求他幫助自己尋找父親。宣夜看到半夏回來的時候買了靈符，便知半夏定是被那崆峒子騙了。韓青和周雪曼坦白父親車禍真相 ，林嘉嘉調查毒梟案牽出</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E12 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E12 - 4K.mkv</strong>
-                            <span class='item-time'>00:40:48</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E12 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>隔日，宣夜見鳳天在練刀，便在鳳天的邀請下和他過了幾招。兩人漸漸熟絡，得知鳳天十六歲從軍，經歷坎坷，曾獨自鎮守軍堡二十餘載。聽著鳳天的訴說，宣夜有些被鳳天過往的經歷感動，因為在他看來鳳天是一個腹納九州肩擔黎民的英雄。話鋒一轉，宣夜開始試探鳳天又輔之以月蟲證實，但沒想到鳳天竟不是妖。而後，鳳天找到鳳伍娘，希望鳳伍娘不要招惹甲字院宣夜一夥。鳳伍娘自顧自地擺弄著自己手中的玩偶，全然不理鳳天的勸告。宣夜仔細觀察著木珠卻沒有任何發現，又擔心半夏著涼，便想到半夏房前檢視一番，沒想到被半夏撞個正著。宣夜看到半夏房間點著滿屋子的蠟燭，猜到半夏似乎是害怕這幽靜的山居，於是貼心地陪伴著半夏。轉天，幽篁拎著山貓闖入團圓客棧，將調查的線索一併告訴了宣夜等人，證據和線索所指向的並非這些體型龐大但沒什麼特別之處的山貓，而是這間越發詭異的團圓客棧。貓妖再次來找到宣夜，兩人跟著貓妖來到辛字院，不曾想眼前開門的人竟是段言秋。宣夜和半夏見段言秋的言談舉止雖與平日並無差別，但是對二人同時出現在客棧的事情卻漠不關心。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E11.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E11.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:40:38</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E11.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>貓妖留下的線索也將眾人指向了一間名叫「團圓客棧」的地方。客棧地處深山之中，宣夜、遲雪決定陪半夏前往。三人在山林里迷了路，在人蔘精的幫助下來到了團圓客棧，但老闆鳳天卻以客棧修繕不招待客人為由拒絕幾人下榻。在他女兒鳳伍孃的堅持下，老闆鳳天雖不願意但也默許幾人住進了團圓客棧。宣夜和半夏一進客棧便起了疑惑，這到底是一傢什么樣的客棧，竟用養神香當做薰香四處燃放？宣夜覺得既然貓妖把他們引來此地就一定有目的，他們決定將計就計，留下繼續調查。黑貓在途中突然出現，宣夜便追著黑貓腳步來到了辛字院，老闆鳳天制止了宣夜向辛字院的探索。與此同時，半夏被溫泉池內的一顆詭異木珠嚇得大叫，宣夜尋聲返回到小湯泉，縱身跳入水中將半夏救出。另一邊，幽篁也來到了「團圓客棧」附近，繼續調查紈绔「死而復生」一事。他在林間發現了紈绔的屍體，附近山民猜測此為山貓所為。幽篁疑惑。但天色漸晚，幽篁命下屬燕李留在原地看守屍體，其餘人找一處地方歇腳，碰巧也住進了團圓客棧。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E12.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E12.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:40:28</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E12.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>隔日，宣夜見鳳天在練刀，便在鳳天的邀請下和他過了幾招。兩人漸漸熟絡，得知鳳天十六歲從軍，經歷坎坷，曾獨自鎮守軍堡二十餘載。聽著鳳天的訴說，宣夜有些被鳳天過往的經歷感動，因為在他看來鳳天是一個腹納九州肩擔黎民的英雄。話鋒一轉，宣夜開始試探鳳天又輔之以月蟲證實，但沒想到鳳天竟不是妖。而後，鳳天找到鳳伍娘，希望鳳伍娘不要招惹甲字院宣夜一夥。鳳伍娘自顧自地擺弄著自己手中的玩偶，全然不理鳳天的勸告。宣夜仔細觀察著木珠卻沒有任何發現，又擔心半夏著涼，便想到半夏房前檢視一番，沒想到被半夏撞個正著。宣夜看到半夏房間點著滿屋子的蠟燭，猜到半夏似乎是害怕這幽靜的山居，於是貼心地陪伴著半夏。轉天，幽篁拎著山貓闖入團圓客棧，將調查的線索一併告訴了宣夜等人，證據和線索所指向的並非這些體型龐大但沒什麼特別之處的山貓，而是這間越發詭異的團圓客棧。貓妖再次來找到宣夜，兩人跟著貓妖來到辛字院，不曾想眼前開門的人竟是段言秋。宣夜和半夏見段言秋的言談舉止雖與平日並無差別，但是對二人同時出現在客棧的事情卻漠不關心。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E09.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E09.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:40:18</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E09.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>半夏找到宣夜聊起了遲望川死前所說的父親假死一事，幫助父親假死的妖成為新線索，可這妖是誰？宣夜、半夏一時也沒有頭緒。堂兄段言秋趕來廣平城，他此次前來的目的，是勸半夏跟他回到柟陽城，不要一個女孩子家在外面「瘋瘋癲癲」地過日子。半夏無奈，只能請宣夜幫忙，告知兄長新婦蠻娘是割喉賊的真兇。至此，段言秋終於接受妻子是惡妖的事實，將半夏託付給宣夜，獨自一人離開了廣平。一日，宣夜和半夏在街上遇到一個紈绔縱馬踩傷路人，受害的路人當場死亡，半夏看到死去那人身上落著白烏鴉感覺很奇怪。官府索拿紈绔問罪，得知此人之前已經多次傷人性命，判他斬首。可死刑當日，此人居然一臉鎮定，毫無懼意。當晚，他的屍體竟然在府衙內不翼而飛。另一邊，半夏為父親沒有線索而苦惱，從路人口中聽說了一位名為崆峒子的捉妖師。此人仙風道骨手持木劍，身子飄逸靈動，肩上的白烏鴉巍然不動，儼然一副大師的做派，便打算求他幫助自己尋找父親。宣夜看到半夏回來的時候買了靈符，便知半夏定是被那崆峒子騙了。韓青和周雪曼坦白父親車禍真相 ，林嘉嘉調查毒梟案牽出</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E10.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E10.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:40:08</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E10.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>半夏從宣夜口中知道了崆峒子是騙子，決定不再找其他法子了，專心等宣夜幫她。就在這時，傳來了崆峒子的死訊。半夏迅速回憶起這幾次看到的白色烏鴉，並將這一切都關聯在了一起。原來半夏是被遲望川詛咒，得到了預知死亡的能力。半夏來到趕山堂，看到溫劍正和宣夜聊著城中縱馬行兇的紈绔「死而復生」的事，可半夏看到捕頭溫劍的肩頭也落了白烏鴉，這似乎說明溫劍的劫難已至。幾人苦惱如何解救溫劍，然而令誰也想不到的是，在溫劍娘子的祈求下，一隻黑貓在黑暗之中如期而至。宣夜因溫劍一事一夜未睡，不停翻看百妖譜找著解救溫劍的方法。與此同時，溫劍在黑貓的幫助下假死而後生。半夏想到父親可能也是找了貓妖，才想出假死脫身之計，於是在宣夜和溫劍娘子的幫助下，半夏找到了妖貓，並向它打聽父親段英恒的下落。深夜，段言秋扣響了「團圓客棧」的大門。在一個小姑娘鳳伍孃的帶領下入住了團圓客棧。可鳳伍娘言行詭異，偏要留他多住幾日。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E08 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E08 - 4K.mkv</strong>
-                            <span class='item-time'>00:39:57</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E08 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>季離的行刺失敗了，遲望川將她帶入了自己的本源之地——鏡中世界。與此同時，宣夜和半夏找到季離下榻的房間，一同闖入了遲望川的本源之地。宣夜正要拔劍與遲望川交戰，奈何劍匣里的劍卻毫無反應，宣夜不敵遲望川的攻擊，中了暗算，身受重傷。半夏掌心的護身符擊碎了鏡中世界的一面鏡子，使得被宣夜恢復了武力。宣夜快速找到了遲望川的破綻，反敗爲勝。被宣夜壓制住的遲望川表面在交代半夏父親找妖幫忙假死脫身，以逃脫他追捕的事實；暗地裡放出了白烏鴉攻擊半夏二人，給自己創造逃跑的機會。遲望川帶著季離躲到了鏡屋內，可季離已生無可戀。遲望川將她的記憶抽強行，取封存在銅鏡中，使季離忘記一切，和他重新開始。而在房間內，已經擺滿了許許多多面封存著季離記憶的銅鏡。原來季離已經不是第一次想要殺死遲望川，遲望川也不是第一次抽取季離的記憶。但無論遲望川再重來多少回，邪惡的碧玉梨註定無法給兩人帶來幸福的結局。最終宣夜和半夏趕到，宣夜使出的撼山劍刺中遲望川。遲望川口吐鮮血，鏡中世界破碎，季離陪著遲望川死在鏡中。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E07 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E07 - 4K.mkv</strong>
-                            <span class='item-time'>00:39:47</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E07 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>城中又發生了一起命案。幽篁前去辦案，發現屍首不同於先前發現的任何一具，模樣只蒼老了一些，未完全老化。幽篁遇到前來死者家中弔唁的舞姬季離，引起了他的警覺，尾隨在後，發現她竟然來到趕山堂，找宣夜買可以刺破妖物法身的月蟲蟲油。 幽篁與宣夜、半夏三人合計，斷定季離與此案存在關聯。他們查出季離下榻的客棧，打算一探究竟。 客棧內，季離準備了一桌上好的飯菜，等來了「碧玉梨」的幕後真兇遲望川。原來季離弔唁的是她死去的戀人，他正是被遲望川所殺。許多年前，遲望川曾拯救過落難尋死的季離，他救下季離后也幫助季離返老還童，但代價是要季離永遠陪在他的身邊。可令季離沒有想到的是，遲望川有著極強的佔有慾，竟然將她所愛之人殺害，不允許她離開他身旁半步。且遲望川無法接受季離衰老死去，一次次逼迫季離吃下碧玉梨，讓她長長久久地陪著自己。而季離也在容顏不老的誘惑中一次次迷失，徹底成爲了被遲望川操控的木偶。這次，季離將塗了蟲油匕首刺向遲望川，準備徹底了結他們之間的恩怨。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E07.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E07.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:39:37</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E07.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>城中又發生了一起命案。幽篁前去辦案，發現屍首不同於先前發現的任何一具，模樣只蒼老了一些，未完全老化。幽篁遇到前來死者家中弔唁的舞姬季離，引起了他的警覺，尾隨在後，發現她竟然來到趕山堂，找宣夜買可以刺破妖物法身的月蟲蟲油。 幽篁與宣夜、半夏三人合計，斷定季離與此案存在關聯。他們查出季離下榻的客棧，打算一探究竟。 客棧內，季離準備了一桌上好的飯菜，等來了「碧玉梨」的幕後真兇遲望川。原來季離弔唁的是她死去的戀人，他正是被遲望川所殺。許多年前，遲望川曾拯救過落難尋死的季離，他救下季離后也幫助季離返老還童，但代價是要季離永遠陪在他的身邊。可令季離沒有想到的是，遲望川有著極強的佔有慾，竟然將她所愛之人殺害，不允許她離開他身旁半步。且遲望川無法接受季離衰老死去，一次次逼迫季離吃下碧玉梨，讓她長長久久地陪著自己。而季離也在容顏不老的誘惑中一次次迷失，徹底成爲了被遲望川操控的木偶。這次，季離將塗了蟲油匕首刺向遲望川，準備徹底了結他們之間的恩怨。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E08.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunters.Romance.S01E08.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
-                            <span class='item-time'>00:39:27</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunters.Romance.S01E08.2025.1080p.IQ.WEB-DL.H264.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>季離的行刺失敗了，遲望川將她帶入了自己的本源之地——鏡中世界。與此同時，宣夜和半夏找到季離下榻的房間，一同闖入了遲望川的本源之地。宣夜正要拔劍與遲望川交戰，奈何劍匣里的劍卻毫無反應，宣夜不敵遲望川的攻擊，中了暗算，身受重傷。半夏掌心的護身符擊碎了鏡中世界的一面鏡子，使得被宣夜恢復了武力。宣夜快速找到了遲望川的破綻，反敗爲勝。被宣夜壓制住的遲望川表面在交代半夏父親找妖幫忙假死脫身，以逃脫他追捕的事實；暗地裡放出了白烏鴉攻擊半夏二人，給自己創造逃跑的機會。遲望川帶著季離躲到了鏡屋內，可季離已生無可戀。遲望川將她的記憶抽強行，取封存在銅鏡中，使季離忘記一切，和他重新開始。而在房間內，已經擺滿了許許多多面封存著季離記憶的銅鏡。原來季離已經不是第一次想要殺死遲望川，遲望川也不是第一次抽取季離的記憶。但無論遲望川再重來多少回，邪惡的碧玉梨註定無法給兩人帶來幸福的結局。最終宣夜和半夏趕到，宣夜使出的撼山劍刺中遲望川。遲望川口吐鮮血，鏡中世界破碎，季離陪著遲望川死在鏡中。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E06 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E06 - 4K.mkv</strong>
-                            <span class='item-time'>00:39:17</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E06 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>6</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E05 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E05 - 4K.mkv</strong>
-                            <span class='item-time'>00:39:07</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E05 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>5</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E04 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E04 - 4K.mkv</strong>
-                            <span class='item-time'>00:38:57</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E04 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>4</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E03 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E03 - 4K.mkv</strong>
-                            <span class='item-time'>00:38:47</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E03 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>3</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E02 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E02 - 4K.mkv</strong>
-                            <span class='item-time'>00:38:37</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E02 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>今天是山妖的大婚日子，山妖過來之後看到路邊的兩個人，特意給了段半夏一碗酒，段半夏迫於壓力不敢不喝，久宣夜生怕段半夏心裡不舒服，特意告訴她這些酒是可以延年益壽。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E01 - 4K.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>The.Demon.Hunter's.Romance.S01E01 - 4K.mkv</strong>
-                            <span class='item-time'>00:38:26</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\無憂渡 The Demon Hunters Romance (2025)\Season 01\The.Demon.Hunter's.Romance.S01E01 - 4K.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/138291" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>天空中忽然下起了大雨，百姓們紛紛奔跑壁語，一個小孩在飯館門口坐著，老闆叮囑千萬不要亂跑，接著忙活店裡的事情，此時店裡坐著久宣夜（任嘉倫飾演）因為坐在這裡吃了一下午的飯而被人議論，沒見過這麼能吃的人。</blockquote>
-                    </li>
                 </ul>
                 <button class="load-more-button day-pagination" data-target-list="#list-tvshow-20250512" style="display: none;">顯示更多</button>
             </div>
         </div>
- </div> <p class="footer-time"><small>頁面最後生成時間: 2025-05-12 02:03:31</small></p> </div>
+        <div class="content-pane " id="pane-magazine">
+            <h3>2025 年 05 月</h3>
+            <div class="day-group">
+                <h4 class="day-header" data-target="#list-magazine-20250512"><span class="toggle-icon">+</span> 05 月 12 日 (Monday)</h4>
+                <ul class="update-list " id="list-magazine-20250512" data-category="magazine">
+                    <li class="update-item " data-filename="先探投資 2020-03-12 第2082期 - 疫情的贏家VS輸家.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202003\先探投資 2020-03-12 第2082期 - 疫情的贏家VS輸家.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>先探投資 2020-03-12 第2082期 - 疫情的贏家VS輸家.pdf</strong>
+                            <span class='item-time'>02:09:37</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202003\先探投資 2020-03-12 第2082期 - 疫情的贏家VS輸家.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="先探投資 2020-03-06 第2081期 - 谷底反彈神救援.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202003\先探投資 2020-03-06 第2081期 - 谷底反彈神救援.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>先探投資 2020-03-06 第2081期 - 谷底反彈神救援.pdf</strong>
+                            <span class='item-time'>02:09:32</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202003\先探投資 2020-03-06 第2081期 - 谷底反彈神救援.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="Advanced 彭蒙惠英語 2020-02 第230期 - 你的優先順序對了嗎？.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\Advanced 彭蒙惠英語 2020-02 第230期 - 你的優先順序對了嗎？.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>Advanced 彭蒙惠英語 2020-02 第230期 - 你的優先順序對了嗎？.pdf</strong>
+                            <span class='item-time'>02:09:27</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\Advanced 彭蒙惠英語 2020-02 第230期 - 你的優先順序對了嗎？.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="英語島 English Island 2020-02 第075期 - 我正在跟世界打交道.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\英語島 English Island 2020-02 第075期 - 我正在跟世界打交道.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>英語島 English Island 2020-02 第075期 - 我正在跟世界打交道.pdf</strong>
+                            <span class='item-time'>02:09:22</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\英語島 English Island 2020-02 第075期 - 我正在跟世界打交道.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="XXL Basketball 美國職籃聯盟雜誌 2020-02 第298期 - Kobe Bryant.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\XXL Basketball 美國職籃聯盟雜誌 2020-02 第298期 - Kobe Bryant.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>XXL Basketball 美國職籃聯盟雜誌 2020-02 第298期 - Kobe Bryant.pdf</strong>
+                            <span class='item-time'>02:09:17</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\XXL Basketball 美國職籃聯盟雜誌 2020-02 第298期 - Kobe Bryant.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="PChome 電腦家庭 2020-02 第289期 - 圖片快手活用技.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\PChome 電腦家庭 2020-02 第289期 - 圖片快手活用技.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>PChome 電腦家庭 2020-02 第289期 - 圖片快手活用技.pdf</strong>
+                            <span class='item-time'>02:09:12</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\PChome 電腦家庭 2020-02 第289期 - 圖片快手活用技.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="理財周刊  2020-02-28 第1018期 - 缺工缺料連鎖效應.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\理財周刊  2020-02-28 第1018期 - 缺工缺料連鎖效應.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>理財周刊  2020-02-28 第1018期 - 缺工缺料連鎖效應.pdf</strong>
+                            <span class='item-time'>02:09:07</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\理財周刊  2020-02-28 第1018期 - 缺工缺料連鎖效應.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="互動日本語 Live Interactive Japanese 2020-02 第038期 - 溫泉.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\互動日本語 Live Interactive Japanese 2020-02 第038期 - 溫泉.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>互動日本語 Live Interactive Japanese 2020-02 第038期 - 溫泉.pdf</strong>
+                            <span class='item-time'>02:09:02</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\互動日本語 Live Interactive Japanese 2020-02 第038期 - 溫泉.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="大家說英語 Let's Talk in English 2020-02 - 走進書香世界.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\大家說英語 Let's Talk in English 2020-02 - 走進書香世界.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>大家說英語 Let's Talk in English 2020-02 - 走進書香世界.pdf</strong>
+                            <span class='item-time'>02:08:57</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\大家說英語 Let's Talk in English 2020-02 - 走進書香世界.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="CNN 互動英語 2020-02 第233期 - 威尼斯將被洪水淹沒.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\CNN 互動英語 2020-02 第233期 - 威尼斯將被洪水淹沒.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>CNN 互動英語 2020-02 第233期 - 威尼斯將被洪水淹沒.pdf</strong>
+                            <span class='item-time'>02:08:52</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\CNN 互動英語 2020-02 第233期 - 威尼斯將被洪水淹沒.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="ABC 互動英語 2020-02 第212期 - 用英語描述天氣.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\ABC 互動英語 2020-02 第212期 - 用英語描述天氣.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>ABC 互動英語 2020-02 第212期 - 用英語描述天氣.pdf</strong>
+                            <span class='item-time'>02:08:47</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\ABC 互動英語 2020-02 第212期 - 用英語描述天氣.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="常春藤解析美語 Ivy League Analytical English 2020-02 第379期 - 貓．美術館.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\常春藤解析美語 Ivy League Analytical English 2020-02 第379期 - 貓．美術館.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>常春藤解析美語 Ivy League Analytical English 2020-02 第379期 - 貓．美術館.pdf</strong>
+                            <span class='item-time'>02:08:42</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\常春藤解析美語 Ivy League Analytical English 2020-02 第379期 - 貓．美術館.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="常春藤生活美語 Ivy League Enjoy English 2020-02 第201期 - 想笑時就開一「罐」笑聲吧！.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\常春藤生活美語 Ivy League Enjoy English 2020-02 第201期 - 想笑時就開一「罐」笑聲吧！.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>常春藤生活美語 Ivy League Enjoy English 2020-02 第201期 - 想笑時就開一「罐」笑聲吧！.pdf</strong>
+                            <span class='item-time'>02:08:37</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\常春藤生活美語 Ivy League Enjoy English 2020-02 第201期 - 想笑時就開一「罐」笑聲吧！.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="天下雜誌 Common Wealth 2020-02-26 第692期 - 新冠肺炎決戰時刻.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\天下雜誌 Common Wealth 2020-02-26 第692期 - 新冠肺炎決戰時刻.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>天下雜誌 Common Wealth 2020-02-26 第692期 - 新冠肺炎決戰時刻.pdf</strong>
+                            <span class='item-time'>02:08:32</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\天下雜誌 Common Wealth 2020-02-26 第692期 - 新冠肺炎決戰時刻.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="先探投資 2020-02-27 第2080期 - 台積電下一個戰場.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\先探投資 2020-02-27 第2080期 - 台積電下一個戰場.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>先探投資 2020-02-27 第2080期 - 台積電下一個戰場.pdf</strong>
+                            <span class='item-time'>02:08:27</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\先探投資 2020-02-27 第2080期 - 台積電下一個戰場.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="微笑台灣 Smile Taiwan 2020 春季號 第017期 - 和山一起呼吸.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202001\微笑台灣 Smile Taiwan 2020 春季號 第017期 - 和山一起呼吸.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>微笑台灣 Smile Taiwan 2020 春季號 第017期 - 和山一起呼吸.pdf</strong>
+                            <span class='item-time'>02:08:22</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202001\微笑台灣 Smile Taiwan 2020 春季號 第017期 - 和山一起呼吸.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="PChome 電腦家庭 2020-01 第288期 - 26款熱門手機遊戲推薦.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202001\PChome 電腦家庭 2020-01 第288期 - 26款熱門手機遊戲推薦.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>PChome 電腦家庭 2020-01 第288期 - 26款熱門手機遊戲推薦.pdf</strong>
+                            <span class='item-time'>02:08:17</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202001\PChome 電腦家庭 2020-01 第288期 - 26款熱門手機遊戲推薦.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="大家說英語 Let's Talk in English 2020-01 - 西安古都行.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202001\大家說英語 Let's Talk in English 2020-01 - 西安古都行.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>大家說英語 Let's Talk in English 2020-01 - 西安古都行.pdf</strong>
+                            <span class='item-time'>02:08:11</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202001\大家說英語 Let's Talk in English 2020-01 - 西安古都行.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="常春籐生活英語 Ivy League Enjoy English 2020-01 第200期 - 冷眼看破人生的摩羯.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202001\常春籐生活英語 Ivy League Enjoy English 2020-01 第200期 - 冷眼看破人生的摩羯.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>常春籐生活英語 Ivy League Enjoy English 2020-01 第200期 - 冷眼看破人生的摩羯.pdf</strong>
+                            <span class='item-time'>02:08:06</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202001\常春籐生活英語 Ivy League Enjoy English 2020-01 第200期 - 冷眼看破人生的摩羯.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="常春籐解析英語 Ivy League Analytical English 2020-01 第378期 - 水豚君15周年特展.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202001\常春籐解析英語 Ivy League Analytical English 2020-01 第378期 - 水豚君15周年特展.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>常春籐解析英語 Ivy League Analytical English 2020-01 第378期 - 水豚君15周年特展.pdf</strong>
+                            <span class='item-time'>02:08:01</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202001\常春籐解析英語 Ivy League Analytical English 2020-01 第378期 - 水豚君15周年特展.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="英語島 English Island 2020-01 第074期 - 我的夢幻食譜.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202001\英語島 English Island 2020-01 第074期 - 我的夢幻食譜.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>英語島 English Island 2020-01 第074期 - 我的夢幻食譜.pdf</strong>
+                            <span class='item-time'>02:07:56</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202001\英語島 English Island 2020-01 第074期 - 我的夢幻食譜.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="Advanced 彭蒙惠英語 2020-01 - 二零二零年庚子年.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202001\Advanced 彭蒙惠英語 2020-01 - 二零二零年庚子年.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>Advanced 彭蒙惠英語 2020-01 - 二零二零年庚子年.pdf</strong>
+                            <span class='item-time'>02:07:51</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202001\Advanced 彭蒙惠英語 2020-01 - 二零二零年庚子年.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="ABC 互動英語 2020-01 第211期 - 歡歡喜喜過新年.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202001\ABC 互動英語 2020-01 第211期 - 歡歡喜喜過新年.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>ABC 互動英語 2020-01 第211期 - 歡歡喜喜過新年.pdf</strong>
+                            <span class='item-time'>02:07:46</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202001\ABC 互動英語 2020-01 第211期 - 歡歡喜喜過新年.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="CNN 互動英語 2019-12 第231期 - Space X 發表地球最強載人太空船.pdf" data-path="LiangTsaoEBooks\《雜誌》\2019\201912\CNN 互動英語 2019-12 第231期 - Space X 發表地球最強載人太空船.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>CNN 互動英語 2019-12 第231期 - Space X 發表地球最強載人太空船.pdf</strong>
+                            <span class='item-time'>02:07:41</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2019\201912\CNN 互動英語 2019-12 第231期 - Space X 發表地球最強載人太空船.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="英語島 English Island 2019-12 第073期 - 2020改變世界的30道力量.pdf" data-path="LiangTsaoEBooks\《雜誌》\2019\201912\英語島 English Island 2019-12 第073期 - 2020改變世界的30道力量.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>英語島 English Island 2019-12 第073期 - 2020改變世界的30道力量.pdf</strong>
+                            <span class='item-time'>02:07:36</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2019\201912\英語島 English Island 2019-12 第073期 - 2020改變世界的30道力量.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="互動日本語 Live Interactive Japanese 2019-12 第036期 - 少女樂園派隊.pdf" data-path="LiangTsaoEBooks\《雜誌》\2019\201912\互動日本語 Live Interactive Japanese 2019-12 第036期 - 少女樂園派隊.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>互動日本語 Live Interactive Japanese 2019-12 第036期 - 少女樂園派隊.pdf</strong>
+                            <span class='item-time'>02:07:31</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2019\201912\互動日本語 Live Interactive Japanese 2019-12 第036期 - 少女樂園派隊.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="PChome 電腦家庭 2019-12 第287期 - 六大串流影音平台怎麼選？.pdf" data-path="LiangTsaoEBooks\《雜誌》\2019\201912\PChome 電腦家庭 2019-12 第287期 - 六大串流影音平台怎麼選？.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>PChome 電腦家庭 2019-12 第287期 - 六大串流影音平台怎麼選？.pdf</strong>
+                            <span class='item-time'>02:07:26</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2019\201912\PChome 電腦家庭 2019-12 第287期 - 六大串流影音平台怎麼選？.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="快樂工作人 Cheers 2019-12 第225期 - 2020變有錢.pdf" data-path="LiangTsaoEBooks\《雜誌》\2019\201912\快樂工作人 Cheers 2019-12 第225期 - 2020變有錢.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>快樂工作人 Cheers 2019-12 第225期 - 2020變有錢.pdf</strong>
+                            <span class='item-time'>02:07:21</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2019\201912\快樂工作人 Cheers 2019-12 第225期 - 2020變有錢.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="快樂工作人特刊 Cheers Special Issue 2019-11 第207期 - 向阿德勒學習2020更快樂.pdf" data-path="LiangTsaoEBooks\《雜誌》\2019\201911\快樂工作人特刊 Cheers Special Issue 2019-11 第207期 - 向阿德勒學習2020更快樂.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>快樂工作人特刊 Cheers Special Issue 2019-11 第207期 - 向阿德勒學習2020更快樂.pdf</strong>
+                            <span class='item-time'>02:07:16</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2019\201911\快樂工作人特刊 Cheers Special Issue 2019-11 第207期 - 向阿德勒學習2020更快樂.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="英語島 English Island 2019-11 第072期 - 英文@矽谷.pdf" data-path="LiangTsaoEBooks\《雜誌》\2019\201911\英語島 English Island 2019-11 第072期 - 英文@矽谷.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>英語島 English Island 2019-11 第072期 - 英文@矽谷.pdf</strong>
+                            <span class='item-time'>02:07:11</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2019\201911\英語島 English Island 2019-11 第072期 - 英文@矽谷.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="Advanced 彭蒙惠美語 2019-11 第227期 - 登上世界最高的雪梨港灣大橋.pdf" data-path="LiangTsaoEBooks\《雜誌》\2019\201911\Advanced 彭蒙惠美語 2019-11 第227期 - 登上世界最高的雪梨港灣大橋.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>Advanced 彭蒙惠美語 2019-11 第227期 - 登上世界最高的雪梨港灣大橋.pdf</strong>
+                            <span class='item-time'>02:07:06</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2019\201911\Advanced 彭蒙惠美語 2019-11 第227期 - 登上世界最高的雪梨港灣大橋.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                </ul>
+                <button class="load-more-button day-pagination" data-target-list="#list-magazine-20250512" style="display: none;">顯示更多</button>
+            </div>
+        </div>
+ </div> <p class="footer-time"><small>頁面最後生成時間: 2025-05-12 02:09:42</small></p> </div>
     <script>
         const tsMap = {'剧':'劇','集':'集','电':'電','影':'影','杂':'雜','志':'誌','时':'時','间':'間','档':'檔','案':'案','更':'更','新':'新','列':'列','表':'表','签':'簽','标':'標','题':'題','内':'內','容':'容','搜':'搜','寻':'尋','显':'顯','示':'示','隐':'隱','藏':'藏','数':'數','据':'據','库': '庫','简':'簡','繁':'繁','体':'體','字':'字','转':'轉','换':'換','优':'優','化':'化','验':'驗','证':'證','权':'權','限':'限','设':'設','置':'置','错':'錯','误':'誤','讯':'訊','息':'息','系':'系','统':'統','环':'環','境':'境','版':'版','本':'本','处':'處','理':'理','回':'回','应': '應','网':'網','页':'頁','浏':'瀏','览':'覽','器':'器','缓':'緩','存':'存','清':'清','除':'除','模':'模','块':'塊','组':'組','织':'織','结':'結','构':'構','状':'狀','态':'態','负':'負','载':'載','压':'壓','力':'力','测':'測','试':'試','性':'性','能':'能','调':'調','优':'優','部':'部', '署':'署','迭':'疊','代':'代','开':'開','发':'發','周':'週','期':'期','计':'計','划':'劃','实':'實','现':'現','功':'功','能':'能','需':'需','求':'求','规':'規','范':'範','说':'說','明':'明','书':'書','用':'用','户':'戶','体':'體','验':'驗','界':'界','面':'面','计':'計','交互':'互動', '动':'動','画':'畫','视':'視','觉':'覺','元':'元','素':'素','图':'圖','标':'標','颜':'顏','色':'色','体':'體','排':'排','版':'版','布':'佈','局':'局','响':'響','应':'應','式':'式','适':'適','配':'配','不':'不','同':'同','备':'備','屏':'屏','幕':'幕','尺':'尺','寸':'寸','全':'全','漫':'漫', ' ': ' '};
         const stMap = {}; for (const t in tsMap) { stMap[tsMap[t]] = t; }
