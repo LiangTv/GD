@@ -1,5 +1,505 @@
 [
     {
+        "filename": "鏡週刊 Mirror Media 2023-11-12 第373期 - SBL全聯盟捲入假球風暴.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\鏡週刊 Mirror Media 2023-11-12 第373期 - SBL全聯盟捲入假球風暴.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\鏡週刊 Mirror Media 2023-11-12 第373期 - SBL全聯盟捲入假球風暴.pdf",
+        "timestamp": "2025-05-12T02:30:19.883720",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "iPhone,iPad玩樂誌 2023-11 第214期 - IG限時動態玩更多字體.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\iPhone,iPad玩樂誌 2023-11 第214期 - IG限時動態玩更多字體.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\iPhone,iPad玩樂誌 2023-11 第214期 - IG限時動態玩更多字體.pdf",
+        "timestamp": "2025-05-12T02:30:14.876329",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "iPhone密技王 2023-11 第097期 - 整理iPhone桌面秘技.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\iPhone密技王 2023-11 第097期 - 整理iPhone桌面秘技.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\iPhone密技王 2023-11 第097期 - 整理iPhone桌面秘技.pdf",
+        "timestamp": "2025-05-12T02:30:09.867307",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "時尚家居 House Style 2023-11 第113期 - Elegant Decoration.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\時尚家居 House Style 2023-11 第113期 - Elegant Decoration.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\時尚家居 House Style 2023-11 第113期 - Elegant Decoration.pdf",
+        "timestamp": "2025-05-12T02:30:04.856543",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "財訊雙週刊 2023-11-23 第699期 - 習近平救市謀略 衝擊台灣4大產業.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\財訊雙週刊 2023-11-23 第699期 - 習近平救市謀略 衝擊台灣4大產業.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\財訊雙週刊 2023-11-23 第699期 - 習近平救市謀略 衝擊台灣4大產業.pdf",
+        "timestamp": "2025-05-12T02:29:59.843866",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "今周刊 Business Today 2023-11-23 第1405期 - 超完美退休法則.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\今周刊 Business Today 2023-11-23 第1405期 - 超完美退休法則.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\今周刊 Business Today 2023-11-23 第1405期 - 超完美退休法則.pdf",
+        "timestamp": "2025-05-12T02:29:54.838329",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Android玩樂誌 2023-11 第251期 - 徹底關掉 Google 助理.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\Android玩樂誌 2023-11 第251期 - 徹底關掉 Google 助理.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\Android玩樂誌 2023-11 第251期 - 徹底關掉 Google 助理.pdf",
+        "timestamp": "2025-05-12T02:29:49.827810",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "阿路巴高爾夫 Alba Tross-View 2023-11 第107期 - 再見了！開球右曲.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\阿路巴高爾夫 Alba Tross-View 2023-11 第107期 - 再見了！開球右曲.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\阿路巴高爾夫 Alba Tross-View 2023-11 第107期 - 再見了！開球右曲.pdf",
+        "timestamp": "2025-05-12T02:29:44.816618",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "今周刊 Business Today 2023-11-30 第1405期 - 一種幸福叫創生.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\今周刊 Business Today 2023-11-30 第1405期 - 一種幸福叫創生.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\今周刊 Business Today 2023-11-30 第1405期 - 一種幸福叫創生.pdf",
+        "timestamp": "2025-05-12T02:29:39.803302",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "天下雜誌 Common Wealth 2023-11-29 第787期 - 白領詐騙.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\天下雜誌 Common Wealth 2023-11-29 第787期 - 白領詐騙.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\天下雜誌 Common Wealth 2023-11-29 第787期 - 白領詐騙.pdf",
+        "timestamp": "2025-05-12T02:29:34.799413",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "萬寶週刊 Marbo Weekly 2023-11-30 第1570期 - 年底電子股作帳風起雲湧.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\萬寶週刊 Marbo Weekly 2023-11-30 第1570期 - 年底電子股作帳風起雲湧.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\萬寶週刊 Marbo Weekly 2023-11-30 第1570期 - 年底電子股作帳風起雲湧.pdf",
+        "timestamp": "2025-05-12T02:29:29.791453",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "商業周刊 Business Weekly 2023-11-27 第1880期 - 壯世代 新關係.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\商業周刊 Business Weekly 2023-11-27 第1880期 - 壯世代 新關係.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\商業周刊 Business Weekly 2023-11-27 第1880期 - 壯世代 新關係.pdf",
+        "timestamp": "2025-05-12T02:29:24.775422",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "動腦 brain 2023-11 第571期 - 懶人至上 居家服務經濟.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\動腦 brain 2023-11 第571期 - 懶人至上 居家服務經濟.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\動腦 brain 2023-11 第571期 - 懶人至上 居家服務經濟.pdf",
+        "timestamp": "2025-05-12T02:29:19.770991",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "財訊雙週刊 2023-11-09 第698期 - 一顆眼球 兆元商機.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\財訊雙週刊 2023-11-09 第698期 - 一顆眼球 兆元商機.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\財訊雙週刊 2023-11-09 第698期 - 一顆眼球 兆元商機.pdf",
+        "timestamp": "2025-05-12T02:29:14.761233",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "台灣銀行家 The Taiwan Banker 2023-11 第167期 - 強化投資者韌性 台灣金融更有力.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\台灣銀行家 The Taiwan Banker 2023-11 第167期 - 強化投資者韌性 台灣金融更有力.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\台灣銀行家 The Taiwan Banker 2023-11 第167期 - 強化投資者韌性 台灣金融更有力.pdf",
+        "timestamp": "2025-05-12T02:29:09.750830",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "萬寶週刊 Marbo Weekly 2023-11-09 第1567期 - IC設計對決IP的高價爭霸.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\萬寶週刊 Marbo Weekly 2023-11-09 第1567期 - IC設計對決IP的高價爭霸.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\萬寶週刊 Marbo Weekly 2023-11-09 第1567期 - IC設計對決IP的高價爭霸.pdf",
+        "timestamp": "2025-05-12T02:29:04.742951",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經濟一週 Economic Digest 2023-11-11 第2193期 - 美股業績出爐 消費力續強勁 年尾易升難跌.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\經濟一週 Economic Digest 2023-11-11 第2193期 - 美股業績出爐 消費力續強勁 年尾易升難跌.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\經濟一週 Economic Digest 2023-11-11 第2193期 - 美股業績出爐 消費力續強勁 年尾易升難跌.pdf",
+        "timestamp": "2025-05-12T02:28:59.738160",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經貿透視 Trade Insight 2023-11-15 第631期 - 智慧科技成就精準飼育.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\經貿透視 Trade Insight 2023-11-15 第631期 - 智慧科技成就精準飼育.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\經貿透視 Trade Insight 2023-11-15 第631期 - 智慧科技成就精準飼育.pdf",
+        "timestamp": "2025-05-12T02:28:54.732476",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "媽媽寶寶 Mombaby 2023-11 第441期 - 過敏性鼻炎的治療與預防.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\媽媽寶寶 Mombaby 2023-11 第441期 - 過敏性鼻炎的治療與預防.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\媽媽寶寶 Mombaby 2023-11 第441期 - 過敏性鼻炎的治療與預防.pdf",
+        "timestamp": "2025-05-12T02:28:49.728242",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "理財周刊 2023-11-10 第1211期 - 升火待發股.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\理財周刊 2023-11-10 第1211期 - 升火待發股.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\理財周刊 2023-11-10 第1211期 - 升火待發股.pdf",
+        "timestamp": "2025-05-12T02:28:44.723489",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "天下雜誌 Common Wealth 2023-11-15 第786期 - 我不只要薪水.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\天下雜誌 Common Wealth 2023-11-15 第786期 - 我不只要薪水.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\天下雜誌 Common Wealth 2023-11-15 第786期 - 我不只要薪水.pdf",
+        "timestamp": "2025-05-12T02:28:39.710592",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "大師輕鬆讀 Master 2023-11-14 第947期 - 做個安心放假的老闆.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\大師輕鬆讀 Master 2023-11-14 第947期 - 做個安心放假的老闆.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\大師輕鬆讀 Master 2023-11-14 第947期 - 做個安心放假的老闆.pdf",
+        "timestamp": "2025-05-12T02:28:34.704359",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "一手車訊 Carnews 2023-11 第395期 - 棕熊翻新 Skoda New Kodiaq.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\一手車訊 Carnews 2023-11 第395期 - 棕熊翻新 Skoda New Kodiaq.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\一手車訊 Carnews 2023-11 第395期 - 棕熊翻新 Skoda New Kodiaq.pdf",
+        "timestamp": "2025-05-12T02:28:29.692078",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "先探投資週刊 Wealth Invest Weekly 2023-11-17 第2274期 - 2024 AI PC元年.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\先探投資週刊 Wealth Invest Weekly 2023-11-17 第2274期 - 2024 AI PC元年.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\先探投資週刊 Wealth Invest Weekly 2023-11-17 第2274期 - 2024 AI PC元年.pdf",
+        "timestamp": "2025-05-12T02:28:24.681040",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "先探投資週刊 Wealth Invest Weekly 2023-11-10 第2273期 - 台股衝萬七 財報X營收 雙料冠軍.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\先探投資週刊 Wealth Invest Weekly 2023-11-10 第2273期 - 台股衝萬七 財報X營收 雙料冠軍.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\先探投資週刊 Wealth Invest Weekly 2023-11-10 第2273期 - 台股衝萬七 財報X營收 雙料冠軍.pdf",
+        "timestamp": "2025-05-12T02:28:19.674132",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "VOGUE 2023-11 第326期 - LIFE IN CINAME.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\VOGUE 2023-11 第326期 - LIFE IN CINAME.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\VOGUE 2023-11 第326期 - LIFE IN CINAME.pdf",
+        "timestamp": "2025-05-12T02:28:14.667411",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Smart智富 2023-11 第303期 - 高通膨+高利率夾擊 退休族搶救現金流.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\Smart智富 2023-11 第303期 - 高通膨+高利率夾擊 退休族搶救現金流.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\Smart智富 2023-11 第303期 - 高通膨+高利率夾擊 退休族搶救現金流.pdf",
+        "timestamp": "2025-05-12T02:28:09.657368",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "PRESTIGE品雜誌 2023-11 第131期 - 曾愷玹.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\PRESTIGE品雜誌 2023-11 第131期 - 曾愷玹.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\PRESTIGE品雜誌 2023-11 第131期 - 曾愷玹.pdf",
+        "timestamp": "2025-05-12T02:28:04.645535",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "La Vie 2023-11 第235期 - 新時代的攝影修練.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\La Vie 2023-11 第235期 - 新時代的攝影修練.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\La Vie 2023-11 第235期 - 新時代的攝影修練.pdf",
+        "timestamp": "2025-05-12T02:27:59.636694",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "哈潑時尚 Harper's BAZAAR 2023-11 第405期 - 2024春夏時裝周話題剖析.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\哈潑時尚 Harper's BAZAAR 2023-11 第405期 - 2024春夏時裝周話題剖析.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\哈潑時尚 Harper's BAZAAR 2023-11 第405期 - 2024春夏時裝周話題剖析.pdf",
+        "timestamp": "2025-05-12T02:27:54.628795",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "ELLE 她 2023-11 第386期 - 許瑋甯 溫柔的拚搏.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\ELLE 她 2023-11 第386期 - 許瑋甯 溫柔的拚搏.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\ELLE 她 2023-11 第386期 - 許瑋甯 溫柔的拚搏.pdf",
+        "timestamp": "2025-05-12T02:27:49.614918",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "大師輕鬆讀 Master 2023-11-07 第946期 - 首先，打破成規.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\大師輕鬆讀 Master 2023-11-07 第946期 - 首先，打破成規.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\大師輕鬆讀 Master 2023-11-07 第946期 - 首先，打破成規.pdf",
+        "timestamp": "2025-05-12T02:27:44.609013",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "商業周刊 Business Weekly 2023-11-20 第1879期 - 便宜日圓 台廠生存戰.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\商業周刊 Business Weekly 2023-11-20 第1879期 - 便宜日圓 台廠生存戰.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\商業周刊 Business Weekly 2023-11-20 第1879期 - 便宜日圓 台廠生存戰.pdf",
+        "timestamp": "2025-05-12T02:27:39.603836",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "商業周刊 Business Weekly 2023-11-13 第1878期 - 2023年大調查 碳競爭力100強.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\商業周刊 Business Weekly 2023-11-13 第1878期 - 2023年大調查 碳競爭力100強.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\商業周刊 Business Weekly 2023-11-13 第1878期 - 2023年大調查 碳競爭力100強.pdf",
+        "timestamp": "2025-05-12T02:27:34.596993",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "商業周刊 Business Weekly 2023-11-06 第1877期 - 壞時機搶救業績指南 決勝2%超級顧客.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\商業周刊 Business Weekly 2023-11-06 第1877期 - 壞時機搶救業績指南 決勝2%超級顧客.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\商業周刊 Business Weekly 2023-11-06 第1877期 - 壞時機搶救業績指南 決勝2%超級顧客.pdf",
+        "timestamp": "2025-05-12T02:27:29.589565",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "今周刊 Business Today 2023-11-16 第1404期 - 一個都不能少的新台灣幫.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\今周刊 Business Today 2023-11-16 第1404期 - 一個都不能少的新台灣幫.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\今周刊 Business Today 2023-11-16 第1404期 - 一個都不能少的新台灣幫.pdf",
+        "timestamp": "2025-05-12T02:27:24.576950",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Big大時商業誌 2023-11 第087期 - 反脆弱投資.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\Big大時商業誌 2023-11 第087期 - 反脆弱投資.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\Big大時商業誌 2023-11 第087期 - 反脆弱投資.pdf",
+        "timestamp": "2025-05-12T02:27:19.570247",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Android玩樂誌 2023-11 第250期 - 地圖變型格牆紙，讓你思念任何地方.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\Android玩樂誌 2023-11 第250期 - 地圖變型格牆紙，讓你思念任何地方.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\Android玩樂誌 2023-11 第250期 - 地圖變型格牆紙，讓你思念任何地方.pdf",
+        "timestamp": "2025-05-12T02:27:14.560678",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "萬寶週刊 Marbo Weekly 2023-11-16 第1568期 - Q3財報總體檢2.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\萬寶週刊 Marbo Weekly 2023-11-16 第1568期 - Q3財報總體檢2.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\萬寶週刊 Marbo Weekly 2023-11-16 第1568期 - Q3財報總體檢2.pdf",
+        "timestamp": "2025-05-12T02:27:09.552616",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "康健特刊 Common Health 第032期 - 腸胃100問完全解答！.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\康健特刊 Common Health 第032期 - 腸胃100問完全解答！.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\康健特刊 Common Health 第032期 - 腸胃100問完全解答！.pdf",
+        "timestamp": "2025-05-12T02:27:04.546960",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "數位時代 Business Next 2023-11 第354期 - 矽谷Ｘ台灣 領跑AI商機.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\數位時代 Business Next 2023-11 第354期 - 矽谷Ｘ台灣 領跑AI商機.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\數位時代 Business Next 2023-11 第354期 - 矽谷Ｘ台灣 領跑AI商機.pdf",
+        "timestamp": "2025-05-12T02:26:59.541149",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "遠見 Global Views 2023-11 第449期 - 為何現在買瑞士？.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\遠見 Global Views 2023-11 第449期 - 為何現在買瑞士？.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\遠見 Global Views 2023-11 第449期 - 為何現在買瑞士？.pdf",
+        "timestamp": "2025-05-12T02:26:54.535321",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "網管人 NetAdmin 2023-11 第214期 - 護關鍵資料 打造CR避風港.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\網管人 NetAdmin 2023-11 第214期 - 護關鍵資料 打造CR避風港.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\網管人 NetAdmin 2023-11 第214期 - 護關鍵資料 打造CR避風港.pdf",
+        "timestamp": "2025-05-12T02:26:49.524167",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經濟一週 Economic Digest 2023-11-04 第2192期 - 香港尋定位破局.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\經濟一週 Economic Digest 2023-11-04 第2192期 - 香港尋定位破局.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\經濟一週 Economic Digest 2023-11-04 第2192期 - 香港尋定位破局.pdf",
+        "timestamp": "2025-05-12T02:26:44.510702",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經貿透視 Trade Insight 2023-11-01 第630期 - 拌麵洗牌潮.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\經貿透視 Trade Insight 2023-11-01 第630期 - 拌麵洗牌潮.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\經貿透視 Trade Insight 2023-11-01 第630期 - 拌麵洗牌潮.pdf",
+        "timestamp": "2025-05-12T02:26:39.502510",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經理人 Manager Today 2023-11 第228期 - 淬鍊自23位企業家 工作、人生的80個解答.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\經理人 Manager Today 2023-11 第228期 - 淬鍊自23位企業家 工作、人生的80個解答.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\經理人 Manager Today 2023-11 第228期 - 淬鍊自23位企業家 工作、人生的80個解答.pdf",
+        "timestamp": "2025-05-12T02:26:34.498512",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "新電子 Micro-Electronics 2023-11 第452期 - 台無人機飛向國際.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\新電子 Micro-Electronics 2023-11 第452期 - 台無人機飛向國際.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\新電子 Micro-Electronics 2023-11 第452期 - 台無人機飛向國際.pdf",
+        "timestamp": "2025-05-12T02:26:29.488744",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "鄉間小路 AGRI  2023-11 第49卷第11期 - 海島風味.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\鄉間小路 AGRI  2023-11 第49卷第11期 - 海島風味.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\鄉間小路 AGRI  2023-11 第49卷第11期 - 海島風味.pdf",
+        "timestamp": "2025-05-12T02:26:24.479290",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "游絲 Spiral 2023-11 第211期 - PARMIGIANI 低調新當家.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\游絲 Spiral 2023-11 第211期 - PARMIGIANI 低調新當家.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\游絲 Spiral 2023-11 第211期 - PARMIGIANI 低調新當家.pdf",
+        "timestamp": "2025-05-12T02:26:19.461211",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "常春藤解析美語 Ivy League Analytical English 2023-11 第424期 - 你今天 SAY HI 了嗎？.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\常春藤解析美語 Ivy League Analytical English 2023-11 第424期 - 你今天 SAY HI 了嗎？.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\常春藤解析美語 Ivy League Analytical English 2023-11 第424期 - 你今天 SAY HI 了嗎？.pdf",
+        "timestamp": "2025-05-12T02:26:14.449181",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
         "filename": "常春藤生活美語 Ivy League Enjoy English 2023-11 第246期 - 東京擠爆的滿員電車.pdf",
         "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202311\\常春藤生活美語 Ivy League Enjoy English 2023-11 第246期 - 東京擠爆的滿員電車.pdf",
         "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202311\\常春藤生活美語 Ivy League Enjoy English 2023-11 第246期 - 東京擠爆的滿員電車.pdf",
