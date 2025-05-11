@@ -6,14 +6,464 @@
     <style> body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 15px; background-color: #f8f9fa; color: #333; } .container { max-width: 1200px; margin: 0 auto; } h1 { text-align: center; color: #0056b3; margin-bottom: 20px; } .search-container { margin-bottom: 20px; text-align: center; } #search-input { padding: 8px 12px; font-size: 1em; border: 1px solid #ccc; border-radius: 4px; width: 60%; max-width: 400px; transition: border-color 0.2s ease, box-shadow 0.2s ease; } #search-input:focus { border-color: #007bff; box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); outline: none; } .tab-buttons { display: flex; justify-content: center; margin-bottom: 25px; border-bottom: 2px solid #dee2e6; flex-wrap: wrap; padding: 0 10px; } .tab-button { padding: 10px 15px; cursor: pointer; border: none; background-color: transparent; font-size: 1.05em; color: #007bff; margin: 0 3px 0px 3px; border-bottom: 3px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; white-space: nowrap; } .tab-button:hover { color: #0056b3; } .tab-button.active { color: #0056b3; font-weight: bold; border-bottom-color: #0056b3; } .tab-content { } .content-pane { display: none; animation: fadeIn 0.3s ease-in-out; } .content-pane.active { display: block; } @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } } .day-group { margin-bottom: 15px; border: 1px solid #e9ecef; border-radius: 4px; background-color: #fff; overflow: hidden; } .day-header { background-color: #f1f3f5; color: #495057; padding: 10px 15px; margin: 0; cursor: pointer; font-weight: bold; display: flex; align-items: center; transition: background-color 0.2s ease; } .day-header:hover { background-color: #e9ecef; } .toggle-icon { display: inline-block; width: 1em; margin-right: 8px; text-align: center; font-weight: bold; } .update-list { list-style: none; padding: 0 15px 15px 15px; margin: 0; display: none; } .update-list.visible { display: block; } h3 { color: #17a2b8; margin-top: 20px; margin-bottom: 10px; border-left: 4px solid #17a2b8; padding-left: 10px; font-size: 1.3em; } li.update-item { margin-bottom: 10px; padding: 10px 12px; background-color: #fff; border: none; border-bottom: 1px solid #eee; border-radius: 0; box-shadow: none; transition: background-color 0.1s ease; } li.update-item:last-child { border-bottom: none; } .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; } .item-header strong { font-size: 1.05em; color: #003975; margin-bottom: 0; flex-grow: 1; margin-right: 10px; word-break: break-all; } .item-time { font-size: 0.8em; color: #777; white-space: nowrap; } .file-path { font-family: 'Courier New', Courier, monospace; font-size: 0.8em; color: #666; margin-bottom: 6px; word-break: break-all; } blockquote { margin: 6px 0 6px 0px; padding: 6px 10px; border-left: 3px solid #007bff; background-color: #e9f5ff; color: #333; font-size: 0.85em; } a { color: #007bff; text-decoration: none; } a:hover { text-decoration: underline; } .tmdb-link { display: inline-block; margin-top: 4px; font-size: 0.85em; } .update-item.hidden-item { display: none; } .load-more-button.day-pagination { display: block; margin: 15px auto 5px auto; padding: 8px 16px; font-size: 0.9em; cursor: pointer; background-color: #28a745; color: white; border: none; border-radius: 4px; transition: background-color 0.2s ease; } .load-more-button.day-pagination:hover { background-color: #218838; } .highlight { background-color: yellow; font-weight: bold; } .update-item.search-hidden { display: none !important; } .day-group.search-hidden { display: none !important; } h3.search-hidden { display: none !important; } .search-active .load-more-button.day-pagination { display: none !important; } .footer-time { margin-top: 40px; text-align: center; font-size: 0.9em; color: #888; } </style>
 </head>
 <body> <div class="container"> <h1>媒體更新總覽 (最新 500 筆)</h1> <div class="search-container"> <input type="search" id="search-input" placeholder="搜尋 劇集/電影/全集/動漫(依路徑) 或 雜誌(依檔名)..."> </div> <div class="tab-buttons">         <button class="tab-button active" data-category="tvshow">劇集</button>
-        <button class="tab-button " data-category="animation">動漫</button>
-        <button class="tab-button " data-category="magazine">雜誌</button>
  </div> <div class="tab-content">         <div class="content-pane active" id="pane-tvshow">
             <h3>2025 年 05 月</h3>
             <div class="day-group expanded">
                 <h4 class="day-header" data-target="#list-tvshow-20250512"><span class="toggle-icon">-</span> 05 月 12 日 (Monday)</h4>
                 <ul class="update-list visible" id="list-tvshow-20250512" data-category="tvshow">
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E15 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E07.2025.1080p.WEB-DL.H264.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>A.Better.Life.S01E07.2025.1080p.WEB-DL.H264.mkv</strong>
+                            <span class='item-time'>01:20:20</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E07.2025.1080p.WEB-DL.H264.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/261586" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>胡曼黎被开除并禁业两年，试图借助他人从事保险业务，屡遭背叛后将客户资源交给薛晓舟。薛欲自立却被其父胡德功试探，虽暂获签单希望，终被放鸽子，唐玲撕毁赠品单，薛晓舟陷入窘境。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E08.2025.1080p.WEB-DL.H264.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>A.Better.Life.S01E08.2025.1080p.WEB-DL.H264.mkv</strong>
+                            <span class='item-time'>01:20:09</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E08.2025.1080p.WEB-DL.H264.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/261586" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>薛晓舟当众否认与邱丽苏的关系，惹怒胡曼黎，导致其五年心血客户魏远翔泡汤。孙洁因母亲与小男友交往求助胡曼黎，牵出百万保险话题却进展不顺。胡曼黎为查阿东身份，与薛晓舟连日跟踪，终发现阿东已婚。她伪造丁达尔抑郁诊断，只为让丁致远陪儿子露营，薛晓舟为之动容。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E02 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>A.Better.Life.S01E02 - 4K.mp4</strong>
+                            <span class='item-time'>01:19:59</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E02 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/261586" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>胡曼黎發現丁致遠與邱麗蘇的事，主動求和無果反遭離婚。她試圖挽回跳水失敗，最終秘密離婚。職場上她與薛曉舟因理賠起衝突，初次交涉不歡而散。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E01 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>A.Better.Life.S01E01 - 4K.mp4</strong>
+                            <span class='item-time'>01:19:49</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E01 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/261586" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>保險女王胡曼黎接受採訪時發現丈夫丁致遠情詩卡片生疑，職場強勢卻面臨同事針對，新書發佈會上情詩真相曝光，引發情感與家庭衝突。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E04 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>A.Better.Life.S01E04 - 4K.mp4</strong>
+                            <span class='item-time'>01:19:39</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E04 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/261586" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>胡曼黎被開除回老家，醉酒後向薛曉舟吐露心聲。她遭行業禁入，試圖利用資源合作翻身；薛曉舟辭職后入職太盈國際，卻在新公司遭遇冷落。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E03 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>A.Better.Life.S01E03 - 4K.mp4</strong>
+                            <span class='item-time'>01:19:29</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E03 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/261586" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>陳放指使薛曉舟針對胡曼黎，誣陷其騙保、跳槽。胡曼黎努力簽單無果，反被開除，離職時懷疑薛曉舟與邱麗蘇關係不正當，事業受挫。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E05 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>A.Better.Life.S01E05 - 4K.mp4</strong>
+                            <span class='item-time'>01:19:19</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E05 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/261586" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>薛曉舟初入公司遭排擠，實習未過被辭退；胡曼黎被王春露背叛，失業后變賣包包，遭邱麗蘇羞辱；丁致遠想幫胡曼黎，邱麗蘇假意資助實則刁難。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E06 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>A.Better.Life.S01E06 - 4K.mp4</strong>
+                            <span class='item-time'>01:19:09</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E06 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/261586" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>胡曼黎因被羞辱報復邱麗蘇，后賣車還房貸；薛曉舟打球得罪人，求職受阻；胡曼黎攪局后與薛曉舟達成合作賭約，薛曉舟拜訪客戶卻屢遭拒絕。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E07 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>A.Better.Life.S01E07 - 4K.mp4</strong>
+                            <span class='item-time'>01:18:59</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E07 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/261586" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>胡曼黎被开除并禁业两年，试图借助他人从事保险业务，屡遭背叛后将客户资源交给薛晓舟。薛欲自立却被其父胡德功试探，虽暂获签单希望，终被放鸽子，唐玲撕毁赠品单，薛晓舟陷入窘境。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E09 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>A.Better.Life.S01E09 - 4K.mp4</strong>
+                            <span class='item-time'>01:18:49</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E09 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/261586" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>胡曼黎为让丁致远参加露营伪造诊断书，遭邱丽苏识破。跟踪阿东一周发现其与阿莉有暧昧，实为剧组演戏，胡曼黎闹出笑话。丁达尔得知父母分开真相后力挺母亲，胡曼黎感动。周淑芳坚持为阿东买保险，孙洁气愤求胡曼黎拖延，胡曼黎答应。薛晓舟急于开单，胡曼黎请求三天时间寻两全之策。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E08 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>A.Better.Life.S01E08 - 4K.mp4</strong>
+                            <span class='item-time'>01:18:39</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E08 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/261586" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>薛晓舟当众否认与邱丽苏的关系，惹怒胡曼黎，导致其五年心血客户魏远翔泡汤。孙洁因母亲与小男友交往求助胡曼黎，牵出百万保险话题却进展不顺。胡曼黎为查阿东身份，与薛晓舟连日跟踪，终发现阿东已婚。她伪造丁达尔抑郁诊断，只为让丁致远陪儿子露营，薛晓舟为之动容。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E10 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>A.Better.Life.S01E10 - 4K.mp4</strong>
+                            <span class='item-time'>01:18:29</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\蠻好的人生 A Better Life (2025)\Season 01\A.Better.Life.S01E10 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/261586" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>薛晓舟入职一个月没开单，被组长唐玲羞辱，愤而离开。胡德功为求保单找他帮忙，薛晓舟意外发现胡德功是胡曼黎父亲，感到被利用。胡曼黎用真心打动薛晓舟，两人合作拿下周淑芳的一百万保单。露营当天，丁致远现身，丁达尔喜出望外，胡曼黎现场澄清分手真相，丁致远尴尬离开。薛晓舟拿到第一单奖励，买猫讨好吴雅，感情升温。马晓伟向艾中华要钱未果，威胁找艾临江。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\起司美國夢 Government Cheese (2025)\Season 01\Government.Cheese.S01E06.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Government.Cheese.S01E06.mkv</strong>
+                            <span class='item-time'>01:18:18</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\起司美國夢 Government Cheese (2025)\Season 01\Government.Cheese.S01E06.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/241491" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>釣魚之行進入第二天，漢普頓遭遇了意想不到的後果。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\起司美國夢 Government Cheese (2025)\Season 01\Government.Cheese.S01E05.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Government.Cheese.S01E05.mkv</strong>
+                            <span class='item-time'>01:18:08</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\起司美國夢 Government Cheese (2025)\Season 01\Government.Cheese.S01E05.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/241491" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>漢普頓說服哈里森一起前往皮魯湖共度親子時光。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\起司美國夢 Government Cheese (2025)\Season 01\Government.Cheese.S01E02.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Government.Cheese.S01E02.mkv</strong>
+                            <span class='item-time'>01:17:58</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\起司美國夢 Government Cheese (2025)\Season 01\Government.Cheese.S01E02.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/241491" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>漢普頓重獲自由首日便遭遇意想不到的轉折。艾絲托莉婭的工作被打斷。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\起司美國夢 Government Cheese (2025)\Season 01\Government.Cheese.S01E01.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Government.Cheese.S01E01.mkv</strong>
+                            <span class='item-time'>01:17:48</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\起司美國夢 Government Cheese (2025)\Season 01\Government.Cheese.S01E01.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/241491" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>回家后的漢普頓不得不面對自己長期缺席期間所發生的各種變化。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\起司美國夢 Government Cheese (2025)\Season 01\Government.Cheese.S01E03.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Government.Cheese.S01E03.mkv</strong>
+                            <span class='item-time'>01:17:38</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\起司美國夢 Government Cheese (2025)\Season 01\Government.Cheese.S01E03.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/241491" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>艾絲托莉婭進城度過一個愉快的夜晚，而漢普頓則被某件事耽誤原來的計劃。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\起司美國夢 Government Cheese (2025)\Season 01\Government.Cheese.S01E04.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Government.Cheese.S01E04.mkv</strong>
+                            <span class='item-time'>01:17:28</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\起司美國夢 Government Cheese (2025)\Season 01\Government.Cheese.S01E04.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/241491" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>錢伯斯家的孩子們踏上探險之旅，而漢普頓達到一石二鳥的目的。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\The.Haunted.Palace.S01E06.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>The.Haunted.Palace.S01E06.mkv</strong>
+                            <span class='item-time'>01:17:18</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\The.Haunted.Palace.S01E06.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/259486" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>在姜哲意識到自己對汝里的感情時，盲人判手馮山的黑手已伸至中宮殿，其影響也波及到了汝里。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\The.Haunted.Palace.S01E05.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>The.Haunted.Palace.S01E05.mkv</strong>
+                            <span class='item-time'>01:17:08</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\The.Haunted.Palace.S01E05.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/259486" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>宮中再次發生事件，姜哲和汝里察覺到宮內有人在幫助八尺鬼。
+
+因彼此的需要，姜哲和汝里締結了身主神契約，兩人之間卻萌生了意想不到的感情。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\Love.in.Pavilion.S01E09.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Love.in.Pavilion.S01E09.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
+                            <span class='item-time'>01:16:58</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\Love.in.Pavilion.S01E09.2025.1080p.IQ.WEB-DL.H264.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/259486" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>回到山莊，金人鳳向淮竹送上鯉妖鱗片配飾示愛，淮竹得知鱗片是從妖身上生生拔下憤怒異常，轉身離去。金人鳳因淮竹態度在後山泄憤，並意圖殺死蛭妖小曇。為保命，小曇稱自己有辦法讓金人鳳變得更強大。轉眼一月過去，弘業戴著面具與淮竹竹亭再見。弘業請淮竹喝酒解悶，淮竹拿出自己親手做的金蘭面具送給弘業。弘業卻摘下面具，露出真容，坦白身份。淮竹得知真相，震驚不已，痛恨弘業無情的她，表示從今以後與他不復相見，而後決 然離去。楊家自楊雁之事後愁雲慘淡，家主楊還舟因此失去了孫子楊一嘆的心。楊一嘆指出楊還舟本性冷酷，為逼自己開天眼，曾經將年幼的他扔進妖族礦洞，如今又出賣木小五。楊還舟自認為所做一切都是爲了復興楊家，滿腔憤恨引來了小黑狐，並通過小黑狐，成為黑狐 娘娘的棋子。與此同時，弘業來到御妖國警告御妖國主不可將御妖符流入一氣盟，而楊還舟受黑狐娘娘指點，也帶著御妖符來到附近。楊還舟佈下符咒陷阱，欲控制弘業來解除大妖九惑的封印，並將御妖符打入九惑體內。然而弘業意志堅定，堅持妖可殺，不可奴役。並因此得到了九惑的賞識。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\Love.in.Pavilion.S01E10.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Love.in.Pavilion.S01E10.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
+                            <span class='item-time'>01:16:48</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\Love.in.Pavilion.S01E10.2025.1080p.IQ.WEB-DL.H264.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/259486" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>九惑從楊還舟口中得知黑狐娘娘就是他的徒弟妖狐珈藍，爲了讓珈藍回到自己身邊，九惑決定破圈，打開傲來三少用以隔離黑狐的結界。為此九惑需要靈血傳人，他來到王權山莊，暗中觀察淮竹，並通過金蓮法陣，將淮竹擄到了二十年後的碧落城。弘業得知訊息，急忙趕到，卻還是晚了一步 。只好讓李去濁儘快破解金蓮法陣。碧落城中淮竹醒來，卻被九惑激發藏在體內的妖息，洗去記憶並加以誆騙，淮竹因此成了九惑的親信， 碧落城的左護法。另一邊，李去濁打開金蓮法陣，弘業與王權醉、楊一嘆也來到二十年後，卻發現神火山莊竟破敗不堪，一氣盟早已消亡，人妖相殘，世間唯一的凈土是由黃泉族大妖建立的碧落城。三人來到碧落城，卻見碧落左護法出遊查破冤案，並指引被控制的狼妖去金晨客棧暫庇，而這個左護法正是淮竹。淮竹不僅不認識弘業，還出手將他打傷。弘業等人只好暫退。狼妖來到金晨客棧，轉頭就被客棧老闆煉成金晨曦碎片上供給夜淵，同樣被擄至此處的蛭妖翠玉鳴鸞將這些盡收眼底，倉皇逃離。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\Love.in.Pavilion.S01E11.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Love.in.Pavilion.S01E11.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
+                            <span class='item-time'>01:16:37</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\Love.in.Pavilion.S01E11.2025.1080p.IQ.WEB-DL.H264.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/259486" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>淮竹向九惑提及自己出巡時遇上怪人，不僅說她姓「東方 」，還說和自己是舊識，來自王權山莊。九惑發現淮竹身上有弘業留下的竊聽符，於是將計就計，令淮竹前往梨子坡收妖，弘業雖猜到梨子坡一事必是陷阱，但仍決定前往，最後弘業利用淮竹的偷襲， 和淮竹一起，被傳送到了懸空山結界，破了九惑的死局。懸空山內，少年珈藍出現，她便是九惑曾經的徒弟。懸空山孤寂，九惑便常送人進來陪她玩樂， 弘業和淮竹便是她這次的玩伴。三人玩起誰輸了便脫一件衣服的遊戲，淮竹輸了， 弘業卻正人君子地只取下淮竹一隻耳環。碧落城中，夜淵向九惑上供金晨曦碎片，但因蛭妖翠玉鳴鸞的失蹤，碎片數量不足，難以修復巨劍金晨曦。原來九惑要用金晨曦來強行打破傲來三少的結界 。王權醉和楊一嘆潛入九惑寢殿，查探九惑究竟為何目的，卻不想撞上九惑，一場大戰，楊一嘆開天眼識破九惑術法，帶走了王權醉，自己卻因此受了重傷。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\Love.in.Pavilion.S01E12.2025.1080p.IQ.WEB-DL.H264.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Love.in.Pavilion.S01E12.2025.1080p.IQ.WEB-DL.H264.mkv</strong>
+                            <span class='item-time'>01:16:27</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\Love.in.Pavilion.S01E12.2025.1080p.IQ.WEB-DL.H264.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/259486" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>楊一嘆隱瞞傷勢，與王權醉藏匿於林間小屋，王權醉不得不以精神控制將藥嘴對嘴餵給 了楊一嘆，楊一嘆臉紅心跳，原來他一直喜歡著王權醉。懸空山結界內，珈藍告訴淮竹和弘業，要想離開這裡，兩人必須鬥法，你死我活，活下來的那個就可以出去 。弘業不捨對淮竹動手，淮竹率先一步在幻境中將弘業殺死。但看到嘴角流血的弘業時，淮竹不知為何，心有觸動。結界打開，珈藍殘影即將消散，她告訴了淮竹自己和九惑的故事，狐妖珈藍出生時便被預言將會毀天滅地為塗山所忌憚，被囚禁在山崖，得知真相的珈藍殺盡塗山眾人後逃出，被九惑收養，兩人結為師徒，在懸空山相伴多年，珈藍只相信九惑 。聽完故事後，淮竹卻趁其不備，吸盡其妖力回到碧落城。與此同時，蛭妖翠玉鳴鸞遇到前往白玉村的木蔑（楊雁和木小五之子）， 鳴鸞因知白玉村兇險，故意給他指了錯路，木蔑卻還是進了村。淮竹回到碧落城，讓九惑繼續講述與珈藍結為師徒后的故事 。九惑告訴淮竹， 自己因庇護珈藍而被重創，珈藍不惜屠龍取丹，為他續命，觸犯眾怒，御妖國在地宮設下陷阱，封印九惑，並用靈火煉化珈藍。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\The.Haunted.Palace.S01E04.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>The.Haunted.Palace.S01E04.mkv</strong>
+                            <span class='item-time'>01:16:17</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\The.Haunted.Palace.S01E04.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/259486" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Gangcheori spits fire when Yeo-ri suggests he become her patron deity. The two head to Naebulsan after being disgracefully evicted from the palace.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\The.Haunted.Palace.S01E03.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>The.Haunted.Palace.S01E03.mkv</strong>
+                            <span class='item-time'>01:16:07</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\The.Haunted.Palace.S01E03.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/259486" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Yeo-ri manages to locate Yoon Gap's soul and prepares a shamanic ritual to retrieve it. Gangcheori worries for her, though his fears are unfounded.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\The.Haunted.Palace.S01E01.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>The.Haunted.Palace.S01E01.mkv</strong>
+                            <span class='item-time'>01:15:57</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\The.Haunted.Palace.S01E01.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/259486" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Once destined to be a great shaman, Yeo-ri is led astray from fate by a pesky imugi. She's now stuck making glasses — until her first love appears.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\The.Haunted.Palace.S01E02.mkv" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>The.Haunted.Palace.S01E02.mkv</strong>
+                            <span class='item-time'>01:15:47</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\鬼宮 귀궁 The Haunted Palace (2025)\Season 01\The.Haunted.Palace.S01E02.mkv</div>
+                        <a href="https://www.themoviedb.org/tv/259486" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>Gang-cheol acts out, relishing the feeling of being trapped in Yun-gap』s body. When rumors abound that Yun-gap has gone mad, Yeo-ri vows to save him.</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E36 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E36 - 4K.mp4</strong>
+                            <span class='item-time'>01:15:37</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E36 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>原在網際網路大廠任職的秦天越被派遣至婚戀機構心動網任經理。她熱衷於用大數據幫助客戶篩選和尋找最匹配的另一半，追求電光石火般的速配。在心動網有「人間丘位元」之稱的金牌顧問馮清鳴則有著截然不同的工作理念，比起效率，他更偏向于觀察客戶的情感需求，主張「小火溫燉」培養客戶之間的感情。在針尖對麥芒的業務摩擦中，兩人克服了各種障礙，為不同身份、背景、訴求的客戶尋找相親對象，處理了相親過程中形形色色的難題，更幫助了很多在婚戀問題上彷徨不定的人。一次次交鋒中，二人也從最初的死對頭變得互相欣賞、互相影響，這對「歡喜冤家」最終「雙劍合璧」，共同開創新事業的同時，一起探尋幸福的真義。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E35 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E35 - 4K.mp4</strong>
+                            <span class='item-time'>01:15:27</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E35 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>原在網際網路大廠任職的秦天越被派遣至婚戀機構心動網任經理。她熱衷於用大數據幫助客戶篩選和尋找最匹配的另一半，追求電光石火般的速配。在心動網有「人間丘位元」之稱的金牌顧問馮清鳴則有著截然不同的工作理念，比起效率，他更偏向于觀察客戶的情感需求，主張「小火溫燉」培養客戶之間的感情。在針尖對麥芒的業務摩擦中，兩人克服了各種障礙，為不同身份、背景、訴求的客戶尋找相親對象，處理了相親過程中形形色色的難題，更幫助了很多在婚戀問題上彷徨不定的人。一次次交鋒中，二人也從最初的死對頭變得互相欣賞、互相影響，這對「歡喜冤家」最終「雙劍合璧」，共同開創新事業的同時，一起探尋幸福的真義。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E32 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E32 - 4K.mp4</strong>
+                            <span class='item-time'>01:15:17</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E32 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>原在網際網路大廠任職的秦天越被派遣至婚戀機構心動網任經理。她熱衷於用大數據幫助客戶篩選和尋找最匹配的另一半，追求電光石火般的速配。在心動網有「人間丘位元」之稱的金牌顧問馮清鳴則有著截然不同的工作理念，比起效率，他更偏向于觀察客戶的情感需求，主張「小火溫燉」培養客戶之間的感情。在針尖對麥芒的業務摩擦中，兩人克服了各種障礙，為不同身份、背景、訴求的客戶尋找相親對象，處理了相親過程中形形色色的難題，更幫助了很多在婚戀問題上彷徨不定的人。一次次交鋒中，二人也從最初的死對頭變得互相欣賞、互相影響，這對「歡喜冤家」最終「雙劍合璧」，共同開創新事業的同時，一起探尋幸福的真義。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E33 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E33 - 4K.mp4</strong>
+                            <span class='item-time'>01:15:07</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E33 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>原在網際網路大廠任職的秦天越被派遣至婚戀機構心動網任經理。她熱衷於用大數據幫助客戶篩選和尋找最匹配的另一半，追求電光石火般的速配。在心動網有「人間丘位元」之稱的金牌顧問馮清鳴則有著截然不同的工作理念，比起效率，他更偏向于觀察客戶的情感需求，主張「小火溫燉」培養客戶之間的感情。在針尖對麥芒的業務摩擦中，兩人克服了各種障礙，為不同身份、背景、訴求的客戶尋找相親對象，處理了相親過程中形形色色的難題，更幫助了很多在婚戀問題上彷徨不定的人。一次次交鋒中，二人也從最初的死對頭變得互相欣賞、互相影響，這對「歡喜冤家」最終「雙劍合璧」，共同開創新事業的同時，一起探尋幸福的真義。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E31 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E31 - 4K.mp4</strong>
+                            <span class='item-time'>01:14:57</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E31 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>原在網際網路大廠任職的秦天越被派遣至婚戀機構心動網任經理。她熱衷於用大數據幫助客戶篩選和尋找最匹配的另一半，追求電光石火般的速配。在心動網有「人間丘位元」之稱的金牌顧問馮清鳴則有著截然不同的工作理念，比起效率，他更偏向于觀察客戶的情感需求，主張「小火溫燉」培養客戶之間的感情。在針尖對麥芒的業務摩擦中，兩人克服了各種障礙，為不同身份、背景、訴求的客戶尋找相親對象，處理了相親過程中形形色色的難題，更幫助了很多在婚戀問題上彷徨不定的人。一次次交鋒中，二人也從最初的死對頭變得互相欣賞、互相影響，這對「歡喜冤家」最終「雙劍合璧」，共同開創新事業的同時，一起探尋幸福的真義。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E34 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E34 - 4K.mp4</strong>
+                            <span class='item-time'>01:14:46</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E34 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>原在網際網路大廠任職的秦天越被派遣至婚戀機構心動網任經理。她熱衷於用大數據幫助客戶篩選和尋找最匹配的另一半，追求電光石火般的速配。在心動網有「人間丘位元」之稱的金牌顧問馮清鳴則有著截然不同的工作理念，比起效率，他更偏向于觀察客戶的情感需求，主張「小火溫燉」培養客戶之間的感情。在針尖對麥芒的業務摩擦中，兩人克服了各種障礙，為不同身份、背景、訴求的客戶尋找相親對象，處理了相親過程中形形色色的難題，更幫助了很多在婚戀問題上彷徨不定的人。一次次交鋒中，二人也從最初的死對頭變得互相欣賞、互相影響，這對「歡喜冤家」最終「雙劍合璧」，共同開創新事業的同時，一起探尋幸福的真義。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E29 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E29 - 4K.mp4</strong>
+                            <span class='item-time'>01:14:36</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E29 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>原在網際網路大廠任職的秦天越被派遣至婚戀機構心動網任經理。她熱衷於用大數據幫助客戶篩選和尋找最匹配的另一半，追求電光石火般的速配。在心動網有「人間丘位元」之稱的金牌顧問馮清鳴則有著截然不同的工作理念，比起效率，他更偏向于觀察客戶的情感需求，主張「小火溫燉」培養客戶之間的感情。在針尖對麥芒的業務摩擦中，兩人克服了各種障礙，為不同身份、背景、訴求的客戶尋找相親對象，處理了相親過程中形形色色的難題，更幫助了很多在婚戀問題上彷徨不定的人。一次次交鋒中，二人也從最初的死對頭變得互相欣賞、互相影響，這對「歡喜冤家」最終「雙劍合璧」，共同開創新事業的同時，一起探尋幸福的真義。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E28 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E28 - 4K.mp4</strong>
+                            <span class='item-time'>01:14:26</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E28 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>夏晚晴为了在一个月内完成方叶的要求，她只能广撒网，找来了很多男的，方叶见状非常生气，觉得这样一来还不如去精子库，夏晚晴一直安抚方叶，外面那多人等着，她还是希望方叶能够出去见一见。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E26 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E26 - 4K.mp4</strong>
+                            <span class='item-time'>01:14:16</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E26 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>冯清鸣分析董佳佳的资料，认为她与张世奇之间可能存在真感情。赵小满因照顾母亲错过相亲，张静作为家政服务员开始与赵小满接触，最终提出做住家保姆一个月，看是否合适。赵小满的前妻得知他有了新相亲对象，心生不满，表示自己三年丢失了许多机会。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E27 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E27 - 4K.mp4</strong>
+                            <span class='item-time'>01:14:06</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E27 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>赵小满与前妻琳琳在思蒂妮重逢，赵小满终于认识到自己的问题，感谢琳琳三年的付出，并给她补偿金，琳琳拒绝收下，但要求赵小满转交给母亲，赵小满感动。夏晚晴和程旭见证这一幕，感到欣慰。叶朗认为他们有复合的可能。秦天越和冯清鸣为张世奇安排了一个特别的相亲对象范楚楚，结果她把张世奇气跑。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E25 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E25 - 4K.mp4</strong>
+                            <span class='item-time'>01:13:56</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E25 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>叶朗因被停职一直在筱闵的咖啡厅帮忙，尽管筱闵不想被误会成情侣。赵小满在相亲中设立苛刻条件，希望找到能照顾母亲的妻子，夏晚晴决定不再为他介绍对象。曹子萱帮助何欢欢处理与父母的矛盾，最终促使他回家和解。程旭尝试安排赵小满和一名金牌保姆见面，而董佳佳也开始反思与张世奇的关系，思蒂妮承诺改进服务。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E24 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E24 - 4K.mp4</strong>
+                            <span class='item-time'>01:13:46</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E24 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>原在網際網路大廠任職的秦天越被派遣至婚戀機構心動網任經理。她熱衷於用大數據幫助客戶篩選和尋找最匹配的另一半，追求電光石火般的速配。在心動網有「人間丘位元」之稱的金牌顧問馮清鳴則有著截然不同的工作理念，比起效率，他更偏向于觀察客戶的情感需求，主張「小火溫燉」培養客戶之間的感情。在針尖對麥芒的業務摩擦中，兩人克服了各種障礙，為不同身份、背景、訴求的客戶尋找相親對象，處理了相親過程中形形色色的難題，更幫助了很多在婚戀問題上彷徨不定的人。一次次交鋒中，二人也從最初的死對頭變得互相欣賞、互相影響，這對「歡喜冤家」最終「雙劍合璧」，共同開創新事業的同時，一起探尋幸福的真義。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E21 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E21 - 4K.mp4</strong>
+                            <span class='item-time'>01:13:36</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E21 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>在今遇良緣婚介所，現實與理想不斷碰撞：何阿姨火速下單婚介服務，曹子萱為虛擬戀人求真愛，秦天越開發「次元婚配AI」應戰二次元需求，卻意外捲入更大的獵婚風暴。蔣方圓、曹子萱的次元戀逐漸浮現破綻，婚介所暗潮涌動。與此同時，現實世界的學歷焦慮、財產談判、階層盤算也全面爆發，婚戀市場儼然成為知識經濟時代的修羅場。真假情感交錯，獵手與獵物角色反轉，一場荒誕卻真實的婚戀遊戲悄然上演。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E22 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E22 - 4K.mp4</strong>
+                            <span class='item-time'>01:13:26</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E22 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>原在網際網路大廠任職的秦天越被派遣至婚戀機構心動網任經理。她熱衷於用大數據幫助客戶篩選和尋找最匹配的另一半，追求電光石火般的速配。在心動網有「人間丘位元」之稱的金牌顧問馮清鳴則有著截然不同的工作理念，比起效率，他更偏向于觀察客戶的情感需求，主張「小火溫燉」培養客戶之間的感情。在針尖對麥芒的業務摩擦中，兩人克服了各種障礙，為不同身份、背景、訴求的客戶尋找相親對象，處理了相親過程中形形色色的難題，更幫助了很多在婚戀問題上彷徨不定的人。一次次交鋒中，二人也從最初的死對頭變得互相欣賞、互相影響，這對「歡喜冤家」最終「雙劍合璧」，共同開創新事業的同時，一起探尋幸福的真義。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E23 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E23 - 4K.mp4</strong>
+                            <span class='item-time'>01:13:16</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E23 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>原在網際網路大廠任職的秦天越被派遣至婚戀機構心動網任經理。她熱衷於用大數據幫助客戶篩選和尋找最匹配的另一半，追求電光石火般的速配。在心動網有「人間丘位元」之稱的金牌顧問馮清鳴則有著截然不同的工作理念，比起效率，他更偏向于觀察客戶的情感需求，主張「小火溫燉」培養客戶之間的感情。在針尖對麥芒的業務摩擦中，兩人克服了各種障礙，為不同身份、背景、訴求的客戶尋找相親對象，處理了相親過程中形形色色的難題，更幫助了很多在婚戀問題上彷徨不定的人。一次次交鋒中，二人也從最初的死對頭變得互相欣賞、互相影響，這對「歡喜冤家」最終「雙劍合璧」，共同開創新事業的同時，一起探尋幸福的真義。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E19 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E19 - 4K.mp4</strong>
+                            <span class='item-time'>01:13:06</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E19 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>程旭欲靠傍富婆改變命運，被韓冰誘導簽下婚介長期服務契。與此同時，秦天越與馮清明設局試探戎鐵軍，揭穿其以偽裝「開光信物」操控王大安財產的陰謀。王大安震怒反擊，局勢失控，真相漸浮出水面。夏晚晴暗中謀劃，希望以離婚協議為局，促成破鏡重圓。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E18 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E18 - 4K.mp4</strong>
+                            <span class='item-time'>01:12:56</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E18 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>舒心在韓冰授意下，憑藉高超手段俘獲郭銘山的信任，精心扮演持家賢妻，令他為愛慷慨解囊。李樂凡與程旭暗中調查今遇良緣的相親騙局，揭開婚托女一日速配多男的真相。秦天越與馮清明以假意賠罪為由套取戎鐵軍信任，發現他通過監控操控王大安，暗藏更大陰謀。舒心向郝甜甜炫耀戰利品，傳授「馴夫之道」，卻被程旭窺見端倪。李樂凡好意勸阻郭銘山反遭誤解，衝突愈演愈烈，局勢一觸即發。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E17 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E17 - 4K.mp4</strong>
+                            <span class='item-time'>01:12:45</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E17 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>李樂凡配合程旭取證遇阻，甜甜親昵舉動讓程旭避之不及。高慧慧事件引總部震怒，江總要求秦天越開除夏晚晴，秦天越進退兩難。夏晚晴怒斥不公，馮清明力保，帶秦天越探望夏晚晴重病丈夫，揭開她的艱辛往事。員工團結遞辭職信，秦天越承諾另尋他法自救。與此同時，郭銘山被韓冰一方策反，局勢愈發緊張。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E20 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E20 - 4K.mp4</strong>
+                            <span class='item-time'>01:12:35</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E20 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>原在網際網路大廠任職的秦天越被派遣至婚戀機構心動網任經理。她熱衷於用大數據幫助客戶篩選和尋找最匹配的另一半，追求電光石火般的速配。在心動網有「人間丘位元」之稱的金牌顧問馮清鳴則有著截然不同的工作理念，比起效率，他更偏向于觀察客戶的情感需求，主張「小火溫燉」培養客戶之間的感情。在針尖對麥芒的業務摩擦中，兩人克服了各種障礙，為不同身份、背景、訴求的客戶尋找相親對象，處理了相親過程中形形色色的難題，更幫助了很多在婚戀問題上彷徨不定的人。一次次交鋒中，二人也從最初的死對頭變得互相欣賞、互相影響，這對「歡喜冤家」最終「雙劍合璧」，共同開創新事業的同時，一起探尋幸福的真義。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E16 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E16 - 4K.mp4</strong>
+                            <span class='item-time'>01:12:25</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E16 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>叶朗揭发“今遇良缘”相亲团蹭座扰民反遭围殴，咖啡馆老板筱敏怒斥其行径。王大安相亲时要求婚检、生儿子，高慧慧愤然离场，更闹至派出所。思缔妮调查婚托乱象，程旭潜入对手婚介所发现假照片、诈骗套路。直播冲突令思缔妮声誉受损，夏晚晴停职，程旭更揭幕后“大师”竟是寒冰前夫，疑云重重。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E14 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E14 - 4K.mp4</strong>
+                            <span class='item-time'>01:12:15</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E14 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>夏晚晴因王大安迷信挑对象头疼不已，程旭无奈科普大数据非玄学。郭铭山悉心照料林可欣并求婚，二人筹备婚礼却因期待不同产生隐忧。李乐凡与盛况因彩礼及房本争执不断，矛盾升级致李乐凡雨夜独自离开。林可欣筹婚遭单位限制，心情低落，冯清明与秦天越亦为她担忧。叶朗关心李乐凡，程旭帮她纾解情绪；盛况道歉邀约，二人关系未明朗。冯清明借美食助攻秦天越，暗藏心思。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E13 - 4K.mp4" data-category="tvshow">
+                       <div class="item-header">
+                            <strong>Home.about.Us.S01E13 - 4K.mp4</strong>
+                            <span class='item-time'>01:12:05</span>
+                       </div>
+                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E13 - 4K.mp4</div>
+                        <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
+                        <blockquote>夏晚晴吐槽李乐凡订婚戒指太寒酸，尴尬被撞见忙改口。程旭带马心恬见江桥，得知他从未放下，正为脱敏治疗努力，马心恬深受感动。江母致歉并为马心恬准备工作室，两人重归于好。李乐凡与盛况家因房本争执不休，女方索要彩礼。林可欣突患阑尾炎，郭铭山贴心照料，两人感情升温。夏晚晴发展迷信会员失败，心情低落。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E15 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Home.about.Us.S01E15 - 4K.mp4</strong>
                             <span class='item-time'>01:11:55</span>
@@ -22,7 +472,7 @@
                         <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>思缔妮全员为王大安相亲操办“玄学”大会，夏晚晴借“碰碰乐”吸引大批女生；林可欣婚礼筹备屡受否定，终与郭铭山分手。李乐凡识破盛况母子算计，怒斥六年付出换来羞辱，二人彻底决裂。婚介同行“今遇良缘”暗中抢客。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E12 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E12 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Home.about.Us.S01E12 - 4K.mp4</strong>
                             <span class='item-time'>01:11:45</span>
@@ -31,7 +481,7 @@
                         <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>原在網際網路大廠任職的秦天越被派遣至婚戀機構心動網任經理。她熱衷於用大數據幫助客戶篩選和尋找最匹配的另一半，追求電光石火般的速配。在心動網有「人間丘位元」之稱的金牌顧問馮清鳴則有著截然不同的工作理念，比起效率，他更偏向于觀察客戶的情感需求，主張「小火溫燉」培養客戶之間的感情。在針尖對麥芒的業務摩擦中，兩人克服了各種障礙，為不同身份、背景、訴求的客戶尋找相親對象，處理了相親過程中形形色色的難題，更幫助了很多在婚戀問題上彷徨不定的人。一次次交鋒中，二人也從最初的死對頭變得互相欣賞、互相影響，這對「歡喜冤家」最終「雙劍合璧」，共同開創新事業的同時，一起探尋幸福的真義。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E11 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E11 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Home.about.Us.S01E11 - 4K.mp4</strong>
                             <span class='item-time'>01:11:35</span>
@@ -40,7 +490,7 @@
                         <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>原在網際網路大廠任職的秦天越被派遣至婚戀機構心動網任經理。她熱衷於用大數據幫助客戶篩選和尋找最匹配的另一半，追求電光石火般的速配。在心動網有「人間丘位元」之稱的金牌顧問馮清鳴則有著截然不同的工作理念，比起效率，他更偏向于觀察客戶的情感需求，主張「小火溫燉」培養客戶之間的感情。在針尖對麥芒的業務摩擦中，兩人克服了各種障礙，為不同身份、背景、訴求的客戶尋找相親對象，處理了相親過程中形形色色的難題，更幫助了很多在婚戀問題上彷徨不定的人。一次次交鋒中，二人也從最初的死對頭變得互相欣賞、互相影響，這對「歡喜冤家」最終「雙劍合璧」，共同開創新事業的同時，一起探尋幸福的真義。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E09 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E09 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Home.about.Us.S01E09 - 4K.mp4</strong>
                             <span class='item-time'>01:11:25</span>
@@ -49,7 +499,7 @@
                         <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>在居安日化那寬敞明亮、氣氛熱烈的全體員工大會現場，董事長顧建華邁著沉穩的步伐走上臺前，正式宣佈了一項重要任命——周婷出任公司常務副董事長。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E10 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E10 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Home.about.Us.S01E10 - 4K.mp4</strong>
                             <span class='item-time'>01:11:15</span>
@@ -58,7 +508,7 @@
                         <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>林可欣到公司來，剛好夏晚晴還沒有來上班，是李樂凡接待了她，通過和李樂凡的接觸，林可欣覺得她更適合做自己的婚戀顧問，當夏晚晴看到了李樂凡在給林可欣溝通，認為是她搶了自己的客戶。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E01 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E01 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Home.about.Us.S01E01 - 4K.mp4</strong>
                             <span class='item-time'>01:11:05</span>
@@ -67,7 +517,7 @@
                         <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>月下丘神相親公司最近沒有客戶，所以他們每個人都在著急拉業務，甚至採用了原始的在街上發傳單的方式，但是基本沒用。程旭倒是拉回來一個客戶，馮清鳴和對方溝通之後才知道人家是來給自己的狗相親的，但是現在他們並沒有這樣的業務。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E03 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E03 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Home.about.Us.S01E03 - 4K.mp4</strong>
                             <span class='item-time'>01:10:54</span>
@@ -76,7 +526,7 @@
                         <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>葉朗爲了成單非常拚命，先是在最短的時間學習了mbti，他從會員中篩選出了一位合適的人選邢天，年輕人的世界葉朗實在是不理解，他們喜歡先在網上聊天，覺得彼此聊得來可以再見面。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E02 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E02 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Home.about.Us.S01E02 - 4K.mp4</strong>
                             <span class='item-time'>01:10:44</span>
@@ -85,7 +535,7 @@
                         <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>馮清明又一次遲到了，全然沒察覺秦天越就在身後，還口無遮攔地吐槽個不停，旁人怎麼攔都攔不住。待看到秦天越，他頓時滿臉尷尬。秦天越當即宣佈對其罰款，還宣佈婚介所要推行新管理，這下大家可炸開了鍋。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E04 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E04 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Home.about.Us.S01E04 - 4K.mp4</strong>
                             <span class='item-time'>01:10:34</span>
@@ -94,7 +544,7 @@
                         <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>在那座被生活煙火溫柔包裹的城市裡，周品良懷揣著緊張與憧憬，輕輕叩響了錢媛媛家的門扉。門開后，溫馨的氣息撲面而來，屋內佈置得精緻又溫馨，陽光透過輕薄的窗簾，在地板上灑下細碎的光影。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E05 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E05 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Home.about.Us.S01E05 - 4K.mp4</strong>
                             <span class='item-time'>01:10:24</span>
@@ -103,7 +553,7 @@
                         <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>為滿足顧建華為愛女周婷擇婿的心願，思締妮全體出動，四處徵集優質男士。一時間，公司里滿是前來應徵的人，不少人都是衝著居安日化那巨額財富而來。經過多輪嚴格篩選，最終有八位男士成功入圍。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E06 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E06 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Home.about.Us.S01E06 - 4K.mp4</strong>
                             <span class='item-time'>01:10:14</span>
@@ -112,7 +562,7 @@
                         <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>蕾蕾結束一天的忙碌回到家中，剛進門，就看到刑天正和他的發小以及發小的女朋友圍坐在麻將桌前，煙霧繚繞。蕾蕾本就不喜與陌生人打交道，便一聲不吭地回了臥室。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E08 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E08 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Home.about.Us.S01E08 - 4K.mp4</strong>
                             <span class='item-time'>01:10:04</span>
@@ -121,7 +571,7 @@
                         <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>原在網際網路大廠任職的秦天越被派遣至婚戀機構心動網任經理。她熱衷於用大數據幫助客戶篩選和尋找最匹配的另一半，追求電光石火般的速配。在心動網有「人間丘位元」之稱的金牌顧問馮清鳴則有著截然不同的工作理念，比起效率，他更偏向于觀察客戶的情感需求，主張「小火溫燉」培養客戶之間的感情。在針尖對麥芒的業務摩擦中，兩人克服了各種障礙，為不同身份、背景、訴求的客戶尋找相親對象，處理了相親過程中形形色色的難題，更幫助了很多在婚戀問題上彷徨不定的人。一次次交鋒中，二人也從最初的死對頭變得互相欣賞、互相影響，這對「歡喜冤家」最終「雙劍合璧」，共同開創新事業的同時，一起探尋幸福的真義。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E07 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成家 Home about Us (2025)\Season 01\Home.about.Us.S01E07 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Home.about.Us.S01E07 - 4K.mp4</strong>
                             <span class='item-time'>01:09:54</span>
@@ -130,7 +580,7 @@
                         <a href="https://www.themoviedb.org/tv/280848" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>原在網際網路大廠任職的秦天越被派遣至婚戀機構心動網任經理。她熱衷於用大數據幫助客戶篩選和尋找最匹配的另一半，追求電光石火般的速配。在心動網有「人間丘位元」之稱的金牌顧問馮清鳴則有著截然不同的工作理念，比起效率，他更偏向于觀察客戶的情感需求，主張「小火溫燉」培養客戶之間的感情。在針尖對麥芒的業務摩擦中，兩人克服了各種障礙，為不同身份、背景、訴求的客戶尋找相親對象，處理了相親過程中形形色色的難題，更幫助了很多在婚戀問題上彷徨不定的人。一次次交鋒中，二人也從最初的死對頭變得互相欣賞、互相影響，這對「歡喜冤家」最終「雙劍合璧」，共同開創新事業的同時，一起探尋幸福的真義。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\比天堂還美麗 천국보다 아름다운 Heavenly Ever After (2025)\Season 01\Heavenly.Ever.After.S01E06.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\比天堂還美麗 천국보다 아름다운 Heavenly Ever After (2025)\Season 01\Heavenly.Ever.After.S01E06.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Heavenly.Ever.After.S01E06.mkv</strong>
                             <span class='item-time'>01:09:44</span>
@@ -139,7 +589,7 @@
                         <a href="https://www.themoviedb.org/tv/254389" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>As Hae‑sook suddenly returns to Heaven with Lee Young‑ae, Som‑i questions her own identity. Soon, Hae‑sook meets folks whose lives she impacted on Earth.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\比天堂還美麗 천국보다 아름다운 Heavenly Ever After (2025)\Season 01\Heavenly.Ever.After.S01E05.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\比天堂還美麗 천국보다 아름다운 Heavenly Ever After (2025)\Season 01\Heavenly.Ever.After.S01E05.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Heavenly.Ever.After.S01E05.mkv</strong>
                             <span class='item-time'>01:09:34</span>
@@ -148,7 +598,7 @@
                         <a href="https://www.themoviedb.org/tv/254389" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>After receiving another infraction, Hae‑sook descends into Hell, where she encounters a familiar face. Nak‑joon makes his way into Hell to save her.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\比天堂還美麗 천국보다 아름다운 Heavenly Ever After (2025)\Season 01\Heavenly.Ever.After.S01E03.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\比天堂還美麗 천국보다 아름다운 Heavenly Ever After (2025)\Season 01\Heavenly.Ever.After.S01E03.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Heavenly.Ever.After.S01E03.mkv</strong>
                             <span class='item-time'>01:09:24</span>
@@ -159,7 +609,7 @@
 
 ▶ 這個突然闖入的年輕女子毫無記憶，也不懂察言觀色，徹底攪亂了海淑的心緒。最終，海淑在與樂俊爆發了婚後罕見的激烈爭吵后，選擇了離家出走……</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\比天堂還美麗 천국보다 아름다운 Heavenly Ever After (2025)\Season 01\Heavenly.Ever.After.S01E04.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\比天堂還美麗 천국보다 아름다운 Heavenly Ever After (2025)\Season 01\Heavenly.Ever.After.S01E04.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Heavenly.Ever.After.S01E04.mkv</strong>
                             <span class='item-time'>01:09:13</span>
@@ -170,7 +620,7 @@
 
 ▶ 就在某天，教堂里終於迎來了牧師期盼已久的新信徒……</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\比天堂還美麗 천국보다 아름다운 Heavenly Ever After (2025)\Season 01\Heavenly.Ever.After.S01E02.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\比天堂還美麗 천국보다 아름다운 Heavenly Ever After (2025)\Season 01\Heavenly.Ever.After.S01E02.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Heavenly.Ever.After.S01E02.mkv</strong>
                             <span class='item-time'>01:09:03</span>
@@ -179,7 +629,7 @@
                         <a href="https://www.themoviedb.org/tv/254389" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>Upon reuniting with the young Nak-joon, Hae-sook struggles to get used to their age gap. Furthermore, she finds herself haunted by a mysterious woman.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\比天堂還美麗 천국보다 아름다운 Heavenly Ever After (2025)\Season 01\Heavenly.Ever.After.S01E01.mkv" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\比天堂還美麗 천국보다 아름다운 Heavenly Ever After (2025)\Season 01\Heavenly.Ever.After.S01E01.mkv" data-category="tvshow">
                        <div class="item-header">
                             <strong>Heavenly.Ever.After.S01E01.mkv</strong>
                             <span class='item-time'>01:08:53</span>
@@ -188,7 +638,7 @@
                         <a href="https://www.themoviedb.org/tv/254389" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>Devoted to caring for her beloved Ko Nak-joon, Lee Hae-sook performs a detested job daily. But when he passes, she prepares to meet him again in heaven.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E16 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E16 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Secret.Files.of.XSA.S01E16 - 4K.mp4</strong>
                             <span class='item-time'>01:08:43</span>
@@ -197,7 +647,7 @@
                         <a href="https://www.themoviedb.org/tv/288893" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>蔚藍一號是一項舉世矚目的科研專案，為此境外間諜機構SAD實施破壞，被沙澎國操控的修羅則希望竊取它的核心技術。國安幹警霍敏和隊員們瓦解了SAD發起的陰謀、識破了修羅的滲透策略，最終將內鬼和間諜繩之以法。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E15 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E15 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Secret.Files.of.XSA.S01E15 - 4K.mp4</strong>
                             <span class='item-time'>01:08:33</span>
@@ -206,7 +656,7 @@
                         <a href="https://www.themoviedb.org/tv/288893" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>蔚藍一號是一項舉世矚目的科研專案，為此境外間諜機構SAD實施破壞，被沙澎國操控的修羅則希望竊取它的核心技術。國安幹警霍敏和隊員們瓦解了SAD發起的陰謀、識破了修羅的滲透策略，最終將內鬼和間諜繩之以法。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E14 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E14 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Secret.Files.of.XSA.S01E14 - 4K.mp4</strong>
                             <span class='item-time'>01:08:23</span>
@@ -215,7 +665,7 @@
                         <a href="https://www.themoviedb.org/tv/288893" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>蔚藍一號是一項舉世矚目的科研專案，為此境外間諜機構SAD實施破壞，被沙澎國操控的修羅則希望竊取它的核心技術。國安幹警霍敏和隊員們瓦解了SAD發起的陰謀、識破了修羅的滲透策略，最終將內鬼和間諜繩之以法。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E12 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E12 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Secret.Files.of.XSA.S01E12 - 4K.mp4</strong>
                             <span class='item-time'>01:08:13</span>
@@ -224,7 +674,7 @@
                         <a href="https://www.themoviedb.org/tv/288893" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>蔚藍一號是一項舉世矚目的科研專案，為此境外間諜機構SAD實施破壞，被沙澎國操控的修羅則希望竊取它的核心技術。國安幹警霍敏和隊員們瓦解了SAD發起的陰謀、識破了修羅的滲透策略，最終將內鬼和間諜繩之以法。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E13 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E13 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Secret.Files.of.XSA.S01E13 - 4K.mp4</strong>
                             <span class='item-time'>01:08:03</span>
@@ -233,7 +683,7 @@
                         <a href="https://www.themoviedb.org/tv/288893" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>蔚藍一號是一項舉世矚目的科研專案，為此境外間諜機構SAD實施破壞，被沙澎國操控的修羅則希望竊取它的核心技術。國安幹警霍敏和隊員們瓦解了SAD發起的陰謀、識破了修羅的滲透策略，最終將內鬼和間諜繩之以法。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E11 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E11 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Secret.Files.of.XSA.S01E11 - 4K.mp4</strong>
                             <span class='item-time'>01:07:53</span>
@@ -242,7 +692,7 @@
                         <a href="https://www.themoviedb.org/tv/288893" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>蔚藍一號是一項舉世矚目的科研專案，為此境外間諜機構SAD實施破壞，被沙澎國操控的修羅則希望竊取它的核心技術。國安幹警霍敏和隊員們瓦解了SAD發起的陰謀、識破了修羅的滲透策略，最終將內鬼和間諜繩之以法。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E10 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E10 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Secret.Files.of.XSA.S01E10 - 4K.mp4</strong>
                             <span class='item-time'>01:07:43</span>
@@ -251,7 +701,7 @@
                         <a href="https://www.themoviedb.org/tv/288893" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>蔚藍一號是一項舉世矚目的科研專案，為此境外間諜機構SAD實施破壞，被沙澎國操控的修羅則希望竊取它的核心技術。國安幹警霍敏和隊員們瓦解了SAD發起的陰謀、識破了修羅的滲透策略，最終將內鬼和間諜繩之以法。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E06 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E06 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Secret.Files.of.XSA.S01E06 - 4K.mp4</strong>
                             <span class='item-time'>01:07:33</span>
@@ -260,7 +710,7 @@
                         <a href="https://www.themoviedb.org/tv/288893" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>蔚藍一號是一項舉世矚目的科研專案，為此境外間諜機構SAD實施破壞，被沙澎國操控的修羅則希望竊取它的核心技術。國安幹警霍敏和隊員們瓦解了SAD發起的陰謀、識破了修羅的滲透策略，最終將內鬼和間諜繩之以法。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E09 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E09 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Secret.Files.of.XSA.S01E09 - 4K.mp4</strong>
                             <span class='item-time'>01:07:22</span>
@@ -269,7 +719,7 @@
                         <a href="https://www.themoviedb.org/tv/288893" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>蔚藍一號是一項舉世矚目的科研專案，為此境外間諜機構SAD實施破壞，被沙澎國操控的修羅則希望竊取它的核心技術。國安幹警霍敏和隊員們瓦解了SAD發起的陰謀、識破了修羅的滲透策略，最終將內鬼和間諜繩之以法。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E07 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E07 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Secret.Files.of.XSA.S01E07 - 4K.mp4</strong>
                             <span class='item-time'>01:07:12</span>
@@ -278,7 +728,7 @@
                         <a href="https://www.themoviedb.org/tv/288893" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>蔚藍一號是一項舉世矚目的科研專案，為此境外間諜機構SAD實施破壞，被沙澎國操控的修羅則希望竊取它的核心技術。國安幹警霍敏和隊員們瓦解了SAD發起的陰謀、識破了修羅的滲透策略，最終將內鬼和間諜繩之以法。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E08 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\X局密檔 Secret Files of XSA (2025)\Season 01\Secret.Files.of.XSA.S01E08 - 4K.mp4" data-category="tvshow">
                        <div class="item-header">
                             <strong>Secret.Files.of.XSA.S01E08 - 4K.mp4</strong>
                             <span class='item-time'>01:07:02</span>
@@ -4099,500 +4549,10 @@
                         <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
                         <blockquote>Ji-seok sees a photo of Yeo-jin and Ha-na together, which leaves him feeling conflicted. Meanwhile, Jin-goo accidentally overhears a phone conversation and begins to suspect that Bang-ul might be working as a helper at Yeo-jin's house.</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E45.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E45.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:56:18</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E45.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Ji-seok learns through Jin-goo that rumors are circulating about the death of Yeo-jin's missing daughter. Meanwhile, Ji-eun sees Se-young trip Ha-na at the company cafeteria and hits Se-young on the head with a tray.</blockquote>
-                    </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E44.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E44.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:40:26</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E44.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Myung-ji asks Detective Cho to investigate the orphanage and uncover information about Ha-na and Du-na. Meanwhile, Ji-eun and Ji-chang are invited to Yeo-jin's house and spend time together, but they receive a call informing them that their home has been broken into.</blockquote>
-                    </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E42.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E42.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:40:16</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E42.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Ha-na confronts Se-young after seeing Eun-chong's doll Kongkong ruined and blames her, but Se-young denies it. Meanwhile, Yeo-jin becomes sad from thinking about Yu-jin during her date with Ha-na, and Ha-na wonders what could be making her feel that way. Later, Ha-na notices the picture she kept in her room is missing.</blockquote>
-                    </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E43.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E43.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:40:06</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E43.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Seo-jin punishes Ha-na and Se-young for fighting by making them clean the entire house together. While cleaning, Se-young sees Ha-na discover Yu-jin's hat, which makes her believe Ha-na is regaining her memories, making her anxious. Meanwhile, Jin-goo gets an urgent call about a possible attempt to sell off Hyesung Tour.</blockquote>
-                    </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E41.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E41.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:39:56</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E41.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Se-young resents Jin-goo for deceiving her, while Ha-na spends her first night at Yeo-jin's house. Meanwhile, Eun-chong, who is sleeping with Yeo-jin, wakes up in the middle of the night and, still half-asleep, accidentally enters Se-young's room instead of Ha-na's.</blockquote>
-                    </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E40.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E40.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:39:46</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E40.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Se-young collapses and crumbles after learning Ha-na is Yu-jin. Seeing Se-young in a weak-minded state, ready to give up, Myung-ji suggests dying together. Meanwhile, Se-young tries to figure out if Ha-na remembers anything from the past, and in return, Ha-na asks if there is anything she should remember.</blockquote>
-                    </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E39.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E39.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:39:36</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E39.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>After seeing how Eun-chong is excited about going to live with Yeo-jin, Sung-ho thinks twice about exposing the truth. However, he still heads to the hotel where he promised to meet Yeo-jin. Meanwhile, Ji-seok learns about the room Yeo-jin had secretly reserved.</blockquote>
-                    </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E38.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E38.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:39:26</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E38.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Ha-na and Eun-chong pack their bags excitedly while they think about moving into Yeo-jin's house. Meanwhile, Se-young sees Eun-chong, who had come to play with Yali at Jin-goo's house, and she also hears that Ji-seok told Ji-eun and Ji-chang to cut ties with Ha-na.</blockquote>
-                    </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E37.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E37.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:39:16</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E37.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Ha-na, after being slapped by Se-young, finds comfort in a basket of flowers delivered by someone. Meanwhile, upon receiving a contract termination notice from a partner company, Ha-na and Jin-goo head to the rental car office, where Jin-goo discovers a clue related to Ji-seok.</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E36.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E36.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:39:06</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E36.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Ji-seok declares his intention to cut ties, leaving Ha-na shocked and Jin-goo feeling deeply regretful. Meanwhile, as Ha-na helps a drunk Ji-seok get home, they unexpectedly run into Jin-goo and Se-young. Tensions rise when Ji-seok, still under the influence, blurts out something that leaves the three of them on edge.</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E35.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E35.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:38:56</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E35.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Ji-seok is shocked at learning Ha-na is Yeo-jin's biological daughter and struggles with confused emotions. While suspecting a discrepancy in Yu-jin's age at her disappearance, he tells Yeo-jin and Ha-na to retake the DNA parentage test. Meanwhile, Yeo-jin introduces herself as Ha-na's mother to her family and asks them to keep it a secret.</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E34.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E34.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:38:46</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E34.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Yeo-jin asks Myung-ji and Se-young to refrain from talking about the past in front of Yu-jin. Se-young, worried about Yu-jin, has nightmares about her, and Ha-na sees the talisman Se-young was trying to stick to her desk after spilling coffee over it. Meanwhile, Sung-ho worries deeply about Ji-seok and Ha-na when he figures out Yeo-jin's plans.</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E33.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E33.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:38:36</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E33.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Ha-na reunites with Yeo-jin in an emotional, tearful meeting after discovering that she is Yoon Yu-jin. Meanwhile, Se-young, feeling uneasy upon hearing that Yu-jin has been found, heads to the newlywed home with Ji-seok. At the same time, Jin-goo also makes his way to the newlywed home.</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E32.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E32.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:38:25</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E32.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Ha-na decides to meet Yeo-jin to conduct a paternity test. Meanwhile, Myung-ji and Se-young, who have been tailing Yeo-jin, attempt to identify the person Yeo-jin met through CCTV footage. At the same time, Danny watches from outside the store, waiting for Yeo-jin and their group to come out.</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E31.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E31.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:38:15</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E31.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Yeo-jin removes the fireplace and wooden swing that are tied to Ha-na's memories of Yu-jin. Meanwhile, Ha-na feels hurt and cries when "that person" insists on starting with a DNA test. Se-young, however, misunderstands and thinks Ha-na is crying because of Jin-goo.</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E30.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E30.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:38:05</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E30.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>發佈頁:https://link3.cc/panclub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E29.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E29.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:37:55</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E29.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>發佈頁:https://link3.cc/panclub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E28.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E28.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:37:45</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E28.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>發佈頁:https://link3.cc/panclub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E27.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E27.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:37:35</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E27.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>發佈頁:https://link3.cc/panclub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E26.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E26.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:37:25</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E26.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>發佈頁:https://link3.cc/panclub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E25.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E25.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:37:15</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E25.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>發佈頁:https://link3.cc/panclub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E24.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E24.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:37:05</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E24.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>發佈頁:https://link3.cc/panclub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E23.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E23.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:36:55</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E23.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Yeo-jin can't get the man she saw at the orphanage out of her mind and orders someone to find out if it is Sung-ho. Meanwhile at Ji-seok's house, Ji-seok and Se-young engage in a psychological battle while a sudden downpour falls on Ha-na and Jin-goo at the playground. Later, Yeo-jin gets a text message with a picture of Eun-chong.</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E22.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E22.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:36:45</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E22.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Myung-ji finds it puzzling that Yeo-jin seems surprisingly fine, despite knowing about Yu-jin』s hit-and-run death, and is unsettled by Yeo-jin』s quick recovery. Meanwhile, Yeo-jin heads to an orphanage to search for Lee Ha-na, the person depicted in Yu-jin』s painting.</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E21.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E21.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:36:35</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E21.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Jin-goo feels upset seeing Bang-ul go through so much trouble because of the duck soup she prepared for Yeo-jin. Meanwhile, after collapsing upon receiving documents from an unknown sender, Yeo-jin begins investigating Yu-jin's hit-and-run incident and sends Jin-goo to the orphanage.</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E20.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E20.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:36:25</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E20.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E19.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E19.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:36:14</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E19.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E17.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E17.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:36:04</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E17.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E18.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E18.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:35:54</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E18.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E15.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E15.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:35:44</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E15.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E16.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E16.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:35:34</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E16.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E14.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E14.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:35:24</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E14.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E13.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E13.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:35:14</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E13.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E12.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E12.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:35:04</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E12.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E11.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E11.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:34:54</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E11.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E10.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E10.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:34:44</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E10.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E09.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E09.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:34:34</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E09.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E08.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E08.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:34:24</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E08.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E07.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E07.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:34:14</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E07.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E06.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E06.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:34:03</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E06.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>盤醬醬TG發佈頻道：@PanjClub</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E04.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E04.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:33:53</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E04.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Ha-na gets adopted by Ji-seok's family and begins living a happy life with them. Meanwhile, Myung-ji sees someone unexpected at the restaurant where she had taken Yeo-jin and Se-young to have dinner, and she is horrified. Years go by and tragedy strikes Ha-na's foster parents while driving to see Ha-na perform at a piano competition.</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E05.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E05.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:33:43</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E05.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>On the day of Ha-na's piano competition 13 years ago, Ji-seok's parents died in a car accident. Feeling responsible, Ha-na gives up on her studies to look after Ji-seok, Ji-eun, and Ji-chang, while Chairwoman Shin takes everything Ji-seok's parents own. Meanwhile, Ji-seok wishes Ha-na would leave them to fend for themselves.</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E03.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E03.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:33:33</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E03.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Ha-na and Du-na become indispensable friends at the children's home, and someone comes to meet Ha-na. Meanwhile, Se-young has nightmares about Yu-jin, and Yeo-jin and Sung-ho fall into despair after learning that the search for Yu-jin was called off. They desperately search for her on their own.</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E02.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E02.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:33:23</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E02.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Ha-na is rushed to the emergency room suffering from hypothermia after enduring abuse from her adoptive parents. Meanwhile, Se-young, terrified by what happened to Yu-jin, keeps silent as instructed by Myung-ji. Elsewhere, Yeo-jin and Sung-ho receive a shocking call from the police.</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E01.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Cinderella.Game.S01E01.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</strong>
-                            <span class='item-time'>23:33:13</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\灰姑娘遊戲 신데렐라 게임 Cinderella Game (2024)\Season 01\Cinderella.Game.S01E01.2024.1080p.Viu.WEB-DL.H264.AAC-PanWEB.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/275591" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>Ha-na, who has been abused by her adoptive parents, encounters Jin-goo, who is suffering from heart disease, at the hospital. Meanwhile, Yu-jin and her cousin Se-young are excited about their upcoming trip to the island.</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E09.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Kiss.de.Fusaide.Barenaide.S01E09.mkv</strong>
-                            <span class='item-time'>23:33:03</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E09.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/279415" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>塩谷（藤井流星）は再會した大學時代の元戀人・ミサキ（森香澄）に當時言われた「そんなんじゃ、みんな塩谷君の元から離れていくよ」という言葉が忘れられず、ミサキと向き合えずにいた。
-「ちゃんと話してみろよ」との溝口（川島如恵留）の助言にも、「みんな溝口の方にいく…」と呟き俯く。
-さらにミサキから「もう一度付き合ってみる？」とまさかの言葉に塩谷は…！？
-
-一方、楓（紺野彩夏）は社內で噂になる塩谷とミサキの元戀人話に混亂し、悩みの理由を話してくれない塩谷に落ち込む。
-溝口は楓から「好きな人は塩谷だ」と明かされショックを隠し切れず、塩谷は「溝口といる方が楓は幸せなのかもしれない」と悩む…
-
-三人は苦悩しながら、譲れない想いに気づきはじめ物語は佳境へと突き進んでいく！</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E08.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Kiss.de.Fusaide.Barenaide.S01E08.mkv</strong>
-                            <span class='item-time'>23:32:53</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E08.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/279415" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>楓（紺野彩夏）との泊り出張を控えた溝口（川島如恵留）は、塩谷（藤井流星）からの「変なことすんなよ」という言葉に「お前みたいに間違えねえから」と言い放つ。
-
-塩谷によぎる大學時代の元戀人・夏目ミサキ（森香澄）との記憶。
-そのミサキとまさかの仕事の場で再會し、「相変わらず噓がつけないんだね」と言われ動揺する塩谷。
-
-一方楓は、出張先で溝口の見事なプレゼンに感動し、更にクライアントとの交流會でも楓のお酒を代わりに飲んでくれる姿に感謝が止まらない。
-フラフラでホテルに戻り楓に介抱された溝口は「お前の好きな奴なんか知らねぇ…もっと俺の事でいっぱいになれよ」と楓とベッドに倒れ込み…！？
-
-翌日出張から戻ると普段と様子が違う塩谷の姿が…
-
-ミサキとの過去にいったい何があったのか？
-ミサキとの衝撃の再會から少しずつ狂い始めた歯車。
-塩谷、楓、溝口、それぞれの熱い想いがあふれ出す展開から目が離せない！</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E10.mkv" data-category="tvshow">
-                       <div class="item-header">
-                            <strong>Kiss.de.Fusaide.Barenaide.S01E10.mkv</strong>
-                            <span class='item-time'>23:32:43</span>
-                       </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\以吻封緘 キスでふさいで、バレないで。 Seal My Lips with a Kiss (2025)\Season 01\Kiss.de.Fusaide.Barenaide.S01E10.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/279415" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>楓（紺野彩夏）と想いを確かめ合った塩谷（藤井流星）は意を決して溝口（川島如恵留）に「佐藤さんと付き合ってる」と伝えると、溝口は驚きつつも「お前が本気で好きになるなんて思えない。俺の本気見せてやる」と言い放つ。
-
-翌日、楓を誘い出した溝口は夜道で手を引きながら、「この勝負だけは負けたくないんだ。お前をかけた」と決意表明、塩谷に宣戦佈告の2ショット寫真を送り付ける。
-「今は俺のことだけ考えて」の言葉と共に楓にかかってきた塩谷の電話を切った溝口の「俺の本気「とは？
-そして塩谷が取った予想外の行動で物語は衝撃のフィナーレを迎える…
-
-最終回、ついにバレた秘密の関係の行き先を見守って下さい！</blockquote>
-                    </li>
-                </ul>
-                <button class="load-more-button day-pagination" data-target-list="#list-tvshow-20250511" style="display: none;">顯示更多</button>
-            </div>
-        </div>
-        <div class="content-pane " id="pane-animation">
-            <h3>2025 年 05 月</h3>
-            <div class="day-group">
-                <h4 class="day-header" data-target="#list-animation-20250511"><span class="toggle-icon">+</span> 05 月 11 日 (Sunday)</h4>
-                <ul class="update-list " id="list-animation-20250511" data-category="animation">
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\歐美\無限可能：假如…？ What If...？ (2021)\Season 01\What.If.2021.S01E04.What.If.Doctor.Strange.Lost.His.Heart.Instead.of.His.Hands.1080p.DSNP.WEB-DL.DDP5.1.Atmos.H.264-FLUX.mkv" data-category="animation">
-                       <div class="item-header">
-                            <strong>What.If.2021.S01E04.What.If.Doctor.Strange.Lost.His.Heart.Instead.of.His.Hands.1080p.DSNP.WEB-DL.DDP5.1.Atmos.H.264-FLUX.mkv</strong>
-                            <span class='item-time'>23:40:42</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEmbyAnimation\歐美\無限可能：假如…？ What If...？ (2021)\Season 01\What.If.2021.S01E04.What.If.Doctor.Strange.Lost.His.Heart.Instead.of.His.Hands.1080p.DSNP.WEB-DL.DDP5.1.Atmos.H.264-FLUX.mkv</div>
-                        <blockquote>動漫已更新。</blockquote>
-                    </li>
                 </ul>
             </div>
         </div>
-        <div class="content-pane " id="pane-magazine">
-            <h3>2025 年 05 月</h3>
-            <div class="day-group">
-                <h4 class="day-header" data-target="#list-magazine-20250511"><span class="toggle-icon">+</span> 05 月 11 日 (Sunday)</h4>
-                <ul class="update-list " id="list-magazine-20250511" data-category="magazine">
-                    <li class="update-item " data-filename="ABC 互動英語 2019-11 第209期 - 機場實用英語.pdf" data-path="LiangTsaoEBooks\《雜誌》\2019\201911\ABC 互動英語 2019-11 第209期 - 機場實用英語.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>ABC 互動英語 2019-11 第209期 - 機場實用英語.pdf</strong>
-                            <span class='item-time'>23:40:37</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2019\201911\ABC 互動英語 2019-11 第209期 - 機場實用英語.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                </ul>
-            </div>
-        </div>
- </div> <p class="footer-time"><small>頁面最後生成時間: 2025-05-12 01:12:05</small></p> </div>
+ </div> <p class="footer-time"><small>頁面最後生成時間: 2025-05-12 01:20:30</small></p> </div>
     <script>
         const tsMap = {'剧':'劇','集':'集','电':'電','影':'影','杂':'雜','志':'誌','时':'時','间':'間','档':'檔','案':'案','更':'更','新':'新','列':'列','表':'表','签':'簽','标':'標','题':'題','内':'內','容':'容','搜':'搜','寻':'尋','显':'顯','示':'示','隐':'隱','藏':'藏','数':'數','据':'據','库': '庫','简':'簡','繁':'繁','体':'體','字':'字','转':'轉','换':'換','优':'優','化':'化','验':'驗','证':'證','权':'權','限':'限','设':'設','置':'置','错':'錯','误':'誤','讯':'訊','息':'息','系':'系','统':'統','环':'環','境':'境','版':'版','本':'本','处':'處','理':'理','回':'回','应': '應','网':'網','页':'頁','浏':'瀏','览':'覽','器':'器','缓':'緩','存':'存','清':'清','除':'除','模':'模','块':'塊','组':'組','织':'織','结':'結','构':'構','状':'狀','态':'態','负':'負','载':'載','压':'壓','力':'力','测':'測','试':'試','性':'性','能':'能','调':'調','优':'優','部':'部', '署':'署','迭':'疊','代':'代','开':'開','发':'發','周':'週','期':'期','计':'計','划':'劃','实':'實','现':'現','功':'功','能':'能','需':'需','求':'求','规':'規','范':'範','说':'說','明':'明','书':'書','用':'用','户':'戶','体':'體','验':'驗','界':'界','面':'面','计':'計','交互':'互動', '动':'動','画':'畫','视':'視','觉':'覺','元':'元','素':'素','图':'圖','标':'標','颜':'顏','色':'色','体':'體','排':'排','版':'版','布':'佈','局':'局','响':'響','应':'應','式':'式','适':'適','配':'配','不':'不','同':'同','备':'備','屏':'屏','幕':'幕','尺':'尺','寸':'寸','全':'全','漫':'漫', ' ': ' '};
         const stMap = {}; for (const t in tsMap) { stMap[tsMap[t]] = t; }
