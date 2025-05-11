@@ -1,5 +1,505 @@
 [
     {
+        "filename": "經理人月刊特刊 Manager Today 2021-12 第031期 - 好好說話的31個練習.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2021\\202112\\經理人月刊特刊 Manager Today 2021-12 第031期 - 好好說話的31個練習.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2021\\202112\\經理人月刊特刊 Manager Today 2021-12 第031期 - 好好說話的31個練習.pdf",
+        "timestamp": "2025-05-12T02:13:37.676972",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Money錢 2021-11 第170期 - 他存股5年月領10萬.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2021\\202111\\Money錢 2021-11 第170期 - 他存股5年月領10萬.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2021\\202111\\Money錢 2021-11 第170期 - 他存股5年月領10萬.pdf",
+        "timestamp": "2025-05-12T02:13:32.668969",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Money錢 2021-08 第167期 - 富爸爸教你養大老爸荷包.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2021\\202108\\Money錢 2021-08 第167期 - 富爸爸教你養大老爸荷包.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2021\\202108\\Money錢 2021-08 第167期 - 富爸爸教你養大老爸荷包.pdf",
+        "timestamp": "2025-05-12T02:13:27.653109",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經理人月刊特刊 Manager Today 2020-11 第037期 - 多益搶分筆記.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202011\\經理人月刊特刊 Manager Today 2020-11 第037期 - 多益搶分筆記.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202011\\經理人月刊特刊 Manager Today 2020-11 第037期 - 多益搶分筆記.pdf",
+        "timestamp": "2025-05-12T02:13:22.627606",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "財訊雙週刊 2020-03-05 第602期 - 全球5G大決裂.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\財訊雙週刊 2020-03-05 第602期 - 全球5G大決裂.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\財訊雙週刊 2020-03-05 第602期 - 全球5G大決裂.pdf",
+        "timestamp": "2025-05-12T02:13:17.613378",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "行遍天下 Travelcom 2020-03 第330期 - 森林系旅行.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\行遍天下 Travelcom 2020-03 第330期 - 森林系旅行.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\行遍天下 Travelcom 2020-03 第330期 - 森林系旅行.pdf",
+        "timestamp": "2025-05-12T02:13:12.605327",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經貿透視 Trade Insight 2020-03-25 第539期 - 前進美國騎乘新商機.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\經貿透視 Trade Insight 2020-03-25 第539期 - 前進美國騎乘新商機.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\經貿透視 Trade Insight 2020-03-25 第539期 - 前進美國騎乘新商機.pdf",
+        "timestamp": "2025-05-12T02:13:07.597612",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Shopping Design 2020-03 第134期 - 喝咖啡  聊第二人生.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\Shopping Design 2020-03 第134期 - 喝咖啡  聊第二人生.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\Shopping Design 2020-03 第134期 - 喝咖啡  聊第二人生.pdf",
+        "timestamp": "2025-05-12T02:13:02.586925",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "新視聽 Prime Av 2020-03 第299期 - 2019-2020 AV電影軟體大特輯.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\新視聽 Prime Av 2020-03 第299期 - 2019-2020 AV電影軟體大特輯.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\新視聽 Prime Av 2020-03 第299期 - 2019-2020 AV電影軟體大特輯.pdf",
+        "timestamp": "2025-05-12T02:12:57.578401",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "PChome 電腦家庭 2020-03 第290期 - Telegram 完全教學.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\PChome 電腦家庭 2020-03 第290期 - Telegram 完全教學.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\PChome 電腦家庭 2020-03 第290期 - Telegram 完全教學.pdf",
+        "timestamp": "2025-05-12T02:12:52.570945",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "國家地理雜誌 National Geographic 2020-03 第220期 我們能終結垃圾嗎？.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\國家地理雜誌 National Geographic 2020-03 第220期 我們能終結垃圾嗎？.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\國家地理雜誌 National Geographic 2020-03 第220期 我們能終結垃圾嗎？.pdf",
+        "timestamp": "2025-05-12T02:12:47.561758",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Money錢 2020-03 第150期 - 我29歲，用ETF花5年擁400萬.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\Money錢 2020-03 第150期 - 我29歲，用ETF花5年擁400萬.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\Money錢 2020-03 第150期 - 我29歲，用ETF花5年擁400萬.pdf",
+        "timestamp": "2025-05-12T02:12:42.556322",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "理財周刊 2020-03-06 第1019期 - 降息救市.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\理財周刊 2020-03-06 第1019期 - 降息救市.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\理財周刊 2020-03-06 第1019期 - 降息救市.pdf",
+        "timestamp": "2025-05-12T02:12:37.546373",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "大師輕鬆讀 Master 2020-03-18 第762期 - 亞馬遜六本事.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\大師輕鬆讀 Master 2020-03-18 第762期 - 亞馬遜六本事.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\大師輕鬆讀 Master 2020-03-18 第762期 - 亞馬遜六本事.pdf",
+        "timestamp": "2025-05-12T02:12:32.538607",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "大師輕鬆讀 Master 2020-03-25 第763期 - 跟好萊塢學3分鐘簡報.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\大師輕鬆讀 Master 2020-03-25 第763期 - 跟好萊塢學3分鐘簡報.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\大師輕鬆讀 Master 2020-03-25 第763期 - 跟好萊塢學3分鐘簡報.pdf",
+        "timestamp": "2025-05-12T02:12:27.532479",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "大師輕鬆讀 Master 2020-03-11 第761期 - 30天敏捷創業.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\大師輕鬆讀 Master 2020-03-11 第761期 - 30天敏捷創業.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\大師輕鬆讀 Master 2020-03-11 第761期 - 30天敏捷創業.pdf",
+        "timestamp": "2025-05-12T02:12:22.525058",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經理人 Manager Today 2020-03 第184期 - 產品經理十堂課.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\經理人 Manager Today 2020-03 第184期 - 產品經理十堂課.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\經理人 Manager Today 2020-03 第184期 - 產品經理十堂課.pdf",
+        "timestamp": "2025-05-12T02:12:17.512750",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經理人月刊特刊 Manager Today 2020-03 第031期 - 好好說話的31個練習.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\經理人月刊特刊 Manager Today 2020-03 第031期 - 好好說話的31個練習.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\經理人月刊特刊 Manager Today 2020-03 第031期 - 好好說話的31個練習.pdf",
+        "timestamp": "2025-05-12T02:12:12.507676",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "互動日本語 Live Interactive Japanese 2020-03 第039期 - 櫻.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\互動日本語 Live Interactive Japanese 2020-03 第039期 - 櫻.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\互動日本語 Live Interactive Japanese 2020-03 第039期 - 櫻.pdf",
+        "timestamp": "2025-05-12T02:12:07.495878",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "大家說英語 Let's Talk in English 2020-03 - 充滿故事的百年老街.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\大家說英語 Let's Talk in English 2020-03 - 充滿故事的百年老街.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\大家說英語 Let's Talk in English 2020-03 - 充滿故事的百年老街.pdf",
+        "timestamp": "2025-05-12T02:12:02.488134",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "能力 Learning & Development 2020-03 第769期 - AI福爾摩斯.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\能力 Learning & Development 2020-03 第769期 - AI福爾摩斯.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\能力 Learning & Development 2020-03 第769期 - AI福爾摩斯.pdf",
+        "timestamp": "2025-05-12T02:11:57.480354",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "常春藤解析美語 Ivy League Analytical English 2020-03 第380期 - 喜迎春天。保加利亞三月節.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\常春藤解析美語 Ivy League Analytical English 2020-03 第380期 - 喜迎春天。保加利亞三月節.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\常春藤解析美語 Ivy League Analytical English 2020-03 第380期 - 喜迎春天。保加利亞三月節.pdf",
+        "timestamp": "2025-05-12T02:11:52.468775",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "常春藤生活美語 Ivy League Enjoy English 2020-03 第202期 - 飢餓海鷗來襲！顧好你手中食物.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\常春藤生活美語 Ivy League Enjoy English 2020-03 第202期 - 飢餓海鷗來襲！顧好你手中食物.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\常春藤生活美語 Ivy League Enjoy English 2020-03 第202期 - 飢餓海鷗來襲！顧好你手中食物.pdf",
+        "timestamp": "2025-05-12T02:11:47.463339",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "室內 Interior 2020-03 第318期 - 舊浪漫．新氣象.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\室內 Interior 2020-03 第318期 - 舊浪漫．新氣象.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\室內 Interior 2020-03 第318期 - 舊浪漫．新氣象.pdf",
+        "timestamp": "2025-05-12T02:11:42.459505",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "id SHOW 2020-03 第29期 - 東京奧運年的東京建築.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\id SHOW 2020-03 第29期 - 東京奧運年的東京建築.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\id SHOW 2020-03 第29期 - 東京奧運年的東京建築.pdf",
+        "timestamp": "2025-05-12T02:11:37.452145",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "時尚家居 House Style 2020-03 第091期 - INNER AWAKENING.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\時尚家居 House Style 2020-03 第091期 - INNER AWAKENING.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\時尚家居 House Style 2020-03 第091期 - INNER AWAKENING.pdf",
+        "timestamp": "2025-05-12T02:11:32.441941",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "哈佛商業評論 Harvard Business Review 2020特刊 - 克里斯汀生紀念專刊.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\哈佛商業評論 Harvard Business Review 2020特刊 - 克里斯汀生紀念專刊.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\哈佛商業評論 Harvard Business Review 2020特刊 - 克里斯汀生紀念專刊.pdf",
+        "timestamp": "2025-05-12T02:11:27.431963",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "遠見 Global Views 2020-03 第405期 - 疫外 重開機.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\遠見 Global Views 2020-03 第405期 - 疫外 重開機.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\遠見 Global Views 2020-03 第405期 - 疫外 重開機.pdf",
+        "timestamp": "2025-05-12T02:11:22.421047",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "英語島 English Island 2020-03 第076期 - 誰是2020年第一隻獨角獸.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\英語島 English Island 2020-03 第076期 - 誰是2020年第一隻獨角獸.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\英語島 English Island 2020-03 第076期 - 誰是2020年第一隻獨角獸.pdf",
+        "timestamp": "2025-05-12T02:11:17.413976",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "天下雜誌 Common Wealth 2020-03-25 第694期 - 全球疫情失控 股市 經濟 美歐急救中.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\天下雜誌 Common Wealth 2020-03-25 第694期 - 全球疫情失控 股市 經濟 美歐急救中.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\天下雜誌 Common Wealth 2020-03-25 第694期 - 全球疫情失控 股市 經濟 美歐急救中.pdf",
+        "timestamp": "2025-05-12T02:11:12.406797",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "天下雜誌 Common Wealth 2020-03-11 第693期 - 客戶成功學.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\天下雜誌 Common Wealth 2020-03-11 第693期 - 客戶成功學.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\天下雜誌 Common Wealth 2020-03-11 第693期 - 客戶成功學.pdf",
+        "timestamp": "2025-05-12T02:11:07.398828",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "天下雜誌教育特刊 CommonWealth Special Issue 2020-03-26 第211期 - 108課綱 引導素養學習新世代.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\天下雜誌教育特刊 CommonWealth Special Issue 2020-03-26 第211期 - 108課綱 引導素養學習新世代.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\天下雜誌教育特刊 CommonWealth Special Issue 2020-03-26 第211期 - 108課綱 引導素養學習新世代.pdf",
+        "timestamp": "2025-05-12T02:11:02.389402",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "天下雜誌特刊 CommonWealth Special Subject 2020-03-11 第118期 - 客戶成功學.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\天下雜誌特刊 CommonWealth Special Subject 2020-03-11 第118期 - 客戶成功學.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\天下雜誌特刊 CommonWealth Special Subject 2020-03-11 第118期 - 客戶成功學.pdf",
+        "timestamp": "2025-05-12T02:10:57.382097",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "親子天下 Parenting Family Lifestyle 2020-03 第111期 - 雙語&國際教育公校啟動.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\親子天下 Parenting Family Lifestyle 2020-03 第111期 - 雙語&國際教育公校啟動.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\親子天下 Parenting Family Lifestyle 2020-03 第111期 - 雙語&國際教育公校啟動.pdf",
+        "timestamp": "2025-05-12T02:10:52.375365",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "CNN 互動英語 2020-03 第234期 - 永遠的小飛俠　柯比．布萊恩.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\CNN 互動英語 2020-03 第234期 - 永遠的小飛俠　柯比．布萊恩.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\CNN 互動英語 2020-03 第234期 - 永遠的小飛俠　柯比．布萊恩.pdf",
+        "timestamp": "2025-05-12T02:10:47.361859",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "一手車訊 Carnews 2020-03 第351期 - 喊燒是否也叫座？車迷最期待的進口中型旅行車.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\一手車訊 Carnews 2020-03 第351期 - 喊燒是否也叫座？車迷最期待的進口中型旅行車.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\一手車訊 Carnews 2020-03 第351期 - 喊燒是否也叫座？車迷最期待的進口中型旅行車.pdf",
+        "timestamp": "2025-05-12T02:10:42.353458",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "車王 Car Plus 2020-03 第319期 - 假想敵.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\車王 Car Plus 2020-03 第319期 - 假想敵.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\車王 Car Plus 2020-03 第319期 - 假想敵.pdf",
+        "timestamp": "2025-05-12T02:10:37.346821",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Advanced 彭蒙惠英語 2020-03 第231期 - 驚艷非洲之旅.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\Advanced 彭蒙惠英語 2020-03 第231期 - 驚艷非洲之旅.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\Advanced 彭蒙惠英語 2020-03 第231期 - 驚艷非洲之旅.pdf",
+        "timestamp": "2025-05-12T02:10:32.337422",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "商業周刊 Business Weekly 2020-03-16 第1687期 - 5G今年就靠它！救台灣.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\商業周刊 Business Weekly 2020-03-16 第1687期 - 5G今年就靠它！救台灣.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\商業周刊 Business Weekly 2020-03-16 第1687期 - 5G今年就靠它！救台灣.pdf",
+        "timestamp": "2025-05-12T02:10:27.330508",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "商業周刊 Business Weekly 2020-03-09 第1686期 - 經濟大海嘯.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\商業周刊 Business Weekly 2020-03-09 第1686期 - 經濟大海嘯.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\商業周刊 Business Weekly 2020-03-09 第1686期 - 經濟大海嘯.pdf",
+        "timestamp": "2025-05-12T02:10:22.321031",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "商業周刊 Business Weekly 2020-03-02 第1685期 - 關鍵30天戰疫聖經.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\商業周刊 Business Weekly 2020-03-02 第1685期 - 關鍵30天戰疫聖經.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\商業周刊 Business Weekly 2020-03-02 第1685期 - 關鍵30天戰疫聖經.pdf",
+        "timestamp": "2025-05-12T02:10:17.312667",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "今周刊 Business Today 2020-03-23 第1213期 - 宅經濟肉搏戰 momo憑什麼贏.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\今周刊 Business Today 2020-03-23 第1213期 - 宅經濟肉搏戰 momo憑什麼贏.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\今周刊 Business Today 2020-03-23 第1213期 - 宅經濟肉搏戰 momo憑什麼贏.pdf",
+        "timestamp": "2025-05-12T02:10:12.301902",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "今周刊 Business Today 2020-03-30 第1214期 - 封境後的試煉.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\今周刊 Business Today 2020-03-30 第1214期 - 封境後的試煉.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\今周刊 Business Today 2020-03-30 第1214期 - 封境後的試煉.pdf",
+        "timestamp": "2025-05-12T02:10:07.288630",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "今周刊 Business Today 2020-03-09 第1211期 - 全球經濟劇震全解析.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\今周刊 Business Today 2020-03-09 第1211期 - 全球經濟劇震全解析.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\今周刊 Business Today 2020-03-09 第1211期 - 全球經濟劇震全解析.pdf",
+        "timestamp": "2025-05-12T02:10:02.284489",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "今周刊 Business Today 2020-03-16 第1212期 - 反衰退保衛戰.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\今周刊 Business Today 2020-03-16 第1212期 - 反衰退保衛戰.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\今周刊 Business Today 2020-03-16 第1212期 - 反衰退保衛戰.pdf",
+        "timestamp": "2025-05-12T02:09:57.277940",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "今周刊 Business Today 2020-03-02 第1210期 - 台灣黑手的世界風電大賽.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\今周刊 Business Today 2020-03-02 第1210期 - 台灣黑手的世界風電大賽.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\今周刊 Business Today 2020-03-02 第1210期 - 台灣黑手的世界風電大賽.pdf",
+        "timestamp": "2025-05-12T02:09:52.271827",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "阿路巴高爾夫 Alba Tross-View 2020-03 第063期 - 一個月學會內側下桿的進階練習企畫.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\阿路巴高爾夫 Alba Tross-View 2020-03 第063期 - 一個月學會內側下桿的進階練習企畫.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\阿路巴高爾夫 Alba Tross-View 2020-03 第063期 - 一個月學會內側下桿的進階練習企畫.pdf",
+        "timestamp": "2025-05-12T02:09:47.262102",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "ABC 互動英語 2020-03 第213期 - 網路英語實用句.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\ABC 互動英語 2020-03 第213期 - 網路英語實用句.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\ABC 互動英語 2020-03 第213期 - 網路英語實用句.pdf",
+        "timestamp": "2025-05-12T02:09:42.253213",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "先探投資 2020-03-12 第2082期 - 疫情的贏家VS輸家.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\先探投資 2020-03-12 第2082期 - 疫情的贏家VS輸家.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\先探投資 2020-03-12 第2082期 - 疫情的贏家VS輸家.pdf",
+        "timestamp": "2025-05-12T02:09:37.238665",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "先探投資 2020-03-06 第2081期 - 谷底反彈神救援.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202003\\先探投資 2020-03-06 第2081期 - 谷底反彈神救援.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202003\\先探投資 2020-03-06 第2081期 - 谷底反彈神救援.pdf",
+        "timestamp": "2025-05-12T02:09:32.226578",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
         "filename": "Advanced 彭蒙惠英語 2020-02 第230期 - 你的優先順序對了嗎？.pdf",
         "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2020\\202002\\Advanced 彭蒙惠英語 2020-02 第230期 - 你的優先順序對了嗎？.pdf",
         "relative_path": "LiangTsaoEBooks\\《雜誌》\\2020\\202002\\Advanced 彭蒙惠英語 2020-02 第230期 - 你的優先順序對了嗎？.pdf",
