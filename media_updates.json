@@ -1,5 +1,505 @@
 [
     {
+        "filename": "Secret.Level.S01E12.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\神祕關卡／秘密關卡 Secret Level (2024)\\Season 01\\Secret.Level.S01E12.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\神祕關卡／秘密關卡 Secret Level (2024)\\Season 01\\Secret.Level.S01E12.mkv",
+        "timestamp": "2025-05-12T10:49:35.050117",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Secret.Level.S01E01.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\神祕關卡／秘密關卡 Secret Level (2024)\\Season 01\\Secret.Level.S01E01.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\神祕關卡／秘密關卡 Secret Level (2024)\\Season 01\\Secret.Level.S01E01.mkv",
+        "timestamp": "2025-05-12T10:49:30.042347",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Secret.Level.S01E03.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\神祕關卡／秘密關卡 Secret Level (2024)\\Season 01\\Secret.Level.S01E03.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\神祕關卡／秘密關卡 Secret Level (2024)\\Season 01\\Secret.Level.S01E03.mkv",
+        "timestamp": "2025-05-12T10:49:25.037927",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Secret.Level.S01E02.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\神祕關卡／秘密關卡 Secret Level (2024)\\Season 01\\Secret.Level.S01E02.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\神祕關卡／秘密關卡 Secret Level (2024)\\Season 01\\Secret.Level.S01E02.mkv",
+        "timestamp": "2025-05-12T10:49:20.029511",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Secret.Level.S01E08.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\神祕關卡／秘密關卡 Secret Level (2024)\\Season 01\\Secret.Level.S01E08.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\神祕關卡／秘密關卡 Secret Level (2024)\\Season 01\\Secret.Level.S01E08.mkv",
+        "timestamp": "2025-05-12T10:49:15.022463",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Secret.Level.S01E07.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\神祕關卡／秘密關卡 Secret Level (2024)\\Season 01\\Secret.Level.S01E07.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\神祕關卡／秘密關卡 Secret Level (2024)\\Season 01\\Secret.Level.S01E07.mkv",
+        "timestamp": "2025-05-12T10:49:10.017818",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Secret.Level.S01E06.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\神祕關卡／秘密關卡 Secret Level (2024)\\Season 01\\Secret.Level.S01E06.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\神祕關卡／秘密關卡 Secret Level (2024)\\Season 01\\Secret.Level.S01E06.mkv",
+        "timestamp": "2025-05-12T10:49:05.003845",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Secret.Level.S01E05.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\神祕關卡／秘密關卡 Secret Level (2024)\\Season 01\\Secret.Level.S01E05.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\神祕關卡／秘密關卡 Secret Level (2024)\\Season 01\\Secret.Level.S01E05.mkv",
+        "timestamp": "2025-05-12T10:48:59.999044",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Secret.Level.S01E04.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\神祕關卡／秘密關卡 Secret Level (2024)\\Season 01\\Secret.Level.S01E04.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\神祕關卡／秘密關卡 Secret Level (2024)\\Season 01\\Secret.Level.S01E04.mkv",
+        "timestamp": "2025-05-12T10:48:54.991887",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Dream.Productions.S01E02 - 4K.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\夢境製片廠 Dream Productions (2024)\\Season 01\\Dream.Productions.S01E02 - 4K.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\夢境製片廠 Dream Productions (2024)\\Season 01\\Dream.Productions.S01E02 - 4K.mkv",
+        "timestamp": "2025-05-12T10:48:49.953737",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Dream.Productions.S01E03 - 4K.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\夢境製片廠 Dream Productions (2024)\\Season 01\\Dream.Productions.S01E03 - 4K.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\夢境製片廠 Dream Productions (2024)\\Season 01\\Dream.Productions.S01E03 - 4K.mkv",
+        "timestamp": "2025-05-12T10:48:44.947089",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Dream.Productions.S01E04 - 4K.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\夢境製片廠 Dream Productions (2024)\\Season 01\\Dream.Productions.S01E04 - 4K.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\夢境製片廠 Dream Productions (2024)\\Season 01\\Dream.Productions.S01E04 - 4K.mkv",
+        "timestamp": "2025-05-12T10:48:39.940272",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Dream.Productions.S01E01 - 4K.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\夢境製片廠 Dream Productions (2024)\\Season 01\\Dream.Productions.S01E01 - 4K.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\夢境製片廠 Dream Productions (2024)\\Season 01\\Dream.Productions.S01E01 - 4K.mkv",
+        "timestamp": "2025-05-12T10:48:34.932511",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Dream.Productions.S01E01.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\夢境製片廠 Dream Productions (2024)\\Season 01\\Dream.Productions.S01E01.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\夢境製片廠 Dream Productions (2024)\\Season 01\\Dream.Productions.S01E01.mkv",
+        "timestamp": "2025-05-12T10:48:29.925790",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Dream.Productions.S01E02.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\夢境製片廠 Dream Productions (2024)\\Season 01\\Dream.Productions.S01E02.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\夢境製片廠 Dream Productions (2024)\\Season 01\\Dream.Productions.S01E02.mkv",
+        "timestamp": "2025-05-12T10:48:24.917691",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Dream.Productions.S01E03.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\夢境製片廠 Dream Productions (2024)\\Season 01\\Dream.Productions.S01E03.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\夢境製片廠 Dream Productions (2024)\\Season 01\\Dream.Productions.S01E03.mkv",
+        "timestamp": "2025-05-12T10:48:19.910656",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Dream.Productions.S01E04.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\夢境製片廠 Dream Productions (2024)\\Season 01\\Dream.Productions.S01E04.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\夢境製片廠 Dream Productions (2024)\\Season 01\\Dream.Productions.S01E04.mkv",
+        "timestamp": "2025-05-12T10:48:14.905181",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Tomb.Raider.The.Legend.of.Lara.Croft.S01E01.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\古墓奇兵：蘿拉．卡芙特傳奇 Tomb Raider：The Legend of Lara Croft (2024)\\Season 01\\Tomb.Raider.The.Legend.of.Lara.Croft.S01E01.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\古墓奇兵：蘿拉．卡芙特傳奇 Tomb Raider：The Legend of Lara Croft (2024)\\Season 01\\Tomb.Raider.The.Legend.of.Lara.Croft.S01E01.mkv",
+        "timestamp": "2025-05-12T10:48:09.863205",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Tomb.Raider.The.Legend.of.Lara.Croft.S01E02.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\古墓奇兵：蘿拉．卡芙特傳奇 Tomb Raider：The Legend of Lara Croft (2024)\\Season 01\\Tomb.Raider.The.Legend.of.Lara.Croft.S01E02.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\古墓奇兵：蘿拉．卡芙特傳奇 Tomb Raider：The Legend of Lara Croft (2024)\\Season 01\\Tomb.Raider.The.Legend.of.Lara.Croft.S01E02.mkv",
+        "timestamp": "2025-05-12T10:48:04.856291",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Tomb.Raider.The.Legend.of.Lara.Croft.S01E03.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\古墓奇兵：蘿拉．卡芙特傳奇 Tomb Raider：The Legend of Lara Croft (2024)\\Season 01\\Tomb.Raider.The.Legend.of.Lara.Croft.S01E03.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\古墓奇兵：蘿拉．卡芙特傳奇 Tomb Raider：The Legend of Lara Croft (2024)\\Season 01\\Tomb.Raider.The.Legend.of.Lara.Croft.S01E03.mkv",
+        "timestamp": "2025-05-12T10:47:59.850196",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Tomb.Raider.The.Legend.of.Lara.Croft.S01E04.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\古墓奇兵：蘿拉．卡芙特傳奇 Tomb Raider：The Legend of Lara Croft (2024)\\Season 01\\Tomb.Raider.The.Legend.of.Lara.Croft.S01E04.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\古墓奇兵：蘿拉．卡芙特傳奇 Tomb Raider：The Legend of Lara Croft (2024)\\Season 01\\Tomb.Raider.The.Legend.of.Lara.Croft.S01E04.mkv",
+        "timestamp": "2025-05-12T10:47:54.847815",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Tomb.Raider.The.Legend.of.Lara.Croft.S01E05.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\古墓奇兵：蘿拉．卡芙特傳奇 Tomb Raider：The Legend of Lara Croft (2024)\\Season 01\\Tomb.Raider.The.Legend.of.Lara.Croft.S01E05.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\古墓奇兵：蘿拉．卡芙特傳奇 Tomb Raider：The Legend of Lara Croft (2024)\\Season 01\\Tomb.Raider.The.Legend.of.Lara.Croft.S01E05.mkv",
+        "timestamp": "2025-05-12T10:47:49.840921",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Tomb.Raider.The.Legend.of.Lara.Croft.S01E06.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\古墓奇兵：蘿拉．卡芙特傳奇 Tomb Raider：The Legend of Lara Croft (2024)\\Season 01\\Tomb.Raider.The.Legend.of.Lara.Croft.S01E06.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\古墓奇兵：蘿拉．卡芙特傳奇 Tomb Raider：The Legend of Lara Croft (2024)\\Season 01\\Tomb.Raider.The.Legend.of.Lara.Croft.S01E06.mkv",
+        "timestamp": "2025-05-12T10:47:44.836113",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Tomb.Raider.The.Legend.of.Lara.Croft.S01E07.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\古墓奇兵：蘿拉．卡芙特傳奇 Tomb Raider：The Legend of Lara Croft (2024)\\Season 01\\Tomb.Raider.The.Legend.of.Lara.Croft.S01E07.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\古墓奇兵：蘿拉．卡芙特傳奇 Tomb Raider：The Legend of Lara Croft (2024)\\Season 01\\Tomb.Raider.The.Legend.of.Lara.Croft.S01E07.mkv",
+        "timestamp": "2025-05-12T10:47:39.830024",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Tomb.Raider.The.Legend.of.Lara.Croft.S01E08.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\古墓奇兵：蘿拉．卡芙特傳奇 Tomb Raider：The Legend of Lara Croft (2024)\\Season 01\\Tomb.Raider.The.Legend.of.Lara.Croft.S01E08.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\古墓奇兵：蘿拉．卡芙特傳奇 Tomb Raider：The Legend of Lara Croft (2024)\\Season 01\\Tomb.Raider.The.Legend.of.Lara.Croft.S01E08.mkv",
+        "timestamp": "2025-05-12T10:47:34.824723",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E01.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E01.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E01.mkv",
+        "timestamp": "2025-05-12T10:47:29.779411",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E02.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E02.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E02.mkv",
+        "timestamp": "2025-05-12T10:47:24.772860",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E10.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E10.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E10.mkv",
+        "timestamp": "2025-05-12T10:47:19.766292",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E11.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E11.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E11.mkv",
+        "timestamp": "2025-05-12T10:47:14.760242",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E09.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E09.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E09.mkv",
+        "timestamp": "2025-05-12T10:47:09.750684",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E04.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E04.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E04.mkv",
+        "timestamp": "2025-05-12T10:47:04.744509",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E06.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E06.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E06.mkv",
+        "timestamp": "2025-05-12T10:46:59.736955",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E05.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E05.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E05.mkv",
+        "timestamp": "2025-05-12T10:46:54.732679",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E07.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E07.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E07.mkv",
+        "timestamp": "2025-05-12T10:46:49.727329",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E08.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E08.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E08.mkv",
+        "timestamp": "2025-05-12T10:46:44.721228",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E03.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E03.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E03.mkv",
+        "timestamp": "2025-05-12T10:46:39.715300",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E12.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E12.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E12.mkv",
+        "timestamp": "2025-05-12T10:46:34.709907",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E14.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E14.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E14.mkv",
+        "timestamp": "2025-05-12T10:46:29.703732",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E13.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E13.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E13.mkv",
+        "timestamp": "2025-05-12T10:46:24.696067",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E15.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E15.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E15.mkv",
+        "timestamp": "2025-05-12T10:46:19.689340",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E16.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E16.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E16.mkv",
+        "timestamp": "2025-05-12T10:46:14.684673",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E17.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E17.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E17.mkv",
+        "timestamp": "2025-05-12T10:46:09.680445",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E18.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E18.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E18.mkv",
+        "timestamp": "2025-05-12T10:46:04.674286",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E19.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E19.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E19.mkv",
+        "timestamp": "2025-05-12T10:45:59.667980",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E20.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E20.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E20.mkv",
+        "timestamp": "2025-05-12T10:45:54.663779",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E21.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E21.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E21.mkv",
+        "timestamp": "2025-05-12T10:45:49.657100",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E22.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E22.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E22.mkv",
+        "timestamp": "2025-05-12T10:45:44.651338",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E23.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E23.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E23.mkv",
+        "timestamp": "2025-05-12T10:45:39.633569",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E24.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E24.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E24.mkv",
+        "timestamp": "2025-05-12T10:45:34.622635",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
+        "filename": "Mighty.MonsterWheelies.S01E25.mkv",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E25.mkv",
+        "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E25.mkv",
+        "timestamp": "2025-05-12T10:45:29.616561",
+        "category": "animation",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "動漫已更新。"
+    },
+    {
         "filename": "Mighty.MonsterWheelies.S01E26.mkv",
         "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E26.mkv",
         "relative_path": "LiangTsaoEmbyAnimation\\歐美\\無敵怪物車 Mighty Monsterwheelies (2024)\\Season 01\\Mighty.MonsterWheelies.S01E26.mkv",
