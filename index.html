@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>媒體更新列表 (最新 5000 筆)</title>
-    <style> body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 15px; background-color: #f8f9fa; color: #333; } .container { max-width: 1200px; margin: 0 auto; } h1 { text-align: center; color: #0056b3; margin-bottom: 20px; } .search-container { margin-bottom: 20px; text-align: center; } #search-input { padding: 8px 12px; font-size: 1em; border: 1px solid #ccc; border-radius: 4px; width: 60%; max-width: 400px; transition: border-color 0.2s ease, box-shadow 0.2s ease; } #search-input:focus { border-color: #007bff; box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); outline: none; } .tab-buttons { display: flex; justify-content: center; margin-bottom: 25px; border-bottom: 2px solid #dee2e6; flex-wrap: wrap; padding: 0 10px; } .tab-button { padding: 10px 15px; cursor: pointer; border: none; background-color: transparent; font-size: 1.05em; color: #007bff; margin: 0 3px 0px 3px; border-bottom: 3px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; white-space: nowrap; } .tab-button:hover { color: #0056b3; } .tab-button.active { color: #0056b3; font-weight: bold; border-bottom-color: #0056b3; } .tab-content { } .content-pane { display: none; animation: fadeIn 0.3s ease-in-out; } .content-pane.active { display: block; } @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } } .day-group { margin-bottom: 15px; border: 1px solid #e9ecef; border-radius: 4px; background-color: #fff; overflow: hidden; } .day-header { background-color: #f1f3f5; color: #495057; padding: 10px 15px; margin: 0; cursor: pointer; font-weight: bold; display: flex; align-items: center; transition: background-color 0.2s ease; } .day-header:hover { background-color: #e9ecef; } .toggle-icon { display: inline-block; width: 1em; margin-right: 8px; text-align: center; font-weight: bold; } .update-list { list-style: none; padding: 0 15px 15px 15px; margin: 0; display: none; } .update-list.visible { display: block; } h3 { color: #17a2b8; margin-top: 20px; margin-bottom: 10px; border-left: 4px solid #17a2b8; padding-left: 10px; font-size: 1.3em; } li.update-item { margin-bottom: 10px; padding: 10px 12px; background-color: #fff; border: none; border-bottom: 1px solid #eee; border-radius: 0; box-shadow: none; transition: background-color 0.1s ease; } li.update-item:last-child { border-bottom: none; } .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; } .item-header strong { font-size: 1.05em; color: #003975; margin-bottom: 0; flex-grow: 1; margin-right: 10px; word-break: break-all; } .item-time { font-size: 0.8em; color: #777; white-space: nowrap; } .file-path { font-family: 'Courier New', Courier, monospace; font-size: 0.8em; color: #666; margin-bottom: 6px; word-break: break-all; } blockquote { margin: 6px 0 6px 0px; padding: 6px 10px; border-left: 3px solid #007bff; background-color: #e9f5ff; color: #333; font-size: 0.85em; } a { color: #007bff; text-decoration: none; } a:hover { text-decoration: underline; } .tmdb-link { display: inline-block; margin-top: 4px; font-size: 0.85em; } .update-item.hidden-item { display: none; } .load-more-button.day-pagination { display: block; margin: 15px auto 5px auto; padding: 8px 16px; font-size: 0.9em; cursor: pointer; background-color: #28a745; color: white; border: none; border-radius: 4px; transition: background-color 0.2s ease; } .load-more-button.day-pagination:hover { background-color: #218838; } .highlight { background-color: yellow; font-weight: bold; } .update-item.search-hidden { display: none !important; } .day-group.search-hidden { display: none !important; } h3.search-hidden { display: none !important; } .search-active .load-more-button.day-pagination { display: none !important; } .footer-time { margin-top: 40px; text-align: center; font-size: 0.9em; color: #888; } </style>
+    <style> body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 15px; background-color: #f8f9fa; color: #333; } .container { max-width: 1200px; margin: 0 auto; } h1 { text-align: center; color: #0056b3; margin-bottom: 10px; } .archive-link-container { text-align: center; margin-bottom: 20px; } .archive-link-container a { font-size: 1.1em; color: #17a2b8; text-decoration: none; padding: 8px 15px; border-radius: 4px; transition: background-color 0.2s ease, color 0.2s ease; } .archive-link-container a:hover { background-color: #17a2b8; color: white; text-decoration: none; } .search-container { margin-bottom: 20px; text-align: center; } #search-input { padding: 8px 12px; font-size: 1em; border: 1px solid #ccc; border-radius: 4px; width: 60%; max-width: 400px; transition: border-color 0.2s ease, box-shadow 0.2s ease; } #search-input:focus { border-color: #007bff; box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); outline: none; } .tab-buttons { display: flex; justify-content: center; margin-bottom: 25px; border-bottom: 2px solid #dee2e6; flex-wrap: wrap; padding: 0 10px; } .tab-button { padding: 10px 15px; cursor: pointer; border: none; background-color: transparent; font-size: 1.05em; color: #007bff; margin: 0 3px 0px 3px; border-bottom: 3px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; white-space: nowrap; } .tab-button:hover { color: #0056b3; } .tab-button.active { color: #0056b3; font-weight: bold; border-bottom-color: #0056b3; } .tab-content { } .content-pane { display: none; animation: fadeIn 0.3s ease-in-out; } .content-pane.active { display: block; } @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } } .day-group { margin-bottom: 15px; border: 1px solid #e9ecef; border-radius: 4px; background-color: #fff; overflow: hidden; } .day-header { background-color: #f1f3f5; color: #495057; padding: 10px 15px; margin: 0; cursor: pointer; font-weight: bold; display: flex; align-items: center; transition: background-color 0.2s ease; } .day-header:hover { background-color: #e9ecef; } .toggle-icon { display: inline-block; width: 1em; margin-right: 8px; text-align: center; font-weight: bold; } .update-list { list-style: none; padding: 0 15px 15px 15px; margin: 0; display: none; } .update-list.visible { display: block; } h3 { color: #17a2b8; margin-top: 20px; margin-bottom: 10px; border-left: 4px solid #17a2b8; padding-left: 10px; font-size: 1.3em; } li.update-item { margin-bottom: 10px; padding: 10px 12px; background-color: #fff; border: none; border-bottom: 1px solid #eee; border-radius: 0; box-shadow: none; transition: background-color 0.1s ease; } li.update-item:last-child { border-bottom: none; } .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; } .item-header strong { font-size: 1.05em; color: #003975; margin-bottom: 0; flex-grow: 1; margin-right: 10px; word-break: break-all; } .item-time { font-size: 0.8em; color: #777; white-space: nowrap; } .file-path { font-family: 'Courier New', Courier, monospace; font-size: 0.8em; color: #666; margin-bottom: 6px; word-break: break-all; } blockquote { margin: 6px 0 6px 0px; padding: 6px 10px; border-left: 3px solid #007bff; background-color: #e9f5ff; color: #333; font-size: 0.85em; } a { color: #007bff; text-decoration: none; } a:hover { text-decoration: underline; } .tmdb-link { display: inline-block; margin-top: 4px; font-size: 0.85em; } .update-item.hidden-item { display: none; } .load-more-button.day-pagination { display: block; margin: 15px auto 5px auto; padding: 8px 16px; font-size: 0.9em; cursor: pointer; background-color: #28a745; color: white; border: none; border-radius: 4px; transition: background-color 0.2s ease; } .load-more-button.day-pagination:hover { background-color: #218838; } .highlight { background-color: yellow; font-weight: bold; } .update-item.search-hidden { display: none !important; } .day-group.search-hidden { display: none !important; } h3.search-hidden { display: none !important; } .search-active .load-more-button.day-pagination { display: none !important; } .footer-time { margin-top: 40px; text-align: center; font-size: 0.9em; color: #888; } </style>
 </head>
-<body> <div class="container"> <h1>媒體更新總覽 (最新 5000 筆)</h1> <div class="search-container">
+<body> <div class="container"> <h1>媒體更新總覽 (最新 5000 筆)</h1>
+        <div class="archive-link-container">
+            <a href="archive.html" title="檢視所有歷史記錄並可進階搜尋">🔎 檢視完整歷史記錄</a>
+        </div>
+        <div class="search-container">
             <input type="search" id="search-input" placeholder="搜尋 劇集/電影/全集/動漫(依路徑) 或 雜誌(依檔名)...">
         </div> <div class="tab-buttons">         <button class="tab-button active" data-category="animation">動漫</button>
         <button class="tab-button " data-category="magazine">雜誌</button>
@@ -14,31 +18,423 @@
             <div class="day-group expanded">
                 <h4 class="day-header" data-target="#list-animation-20250512"><span class="toggle-icon">-</span> 05 月 12 日 (Monday)</h4>
                 <ul class="update-list visible" id="list-animation-20250512" data-category="animation">
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E10.mkv" data-category="animation">
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E04.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Elfsan.wa.Yaserarenai.S01E04.mkv</strong>
+                            <span class='item-time'>18:53:32</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E04.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E03.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Elfsan.wa.Yaserarenai.S01E03.mkv</strong>
+                            <span class='item-time'>18:53:27</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E03.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E06.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Elfsan.wa.Yaserarenai.S01E06.mkv</strong>
+                            <span class='item-time'>18:53:22</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E06.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E05.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Elfsan.wa.Yaserarenai.S01E05.mkv</strong>
+                            <span class='item-time'>18:53:17</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E05.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E07.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Elfsan.wa.Yaserarenai.S01E07.mkv</strong>
+                            <span class='item-time'>18:53:12</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E07.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E10.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Elfsan.wa.Yaserarenai.S01E10.mkv</strong>
+                            <span class='item-time'>18:53:07</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E10.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E09.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Elfsan.wa.Yaserarenai.S01E09.mkv</strong>
+                            <span class='item-time'>18:53:02</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E09.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E08.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Elfsan.wa.Yaserarenai.S01E08.mkv</strong>
+                            <span class='item-time'>18:52:57</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E08.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E11.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Elfsan.wa.Yaserarenai.S01E11.mkv</strong>
+                            <span class='item-time'>18:52:52</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E11.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E14.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Elfsan.wa.Yaserarenai.S01E14.mkv</strong>
+                            <span class='item-time'>18:52:47</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E14.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E13.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Elfsan.wa.Yaserarenai.S01E13.mkv</strong>
+                            <span class='item-time'>18:52:42</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E13.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E12.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Elfsan.wa.Yaserarenai.S01E12.mkv</strong>
+                            <span class='item-time'>18:52:37</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\精靈小姐瘦不了 エルフさんは痩せられない。 (2024)\Season 01\Elfsan.wa.Yaserarenai.S01E12.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E01.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E01.mkv</strong>
+                            <span class='item-time'>18:52:32</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E01.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E02.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E02.mkv</strong>
+                            <span class='item-time'>18:52:27</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E02.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E09.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E09.mkv</strong>
+                            <span class='item-time'>18:52:22</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E09.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E06.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E06.mkv</strong>
+                            <span class='item-time'>18:52:17</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E06.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E05.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E05.mkv</strong>
+                            <span class='item-time'>18:52:12</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E05.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E08.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E08.mkv</strong>
+                            <span class='item-time'>18:52:07</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E08.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E03.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E03.mkv</strong>
+                            <span class='item-time'>18:52:02</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E03.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E07.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E07.mkv</strong>
+                            <span class='item-time'>18:51:57</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E07.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E04.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E04.mkv</strong>
+                            <span class='item-time'>18:51:52</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E04.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E13.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E13.mkv</strong>
+                            <span class='item-time'>18:51:47</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E13.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E10.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E10.mkv</strong>
+                            <span class='item-time'>18:51:42</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E10.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E14.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E14.mkv</strong>
+                            <span class='item-time'>18:51:37</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E14.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E12.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E12.mkv</strong>
+                            <span class='item-time'>18:51:32</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E12.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E16.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E16.mkv</strong>
+                            <span class='item-time'>18:51:27</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E16.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E11.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E11.mkv</strong>
+                            <span class='item-time'>18:51:22</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E11.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E15.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E15.mkv</strong>
+                            <span class='item-time'>18:51:17</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E15.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E17.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E17.mkv</strong>
+                            <span class='item-time'>18:51:12</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E17.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E20.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E20.mkv</strong>
+                            <span class='item-time'>18:51:06</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E20.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E18.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E18.mkv</strong>
+                            <span class='item-time'>18:51:01</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E18.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E21.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E21.mkv</strong>
+                            <span class='item-time'>18:50:56</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E21.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E19.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E19.mkv</strong>
+                            <span class='item-time'>18:50:51</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E19.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E24.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E24.mkv</strong>
+                            <span class='item-time'>18:50:46</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E24.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E23.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E23.mkv</strong>
+                            <span class='item-time'>18:50:41</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E23.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E22.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>Delicious.in.Dungeon.S01E22.mkv</strong>
+                            <span class='item-time'>18:50:36</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\迷宮飯 ダンジョン飯 (2024)\Season 01\Delicious.in.Dungeon.S01E22.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E12.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>MF.Ghost.S01E12.mkv</strong>
+                            <span class='item-time'>18:50:31</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E12.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E06.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>MF.Ghost.S01E06.mkv</strong>
+                            <span class='item-time'>18:50:26</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E06.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E04.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>MF.Ghost.S01E04.mkv</strong>
+                            <span class='item-time'>18:50:21</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E04.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E02.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>MF.Ghost.S01E02.mkv</strong>
+                            <span class='item-time'>18:50:16</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E02.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E11.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>MF.Ghost.S01E11.mkv</strong>
+                            <span class='item-time'>18:50:11</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E11.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E09.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>MF.Ghost.S01E09.mkv</strong>
+                            <span class='item-time'>18:50:06</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E09.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E01.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>MF.Ghost.S01E01.mkv</strong>
+                            <span class='item-time'>18:50:01</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E01.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E07.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>MF.Ghost.S01E07.mkv</strong>
+                            <span class='item-time'>18:49:56</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E07.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E08.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>MF.Ghost.S01E08.mkv</strong>
+                            <span class='item-time'>18:49:51</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E08.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E10.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>MF.Ghost.S01E10.mkv</strong>
+                            <span class='item-time'>18:49:46</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E10.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E05.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>MF.Ghost.S01E05.mkv</strong>
+                            <span class='item-time'>18:49:41</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E05.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E03.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>MF.Ghost.S01E03.mkv</strong>
+                            <span class='item-time'>18:49:36</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 01\MF.Ghost.S01E03.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E12.mkv" data-category="animation">
+                       <div class="item-header">
+                            <strong>MF.Ghost.S02E12.mkv</strong>
+                            <span class='item-time'>18:49:31</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E12.mkv</div>
+                        <blockquote>動漫已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E10.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>MF.Ghost.S02E10.mkv</strong>
-                            <span class='item-time'>18:16:58</span>
+                            <span class='item-time'>18:49:26</span>
                        </div>
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E10.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E11.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E11.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>MF.Ghost.S02E11.mkv</strong>
-                            <span class='item-time'>18:16:53</span>
+                            <span class='item-time'>18:49:21</span>
                        </div>
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E11.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E08.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E08.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>MF.Ghost.S02E08.mkv</strong>
-                            <span class='item-time'>18:16:48</span>
+                            <span class='item-time'>18:49:16</span>
                        </div>
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E08.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E09.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E09.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>MF.Ghost.S02E09.mkv</strong>
                             <span class='item-time'>18:16:42</span>
@@ -46,7 +442,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E09.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E07.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E07.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>MF.Ghost.S02E07.mkv</strong>
                             <span class='item-time'>18:16:37</span>
@@ -54,7 +450,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E07.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E04.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E04.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>MF.Ghost.S02E04.mkv</strong>
                             <span class='item-time'>18:16:32</span>
@@ -62,7 +458,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E04.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E05.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E05.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>MF.Ghost.S02E05.mkv</strong>
                             <span class='item-time'>18:16:27</span>
@@ -70,7 +466,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E05.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E02.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E02.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>MF.Ghost.S02E02.mkv</strong>
                             <span class='item-time'>18:16:22</span>
@@ -78,7 +474,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E02.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E06.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E06.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>MF.Ghost.S02E06.mkv</strong>
                             <span class='item-time'>18:16:17</span>
@@ -86,7 +482,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E06.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E03.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E03.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>MF.Ghost.S02E03.mkv</strong>
                             <span class='item-time'>18:16:12</span>
@@ -94,7 +490,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E03.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E01.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E01.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>MF.Ghost.S02E01.mkv</strong>
                             <span class='item-time'>18:16:07</span>
@@ -102,7 +498,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\燃油車鬥魂／極速車魂 MFゴースト (2023)\Season 02\MF.Ghost.S02E01.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E12.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E12.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>Puniru.wa.Kawaii.Slime.S01E12.mkv</strong>
                             <span class='item-time'>18:16:02</span>
@@ -110,7 +506,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E12.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E11.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E11.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>Puniru.wa.Kawaii.Slime.S01E11.mkv</strong>
                             <span class='item-time'>18:15:57</span>
@@ -118,7 +514,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E11.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E10.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E10.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>Puniru.wa.Kawaii.Slime.S01E10.mkv</strong>
                             <span class='item-time'>18:15:52</span>
@@ -126,7 +522,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E10.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E07.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E07.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>Puniru.wa.Kawaii.Slime.S01E07.mkv</strong>
                             <span class='item-time'>18:15:47</span>
@@ -134,7 +530,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E07.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E06.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E06.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>Puniru.wa.Kawaii.Slime.S01E06.mkv</strong>
                             <span class='item-time'>18:15:42</span>
@@ -142,7 +538,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E06.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E08.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E08.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>Puniru.wa.Kawaii.Slime.S01E08.mkv</strong>
                             <span class='item-time'>18:15:37</span>
@@ -150,7 +546,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E08.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E09.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E09.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>Puniru.wa.Kawaii.Slime.S01E09.mkv</strong>
                             <span class='item-time'>18:15:32</span>
@@ -158,7 +554,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E09.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E02.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E02.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>Puniru.wa.Kawaii.Slime.S01E02.mkv</strong>
                             <span class='item-time'>18:15:27</span>
@@ -166,7 +562,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E02.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E03.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E03.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>Puniru.wa.Kawaii.Slime.S01E03.mkv</strong>
                             <span class='item-time'>18:15:22</span>
@@ -174,7 +570,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E03.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E04.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E04.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>Puniru.wa.Kawaii.Slime.S01E04.mkv</strong>
                             <span class='item-time'>18:15:17</span>
@@ -182,7 +578,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E04.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E05.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E05.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>Puniru.wa.Kawaii.Slime.S01E05.mkv</strong>
                             <span class='item-time'>18:15:12</span>
@@ -190,7 +586,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E05.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E01.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E01.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>Puniru.wa.Kawaii.Slime.S01E01.mkv</strong>
                             <span class='item-time'>18:15:07</span>
@@ -198,7 +594,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\噗妮露是可愛史萊姆／可愛史萊姆噗尼露 ぷにるはかわいいスライム (2024)\Season 01\Puniru.wa.Kawaii.Slime.S01E01.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E12.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E12.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>Hoshi.Furu.Oukoku.no.Nina.S01E12.mkv</strong>
                             <span class='item-time'>18:15:02</span>
@@ -206,7 +602,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E12.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E08.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E08.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>Hoshi.Furu.Oukoku.no.Nina.S01E08.mkv</strong>
                             <span class='item-time'>18:14:57</span>
@@ -214,7 +610,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E08.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E10.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E10.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>Hoshi.Furu.Oukoku.no.Nina.S01E10.mkv</strong>
                             <span class='item-time'>18:14:52</span>
@@ -222,7 +618,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E10.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E11.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E11.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>Hoshi.Furu.Oukoku.no.Nina.S01E11.mkv</strong>
                             <span class='item-time'>18:14:47</span>
@@ -230,7 +626,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E11.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E09.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E09.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>Hoshi.Furu.Oukoku.no.Nina.S01E09.mkv</strong>
                             <span class='item-time'>18:14:42</span>
@@ -238,7 +634,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E09.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E06.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E06.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>Hoshi.Furu.Oukoku.no.Nina.S01E06.mkv</strong>
                             <span class='item-time'>18:14:37</span>
@@ -246,7 +642,7 @@
                         <div class='file-path'>LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E06.mkv</div>
                         <blockquote>動漫已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E07.mkv" data-category="animation">
+                    <li class="update-item hidden-item" data-filename="" data-path="LiangTsaoEmbyAnimation\日本\星辰墜落之國的妮娜 星降る王国のニナ (2024)\Season 01\Hoshi.Furu.Oukoku.no.Nina.S01E07.mkv" data-category="animation">
                        <div class="item-header">
                             <strong>Hoshi.Furu.Oukoku.no.Nina.S01E07.mkv</strong>
                             <span class='item-time'>18:14:32</span>
@@ -39631,404 +40027,11 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\哈潑時尚 Harper's BAZAAR 2024-04.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item hidden-item" data-filename="enya FASHION QUEEN時尚女王 2024-04.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\enya FASHION QUEEN時尚女王 2024-04.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>enya FASHION QUEEN時尚女王 2024-04.pdf</strong>
-                            <span class='item-time'>10:07:59</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\enya FASHION QUEEN時尚女王 2024-04.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="ELLE 她 2024-04.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\ELLE 她 2024-04.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>ELLE 她 2024-04.pdf</strong>
-                            <span class='item-time'>10:07:54</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\ELLE 她 2024-04.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="號外 City Magazine 2024-04.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\號外 City Magazine 2024-04.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>號外 City Magazine 2024-04.pdf</strong>
-                            <span class='item-time'>10:07:49</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\號外 City Magazine 2024-04.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="Big大時商業誌 2024-04.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\Big大時商業誌 2024-04.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>Big大時商業誌 2024-04.pdf</strong>
-                            <span class='item-time'>10:07:44</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\Big大時商業誌 2024-04.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="經濟一週 Economic Digest 2024-04-27 第2217期 - TikTok 禁令警鐘已響？.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\經濟一週 Economic Digest 2024-04-27 第2217期 - TikTok 禁令警鐘已響？.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>經濟一週 Economic Digest 2024-04-27 第2217期 - TikTok 禁令警鐘已響？.pdf</strong>
-                            <span class='item-time'>10:07:39</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\經濟一週 Economic Digest 2024-04-27 第2217期 - TikTok 禁令警鐘已響？.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="經濟一週 Economic Digest 2024-04-13 第2215期 - 人呢？解讀香港結業潮.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\經濟一週 Economic Digest 2024-04-13 第2215期 - 人呢？解讀香港結業潮.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>經濟一週 Economic Digest 2024-04-13 第2215期 - 人呢？解讀香港結業潮.pdf</strong>
-                            <span class='item-time'>10:07:34</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\經濟一週 Economic Digest 2024-04-13 第2215期 - 人呢？解讀香港結業潮.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="經濟一週 Economic Digest 2024-04-06 第2214期 - Intel 如何搶回半導體龍頭寶座？.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\經濟一週 Economic Digest 2024-04-06 第2214期 - Intel 如何搶回半導體龍頭寶座？.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>經濟一週 Economic Digest 2024-04-06 第2214期 - Intel 如何搶回半導體龍頭寶座？.pdf</strong>
-                            <span class='item-time'>10:07:29</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\經濟一週 Economic Digest 2024-04-06 第2214期 - Intel 如何搶回半導體龍頭寶座？.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="豐年 Harvest 2024-04 第074.04期 - 農業碳匯 黃綠藍.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\豐年 Harvest 2024-04 第074.04期 - 農業碳匯 黃綠藍.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>豐年 Harvest 2024-04 第074.04期 - 農業碳匯 黃綠藍.pdf</strong>
-                            <span class='item-time'>10:07:24</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\豐年 Harvest 2024-04 第074.04期 - 農業碳匯 黃綠藍.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="互動日本語 Live Interactive Japanese 2024-04 第088期 - 日本抹茶文化！.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\互動日本語 Live Interactive Japanese 2024-04 第088期 - 日本抹茶文化！.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>互動日本語 Live Interactive Japanese 2024-04 第088期 - 日本抹茶文化！.pdf</strong>
-                            <span class='item-time'>10:07:19</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\互動日本語 Live Interactive Japanese 2024-04 第088期 - 日本抹茶文化！.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="今週刊 Business Today 2024-04-04 第1424期 - 產業龍頭零碳戰.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\今週刊 Business Today 2024-04-04 第1424期 - 產業龍頭零碳戰.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>今週刊 Business Today 2024-04-04 第1424期 - 產業龍頭零碳戰.pdf</strong>
-                            <span class='item-time'>10:07:14</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\今週刊 Business Today 2024-04-04 第1424期 - 產業龍頭零碳戰.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="職業棒球 Baseball Professional 2024-04 第505期 - 中職35 終極觀戰指南.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\職業棒球 Baseball Professional 2024-04 第505期 - 中職35 終極觀戰指南.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>職業棒球 Baseball Professional 2024-04 第505期 - 中職35 終極觀戰指南.pdf</strong>
-                            <span class='item-time'>10:07:09</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\職業棒球 Baseball Professional 2024-04 第505期 - 中職35 終極觀戰指南.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="農訓雜誌 2024-04 第396期 - 啡嚐東山.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\農訓雜誌 2024-04 第396期 - 啡嚐東山.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>農訓雜誌 2024-04 第396期 - 啡嚐東山.pdf</strong>
-                            <span class='item-time'>10:07:04</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\農訓雜誌 2024-04 第396期 - 啡嚐東山.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="網管人 NetAdmin 2024-04 第219期 - 綜覽資安曝險 ASM掃盲點.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\網管人 NetAdmin 2024-04 第219期 - 綜覽資安曝險 ASM掃盲點.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>網管人 NetAdmin 2024-04 第219期 - 綜覽資安曝險 ASM掃盲點.pdf</strong>
-                            <span class='item-time'>10:06:59</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\網管人 NetAdmin 2024-04 第219期 - 綜覽資安曝險 ASM掃盲點.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="新電子 Micro-Electronics 2024-04 第457期 - 電動載具下一步.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\新電子 Micro-Electronics 2024-04 第457期 - 電動載具下一步.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>新電子 Micro-Electronics 2024-04 第457期 - 電動載具下一步.pdf</strong>
-                            <span class='item-time'>10:06:54</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\新電子 Micro-Electronics 2024-04 第457期 - 電動載具下一步.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="商業週刊 Business Weekly 2024-04-08 第1899期 - 碳費開徵 房價上漲真相.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\商業週刊 Business Weekly 2024-04-08 第1899期 - 碳費開徵 房價上漲真相.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>商業週刊 Business Weekly 2024-04-08 第1899期 - 碳費開徵 房價上漲真相.pdf</strong>
-                            <span class='item-time'>10:06:49</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\商業週刊 Business Weekly 2024-04-08 第1899期 - 碳費開徵 房價上漲真相.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="理財週刊 2024-04-05 第1232期 - Q1季報 強股搜秘.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\理財週刊 2024-04-05 第1232期 - Q1季報 強股搜秘.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>理財週刊 2024-04-05 第1232期 - Q1季報 強股搜秘.pdf</strong>
-                            <span class='item-time'>10:06:44</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\理財週刊 2024-04-05 第1232期 - Q1季報 強股搜秘.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="商業週刊 Business Weekly 2024-04-15 第1900期 - 瘋狂私校潮.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\商業週刊 Business Weekly 2024-04-15 第1900期 - 瘋狂私校潮.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>商業週刊 Business Weekly 2024-04-15 第1900期 - 瘋狂私校潮.pdf</strong>
-                            <span class='item-time'>10:06:39</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\商業週刊 Business Weekly 2024-04-15 第1900期 - 瘋狂私校潮.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="動腦 brain 2024-04 第576期 - 餐飲科技狂潮.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\動腦 brain 2024-04 第576期 - 餐飲科技狂潮.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>動腦 brain 2024-04 第576期 - 餐飲科技狂潮.pdf</strong>
-                            <span class='item-time'>10:06:34</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\動腦 brain 2024-04 第576期 - 餐飲科技狂潮.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="恰女生 Choc 2024-04 第269期 - 年度8大精品包爆款型號盤點.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\恰女生 Choc 2024-04 第269期 - 年度8大精品包爆款型號盤點.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>恰女生 Choc 2024-04 第269期 - 年度8大精品包爆款型號盤點.pdf</strong>
-                            <span class='item-time'>10:06:29</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\恰女生 Choc 2024-04 第269期 - 年度8大精品包爆款型號盤點.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="阿路巴高爾夫 Alba Tross-View 2024-04 第112期 - 「啟動下桿」為何總是會失誤？.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\阿路巴高爾夫 Alba Tross-View 2024-04 第112期 - 「啟動下桿」為何總是會失誤？.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>阿路巴高爾夫 Alba Tross-View 2024-04 第112期 - 「啟動下桿」為何總是會失誤？.pdf</strong>
-                            <span class='item-time'>10:06:24</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\阿路巴高爾夫 Alba Tross-View 2024-04 第112期 - 「啟動下桿」為何總是會失誤？.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="法語學習誌 Bonjour！France 2024-04 第090期 - 法國生活智慧王 什麼？不僅僅是搬家？.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\法語學習誌 Bonjour！France 2024-04 第090期 - 法國生活智慧王 什麼？不僅僅是搬家？.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>法語學習誌 Bonjour！France 2024-04 第090期 - 法國生活智慧王 什麼？不僅僅是搬家？.pdf</strong>
-                            <span class='item-time'>10:06:19</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\法語學習誌 Bonjour！France 2024-04 第090期 - 法國生活智慧王 什麼？不僅僅是搬家？.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="知識大圖解 HOW IT WORKS 2024-04 第115期 - 動物大遷徒.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\知識大圖解 HOW IT WORKS 2024-04 第115期 - 動物大遷徒.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>知識大圖解 HOW IT WORKS 2024-04 第115期 - 動物大遷徒.pdf</strong>
-                            <span class='item-time'>10:06:14</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\知識大圖解 HOW IT WORKS 2024-04 第115期 - 動物大遷徒.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="住展 2024-04 第498期 - 軌道置產逼宮記.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\住展 2024-04 第498期 - 軌道置產逼宮記.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>住展 2024-04 第498期 - 軌道置產逼宮記.pdf</strong>
-                            <span class='item-time'>10:06:09</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\住展 2024-04 第498期 - 軌道置產逼宮記.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="行遍天下 Travelcom 2024-04 第375期 - 休日慢遊 5大春萌童樂路線.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\行遍天下 Travelcom 2024-04 第375期 - 休日慢遊 5大春萌童樂路線.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>行遍天下 Travelcom 2024-04 第375期 - 休日慢遊 5大春萌童樂路線.pdf</strong>
-                            <span class='item-time'>10:06:04</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\行遍天下 Travelcom 2024-04 第375期 - 休日慢遊 5大春萌童樂路線.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="Android玩樂誌 2024-04 第261期 - Google Photos 魔術橡皮擦、景深、天空工具、圖片修正.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\Android玩樂誌 2024-04 第261期 - Google Photos 魔術橡皮擦、景深、天空工具、圖片修正.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>Android玩樂誌 2024-04 第261期 - Google Photos 魔術橡皮擦、景深、天空工具、圖片修正.pdf</strong>
-                            <span class='item-time'>10:05:59</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\Android玩樂誌 2024-04 第261期 - Google Photos 魔術橡皮擦、景深、天空工具、圖片修正.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="Android密技王 2024-04 第103期 - Adobe Express教學 輸入文字AI製圖.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\Android密技王 2024-04 第103期 - Adobe Express教學 輸入文字AI製圖.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>Android密技王 2024-04 第103期 - Adobe Express教學 輸入文字AI製圖.pdf</strong>
-                            <span class='item-time'>10:05:54</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\Android密技王 2024-04 第103期 - Adobe Express教學 輸入文字AI製圖.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="Ciao 潮旅 2024-0405 第062期 - 蔡健雅 Tanya 愛，與不愛的距離.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\Ciao 潮旅 2024-0405 第062期 - 蔡健雅 Tanya 愛，與不愛的距離.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>Ciao 潮旅 2024-0405 第062期 - 蔡健雅 Tanya 愛，與不愛的距離.pdf</strong>
-                            <span class='item-time'>10:05:49</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\Ciao 潮旅 2024-0405 第062期 - 蔡健雅 Tanya 愛，與不愛的距離.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="Android玩樂誌 2024-04 第260期 - Google地圖每日追蹤你.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\Android玩樂誌 2024-04 第260期 - Google地圖每日追蹤你.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>Android玩樂誌 2024-04 第260期 - Google地圖每日追蹤你.pdf</strong>
-                            <span class='item-time'>10:05:44</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\Android玩樂誌 2024-04 第260期 - Google地圖每日追蹤你.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="ALL+互動英語 2024-04 第233期 - Z世代的電影男神 提摩西．夏勒梅.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\ALL+互動英語 2024-04 第233期 - Z世代的電影男神 提摩西．夏勒梅.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>ALL+互動英語 2024-04 第233期 - Z世代的電影男神 提摩西．夏勒梅.pdf</strong>
-                            <span class='item-time'>10:05:39</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\ALL+互動英語 2024-04 第233期 - Z世代的電影男神 提摩西．夏勒梅.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="WOW！SCREEN 2024-04 第660期 - 特技玩家.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\WOW！SCREEN 2024-04 第660期 - 特技玩家.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>WOW！SCREEN 2024-04 第660期 - 特技玩家.pdf</strong>
-                            <span class='item-time'>10:05:34</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\WOW！SCREEN 2024-04 第660期 - 特技玩家.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="PChome 電腦家庭 2024-04 第339期 - Windows11更新又來了！.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\PChome 電腦家庭 2024-04 第339期 - Windows11更新又來了！.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>PChome 電腦家庭 2024-04 第339期 - Windows11更新又來了！.pdf</strong>
-                            <span class='item-time'>10:05:29</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\PChome 電腦家庭 2024-04 第339期 - Windows11更新又來了！.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="Money錢 2024-04 第199期 - 飆股領頭羊AI 5+1 12檔 ETF 帶你飛.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\Money錢 2024-04 第199期 - 飆股領頭羊AI 5+1 12檔 ETF 帶你飛.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>Money錢 2024-04 第199期 - 飆股領頭羊AI 5+1 12檔 ETF 帶你飛.pdf</strong>
-                            <span class='item-time'>10:05:24</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\Money錢 2024-04 第199期 - 飆股領頭羊AI 5+1 12檔 ETF 帶你飛.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="Live互動英語 2024-04 第276期 - 用英語玩桌遊.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\Live互動英語 2024-04 第276期 - 用英語玩桌遊.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>Live互動英語 2024-04 第276期 - 用英語玩桌遊.pdf</strong>
-                            <span class='item-time'>10:05:19</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\Live互動英語 2024-04 第276期 - 用英語玩桌遊.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="La Vie 2024-04 第240期 - 當代設計的雋永想像.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\La Vie 2024-04 第240期 - 當代設計的雋永想像.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>La Vie 2024-04 第240期 - 當代設計的雋永想像.pdf</strong>
-                            <span class='item-time'>10:05:14</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\La Vie 2024-04 第240期 - 當代設計的雋永想像.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="JET 2024-04 第260期 - 吳慷仁 但願電影夢長久.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\JET 2024-04 第260期 - 吳慷仁 但願電影夢長久.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>JET 2024-04 第260期 - 吳慷仁 但願電影夢長久.pdf</strong>
-                            <span class='item-time'>10:05:09</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\JET 2024-04 第260期 - 吳慷仁 但願電影夢長久.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="CNN 互動英語 2024-04 第283期 - CNN專訪華語流行樂壇天王 周杰倫.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\CNN 互動英語 2024-04 第283期 - CNN專訪華語流行樂壇天王 周杰倫.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>CNN 互動英語 2024-04 第283期 - CNN專訪華語流行樂壇天王 周杰倫.pdf</strong>
-                            <span class='item-time'>10:05:04</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\CNN 互動英語 2024-04 第283期 - CNN專訪華語流行樂壇天王 周杰倫.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="ABC互動英語 2024-04 第262期 - 便利商店實務英語.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\ABC互動英語 2024-04 第262期 - 便利商店實務英語.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>ABC互動英語 2024-04 第262期 - 便利商店實務英語.pdf</strong>
-                            <span class='item-time'>10:04:59</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\ABC互動英語 2024-04 第262期 - 便利商店實務英語.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="遠見 Global Views 2024-04 第454期 - 全民搶當碳金富翁.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\遠見 Global Views 2024-04 第454期 - 全民搶當碳金富翁.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>遠見 Global Views 2024-04 第454期 - 全民搶當碳金富翁.pdf</strong>
-                            <span class='item-time'>10:04:54</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\遠見 Global Views 2024-04 第454期 - 全民搶當碳金富翁.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="鄉間小路 AGRI  2023-04 第50卷第04期 - 臺食新味.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\鄉間小路 AGRI  2023-04 第50卷第04期 - 臺食新味.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>鄉間小路 AGRI  2023-04 第50卷第04期 - 臺食新味.pdf</strong>
-                            <span class='item-time'>10:04:49</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\鄉間小路 AGRI  2023-04 第50卷第04期 - 臺食新味.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="財訊雙週刊 2024-03-14 第707期 - 揭開台積電供應鍵最賺神秘軍團.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\財訊雙週刊 2024-03-14 第707期 - 揭開台積電供應鍵最賺神秘軍團.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>財訊雙週刊 2024-03-14 第707期 - 揭開台積電供應鍵最賺神秘軍團.pdf</strong>
-                            <span class='item-time'>10:04:44</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\財訊雙週刊 2024-03-14 第707期 - 揭開台積電供應鍵最賺神秘軍團.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="旅讀 Or China 2024-04 第146期 - 青島浪潮上岸.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\旅讀 Or China 2024-04 第146期 - 青島浪潮上岸.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>旅讀 Or China 2024-04 第146期 - 青島浪潮上岸.pdf</strong>
-                            <span class='item-time'>10:04:39</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\旅讀 Or China 2024-04 第146期 - 青島浪潮上岸.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="BBC知識 Knowledge 2024-04 第152期 - 咖啡因的益處.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\BBC知識 Knowledge 2024-04 第152期 - 咖啡因的益處.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>BBC知識 Knowledge 2024-04 第152期 - 咖啡因的益處.pdf</strong>
-                            <span class='item-time'>10:04:34</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\BBC知識 Knowledge 2024-04 第152期 - 咖啡因的益處.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="數位時代 Business Next 2024-04 第358期 - 台日半導體新局「全解讀」.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\數位時代 Business Next 2024-04 第358期 - 台日半導體新局「全解讀」.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>數位時代 Business Next 2024-04 第358期 - 台日半導體新局「全解讀」.pdf</strong>
-                            <span class='item-time'>10:04:29</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\數位時代 Business Next 2024-04 第358期 - 台日半導體新局「全解讀」.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="Smart智富 2024-04 第308期 - 3股市1種債最有利.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\Smart智富 2024-04 第308期 - 3股市1種債最有利.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>Smart智富 2024-04 第308期 - 3股市1種債最有利.pdf</strong>
-                            <span class='item-time'>10:04:24</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\Smart智富 2024-04 第308期 - 3股市1種債最有利.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="讀者文摘 Reader's Digest 2024-04 第706期 - 張家朗 信任如何讓香港成為擊劍要地.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\讀者文摘 Reader's Digest 2024-04 第706期 - 張家朗 信任如何讓香港成為擊劍要地.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>讀者文摘 Reader's Digest 2024-04 第706期 - 張家朗 信任如何讓香港成為擊劍要地.pdf</strong>
-                            <span class='item-time'>10:04:19</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\讀者文摘 Reader's Digest 2024-04 第706期 - 張家朗 信任如何讓香港成為擊劍要地.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="攝影世界 PHOTOWORLD 2024-04 第507期 - 看見美麗科學.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\攝影世界 PHOTOWORLD 2024-04 第507期 - 看見美麗科學.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>攝影世界 PHOTOWORLD 2024-04 第507期 - 看見美麗科學.pdf</strong>
-                            <span class='item-time'>10:04:14</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\攝影世界 PHOTOWORLD 2024-04 第507期 - 看見美麗科學.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="數位狂潮 DigiTrend 2024-04 第082期 - 電競機皇駕到.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\數位狂潮 DigiTrend 2024-04 第082期 - 電競機皇駕到.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>數位狂潮 DigiTrend 2024-04 第082期 - 電競機皇駕到.pdf</strong>
-                            <span class='item-time'>10:04:09</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\數位狂潮 DigiTrend 2024-04 第082期 - 電競機皇駕到.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="實用空中美語 English Digest 2024-04 第431期 - 人手一杯手搖飲 臺灣的美味浪潮.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\實用空中美語 English Digest 2024-04 第431期 - 人手一杯手搖飲 臺灣的美味浪潮.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>實用空中美語 English Digest 2024-04 第431期 - 人手一杯手搖飲 臺灣的美味浪潮.pdf</strong>
-                            <span class='item-time'>10:04:04</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\實用空中美語 English Digest 2024-04 第431期 - 人手一杯手搖飲 臺灣的美味浪潮.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="經理人 Manager Today 2024-04 第233期 - 一次讀懂地緣政治.pdf" data-path="LiangTsaoEBooks\《雜誌》\2024\202404\經理人 Manager Today 2024-04 第233期 - 一次讀懂地緣政治.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>經理人 Manager Today 2024-04 第233期 - 一次讀懂地緣政治.pdf</strong>
-                            <span class='item-time'>10:03:59</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2024\202404\經理人 Manager Today 2024-04 第233期 - 一次讀懂地緣政治.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
                 </ul>
                 <button class="load-more-button day-pagination" data-target-list="#list-magazine-20250512" style="display: none;">顯示更多</button>
             </div>
         </div>
- </div> <p class="footer-time"><small>頁面最後生成時間: 2025-05-12 18:16:58</small></p>
-        <p style="text-align:center; margin-top:20px; font-size:1.1em;"><a href="archive.html" title="檢視所有歷史記錄並可進階搜尋">🔎 檢視完整歷史記錄</a></p>
+ </div> <p class="footer-time"><small>頁面最後生成時間: 2025-05-12 18:53:37</small></p>
     </div>
     <script>
         const tsMap = {'剧':'劇','集':'集','电':'電','影':'影','杂':'雜','志':'誌','时':'時','间':'間','档':'檔','案':'案','更':'更','新':'新','列':'列','表':'表','签':'簽','标':'標','题':'題','内':'內','容':'容','搜':'搜','寻':'尋','显':'顯','示':'示','隐':'隱','藏':'藏','数':'數','据':'據','库': '庫','简':'簡','繁':'繁','体':'體','字':'字','转':'轉','换':'換','优':'優','化':'化','验':'驗','证':'證','权':'權','限':'限','设':'設','置':'置','错':'錯','误':'誤','讯':'訊','息':'息','系':'系','统':'統','环':'環','境':'境','版':'版','本':'本','处':'處','理':'理','回':'回','应': '應','网':'網','页':'頁','浏':'瀏','览':'覽','器':'器','缓':'緩','存':'存','清':'清','除':'除','模':'模','块':'塊','组':'組','织':'織','结':'結','构':'構','状':'狀','态':'態','负':'負','载':'載','压':'壓','力':'力','测':'測','试':'試','性':'性','能':'能','调':'調','优':'優','部':'部', '署':'署','迭':'疊','代':'代','开':'開','发':'發','周':'週','期':'期','计':'計','划':'劃','实':'實','现':'現','功':'功','能':'能','需':'需','求':'求','规':'規','范':'範','说':'說','明':'明','书':'書','用':'用','户':'戶','体':'體','验':'驗','界':'界','面':'面','计':'計','交互':'互動', '动':'動','画':'畫','视':'視','觉':'覺','元':'元','素':'素','图':'圖','标':'標','颜':'顏','色':'色','体':'體','排':'排','版':'版','布':'佈','局':'局','响':'響','应':'應','式':'式','适':'適','配':'配','不':'不','同':'同','备':'備','屏':'屏','幕':'幕','尺':'尺','寸':'寸','全':'全','漫':'漫', ' ': ' '};
