@@ -1,5 +1,505 @@
 [
     {
+        "filename": "媽媽寶寶 Mombaby 2023-06 第436期 - 三面向打造產後調理計畫.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\媽媽寶寶 Mombaby 2023-06 第436期 - 三面向打造產後調理計畫.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\媽媽寶寶 Mombaby 2023-06 第436期 - 三面向打造產後調理計畫.pdf",
+        "timestamp": "2025-05-12T09:30:15.128318",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "一手車訊 Carnews 2022-06 第390期 - 油電不油電！Nissan X-Trail e-Power X Toyota RAV4 Hybrid拚油耗.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\一手車訊 Carnews 2022-06 第390期 - 油電不油電！Nissan X-Trail e-Power X Toyota RAV4 Hybrid拚油耗.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\一手車訊 Carnews 2022-06 第390期 - 油電不油電！Nissan X-Trail e-Power X Toyota RAV4 Hybrid拚油耗.pdf",
+        "timestamp": "2025-05-12T09:30:10.121232",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "好房網 House Fun 2023-06 第112期 - 避暑，就來場豪華露營！.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\好房網 House Fun 2023-06 第112期 - 避暑，就來場豪華露營！.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\好房網 House Fun 2023-06 第112期 - 避暑，就來場豪華露營！.pdf",
+        "timestamp": "2025-05-12T09:30:05.110432",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "萬寶週刊 Marbo Weekly 2023-06-14 第1546期 - 第III波科技大多頭拚萬八.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\萬寶週刊 Marbo Weekly 2023-06-14 第1546期 - 第III波科技大多頭拚萬八.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\萬寶週刊 Marbo Weekly 2023-06-14 第1546期 - 第III波科技大多頭拚萬八.pdf",
+        "timestamp": "2025-05-12T09:30:00.105054",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "智動化 Smart Auto 2023-06 第092期 - 食品機械 - 低碳新食力.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\智動化 Smart Auto 2023-06 第092期 - 食品機械 - 低碳新食力.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\智動化 Smart Auto 2023-06 第092期 - 食品機械 - 低碳新食力.pdf",
+        "timestamp": "2025-05-12T09:29:55.095124",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "零組件 CTimes 2023-06 第379期 - 一孔定江山.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\零組件 CTimes 2023-06 第379期 - 一孔定江山.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\零組件 CTimes 2023-06 第379期 - 一孔定江山.pdf",
+        "timestamp": "2025-05-12T09:29:50.089091",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "天下雜誌 Common Wealth 2023-06-14 第775期 - 共好台灣 搖滾我鄉.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\天下雜誌 Common Wealth 2023-06-14 第775期 - 共好台灣 搖滾我鄉.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\天下雜誌 Common Wealth 2023-06-14 第775期 - 共好台灣 搖滾我鄉.pdf",
+        "timestamp": "2025-05-12T09:29:45.083554",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "商業周刊 Business Weekly 2023-06-19 第1857期 - 台股真英雄.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\商業周刊 Business Weekly 2023-06-19 第1857期 - 台股真英雄.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\商業周刊 Business Weekly 2023-06-19 第1857期 - 台股真英雄.pdf",
+        "timestamp": "2025-05-12T09:29:40.076838",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "今周刊 Business Today 2023-06-15 第1382期 - ETF養錢全解析.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\今周刊 Business Today 2023-06-15 第1382期 - ETF養錢全解析.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\今周刊 Business Today 2023-06-15 第1382期 - ETF養錢全解析.pdf",
+        "timestamp": "2025-05-12T09:29:35.071639",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "CIO IT 經理人 Business Technology Leadership 2023-06 第144期 - 供應鏈的現代化轉型.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\CIO IT 經理人 Business Technology Leadership 2023-06 第144期 - 供應鏈的現代化轉型.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\CIO IT 經理人 Business Technology Leadership 2023-06 第144期 - 供應鏈的現代化轉型.pdf",
+        "timestamp": "2025-05-12T09:29:30.068466",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "能力 Learning & Development 2023-06 第808期 - 溫室氣體查證教戰守則.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\能力 Learning & Development 2023-06 第808期 - 溫室氣體查證教戰守則.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\能力 Learning & Development 2023-06 第808期 - 溫室氣體查證教戰守則.pdf",
+        "timestamp": "2025-05-12T09:29:25.062556",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "親子天下 Parenting Family Lifestyle 2023-06 第127期 - 帶著課本去旅行.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\親子天下 Parenting Family Lifestyle 2023-06 第127期 - 帶著課本去旅行.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\親子天下 Parenting Family Lifestyle 2023-06 第127期 - 帶著課本去旅行.pdf",
+        "timestamp": "2025-05-12T09:29:20.058013",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "聯合文學 Unitas 2023-06 第464期 - 微醺的文體.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\聯合文學 Unitas 2023-06 第464期 - 微醺的文體.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\聯合文學 Unitas 2023-06 第464期 - 微醺的文體.pdf",
+        "timestamp": "2025-05-12T09:29:15.052896",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "嬰兒 & 母親 Baby & Mother 2023-06 第560期 - 當法律規定不能打小孩，會不會讓管教失靈？.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\嬰兒 & 母親 Baby & Mother 2023-06 第560期 - 當法律規定不能打小孩，會不會讓管教失靈？.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\嬰兒 & 母親 Baby & Mother 2023-06 第560期 - 當法律規定不能打小孩，會不會讓管教失靈？.pdf",
+        "timestamp": "2025-05-12T09:29:10.048199",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "高爾夫文摘 Golf Digest 2023-06 第399期 - 締造個人最遠開球距離5大秘訣.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\高爾夫文摘 Golf Digest 2023-06 第399期 - 締造個人最遠開球距離5大秘訣.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\高爾夫文摘 Golf Digest 2023-06 第399期 - 締造個人最遠開球距離5大秘訣.pdf",
+        "timestamp": "2025-05-12T09:29:05.042662",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "室內 Interior 2023-06 第357期 - 淨色宅.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\室內 Interior 2023-06 第357期 - 淨色宅.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\室內 Interior 2023-06 第357期 - 淨色宅.pdf",
+        "timestamp": "2025-05-12T09:29:00.034975",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "幼獅文藝 Youth Literary 2023-06 第834期 - 晃地圖.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\幼獅文藝 Youth Literary 2023-06 第834期 - 晃地圖.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\幼獅文藝 Youth Literary 2023-06 第834期 - 晃地圖.pdf",
+        "timestamp": "2025-05-12T09:28:55.029156",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "新視聽 Prime Av 2023-06 第338期 - 家庭劇院多超低音時代來臨.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\新視聽 Prime Av 2023-06 第338期 - 家庭劇院多超低音時代來臨.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\新視聽 Prime Av 2023-06 第338期 - 家庭劇院多超低音時代來臨.pdf",
+        "timestamp": "2025-05-12T09:28:50.022890",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "大師輕鬆讀 Master 2023-06-07 第924期 - 出奇或出局.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\大師輕鬆讀 Master 2023-06-07 第924期 - 出奇或出局.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\大師輕鬆讀 Master 2023-06-07 第924期 - 出奇或出局.pdf",
+        "timestamp": "2025-05-12T09:28:45.018367",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "讀者文摘 Reader's Digest 2023-06 - 多重宇宙亂中有道 - 永不過期楊紫瓊.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\讀者文摘 Reader's Digest 2023-06 - 多重宇宙亂中有道 - 永不過期楊紫瓊.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\讀者文摘 Reader's Digest 2023-06 - 多重宇宙亂中有道 - 永不過期楊紫瓊.pdf",
+        "timestamp": "2025-05-12T09:28:40.009119",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "CNN 互動英語 2023-06 第273期 - 二刀流傳奇 - 大谷翔平掀起旋風.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\CNN 互動英語 2023-06 第273期 - 二刀流傳奇 - 大谷翔平掀起旋風.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\CNN 互動英語 2023-06 第273期 - 二刀流傳奇 - 大谷翔平掀起旋風.pdf",
+        "timestamp": "2025-05-12T09:28:35.002166",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "互動日本語 Live Interactive Japanese 2023-06 第078期 - 日本留學大公開！.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\互動日本語 Live Interactive Japanese 2023-06 第078期 - 日本留學大公開！.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\互動日本語 Live Interactive Japanese 2023-06 第078期 - 日本留學大公開！.pdf",
+        "timestamp": "2025-05-12T09:28:29.996650",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "先探投資週刊 Wealth Invest Weekly 2023-06-09 第2251期 - 老股大翻身.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\先探投資週刊 Wealth Invest Weekly 2023-06-09 第2251期 - 老股大翻身.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\先探投資週刊 Wealth Invest Weekly 2023-06-09 第2251期 - 老股大翻身.pdf",
+        "timestamp": "2025-05-12T09:28:24.988926",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "常春藤生活美語 Ivy League Enjoy English 2023-06 第241期 - 變形金剛 - 萬獸崛起.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\常春藤生活美語 Ivy League Enjoy English 2023-06 第241期 - 變形金剛 - 萬獸崛起.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\常春藤生活美語 Ivy League Enjoy English 2023-06 第241期 - 變形金剛 - 萬獸崛起.pdf",
+        "timestamp": "2025-05-12T09:28:19.984380",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "常春藤解析美語 Ivy League Analytical English 2023-06 第419期 - AI 繪圖時代來臨 是福還是禍？.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\常春藤解析美語 Ivy League Analytical English 2023-06 第419期 - AI 繪圖時代來臨 是福還是禍？.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\常春藤解析美語 Ivy League Analytical English 2023-06 第419期 - AI 繪圖時代來臨 是福還是禍？.pdf",
+        "timestamp": "2025-05-12T09:28:14.977121",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "知識大圖解 HOW IT WORKS 2023-06 第105期 - 無奇不有的科學奇聞.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\知識大圖解 HOW IT WORKS 2023-06 第105期 - 無奇不有的科學奇聞.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\知識大圖解 HOW IT WORKS 2023-06 第105期 - 無奇不有的科學奇聞.pdf",
+        "timestamp": "2025-05-12T09:28:09.966717",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "專案經理 PM Magazine 2023-06 第066期 - 人生B計畫.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\專案經理 PM Magazine 2023-06 第066期 - 人生B計畫.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\專案經理 PM Magazine 2023-06 第066期 - 人生B計畫.pdf",
+        "timestamp": "2025-05-12T09:28:04.958564",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "財訊雙週刊 2023-06-08 第687期 - 廣達林百里 Nvidia 背後的造王者.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\財訊雙週刊 2023-06-08 第687期 - 廣達林百里 Nvidia 背後的造王者.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\財訊雙週刊 2023-06-08 第687期 - 廣達林百里 Nvidia 背後的造王者.pdf",
+        "timestamp": "2025-05-12T09:27:59.952034",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "旅讀 Or China 2023-06 第136期 - 唐人街的多重宇宙 - 弄潮曼谷.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\旅讀 Or China 2023-06 第136期 - 唐人街的多重宇宙 - 弄潮曼谷.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\旅讀 Or China 2023-06 第136期 - 唐人街的多重宇宙 - 弄潮曼谷.pdf",
+        "timestamp": "2025-05-12T09:27:54.941419",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "EMBA 2023-06 第442期 - 問對問題，才有好解方.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\EMBA 2023-06 第442期 - 問對問題，才有好解方.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\EMBA 2023-06 第442期 - 問對問題，才有好解方.pdf",
+        "timestamp": "2025-05-12T09:27:49.932564",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Smart智富 2023-06 第298期 - 掌握台股行事曆 - 搶賺下半年3大行情.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\Smart智富 2023-06 第298期 - 掌握台股行事曆 - 搶賺下半年3大行情.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\Smart智富 2023-06 第298期 - 掌握台股行事曆 - 搶賺下半年3大行情.pdf",
+        "timestamp": "2025-05-12T09:27:44.920792",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "中國旅遊 China Tourism 2023-06 第516期 - 皇城之脊(上) - 北京中軸線前世今生.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\中國旅遊 China Tourism 2023-06 第516期 - 皇城之脊(上) - 北京中軸線前世今生.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\中國旅遊 China Tourism 2023-06 第516期 - 皇城之脊(上) - 北京中軸線前世今生.pdf",
+        "timestamp": "2025-05-12T09:27:39.913660",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "遠見 Global Views 2023-06 第444期 - 泰國版馬斯克傳奇.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\遠見 Global Views 2023-06 第444期 - 泰國版馬斯克傳奇.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\遠見 Global Views 2023-06 第444期 - 泰國版馬斯克傳奇.pdf",
+        "timestamp": "2025-05-12T09:27:34.899863",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "鄉間小路 AGRI  2023-06 第49卷第6期 - 健人養身術.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\鄉間小路 AGRI  2023-06 第49卷第6期 - 健人養身術.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\鄉間小路 AGRI  2023-06 第49卷第6期 - 健人養身術.pdf",
+        "timestamp": "2025-05-12T09:27:29.891964",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "康健 Common Health 2023-06 第295期 - 皮膚就醫指南.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\康健 Common Health 2023-06 第295期 - 皮膚就醫指南.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\康健 Common Health 2023-06 第295期 - 皮膚就醫指南.pdf",
+        "timestamp": "2025-05-12T09:27:24.887714",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經典 Rhythms 2023-06 第299期 - 溪望再現.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\經典 Rhythms 2023-06 第299期 - 溪望再現.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\經典 Rhythms 2023-06 第299期 - 溪望再現.pdf",
+        "timestamp": "2025-05-12T09:27:19.883694",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "萬寶週刊 Marbo Weekly 2023-06-01 第1544期 - 兆元男 RUN Don't Walk拉千點.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\萬寶週刊 Marbo Weekly 2023-06-01 第1544期 - 兆元男 RUN Don't Walk拉千點.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\萬寶週刊 Marbo Weekly 2023-06-01 第1544期 - 兆元男 RUN Don't Walk拉千點.pdf",
+        "timestamp": "2025-05-12T09:27:14.879019",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "今周刊 Business Today 2023-06-08 第1381期 - 直擊＞墨西哥製造大逆襲.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\今周刊 Business Today 2023-06-08 第1381期 - 直擊＞墨西哥製造大逆襲.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\今周刊 Business Today 2023-06-08 第1381期 - 直擊＞墨西哥製造大逆襲.pdf",
+        "timestamp": "2025-05-12T09:27:09.874267",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "商業周刊 Business Weekly 2023-06-12 第1856期 - 假和諧壞事！泰山變天.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\商業周刊 Business Weekly 2023-06-12 第1856期 - 假和諧壞事！泰山變天.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\商業周刊 Business Weekly 2023-06-12 第1856期 - 假和諧壞事！泰山變天.pdf",
+        "timestamp": "2025-05-12T09:27:04.863724",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "萬寶週刊 Marbo Weekly 2023-06-07 第1545期 - 萬七誰做頭誰能漲.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\萬寶週刊 Marbo Weekly 2023-06-07 第1545期 - 萬七誰做頭誰能漲.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\萬寶週刊 Marbo Weekly 2023-06-07 第1545期 - 萬七誰做頭誰能漲.pdf",
+        "timestamp": "2025-05-12T09:26:59.856578",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "數位時代 Business Next 2023-06 第349期 - 8成轉型踩雷企業有救！獨家盤點未來商務最佳工具指南.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\數位時代 Business Next 2023-06 第349期 - 8成轉型踩雷企業有救！獨家盤點未來商務最佳工具指南.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\數位時代 Business Next 2023-06 第349期 - 8成轉型踩雷企業有救！獨家盤點未來商務最佳工具指南.pdf",
+        "timestamp": "2025-05-12T09:26:54.850350",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "常春 Evergreen 2023-06 第483期 - 精準調控血糖.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\常春 Evergreen 2023-06 第483期 - 精準調控血糖.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\常春 Evergreen 2023-06 第483期 - 精準調控血糖.pdf",
+        "timestamp": "2025-05-12T09:26:49.845666",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "行遍天下 Travelcom 2023-06 第366期 - 沁夏EV綠旅行.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\行遍天下 Travelcom 2023-06 第366期 - 沁夏EV綠旅行.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\行遍天下 Travelcom 2023-06 第366期 - 沁夏EV綠旅行.pdf",
+        "timestamp": "2025-05-12T09:26:44.841093",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經理人 Manager Today 2023-06 第223期 - 39個超實用情境 - 活用AI, 釋放生產力 ChatGPT立即上手.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\經理人 Manager Today 2023-06 第223期 - 39個超實用情境 - 活用AI, 釋放生產力 ChatGPT立即上手.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\經理人 Manager Today 2023-06 第223期 - 39個超實用情境 - 活用AI, 釋放生產力 ChatGPT立即上手.pdf",
+        "timestamp": "2025-05-12T09:26:39.834135",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "先探投資週刊 Wealth Invest Weekly 2023-06-02 第2250期 - AI站上台股C位.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\先探投資週刊 Wealth Invest Weekly 2023-06-02 第2250期 - AI站上台股C位.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\先探投資週刊 Wealth Invest Weekly 2023-06-02 第2250期 - AI站上台股C位.pdf",
+        "timestamp": "2025-05-12T09:26:34.828054",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "商業周刊 Business Weekly 2023-06-05 第1855期 - 相信才能致勝！AI霸主黃仁勳.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\商業周刊 Business Weekly 2023-06-05 第1855期 - 相信才能致勝！AI霸主黃仁勳.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\商業周刊 Business Weekly 2023-06-05 第1855期 - 相信才能致勝！AI霸主黃仁勳.pdf",
+        "timestamp": "2025-05-12T09:26:29.823251",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "今周刊 Business Today 2023-06-01 第1380期 - 黃仁勳憑什麼贏？.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\今周刊 Business Today 2023-06-01 第1380期 - 黃仁勳憑什麼贏？.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\今周刊 Business Today 2023-06-01 第1380期 - 黃仁勳憑什麼贏？.pdf",
+        "timestamp": "2025-05-12T09:26:24.819238",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "PChome 電腦家庭 2023-06 第329期 - 超好用AI影片生成器.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\PChome 電腦家庭 2023-06 第329期 - 超好用AI影片生成器.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\PChome 電腦家庭 2023-06 第329期 - 超好用AI影片生成器.pdf",
+        "timestamp": "2025-05-12T09:26:19.815610",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Money錢 2023-06 第189期 - 景氣吹逆風 台美科技股龍頭大閱兵.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202306\\Money錢 2023-06 第189期 - 景氣吹逆風 台美科技股龍頭大閱兵.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202306\\Money錢 2023-06 第189期 - 景氣吹逆風 台美科技股龍頭大閱兵.pdf",
+        "timestamp": "2025-05-12T09:26:14.806196",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "dpi設計插畫誌 2023-04 第262期 - 花花世界.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202304\\dpi設計插畫誌 2023-04 第262期 - 花花世界.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202304\\dpi設計插畫誌 2023-04 第262期 - 花花世界.pdf",
+        "timestamp": "2025-05-12T09:26:09.765218",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
         "filename": "PChome 電腦家庭 2023-04 第327期 - 10個活用ChatGPT的好工具.pdf",
         "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2023\\202304\\PChome 電腦家庭 2023-04 第327期 - 10個活用ChatGPT的好工具.pdf",
         "relative_path": "LiangTsaoEBooks\\《雜誌》\\2023\\202304\\PChome 電腦家庭 2023-04 第327期 - 10個活用ChatGPT的好工具.pdf",
