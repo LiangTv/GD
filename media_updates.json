@@ -1,5 +1,505 @@
 [
     {
+        "filename": "號外 City Magazine 2024-04.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\號外 City Magazine 2024-04.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\號外 City Magazine 2024-04.pdf",
+        "timestamp": "2025-05-12T10:07:49.565265",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Big大時商業誌 2024-04.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\Big大時商業誌 2024-04.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\Big大時商業誌 2024-04.pdf",
+        "timestamp": "2025-05-12T10:07:44.560982",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經濟一週 Economic Digest 2024-04-27 第2217期 - TikTok 禁令警鐘已響？.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\經濟一週 Economic Digest 2024-04-27 第2217期 - TikTok 禁令警鐘已響？.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\經濟一週 Economic Digest 2024-04-27 第2217期 - TikTok 禁令警鐘已響？.pdf",
+        "timestamp": "2025-05-12T10:07:39.550907",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經濟一週 Economic Digest 2024-04-13 第2215期 - 人呢？解讀香港結業潮.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\經濟一週 Economic Digest 2024-04-13 第2215期 - 人呢？解讀香港結業潮.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\經濟一週 Economic Digest 2024-04-13 第2215期 - 人呢？解讀香港結業潮.pdf",
+        "timestamp": "2025-05-12T10:07:34.540722",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經濟一週 Economic Digest 2024-04-06 第2214期 - Intel 如何搶回半導體龍頭寶座？.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\經濟一週 Economic Digest 2024-04-06 第2214期 - Intel 如何搶回半導體龍頭寶座？.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\經濟一週 Economic Digest 2024-04-06 第2214期 - Intel 如何搶回半導體龍頭寶座？.pdf",
+        "timestamp": "2025-05-12T10:07:29.532161",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "豐年 Harvest 2024-04 第074.04期 - 農業碳匯 黃綠藍.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\豐年 Harvest 2024-04 第074.04期 - 農業碳匯 黃綠藍.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\豐年 Harvest 2024-04 第074.04期 - 農業碳匯 黃綠藍.pdf",
+        "timestamp": "2025-05-12T10:07:24.527846",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "互動日本語 Live Interactive Japanese 2024-04 第088期 - 日本抹茶文化！.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\互動日本語 Live Interactive Japanese 2024-04 第088期 - 日本抹茶文化！.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\互動日本語 Live Interactive Japanese 2024-04 第088期 - 日本抹茶文化！.pdf",
+        "timestamp": "2025-05-12T10:07:19.522006",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "今週刊 Business Today 2024-04-04 第1424期 - 產業龍頭零碳戰.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\今週刊 Business Today 2024-04-04 第1424期 - 產業龍頭零碳戰.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\今週刊 Business Today 2024-04-04 第1424期 - 產業龍頭零碳戰.pdf",
+        "timestamp": "2025-05-12T10:07:14.517540",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "職業棒球 Baseball Professional 2024-04 第505期 - 中職35 終極觀戰指南.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\職業棒球 Baseball Professional 2024-04 第505期 - 中職35 終極觀戰指南.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\職業棒球 Baseball Professional 2024-04 第505期 - 中職35 終極觀戰指南.pdf",
+        "timestamp": "2025-05-12T10:07:09.509519",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "農訓雜誌 2024-04 第396期 - 啡嚐東山.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\農訓雜誌 2024-04 第396期 - 啡嚐東山.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\農訓雜誌 2024-04 第396期 - 啡嚐東山.pdf",
+        "timestamp": "2025-05-12T10:07:04.502740",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "網管人 NetAdmin 2024-04 第219期 - 綜覽資安曝險 ASM掃盲點.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\網管人 NetAdmin 2024-04 第219期 - 綜覽資安曝險 ASM掃盲點.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\網管人 NetAdmin 2024-04 第219期 - 綜覽資安曝險 ASM掃盲點.pdf",
+        "timestamp": "2025-05-12T10:06:59.493785",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "新電子 Micro-Electronics 2024-04 第457期 - 電動載具下一步.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\新電子 Micro-Electronics 2024-04 第457期 - 電動載具下一步.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\新電子 Micro-Electronics 2024-04 第457期 - 電動載具下一步.pdf",
+        "timestamp": "2025-05-12T10:06:54.488598",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "商業週刊 Business Weekly 2024-04-08 第1899期 - 碳費開徵 房價上漲真相.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\商業週刊 Business Weekly 2024-04-08 第1899期 - 碳費開徵 房價上漲真相.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\商業週刊 Business Weekly 2024-04-08 第1899期 - 碳費開徵 房價上漲真相.pdf",
+        "timestamp": "2025-05-12T10:06:49.482633",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "理財週刊 2024-04-05 第1232期 - Q1季報 強股搜秘.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\理財週刊 2024-04-05 第1232期 - Q1季報 強股搜秘.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\理財週刊 2024-04-05 第1232期 - Q1季報 強股搜秘.pdf",
+        "timestamp": "2025-05-12T10:06:44.477656",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "商業週刊 Business Weekly 2024-04-15 第1900期 - 瘋狂私校潮.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\商業週刊 Business Weekly 2024-04-15 第1900期 - 瘋狂私校潮.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\商業週刊 Business Weekly 2024-04-15 第1900期 - 瘋狂私校潮.pdf",
+        "timestamp": "2025-05-12T10:06:39.470674",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "動腦 brain 2024-04 第576期 - 餐飲科技狂潮.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\動腦 brain 2024-04 第576期 - 餐飲科技狂潮.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\動腦 brain 2024-04 第576期 - 餐飲科技狂潮.pdf",
+        "timestamp": "2025-05-12T10:06:34.462733",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "恰女生 Choc 2024-04 第269期 - 年度8大精品包爆款型號盤點.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\恰女生 Choc 2024-04 第269期 - 年度8大精品包爆款型號盤點.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\恰女生 Choc 2024-04 第269期 - 年度8大精品包爆款型號盤點.pdf",
+        "timestamp": "2025-05-12T10:06:29.456032",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "阿路巴高爾夫 Alba Tross-View 2024-04 第112期 - 「啟動下桿」為何總是會失誤？.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\阿路巴高爾夫 Alba Tross-View 2024-04 第112期 - 「啟動下桿」為何總是會失誤？.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\阿路巴高爾夫 Alba Tross-View 2024-04 第112期 - 「啟動下桿」為何總是會失誤？.pdf",
+        "timestamp": "2025-05-12T10:06:24.451195",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "法語學習誌 Bonjour！France 2024-04 第090期 - 法國生活智慧王 什麼？不僅僅是搬家？.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\法語學習誌 Bonjour！France 2024-04 第090期 - 法國生活智慧王 什麼？不僅僅是搬家？.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\法語學習誌 Bonjour！France 2024-04 第090期 - 法國生活智慧王 什麼？不僅僅是搬家？.pdf",
+        "timestamp": "2025-05-12T10:06:19.443646",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "知識大圖解 HOW IT WORKS 2024-04 第115期 - 動物大遷徒.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\知識大圖解 HOW IT WORKS 2024-04 第115期 - 動物大遷徒.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\知識大圖解 HOW IT WORKS 2024-04 第115期 - 動物大遷徒.pdf",
+        "timestamp": "2025-05-12T10:06:14.439671",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "住展 2024-04 第498期 - 軌道置產逼宮記.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\住展 2024-04 第498期 - 軌道置產逼宮記.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\住展 2024-04 第498期 - 軌道置產逼宮記.pdf",
+        "timestamp": "2025-05-12T10:06:09.433653",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "行遍天下 Travelcom 2024-04 第375期 - 休日慢遊 5大春萌童樂路線.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\行遍天下 Travelcom 2024-04 第375期 - 休日慢遊 5大春萌童樂路線.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\行遍天下 Travelcom 2024-04 第375期 - 休日慢遊 5大春萌童樂路線.pdf",
+        "timestamp": "2025-05-12T10:06:04.424644",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Android玩樂誌 2024-04 第261期 - Google Photos 魔術橡皮擦、景深、天空工具、圖片修正.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\Android玩樂誌 2024-04 第261期 - Google Photos 魔術橡皮擦、景深、天空工具、圖片修正.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\Android玩樂誌 2024-04 第261期 - Google Photos 魔術橡皮擦、景深、天空工具、圖片修正.pdf",
+        "timestamp": "2025-05-12T10:05:59.413403",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Android密技王 2024-04 第103期 - Adobe Express教學 輸入文字AI製圖.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\Android密技王 2024-04 第103期 - Adobe Express教學 輸入文字AI製圖.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\Android密技王 2024-04 第103期 - Adobe Express教學 輸入文字AI製圖.pdf",
+        "timestamp": "2025-05-12T10:05:54.406908",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Ciao 潮旅 2024-0405 第062期 - 蔡健雅 Tanya 愛，與不愛的距離.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\Ciao 潮旅 2024-0405 第062期 - 蔡健雅 Tanya 愛，與不愛的距離.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\Ciao 潮旅 2024-0405 第062期 - 蔡健雅 Tanya 愛，與不愛的距離.pdf",
+        "timestamp": "2025-05-12T10:05:49.397795",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Android玩樂誌 2024-04 第260期 - Google地圖每日追蹤你.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\Android玩樂誌 2024-04 第260期 - Google地圖每日追蹤你.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\Android玩樂誌 2024-04 第260期 - Google地圖每日追蹤你.pdf",
+        "timestamp": "2025-05-12T10:05:44.388289",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "ALL+互動英語 2024-04 第233期 - Z世代的電影男神 提摩西．夏勒梅.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\ALL+互動英語 2024-04 第233期 - Z世代的電影男神 提摩西．夏勒梅.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\ALL+互動英語 2024-04 第233期 - Z世代的電影男神 提摩西．夏勒梅.pdf",
+        "timestamp": "2025-05-12T10:05:39.380229",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "WOW！SCREEN 2024-04 第660期 - 特技玩家.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\WOW！SCREEN 2024-04 第660期 - 特技玩家.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\WOW！SCREEN 2024-04 第660期 - 特技玩家.pdf",
+        "timestamp": "2025-05-12T10:05:34.368911",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "PChome 電腦家庭 2024-04 第339期 - Windows11更新又來了！.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\PChome 電腦家庭 2024-04 第339期 - Windows11更新又來了！.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\PChome 電腦家庭 2024-04 第339期 - Windows11更新又來了！.pdf",
+        "timestamp": "2025-05-12T10:05:29.361750",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Money錢 2024-04 第199期 - 飆股領頭羊AI 5+1 12檔 ETF 帶你飛.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\Money錢 2024-04 第199期 - 飆股領頭羊AI 5+1 12檔 ETF 帶你飛.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\Money錢 2024-04 第199期 - 飆股領頭羊AI 5+1 12檔 ETF 帶你飛.pdf",
+        "timestamp": "2025-05-12T10:05:24.353482",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Live互動英語 2024-04 第276期 - 用英語玩桌遊.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\Live互動英語 2024-04 第276期 - 用英語玩桌遊.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\Live互動英語 2024-04 第276期 - 用英語玩桌遊.pdf",
+        "timestamp": "2025-05-12T10:05:19.344931",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "La Vie 2024-04 第240期 - 當代設計的雋永想像.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\La Vie 2024-04 第240期 - 當代設計的雋永想像.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\La Vie 2024-04 第240期 - 當代設計的雋永想像.pdf",
+        "timestamp": "2025-05-12T10:05:14.338181",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "JET 2024-04 第260期 - 吳慷仁 但願電影夢長久.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\JET 2024-04 第260期 - 吳慷仁 但願電影夢長久.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\JET 2024-04 第260期 - 吳慷仁 但願電影夢長久.pdf",
+        "timestamp": "2025-05-12T10:05:09.331870",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "CNN 互動英語 2024-04 第283期 - CNN專訪華語流行樂壇天王 周杰倫.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\CNN 互動英語 2024-04 第283期 - CNN專訪華語流行樂壇天王 周杰倫.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\CNN 互動英語 2024-04 第283期 - CNN專訪華語流行樂壇天王 周杰倫.pdf",
+        "timestamp": "2025-05-12T10:05:04.320495",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "ABC互動英語 2024-04 第262期 - 便利商店實務英語.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\ABC互動英語 2024-04 第262期 - 便利商店實務英語.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\ABC互動英語 2024-04 第262期 - 便利商店實務英語.pdf",
+        "timestamp": "2025-05-12T10:04:59.313472",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "遠見 Global Views 2024-04 第454期 - 全民搶當碳金富翁.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\遠見 Global Views 2024-04 第454期 - 全民搶當碳金富翁.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\遠見 Global Views 2024-04 第454期 - 全民搶當碳金富翁.pdf",
+        "timestamp": "2025-05-12T10:04:54.307036",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "鄉間小路 AGRI  2023-04 第50卷第04期 - 臺食新味.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\鄉間小路 AGRI  2023-04 第50卷第04期 - 臺食新味.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\鄉間小路 AGRI  2023-04 第50卷第04期 - 臺食新味.pdf",
+        "timestamp": "2025-05-12T10:04:49.301692",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "財訊雙週刊 2024-03-14 第707期 - 揭開台積電供應鍵最賺神秘軍團.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\財訊雙週刊 2024-03-14 第707期 - 揭開台積電供應鍵最賺神秘軍團.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\財訊雙週刊 2024-03-14 第707期 - 揭開台積電供應鍵最賺神秘軍團.pdf",
+        "timestamp": "2025-05-12T10:04:44.293038",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "旅讀 Or China 2024-04 第146期 - 青島浪潮上岸.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\旅讀 Or China 2024-04 第146期 - 青島浪潮上岸.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\旅讀 Or China 2024-04 第146期 - 青島浪潮上岸.pdf",
+        "timestamp": "2025-05-12T10:04:39.284208",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "BBC知識 Knowledge 2024-04 第152期 - 咖啡因的益處.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\BBC知識 Knowledge 2024-04 第152期 - 咖啡因的益處.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\BBC知識 Knowledge 2024-04 第152期 - 咖啡因的益處.pdf",
+        "timestamp": "2025-05-12T10:04:34.277059",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "數位時代 Business Next 2024-04 第358期 - 台日半導體新局「全解讀」.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\數位時代 Business Next 2024-04 第358期 - 台日半導體新局「全解讀」.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\數位時代 Business Next 2024-04 第358期 - 台日半導體新局「全解讀」.pdf",
+        "timestamp": "2025-05-12T10:04:29.263886",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Smart智富 2024-04 第308期 - 3股市1種債最有利.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\Smart智富 2024-04 第308期 - 3股市1種債最有利.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\Smart智富 2024-04 第308期 - 3股市1種債最有利.pdf",
+        "timestamp": "2025-05-12T10:04:24.256735",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "讀者文摘 Reader's Digest 2024-04 第706期 - 張家朗 信任如何讓香港成為擊劍要地.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\讀者文摘 Reader's Digest 2024-04 第706期 - 張家朗 信任如何讓香港成為擊劍要地.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\讀者文摘 Reader's Digest 2024-04 第706期 - 張家朗 信任如何讓香港成為擊劍要地.pdf",
+        "timestamp": "2025-05-12T10:04:19.251731",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "攝影世界 PHOTOWORLD 2024-04 第507期 - 看見美麗科學.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\攝影世界 PHOTOWORLD 2024-04 第507期 - 看見美麗科學.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\攝影世界 PHOTOWORLD 2024-04 第507期 - 看見美麗科學.pdf",
+        "timestamp": "2025-05-12T10:04:14.248569",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "數位狂潮 DigiTrend 2024-04 第082期 - 電競機皇駕到.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\數位狂潮 DigiTrend 2024-04 第082期 - 電競機皇駕到.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\數位狂潮 DigiTrend 2024-04 第082期 - 電競機皇駕到.pdf",
+        "timestamp": "2025-05-12T10:04:09.241605",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "實用空中美語 English Digest 2024-04 第431期 - 人手一杯手搖飲 臺灣的美味浪潮.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\實用空中美語 English Digest 2024-04 第431期 - 人手一杯手搖飲 臺灣的美味浪潮.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\實用空中美語 English Digest 2024-04 第431期 - 人手一杯手搖飲 臺灣的美味浪潮.pdf",
+        "timestamp": "2025-05-12T10:04:04.235606",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經理人 Manager Today 2024-04 第233期 - 一次讀懂地緣政治.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\經理人 Manager Today 2024-04 第233期 - 一次讀懂地緣政治.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\經理人 Manager Today 2024-04 第233期 - 一次讀懂地緣政治.pdf",
+        "timestamp": "2025-05-12T10:03:59.229717",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "新通訊元件雜誌 CCM 2024-04 第278期 - AI帶旺高速介面.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\新通訊元件雜誌 CCM 2024-04 第278期 - AI帶旺高速介面.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\新通訊元件雜誌 CCM 2024-04 第278期 - AI帶旺高速介面.pdf",
+        "timestamp": "2025-05-12T10:03:54.221850",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "常春藤解析美語 Ivy League Analytical English 2024-04 第429期 - 花見.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\常春藤解析美語 Ivy League Analytical English 2024-04 第429期 - 花見.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\常春藤解析美語 Ivy League Analytical English 2024-04 第429期 - 花見.pdf",
+        "timestamp": "2025-05-12T10:03:49.210889",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "常春藤生活美語 Ivy League Enjoy English 2024-04 第251期 - 功夫熊貓4.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\常春藤生活美語 Ivy League Enjoy English 2024-04 第251期 - 功夫熊貓4.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\常春藤生活美語 Ivy League Enjoy English 2024-04 第251期 - 功夫熊貓4.pdf",
+        "timestamp": "2025-05-12T10:03:44.201941",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
         "filename": "商業周刊 Business Weekly 2024-04-01 第1898期 - 買不買都必需懂！ETF改寫台股.pdf",
         "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202404\\商業周刊 Business Weekly 2024-04-01 第1898期 - 買不買都必需懂！ETF改寫台股.pdf",
         "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202404\\商業周刊 Business Weekly 2024-04-01 第1898期 - 買不買都必需懂！ETF改寫台股.pdf",
