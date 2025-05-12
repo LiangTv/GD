@@ -5,209 +5,431 @@
     <title>媒體更新列表 (最新 500 筆)</title>
     <style> body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; padding: 15px; background-color: #f8f9fa; color: #333; } .container { max-width: 1200px; margin: 0 auto; } h1 { text-align: center; color: #0056b3; margin-bottom: 20px; } .search-container { margin-bottom: 20px; text-align: center; } #search-input { padding: 8px 12px; font-size: 1em; border: 1px solid #ccc; border-radius: 4px; width: 60%; max-width: 400px; transition: border-color 0.2s ease, box-shadow 0.2s ease; } #search-input:focus { border-color: #007bff; box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); outline: none; } .tab-buttons { display: flex; justify-content: center; margin-bottom: 25px; border-bottom: 2px solid #dee2e6; flex-wrap: wrap; padding: 0 10px; } .tab-button { padding: 10px 15px; cursor: pointer; border: none; background-color: transparent; font-size: 1.05em; color: #007bff; margin: 0 3px 0px 3px; border-bottom: 3px solid transparent; transition: color 0.2s ease, border-color 0.2s ease; white-space: nowrap; } .tab-button:hover { color: #0056b3; } .tab-button.active { color: #0056b3; font-weight: bold; border-bottom-color: #0056b3; } .tab-content { } .content-pane { display: none; animation: fadeIn 0.3s ease-in-out; } .content-pane.active { display: block; } @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } } .day-group { margin-bottom: 15px; border: 1px solid #e9ecef; border-radius: 4px; background-color: #fff; overflow: hidden; } .day-header { background-color: #f1f3f5; color: #495057; padding: 10px 15px; margin: 0; cursor: pointer; font-weight: bold; display: flex; align-items: center; transition: background-color 0.2s ease; } .day-header:hover { background-color: #e9ecef; } .toggle-icon { display: inline-block; width: 1em; margin-right: 8px; text-align: center; font-weight: bold; } .update-list { list-style: none; padding: 0 15px 15px 15px; margin: 0; display: none; } .update-list.visible { display: block; } h3 { color: #17a2b8; margin-top: 20px; margin-bottom: 10px; border-left: 4px solid #17a2b8; padding-left: 10px; font-size: 1.3em; } li.update-item { margin-bottom: 10px; padding: 10px 12px; background-color: #fff; border: none; border-bottom: 1px solid #eee; border-radius: 0; box-shadow: none; transition: background-color 0.1s ease; } li.update-item:last-child { border-bottom: none; } .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; } .item-header strong { font-size: 1.05em; color: #003975; margin-bottom: 0; flex-grow: 1; margin-right: 10px; word-break: break-all; } .item-time { font-size: 0.8em; color: #777; white-space: nowrap; } .file-path { font-family: 'Courier New', Courier, monospace; font-size: 0.8em; color: #666; margin-bottom: 6px; word-break: break-all; } blockquote { margin: 6px 0 6px 0px; padding: 6px 10px; border-left: 3px solid #007bff; background-color: #e9f5ff; color: #333; font-size: 0.85em; } a { color: #007bff; text-decoration: none; } a:hover { text-decoration: underline; } .tmdb-link { display: inline-block; margin-top: 4px; font-size: 0.85em; } .update-item.hidden-item { display: none; } .load-more-button.day-pagination { display: block; margin: 15px auto 5px auto; padding: 8px 16px; font-size: 0.9em; cursor: pointer; background-color: #28a745; color: white; border: none; border-radius: 4px; transition: background-color 0.2s ease; } .load-more-button.day-pagination:hover { background-color: #218838; } .highlight { background-color: yellow; font-weight: bold; } .update-item.search-hidden { display: none !important; } .day-group.search-hidden { display: none !important; } h3.search-hidden { display: none !important; } .search-active .load-more-button.day-pagination { display: none !important; } .footer-time { margin-top: 40px; text-align: center; font-size: 0.9em; color: #888; } </style>
 </head>
-<body> <div class="container"> <h1>媒體更新總覽 (最新 500 筆)</h1> <div class="search-container"> <input type="search" id="search-input" placeholder="搜尋 劇集/電影/全集/動漫(依路徑) 或 雜誌(依檔名)..."> </div> <div class="tab-buttons">         <button class="tab-button active" data-category="tvshow">劇集</button>
-        <button class="tab-button " data-category="magazine">雜誌</button>
- </div> <div class="tab-content">         <div class="content-pane active" id="pane-tvshow">
+<body> <div class="container"> <h1>媒體更新總覽 (最新 500 筆)</h1> <div class="search-container">
+            <input type="search" id="search-input" placeholder="搜尋 劇集/電影/全集/動漫(依路徑) 或 雜誌(依檔名)...">
+        </div> <div class="tab-buttons">         <button class="tab-button active" data-category="magazine">雜誌</button>
+ </div> <div class="tab-content">         <div class="content-pane active" id="pane-magazine">
             <h3>2025 年 05 月</h3>
             <div class="day-group expanded">
-                <h4 class="day-header" data-target="#list-tvshow-20250512"><span class="toggle-icon">-</span> 05 月 12 日 (Monday)</h4>
-                <ul class="update-list visible" id="list-tvshow-20250512" data-category="tvshow">
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E01.mkv" data-category="tvshow">
+                <h4 class="day-header" data-target="#list-magazine-20250512"><span class="toggle-icon">-</span> 05 月 12 日 (Monday)</h4>
+                <ul class="update-list visible" id="list-magazine-20250512" data-category="magazine">
+                    <li class="update-item " data-filename="Android密技王 2023-08 第095期 - 安全密碼輸入保護功能教學.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202308\Android密技王 2023-08 第095期 - 安全密碼輸入保護功能教學.pdf" data-category="magazine">
                        <div class="item-header">
-                            <strong>Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E01.mkv</strong>
-                            <span class='item-time'>02:06:55</span>
+                            <strong>Android密技王 2023-08 第095期 - 安全密碼輸入保護功能教學.pdf</strong>
+                            <span class='item-time'>08:46:09</span>
                        </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E01.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/287339" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>詩穗是一名 「全職主婦」，和溫柔開朗、作為居酒屋店長每天工作到很晚的丈夫虎朗，以及可愛的女兒小莓一起生活。由於過去的一段經歷，她覺得 「自己無法同時做好兩件事」，於是主動選擇了成為全職主婦這條路。然而，每天除了和小莓相處之外別無其他社交的日子，也讓她感到有些寂寞。有一天，詩穗帶著小莓一起參加了育兒支援中心舉辦的 「手工遊戲教室」 活動。主動熱情地和有些因許久未與家人以外的人接觸而有些畏縮的詩穗搭話的，是一位爲了兼顧育兒和工作而充滿幹勁的媽媽禮子。但是，禮子一得知詩穗是全職主婦，就像對待其他媽媽朋友那樣，把詩穗當作 「跟不上時代潮流、瀕臨滅絕的物種」 來對待……而且在那之後，搬到詩穗所住公寓隔壁房間的人竟然是禮子！ 一段無比尷尬的鄰里生活就此開始了。此外，出現在詩穗面前的，有宣揚著完美育兒計劃的 「休育兒假的爸爸」 中谷，還有在各種不同境遇中為家務和工作而奮鬥的人們。與這些原本以為和自己毫無關係的 「彼岸之人」 的相遇，拉開了詩穗波瀾起伏的生活的帷幕！</blockquote>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202308\Android密技王 2023-08 第095期 - 安全密碼輸入保護功能教學.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E06.mkv" data-category="tvshow">
+                    <li class="update-item " data-filename="ABC互動英語 2023-08 第254期 - 遊樂園實用英語.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202308\ABC互動英語 2023-08 第254期 - 遊樂園實用英語.pdf" data-category="magazine">
                        <div class="item-header">
-                            <strong>Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E06.mkv</strong>
-                            <span class='item-time'>02:06:45</span>
+                            <strong>ABC互動英語 2023-08 第254期 - 遊樂園實用英語.pdf</strong>
+                            <span class='item-time'>08:46:04</span>
                        </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E06.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/287339" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>詩穗家收到了一封寫著 「像你這樣的全職主婦就是個累贅」 的信。不小心拆開了信的禮子，出於為詩穗著想，決定把這件事藏在自己心裡。在這樣的情況下，詩穗被中谷帶去霞關的厚生勞動省，接受一個旨在為結婚、生育、護理以及兼顧工作和復職提供支援的 「重返職場專案」 的訪談。一位致力於推動雙職工模式的工作人員對詩穗說：「明明有一技之長卻不復職，真是太可惜了。」 這讓詩穗開始思考，從為社會做貢獻的角度來說，自己是不是還是重返職場比較好。另一方面，禮子正在尋找能在公司內部舉辦的演講會上登臺的人，她把公司里成為 「榜樣」 的人選，鎖定為在營業部時期自己一直仰慕的前輩、公司里第一位成為女性管理職位的陽子，並向她發出了邀請，然而……</blockquote>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202308\ABC互動英語 2023-08 第254期 - 遊樂園實用英語.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E05.mkv" data-category="tvshow">
+                    <li class="update-item " data-filename="今周刊 Business Today 2023-08-24 第1392期 - 是誰縱容狼師與霸凌者？.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202308\今周刊 Business Today 2023-08-24 第1392期 - 是誰縱容狼師與霸凌者？.pdf" data-category="magazine">
                        <div class="item-header">
-                            <strong>Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E05.mkv</strong>
-                            <span class='item-time'>02:06:34</span>
+                            <strong>今周刊 Business Today 2023-08-24 第1392期 - 是誰縱容狼師與霸凌者？.pdf</strong>
+                            <span class='item-time'>08:45:59</span>
                        </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E05.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/287339" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>中谷幹勁十足地想讓佳戀學習新東西，在他的邀請下，詩穗和莓前往英語體驗課堂。詩穗覺得 「日語還說得不利索，現在學英語太早了！」 興致缺缺，但中谷卻表示 「『體驗』是父母給予孩子的武器」，並講述了為什麼要讓孩子從幼時起就儘可能多地去嘗試各種事情。有一天，在禮子的邀請下，長野一家和村上一家決定去露營。回國的中谷妻子樹裡帶著佳戀也加入其中，三個家庭意外大集合！大家各自享受燒烤時，禮子看到平時在家不幫忙做家務的丈夫量平在外面卻手腳麻利地幹活，心裡不是滋味…… 而詩穗看到莓和平時難得接觸的同齡孩子們一起玩耍，學會新詞語，玩得很開心，不禁將過去的自己與之重疊，開始苦惱是不是因為自己作為全職主婦，每天只和莓兩人相處，才剝奪了莓 「體驗」 新事物的機會。</blockquote>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202308\今周刊 Business Today 2023-08-24 第1392期 - 是誰縱容狼師與霸凌者？.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E04.mkv" data-category="tvshow">
+                    <li class="update-item " data-filename="旅人誌 Traveler Luxe 2023-08 第219期 - 古樸京都.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202308\旅人誌 Traveler Luxe 2023-08 第219期 - 古樸京都.pdf" data-category="magazine">
                        <div class="item-header">
-                            <strong>Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E04.mkv</strong>
-                            <span class='item-time'>02:06:23</span>
+                            <strong>旅人誌 Traveler Luxe 2023-08 第219期 - 古樸京都.pdf</strong>
+                            <span class='item-time'>08:45:54</span>
                        </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E04.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/287339" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>莓身體不舒服，詩穗前往主治醫生所在的蔦村醫院。在前臺迎接他們的年輕醫生的妻子晶子曾是一名保育員，結婚後便辭職了。她總是面帶笑容，很會照顧人，不僅是莓和詩穗，還受到很多患者的喜愛。在大先生住院，年輕醫生忙著兼顧兒科和內科事務的蔦村醫院裡，老病號們一直以來最關心的就是醫院的 「接班人」 問題。這天，晶子也在不知不覺中因患者那句 「要是有了孫子，大先生也會恢復精神的」 這種並無惡意的 「催生壓力」 而感到苦惱。就在這時，詩穗在附近的女士診所偶然遇到了晶子，並傾聽了晶子內心的痛苦。另一方面，在村上家，詩穗和虎朗在談論彼此父母的過程中吵了起來。隨後，詩穗開始回憶起已經去世的自己的母親……</blockquote>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202308\旅人誌 Traveler Luxe 2023-08 第219期 - 古樸京都.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E03.mkv" data-category="tvshow">
+                    <li class="update-item " data-filename="旅讀 Or China 2023-08 第138期 - 檳城，榴槤忘返.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202308\旅讀 Or China 2023-08 第138期 - 檳城，榴槤忘返.pdf" data-category="magazine">
                        <div class="item-header">
-                            <strong>Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E03.mkv</strong>
-                            <span class='item-time'>02:06:12</span>
+                            <strong>旅讀 Or China 2023-08 第138期 - 檳城，榴槤忘返.pdf</strong>
+                            <span class='item-time'>08:45:49</span>
                        </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E03.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/287339" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>禮子的女兒星夏得了腮腺炎，禮子因無法請假，便拜託詩穂照顧星夏。詩穂看著莓和星夏一起愉快玩耍的樣子，心裡暖融融的，開心地度過了一天。然而，中谷聽聞此事後，告誡詩穂 「既然是照顧別人的女兒，就應該收取相應的報酬」，詩穂被這意想不到的話驚到了。另一方面，禮子向公司提出想請幾天假照顧星夏。禮子一直擔心總是幫自己分擔工作的今井會不高興，但沒想到今井爽快地答應了接手禮子的工作。幾天後，禮子順利回到了公司，然而這時，她的長子篤正又得了腮腺炎……</blockquote>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202308\旅讀 Or China 2023-08 第138期 - 檳城，榴槤忘返.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E02.mkv" data-category="tvshow">
+                    <li class="update-item " data-filename="BBC知識 Knowledge 2023-08 第144期 - 尋找超大質量黑洞.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202308\BBC知識 Knowledge 2023-08 第144期 - 尋找超大質量黑洞.pdf" data-category="magazine">
                        <div class="item-header">
-                            <strong>Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E02.mkv</strong>
-                            <span class='item-time'>02:06:01</span>
+                            <strong>BBC知識 Knowledge 2023-08 第144期 - 尋找超大質量黑洞.pdf</strong>
+                            <span class='item-time'>08:45:44</span>
                        </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\對岸的家事 ～這就是我的生存之道！～ 対岸の家事 ～これが、私の生きる道！～ (2025)\Season 01\Taigan.no.Kaji.Kore.ga.Watashi.no.Ikiru.Michi.S01E02.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/287339" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>詩穗因為對被家務和工作逼得喘不過氣的禮子給予了關懷陪伴，兩人雖然立場不同，但成爲了能夠互相傾訴煩惱的媽媽朋友。就在這時，詩穗在公園遇到了厚生勞動省的一名官僚中谷，他正在休為期兩年的育兒假。詩穗一開始因為有了第一個和自己女兒莓年齡相仿的爸爸朋友而感到高興。然而，中谷對自己的育兒計劃充滿自信，還反覆對詩穗說出諸如 「全職主婦這種生活太奢侈了」「你丈夫真可憐」 這樣帶有輕視意味的話。與因為能和中谷的女兒佳戀成為朋友而開心的莓相反，詩穗覺得無法和中谷友好相處，心中一直悶悶不樂。即便把中谷的那些讓人不快的言行說給坂上女士聽，詩穗的愁緒還是無法消散。可是毫不知情的中谷，卻帶著詩穗和莓去了水族館……</blockquote>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202308\BBC知識 Knowledge 2023-08 第144期 - 尋找超大質量黑洞.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E02.mkv" data-category="tvshow">
+                    <li class="update-item " data-filename="知識大圖解 HOW IT WORKS 2023-08 第107期 - 人體免疫系統的奧秘.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202308\知識大圖解 HOW IT WORKS 2023-08 第107期 - 人體免疫系統的奧秘.pdf" data-category="magazine">
                        <div class="item-header">
-                            <strong>Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E02.mkv</strong>
-                            <span class='item-time'>02:05:50</span>
+                            <strong>知識大圖解 HOW IT WORKS 2023-08 第107期 - 人體免疫系統的奧秘.pdf</strong>
+                            <span class='item-time'>08:45:39</span>
                        </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E02.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/287341" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>每天在相同的時間，能夠與棗生活的世界交融，並一起度過幾分鐘的干太，將這種現象命名為 「融合」。另一方面，距離棗在酒店與 「山君」 見面只剩 3 天了。對方會是同事田村、上司守谷，還是遊戲廳店長丸山呢 —— 干太始終無法消除對深愛的棗出軌的疑慮，就這樣煩悶地度日。那時，在沒有干太的世界中生活的棗，爲了填補干太離職后工作上留下的空缺，似乎覺得無需顧及周圍人的感受，表現得十分堅強。然而，在公司整理干太的辦公桌時，棗在抽屜深處發現了大量自己寫給干太的便籤。原來干太一直小心翼翼地保管著棗寫給他的便籤。與干太的回憶涌上心頭，棗難以抑制情緒，下班后在順路去的遊戲廳里喝得爛醉。那天晚上，與棗世界 「融合」 的干太，在雜亂的房間里看到醉倒沉睡的棗，感到十分震驚。而且，堆積如山的待洗衣物中，不知為何有男性的內褲。此外，桌子上還留著一張寫有 「鑰匙放在信箱裡哦」 的便籤，干太由此察覺到 「山君」 來過房間……</blockquote>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202308\知識大圖解 HOW IT WORKS 2023-08 第107期 - 人體免疫系統的奧秘.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E01.mkv" data-category="tvshow">
+                    <li class="update-item " data-filename="Money錢 2023-08 第191期 - 下一波行情這樣賺.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202308\Money錢 2023-08 第191期 - 下一波行情這樣賺.pdf" data-category="magazine">
                        <div class="item-header">
-                            <strong>Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E01.mkv</strong>
-                            <span class='item-time'>02:05:40</span>
+                            <strong>Money錢 2023-08 第191期 - 下一波行情這樣賺.pdf</strong>
+                            <span class='item-time'>08:45:34</span>
                        </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E01.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/287341" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>在廣告製作公司工作的並川干太和棗，無論是在工作上還是生活中都是相互支援的搭檔，是人人都羨慕的關係很好的夫妻。然而，兩人相識 5 年，結婚也已經 3 年了，棗對干太那甚至可以說是過度的溺愛，暗自抱有不滿。對於妻子內心的這種想法毫無察覺的干太，有一天，看到了棗手機上收到的來自一個叫 「山君」 的人的資訊。資訊內容是，在自己因外出拍攝工作而晚歸的日子裡，兩人約好在酒店見面。一直以為夫妻關係美滿的干太，受到了巨大的衝擊，懷疑棗可能在出軌。第二天，干太被棗避開了每天早上慣例的 「出門前的親吻」，他終於無法再保持內心的平靜，決定向棗確認事實真相。然而就在這時，先出門的棗遭遇了交通事故，不幸喪命。那天晚上，面對如此突如其來的變故，被獨自留下的干太茫然若失。在充滿了夫妻幸福回憶的房間里，他流下了眼淚，而就在時鐘指向 11 點 22 分的瞬間，房間被一道神秘的光芒籠罩，本應已經死去的棗出現在了他的眼前。而且，據重逢后的棗所說，在交通事故中死去的人竟然是干太……</blockquote>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202308\Money錢 2023-08 第191期 - 下一波行情這樣賺.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E06.mkv" data-category="tvshow">
+                    <li class="update-item " data-filename="Smart智富 2023-08 第300期 - 專精1招 8年半從台股提款2800萬.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202308\Smart智富 2023-08 第300期 - 專精1招 8年半從台股提款2800萬.pdf" data-category="magazine">
                        <div class="item-header">
-                            <strong>Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E06.mkv</strong>
-                            <span class='item-time'>02:05:29</span>
+                            <strong>Smart智富 2023-08 第300期 - 專精1招 8年半從台股提款2800萬.pdf</strong>
+                            <span class='item-time'>08:45:29</span>
                        </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E06.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/287341" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>從 「兩個世界的偏差」 中獲得與犯人有關線索的干太，拜託身為刑警的實獲取公寓的監控錄像。實表示 「警方已經調查過了」，但干太爲了找到鎖定犯人的關鍵證據，無論如何都想親自確認。爲了支援干太的這份熱情，廣告公司的成員們 —— 身為 「影像專業人士」 的守谷和田村也加入了調查。眾人通宵達旦仔細檢視錄像。到了清晨，因長時間耐心工作而疲憊不堪的干太，發現錄像存在被剪輯過的痕跡。由此成功鎖定了篡改錄像的人 —— 也就是犯人。在干太所在的世界裡，被逮捕的犯人在接受實的審訊時，說出了出人意料的犯罪動機。另一方面，接到干太報告的棗立刻聯繫了自己世界裡的實，請求對方重新調查監控錄像。在棗的世界裡，犯人也被鎖定，警方準備實施逮捕，然而察覺到情況的犯人選擇了逃跑。最後，犯人闖入並川家，拿起房間里的菜刀，企圖將棗作為人質。但此時剛好是晚上 11 點 22 分。由於夫婦二人在這個時空重合，犯人見到本以為已經被自己殺害的干太，頓時陷入了恐慌……</blockquote>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202308\Smart智富 2023-08 第300期 - 專精1招 8年半從台股提款2800萬.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E05.mkv" data-category="tvshow">
+                    <li class="update-item " data-filename="空中英語教室 Studio Classroom 2023-08 第744期 - 哈囉！蘇格蘭.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202308\空中英語教室 Studio Classroom 2023-08 第744期 - 哈囉！蘇格蘭.pdf" data-category="magazine">
                        <div class="item-header">
-                            <strong>Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E05.mkv</strong>
-                            <span class='item-time'>02:05:19</span>
+                            <strong>空中英語教室 Studio Classroom 2023-08 第744期 - 哈囉！蘇格蘭.pdf</strong>
+                            <span class='item-time'>08:45:24</span>
                        </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E05.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/287341" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>儘管棗曾一度選擇與干太分開，但在得知有人企圖取他們性命后，爲了彼此相救，她決定再次與干太聯手。此外，根據實的說法，事故當天早上，兇手很可能在現場埋伏，若真是如此，兇手必然掌握了兩人當天的行程安排。因為干太和棗會根據目的地不同，選擇乘坐兩個不同的車站，進而決定在 Y 字路口向左還是向右行進。得知此事的干太立刻請守谷和田村幫忙，在事故現場附近發放收集目擊情報的傳單。公寓管理員服部也前來獻花，兩人對他的暖心舉動心懷感激。當晚，干太出門扔垃圾時，再次看到一個身穿黑衣的人在公寓附近徘徊。他慌忙追趕，卻在差一步之遙時被對方逃脫，干太隨即向實報告了此事。然而，在棗已離世的世界線中，實依舊行動遲緩，心急如焚的干太決定採取 「某個禁忌的手段」。與此同時，無論是黑衣人的存在，還是實的狀態，干太和棗都察覺到兩個平行世界中出現了奇妙的偏差，而他們對另一個人的行動也產生了強烈的違和感……</blockquote>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202308\空中英語教室 Studio Classroom 2023-08 第744期 - 哈囉！蘇格蘭.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E04.mkv" data-category="tvshow">
+                    <li class="update-item " data-filename="經理人 Manager Today 2023-08 第225期 - 跳脫短期績效、布局長期優勢 策略思考的技術.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202308\經理人 Manager Today 2023-08 第225期 - 跳脫短期績效、布局長期優勢 策略思考的技術.pdf" data-category="magazine">
                        <div class="item-header">
-                            <strong>Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E04.mkv</strong>
-                            <span class='item-time'>02:05:09</span>
+                            <strong>經理人 Manager Today 2023-08 第225期 - 跳脫短期績效、布局長期優勢 策略思考的技術.pdf</strong>
+                            <span class='item-time'>08:45:19</span>
                        </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E04.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/287341" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>棗從伯父實那裡得知，撞傷干太后逃逸的車輛是被盜車輛，而且這起事件存在因仇殺而導致的可能性，她察覺到自己和生活在另一個世界的干太正面臨著生命危險。然而，如果把這件事告訴干太，他很可能會情緒失控。棗認為最好不要輕易刺激犯人，於是決定先瞞著干太一段時間，自己一個人去調檢視看。話雖如此，棗對懷有他們夫婦仇恨的人完全沒有頭緒，她只好向實尋求調查上的幫助，也不得不向公司的同事們說明情況。守谷等人對干太可能樹敵這件事掩飾不住驚訝之情，但還是按照棗的請求，配合她對干太的人際關係和工作情況進行了詢問。另一方面，干太對自己正被人盯上一事毫不知情，他回想著棗說過的話，猛然意識到自己不知不覺間一直在 「管控」 著妻子。然後，在回到家的公寓前，干太注意到有個穿著黑色衣服的不明身份的人站在那裡。幾乎同一時間，棗也在公寓前感覺到身後似乎有什麼人的氣息。她強忍著恐懼好不容易走到房間並打開門，可就在下一瞬間，被那個穿黑衣服的人從背後襲擊了……</blockquote>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202308\經理人 Manager Today 2023-08 第225期 - 跳脫短期績效、布局長期優勢 策略思考的技術.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E03.mkv" data-category="tvshow">
+                    <li class="update-item " data-filename="Live互動英語 2023-08 第268期 - 百變流行天后麥莉.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202308\Live互動英語 2023-08 第268期 - 百變流行天后麥莉.pdf" data-category="magazine">
                        <div class="item-header">
-                            <strong>Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E03.mkv</strong>
-                            <span class='item-time'>02:04:59</span>
+                            <strong>Live互動英語 2023-08 第268期 - 百變流行天后麥莉.pdf</strong>
+                            <span class='item-time'>08:45:14</span>
                        </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\平行世界的夫婦 パラレル夫婦 死んだ“僕と妻”の真実 (2025)\Season 01\Parallel.Fufu.Shinda.Boku.to.Tsuma.no.Shinjitsu.S01E03.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/287341" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>在週六晚上，棗和 「山君」 約好在酒店見面，干太不祥的預感應驗了，棗即使到了預定的聚會時間也沒有回來。干太在不知道對方是誰的情況下，焦急感愈發強烈。那時，棗正在孃家享用母親楓精心烹製的家常菜。另一方面，恰恰是被幹太懷疑出軌這件事成了導火索，棗意識到在三年的婚姻生活中，自己一直刻意迴避了對干太抱有的那種違和感，也就是 「夫妻之間觀念上的差異」，並開始為今後夫妻關係的走向而苦惱。就在這時，擔心著棗複雜心境的丸山，抑制不住內心的愛慕之情，情緒失控了。而在干太這邊，心煩意亂坐立不安的干太來到了遊戲酒吧，想要向丸山詢問他和棗之間的關係。就在這時，莉子來了，丸山點了一款據說 「是棗從以前就很喜歡的」 雞尾酒。干太被 「從以前」 這個詞吸引，不由自主地追問丸山是從什麼時候開始認識棗的，沒想到丸山口中說出了意想不到的話。在這樣的情況下，棗身為刑警的伯父實，獨自在對干太的意外死亡進行調查，他發現了一些接近死亡真相的線索……</blockquote>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202308\Live互動英語 2023-08 第268期 - 百變流行天后麥莉.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\親愛的仇敵 Dear Enemy (2025)\Season 01\Dear.Enemy.S01E01 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item " data-filename="ALL+互動英語 2023-08 第225期 - CP查理 從YouTube名人到大明星.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202308\ALL+互動英語 2023-08 第225期 - CP查理 從YouTube名人到大明星.pdf" data-category="magazine">
                        <div class="item-header">
-                            <strong>Dear.Enemy.S01E01 - 4K.mp4</strong>
-                            <span class='item-time'>02:04:48</span>
+                            <strong>ALL+互動英語 2023-08 第225期 - CP查理 從YouTube名人到大明星.pdf</strong>
+                            <span class='item-time'>08:45:09</span>
                        </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\親愛的仇敵 Dear Enemy (2025)\Season 01\Dear.Enemy.S01E01 - 4K.mp4</div>
-                        <a href="https://www.themoviedb.org/tv/256888" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>講述羅曼和陳凱西，兩位曾經起點相似、旗鼓相當的閨蜜，在畢業數年後重逢，境遇卻大相逕庭。小有名氣的編劇羅曼不滿足事業上的成就，希望通過婚姻實現人生躍升，與陳凱西平起平坐；豪門闊太陳凱西面對羅曼的揶揄挖苦，雖有所反擊，但她深陷婚姻泥潭，挽回愛情與婚姻更迫在眉睫。在兩人暗潮洶涌之時，年輕貌美的鐘傾城成爲了兩人較量中的關鍵人物......</blockquote>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202308\ALL+互動英語 2023-08 第225期 - CP查理 從YouTube名人到大明星.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\親愛的仇敵 Dear Enemy (2025)\Season 01\Dear.Enemy.S01E03 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item " data-filename="經理人月刊特刊 Manager Today 2023-09 第058期 - 財務自由加速計畫.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\經理人月刊特刊 Manager Today 2023-09 第058期 - 財務自由加速計畫.pdf" data-category="magazine">
                        <div class="item-header">
-                            <strong>Dear.Enemy.S01E03 - 4K.mp4</strong>
-                            <span class='item-time'>02:04:37</span>
+                            <strong>經理人月刊特刊 Manager Today 2023-09 第058期 - 財務自由加速計畫.pdf</strong>
+                            <span class='item-time'>08:45:04</span>
                        </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\親愛的仇敵 Dear Enemy (2025)\Season 01\Dear.Enemy.S01E03 - 4K.mp4</div>
-                        <a href="https://www.themoviedb.org/tv/256888" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>講述羅曼和陳凱西，兩位曾經起點相似、旗鼓相當的閨蜜，在畢業數年後重逢，境遇卻大相逕庭。小有名氣的編劇羅曼不滿足事業上的成就，希望通過婚姻實現人生躍升，與陳凱西平起平坐；豪門闊太陳凱西面對羅曼的揶揄挖苦，雖有所反擊，但她深陷婚姻泥潭，挽回愛情與婚姻更迫在眉睫。在兩人暗潮洶涌之時，年輕貌美的鐘傾城成爲了兩人較量中的關鍵人物......</blockquote>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\經理人月刊特刊 Manager Today 2023-09 第058期 - 財務自由加速計畫.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\親愛的仇敵 Dear Enemy (2025)\Season 01\Dear.Enemy.S01E02 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item " data-filename="微笑台灣 Smile Taiwan 2023 秋季號 第031期 - 海岸村 慢日指南.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\微笑台灣 Smile Taiwan 2023 秋季號 第031期 - 海岸村 慢日指南.pdf" data-category="magazine">
                        <div class="item-header">
-                            <strong>Dear.Enemy.S01E02 - 4K.mp4</strong>
-                            <span class='item-time'>02:04:27</span>
+                            <strong>微笑台灣 Smile Taiwan 2023 秋季號 第031期 - 海岸村 慢日指南.pdf</strong>
+                            <span class='item-time'>08:44:59</span>
                        </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\親愛的仇敵 Dear Enemy (2025)\Season 01\Dear.Enemy.S01E02 - 4K.mp4</div>
-                        <a href="https://www.themoviedb.org/tv/256888" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>講述羅曼和陳凱西，兩位曾經起點相似、旗鼓相當的閨蜜，在畢業數年後重逢，境遇卻大相逕庭。小有名氣的編劇羅曼不滿足事業上的成就，希望通過婚姻實現人生躍升，與陳凱西平起平坐；豪門闊太陳凱西面對羅曼的揶揄挖苦，雖有所反擊，但她深陷婚姻泥潭，挽回愛情與婚姻更迫在眉睫。在兩人暗潮洶涌之時，年輕貌美的鐘傾城成爲了兩人較量中的關鍵人物......</blockquote>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\微笑台灣 Smile Taiwan 2023 秋季號 第031期 - 海岸村 慢日指南.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\親愛的仇敵 Dear Enemy (2025)\Season 01\Dear.Enemy.S01E04 - 4K.mp4" data-category="tvshow">
+                    <li class="update-item " data-filename="瘋狂英語新讀寫 CRAZY ENGLISH 2023-09 第1344期 - 彈子石老街 家馬起源說.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\瘋狂英語新讀寫 CRAZY ENGLISH 2023-09 第1344期 - 彈子石老街 家馬起源說.pdf" data-category="magazine">
                        <div class="item-header">
-                            <strong>Dear.Enemy.S01E04 - 4K.mp4</strong>
-                            <span class='item-time'>02:04:16</span>
+                            <strong>瘋狂英語新讀寫 CRAZY ENGLISH 2023-09 第1344期 - 彈子石老街 家馬起源說.pdf</strong>
+                            <span class='item-time'>08:44:54</span>
                        </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\親愛的仇敵 Dear Enemy (2025)\Season 01\Dear.Enemy.S01E04 - 4K.mp4</div>
-                        <a href="https://www.themoviedb.org/tv/256888" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>講述羅曼和陳凱西，兩位曾經起點相似、旗鼓相當的閨蜜，在畢業數年後重逢，境遇卻大相逕庭。小有名氣的編劇羅曼不滿足事業上的成就，希望通過婚姻實現人生躍升，與陳凱西平起平坐；豪門闊太陳凱西面對羅曼的揶揄挖苦，雖有所反擊，但她深陷婚姻泥潭，挽回愛情與婚姻更迫在眉睫。在兩人暗潮洶涌之時，年輕貌美的鐘傾城成爲了兩人較量中的關鍵人物......</blockquote>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\瘋狂英語新讀寫 CRAZY ENGLISH 2023-09 第1344期 - 彈子石老街 家馬起源說.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\青春之春／四季之春 사계의 봄 Spring of Youth (2025)\Season 01\Spring.of.Youth.S01E01.mkv" data-category="tvshow">
+                    <li class="update-item " data-filename="瘋狂英語新悅讀 CRAZY ENGLISH 2023-09 第1345期 - 綠色運動.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\瘋狂英語新悅讀 CRAZY ENGLISH 2023-09 第1345期 - 綠色運動.pdf" data-category="magazine">
                        <div class="item-header">
-                            <strong>Spring.of.Youth.S01E01.mkv</strong>
-                            <span class='item-time'>02:04:06</span>
+                            <strong>瘋狂英語新悅讀 CRAZY ENGLISH 2023-09 第1345期 - 綠色運動.pdf</strong>
+                            <span class='item-time'>08:44:49</span>
                        </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\青春之春／四季之春 사계의 봄 Spring of Youth (2025)\Season 01\Spring.of.Youth.S01E01.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/280016" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>A drunken accident takes Sa-gye — the leader of a chart-topping band — from the stage to a university campus, where he meets the girl of his destiny.</blockquote>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\瘋狂英語新悅讀 CRAZY ENGLISH 2023-09 第1345期 - 綠色運動.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成功路上 Love Leads to the Success (2025)\Season 01\Love.Leads.to.the.Success.S01E02.mkv" data-category="tvshow">
+                    <li class="update-item " data-filename="瘋狂英語初中天地 CRAZY ENGLISH 2023-09 第1342期 - 中國書法.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\瘋狂英語初中天地 CRAZY ENGLISH 2023-09 第1342期 - 中國書法.pdf" data-category="magazine">
                        <div class="item-header">
-                            <strong>Love.Leads.to.the.Success.S01E02.mkv</strong>
-                            <span class='item-time'>02:03:55</span>
+                            <strong>瘋狂英語初中天地 CRAZY ENGLISH 2023-09 第1342期 - 中國書法.pdf</strong>
+                            <span class='item-time'>08:44:44</span>
                        </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成功路上 Love Leads to the Success (2025)\Season 01\Love.Leads.to.the.Success.S01E02.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/271911" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>建中回到 1989 年，目睹了父母的情感波折與家族事業危機。他憑藉對未來的瞭解，替父親解危，試圖阻止命運悲劇重演。</blockquote>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\瘋狂英語初中天地 CRAZY ENGLISH 2023-09 第1342期 - 中國書法.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="" data-path="@LiangTsaoEmby_本月更新\連載中\成功路上 Love Leads to the Success (2025)\Season 01\Love.Leads.to.the.Success.S01E01.mkv" data-category="tvshow">
+                    <li class="update-item " data-filename="哈佛商業評論 Harvard Business Review 2023-09 第205期 - 打造療心職場v1.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\哈佛商業評論 Harvard Business Review 2023-09 第205期 - 打造療心職場v1.pdf" data-category="magazine">
                        <div class="item-header">
-                            <strong>Love.Leads.to.the.Success.S01E01.mkv</strong>
-                            <span class='item-time'>02:03:43</span>
+                            <strong>哈佛商業評論 Harvard Business Review 2023-09 第205期 - 打造療心職場v1.pdf</strong>
+                            <span class='item-time'>08:44:39</span>
                        </div>
-                        <div class='file-path'>@LiangTsaoEmby_本月更新\連載中\成功路上 Love Leads to the Success (2025)\Season 01\Love.Leads.to.the.Success.S01E01.mkv</div>
-                        <a href="https://www.themoviedb.org/tv/271911" target="_blank" class="tmdb-link">TMDb 連結</a>
-                        <blockquote>2012 年，建中在夜市打拼，夢想著發財，卻因一場混亂意外穿越回 1989 年，決心改寫家庭命運、重寫自己的人生。</blockquote>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\哈佛商業評論 Harvard Business Review 2023-09 第205期 - 打造療心職場v1.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
                     </li>
-                </ul>
-            </div>
-        </div>
-        <div class="content-pane " id="pane-magazine">
-            <h3>2025 年 05 月</h3>
-            <div class="day-group">
-                <h4 class="day-header" data-target="#list-magazine-20250512"><span class="toggle-icon">+</span> 05 月 12 日 (Monday)</h4>
-                <ul class="update-list " id="list-magazine-20250512" data-category="magazine">
-                    <li class="update-item " data-filename="萬寶週刊 Marbo Weekly 2023-09-28 第1561期 - 中秋變盤 Q4股匯雙升.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\萬寶週刊 Marbo Weekly 2023-09-28 第1561期 - 中秋變盤 Q4股匯雙升.pdf" data-category="magazine">
+                    <li class="update-item " data-filename="英語學習誌 HELLO！ENGLISH 2023-09 第060期 - 讀有趣英文，邊笑邊學英文.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\英語學習誌 HELLO！ENGLISH 2023-09 第060期 - 讀有趣英文，邊笑邊學英文.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>英語學習誌 HELLO！ENGLISH 2023-09 第060期 - 讀有趣英文，邊笑邊學英文.pdf</strong>
+                            <span class='item-time'>08:44:34</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\英語學習誌 HELLO！ENGLISH 2023-09 第060期 - 讀有趣英文，邊笑邊學英文.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="經濟一週 Economic Digest 2023-09-30 第2187期 - 拆解JPEX風暴.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\經濟一週 Economic Digest 2023-09-30 第2187期 - 拆解JPEX風暴.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>經濟一週 Economic Digest 2023-09-30 第2187期 - 拆解JPEX風暴.pdf</strong>
+                            <span class='item-time'>08:44:29</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\經濟一週 Economic Digest 2023-09-30 第2187期 - 拆解JPEX風暴.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="彭博商業周刊 Bloomberg Businessweek 2023-09-27 第282期 - 陰魂不散的萊姆病.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\彭博商業周刊 Bloomberg Businessweek 2023-09-27 第282期 - 陰魂不散的萊姆病.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>彭博商業周刊 Bloomberg Businessweek 2023-09-27 第282期 - 陰魂不散的萊姆病.pdf</strong>
+                            <span class='item-time'>08:44:24</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\彭博商業周刊 Bloomberg Businessweek 2023-09-27 第282期 - 陰魂不散的萊姆病.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="理財周刊 2023-09-29 第1205期 - 半年線的美麗與哀愁 新揀股三式.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\理財周刊 2023-09-29 第1205期 - 半年線的美麗與哀愁 新揀股三式.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>理財周刊 2023-09-29 第1205期 - 半年線的美麗與哀愁 新揀股三式.pdf</strong>
+                            <span class='item-time'>08:44:19</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\理財周刊 2023-09-29 第1205期 - 半年線的美麗與哀愁 新揀股三式.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="財訊雙週刊 2023-09-28 第695期 - 台灣最強AI基地.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\財訊雙週刊 2023-09-28 第695期 - 台灣最強AI基地.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>財訊雙週刊 2023-09-28 第695期 - 台灣最強AI基地.pdf</strong>
+                            <span class='item-time'>08:44:14</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\財訊雙週刊 2023-09-28 第695期 - 台灣最強AI基地.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="先探投資週刊 Wealth Invest Weekly 2023-09-29 第2267期 - 新台幣狂貶 蹲低買好股.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\先探投資週刊 Wealth Invest Weekly 2023-09-29 第2267期 - 新台幣狂貶 蹲低買好股.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>先探投資週刊 Wealth Invest Weekly 2023-09-29 第2267期 - 新台幣狂貶 蹲低買好股.pdf</strong>
+                            <span class='item-time'>08:44:09</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\先探投資週刊 Wealth Invest Weekly 2023-09-29 第2267期 - 新台幣狂貶 蹲低買好股.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="先探投資週刊 Wealth Invest Weekly 2023-09-22 第2266期 - ARM掛牌 台股造Q4大浪.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\先探投資週刊 Wealth Invest Weekly 2023-09-22 第2266期 - ARM掛牌 台股造Q4大浪.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>先探投資週刊 Wealth Invest Weekly 2023-09-22 第2266期 - ARM掛牌 台股造Q4大浪.pdf</strong>
+                            <span class='item-time'>08:44:04</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\先探投資週刊 Wealth Invest Weekly 2023-09-22 第2266期 - ARM掛牌 台股造Q4大浪.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="性感誌 Sexy Nuts 2023-09 第087期 - 謝謝你來到我的世界裡.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\性感誌 Sexy Nuts 2023-09 第087期 - 謝謝你來到我的世界裡.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>性感誌 Sexy Nuts 2023-09 第087期 - 謝謝你來到我的世界裡.pdf</strong>
+                            <span class='item-time'>08:43:59</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\性感誌 Sexy Nuts 2023-09 第087期 - 謝謝你來到我的世界裡.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="廣告雜誌 Adm 2023-09 第377期 - Dentsu X 貝立德.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\廣告雜誌 Adm 2023-09 第377期 - Dentsu X 貝立德.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>廣告雜誌 Adm 2023-09 第377期 - Dentsu X 貝立德.pdf</strong>
+                            <span class='item-time'>08:43:54</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\廣告雜誌 Adm 2023-09 第377期 - Dentsu X 貝立德.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="Android密技王 2023-09 第096期 - 手繪火柴人可變美女圖.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\Android密技王 2023-09 第096期 - 手繪火柴人可變美女圖.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>Android密技王 2023-09 第096期 - 手繪火柴人可變美女圖.pdf</strong>
+                            <span class='item-time'>08:43:49</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\Android密技王 2023-09 第096期 - 手繪火柴人可變美女圖.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item " data-filename="豐年 Harvest 2023-09 第073.09期 - 電動農機 碳治郎.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\豐年 Harvest 2023-09 第073.09期 - 電動農機 碳治郎.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>豐年 Harvest 2023-09 第073.09期 - 電動農機 碳治郎.pdf</strong>
+                            <span class='item-time'>08:43:44</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\豐年 Harvest 2023-09 第073.09期 - 電動農機 碳治郎.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="職業棒球 Baseball Professional 2023-09 第498期 - 海嘯來襲.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\職業棒球 Baseball Professional 2023-09 第498期 - 海嘯來襲.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>職業棒球 Baseball Professional 2023-09 第498期 - 海嘯來襲.pdf</strong>
+                            <span class='item-time'>08:43:39</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\職業棒球 Baseball Professional 2023-09 第498期 - 海嘯來襲.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="經濟一週 Economic Digest 2023-09-16 第2185期 - 血「樓」成河.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\經濟一週 Economic Digest 2023-09-16 第2185期 - 血「樓」成河.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>經濟一週 Economic Digest 2023-09-16 第2185期 - 血「樓」成河.pdf</strong>
+                            <span class='item-time'>08:43:34</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\經濟一週 Economic Digest 2023-09-16 第2185期 - 血「樓」成河.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="經濟一週 Economic Digest 2023-09-23 第2186期 - 打造香港 Web 5.0 王國.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\經濟一週 Economic Digest 2023-09-23 第2186期 - 打造香港 Web 5.0 王國.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>經濟一週 Economic Digest 2023-09-23 第2186期 - 打造香港 Web 5.0 王國.pdf</strong>
+                            <span class='item-time'>08:43:29</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\經濟一週 Economic Digest 2023-09-23 第2186期 - 打造香港 Web 5.0 王國.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="傳記文學 Biography Literature 2023-09 第736期 - 林文月教授來哈佛 - 兼談上海與望月樓.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\傳記文學 Biography Literature 2023-09 第736期 - 林文月教授來哈佛 - 兼談上海與望月樓.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>傳記文學 Biography Literature 2023-09 第736期 - 林文月教授來哈佛 - 兼談上海與望月樓.pdf</strong>
+                            <span class='item-time'>08:43:24</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\傳記文學 Biography Literature 2023-09 第736期 - 林文月教授來哈佛 - 兼談上海與望月樓.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="財訊雙週刊 2023-09-14 第694期 - 老屋翻新 500萬戶的幸福.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\財訊雙週刊 2023-09-14 第694期 - 老屋翻新 500萬戶的幸福.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>財訊雙週刊 2023-09-14 第694期 - 老屋翻新 500萬戶的幸福.pdf</strong>
+                            <span class='item-time'>08:43:19</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\財訊雙週刊 2023-09-14 第694期 - 老屋翻新 500萬戶的幸福.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="卓越雜誌 Excellence 2023-09 第449期 - 能源轉型 再造台灣奇蹟.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\卓越雜誌 Excellence 2023-09 第449期 - 能源轉型 再造台灣奇蹟.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>卓越雜誌 Excellence 2023-09 第449期 - 能源轉型 再造台灣奇蹟.pdf</strong>
+                            <span class='item-time'>08:43:14</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\卓越雜誌 Excellence 2023-09 第449期 - 能源轉型 再造台灣奇蹟.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="大師輕鬆讀 Master 2023-09-27 第940期 - 造市者心法.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\大師輕鬆讀 Master 2023-09-27 第940期 - 造市者心法.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>大師輕鬆讀 Master 2023-09-27 第940期 - 造市者心法.pdf</strong>
+                            <span class='item-time'>08:43:09</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\大師輕鬆讀 Master 2023-09-27 第940期 - 造市者心法.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="新新聞 2023-09-28 第1908期 - 糧草危機.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\新新聞 2023-09-28 第1908期 - 糧草危機.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>新新聞 2023-09-28 第1908期 - 糧草危機.pdf</strong>
+                            <span class='item-time'>08:43:04</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\新新聞 2023-09-28 第1908期 - 糧草危機.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="經貿透視 Trade Insight 2023-09-20 第627期 - 永續再生 電子廢材變身成寶.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\經貿透視 Trade Insight 2023-09-20 第627期 - 永續再生 電子廢材變身成寶.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>經貿透視 Trade Insight 2023-09-20 第627期 - 永續再生 電子廢材變身成寶.pdf</strong>
+                            <span class='item-time'>08:42:59</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\經貿透視 Trade Insight 2023-09-20 第627期 - 永續再生 電子廢材變身成寶.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="天下雜誌 Common Wealth 2023-09-20 第782期 - 馬斯克.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\天下雜誌 Common Wealth 2023-09-20 第782期 - 馬斯克.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>天下雜誌 Common Wealth 2023-09-20 第782期 - 馬斯克.pdf</strong>
+                            <span class='item-time'>08:42:54</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\天下雜誌 Common Wealth 2023-09-20 第782期 - 馬斯克.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="Shopping Design 2023-09 第148期 - 好有感！今日的體驗設計.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\Shopping Design 2023-09 第148期 - 好有感！今日的體驗設計.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>Shopping Design 2023-09 第148期 - 好有感！今日的體驗設計.pdf</strong>
+                            <span class='item-time'>08:42:49</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\Shopping Design 2023-09 第148期 - 好有感！今日的體驗設計.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="iPhone,iPad玩樂誌 2023-09 第210期 - iOS 17 必學技.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\iPhone,iPad玩樂誌 2023-09 第210期 - iOS 17 必學技.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>iPhone,iPad玩樂誌 2023-09 第210期 - iOS 17 必學技.pdf</strong>
+                            <span class='item-time'>08:42:44</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\iPhone,iPad玩樂誌 2023-09 第210期 - iOS 17 必學技.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="iPhone密技王 2023-09 第095期 - 共用ToDo清單 辦事更方便.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\iPhone密技王 2023-09 第095期 - 共用ToDo清單 辦事更方便.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>iPhone密技王 2023-09 第095期 - 共用ToDo清單 辦事更方便.pdf</strong>
+                            <span class='item-time'>08:42:39</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\iPhone密技王 2023-09 第095期 - 共用ToDo清單 辦事更方便.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="id SHOW 2023-09 第043期 - 未來家 + 居新時代.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\id SHOW 2023-09 第043期 - 未來家 + 居新時代.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>id SHOW 2023-09 第043期 - 未來家 + 居新時代.pdf</strong>
+                            <span class='item-time'>08:42:34</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\id SHOW 2023-09 第043期 - 未來家 + 居新時代.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="實用空中美語 English Digest 2023-09 第425期 - 抓緊掃帚 飛一趟牛淨大學的魔法之旅.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\實用空中美語 English Digest 2023-09 第425期 - 抓緊掃帚 飛一趟牛淨大學的魔法之旅.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>實用空中美語 English Digest 2023-09 第425期 - 抓緊掃帚 飛一趟牛淨大學的魔法之旅.pdf</strong>
+                            <span class='item-time'>08:42:29</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\實用空中美語 English Digest 2023-09 第425期 - 抓緊掃帚 飛一趟牛淨大學的魔法之旅.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="大師輕鬆讀 Master 2023-09-20 第939期 - 80 20法則，用更少成就更多的秘密.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\大師輕鬆讀 Master 2023-09-20 第939期 - 80 20法則，用更少成就更多的秘密.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>大師輕鬆讀 Master 2023-09-20 第939期 - 80 20法則，用更少成就更多的秘密.pdf</strong>
+                            <span class='item-time'>08:42:24</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\大師輕鬆讀 Master 2023-09-20 第939期 - 80 20法則，用更少成就更多的秘密.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="商業周刊 Business Weekly 2023-09-25 第1871期 - 和泰突圍戰記.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\商業周刊 Business Weekly 2023-09-25 第1871期 - 和泰突圍戰記.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>商業周刊 Business Weekly 2023-09-25 第1871期 - 和泰突圍戰記.pdf</strong>
+                            <span class='item-time'>08:42:19</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\商業周刊 Business Weekly 2023-09-25 第1871期 - 和泰突圍戰記.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="今周刊 Business Today 2023-09-28 第1397期 - 你別小看！銀色上班族.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\今周刊 Business Today 2023-09-28 第1397期 - 你別小看！銀色上班族.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>今周刊 Business Today 2023-09-28 第1397期 - 你別小看！銀色上班族.pdf</strong>
+                            <span class='item-time'>08:42:14</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\今周刊 Business Today 2023-09-28 第1397期 - 你別小看！銀色上班族.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="今周刊 Business Today 2023-09-21 第1396期 - 華為困獸再起？.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\今周刊 Business Today 2023-09-21 第1396期 - 華為困獸再起？.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>今周刊 Business Today 2023-09-21 第1396期 - 華為困獸再起？.pdf</strong>
+                            <span class='item-time'>08:42:09</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\今周刊 Business Today 2023-09-21 第1396期 - 華為困獸再起？.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="Android玩樂誌 2023-09 第246期 - 免費看漫畫.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\Android玩樂誌 2023-09 第246期 - 免費看漫畫.pdf" data-category="magazine">
+                       <div class="item-header">
+                            <strong>Android玩樂誌 2023-09 第246期 - 免費看漫畫.pdf</strong>
+                            <span class='item-time'>08:42:04</span>
+                       </div>
+                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\Android玩樂誌 2023-09 第246期 - 免費看漫畫.pdf</div>
+                        <blockquote>雜誌已更新。</blockquote>
+                    </li>
+                    <li class="update-item hidden-item" data-filename="萬寶週刊 Marbo Weekly 2023-09-28 第1561期 - 中秋變盤 Q4股匯雙升.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\萬寶週刊 Marbo Weekly 2023-09-28 第1561期 - 中秋變盤 Q4股匯雙升.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>萬寶週刊 Marbo Weekly 2023-09-28 第1561期 - 中秋變盤 Q4股匯雙升.pdf</strong>
-                            <span class='item-time'>06:23:06</span>
+                            <span class='item-time'>08:41:59</span>
                        </div>
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\萬寶週刊 Marbo Weekly 2023-09-28 第1561期 - 中秋變盤 Q4股匯雙升.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="理財周刊 2023-09-22 第1204期 - AI主攻 生技、軍工輪漲 大選行情啟動.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\理財周刊 2023-09-22 第1204期 - AI主攻 生技、軍工輪漲 大選行情啟動.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="理財周刊 2023-09-22 第1204期 - AI主攻 生技、軍工輪漲 大選行情啟動.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\理財周刊 2023-09-22 第1204期 - AI主攻 生技、軍工輪漲 大選行情啟動.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>理財周刊 2023-09-22 第1204期 - AI主攻 生技、軍工輪漲 大選行情啟動.pdf</strong>
-                            <span class='item-time'>06:23:01</span>
+                            <span class='item-time'>08:41:54</span>
                        </div>
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\理財周刊 2023-09-22 第1204期 - AI主攻 生技、軍工輪漲 大選行情啟動.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="萬寶週刊 Marbo Weekly 2023-09-21 第1560期 - Q3整理 Q4突破.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\萬寶週刊 Marbo Weekly 2023-09-21 第1560期 - Q3整理 Q4突破.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="萬寶週刊 Marbo Weekly 2023-09-21 第1560期 - Q3整理 Q4突破.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\萬寶週刊 Marbo Weekly 2023-09-21 第1560期 - Q3整理 Q4突破.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>萬寶週刊 Marbo Weekly 2023-09-21 第1560期 - Q3整理 Q4突破.pdf</strong>
                             <span class='item-time'>06:22:56</span>
@@ -215,7 +437,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\萬寶週刊 Marbo Weekly 2023-09-21 第1560期 - Q3整理 Q4突破.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="經濟一週 Economic Digest 2023-09-09 第2184期 - 全球2024衰退避無可避？.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\經濟一週 Economic Digest 2023-09-09 第2184期 - 全球2024衰退避無可避？.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="經濟一週 Economic Digest 2023-09-09 第2184期 - 全球2024衰退避無可避？.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\經濟一週 Economic Digest 2023-09-09 第2184期 - 全球2024衰退避無可避？.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>經濟一週 Economic Digest 2023-09-09 第2184期 - 全球2024衰退避無可避？.pdf</strong>
                             <span class='item-time'>06:22:51</span>
@@ -223,7 +445,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\經濟一週 Economic Digest 2023-09-09 第2184期 - 全球2024衰退避無可避？.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="經貿透視 Trade Insight 2023-09-06 第626期 - 科技養寵 毛孩新商機.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\經貿透視 Trade Insight 2023-09-06 第626期 - 科技養寵 毛孩新商機.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="經貿透視 Trade Insight 2023-09-06 第626期 - 科技養寵 毛孩新商機.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\經貿透視 Trade Insight 2023-09-06 第626期 - 科技養寵 毛孩新商機.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>經貿透視 Trade Insight 2023-09-06 第626期 - 科技養寵 毛孩新商機.pdf</strong>
                             <span class='item-time'>06:22:46</span>
@@ -231,7 +453,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\經貿透視 Trade Insight 2023-09-06 第626期 - 科技養寵 毛孩新商機.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="新視聽 Prime Av 2023-09 第341期 - 2023 Soundbar 最強音效全公開.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\新視聽 Prime Av 2023-09 第341期 - 2023 Soundbar 最強音效全公開.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="新視聽 Prime Av 2023-09 第341期 - 2023 Soundbar 最強音效全公開.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\新視聽 Prime Av 2023-09 第341期 - 2023 Soundbar 最強音效全公開.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>新視聽 Prime Av 2023-09 第341期 - 2023 Soundbar 最強音效全公開.pdf</strong>
                             <span class='item-time'>06:22:41</span>
@@ -239,7 +461,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\新視聽 Prime Av 2023-09 第341期 - 2023 Soundbar 最強音效全公開.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="游絲 Spiral 2023-09 第209期 - CARTIER 聽 Tank 這百年傳奇.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\游絲 Spiral 2023-09 第209期 - CARTIER 聽 Tank 這百年傳奇.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="游絲 Spiral 2023-09 第209期 - CARTIER 聽 Tank 這百年傳奇.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\游絲 Spiral 2023-09 第209期 - CARTIER 聽 Tank 這百年傳奇.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>游絲 Spiral 2023-09 第209期 - CARTIER 聽 Tank 這百年傳奇.pdf</strong>
                             <span class='item-time'>06:22:36</span>
@@ -247,7 +469,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\游絲 Spiral 2023-09 第209期 - CARTIER 聽 Tank 這百年傳奇.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="國家地理雜誌 National Geographic 2023-09 第262期 - 耶路撒冷 穹頂之下.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\國家地理雜誌 National Geographic 2023-09 第262期 - 耶路撒冷 穹頂之下.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="國家地理雜誌 National Geographic 2023-09 第262期 - 耶路撒冷 穹頂之下.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\國家地理雜誌 National Geographic 2023-09 第262期 - 耶路撒冷 穹頂之下.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>國家地理雜誌 National Geographic 2023-09 第262期 - 耶路撒冷 穹頂之下.pdf</strong>
                             <span class='item-time'>06:22:31</span>
@@ -255,7 +477,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\國家地理雜誌 National Geographic 2023-09 第262期 - 耶路撒冷 穹頂之下.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="高爾夫文摘 Golf Digest 2023-0809 第401期 - 7個聰明方法幫助你立即打出更好成績.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\高爾夫文摘 Golf Digest 2023-0809 第401期 - 7個聰明方法幫助你立即打出更好成績.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="高爾夫文摘 Golf Digest 2023-0809 第401期 - 7個聰明方法幫助你立即打出更好成績.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\高爾夫文摘 Golf Digest 2023-0809 第401期 - 7個聰明方法幫助你立即打出更好成績.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>高爾夫文摘 Golf Digest 2023-0809 第401期 - 7個聰明方法幫助你立即打出更好成績.pdf</strong>
                             <span class='item-time'>06:22:26</span>
@@ -263,7 +485,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\高爾夫文摘 Golf Digest 2023-0809 第401期 - 7個聰明方法幫助你立即打出更好成績.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="能力 Learning &amp; Development 2023-09 第811期 - 關鍵倒數D-90 企業衝刺計畫.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\能力 Learning &amp; Development 2023-09 第811期 - 關鍵倒數D-90 企業衝刺計畫.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="能力 Learning &amp; Development 2023-09 第811期 - 關鍵倒數D-90 企業衝刺計畫.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\能力 Learning &amp; Development 2023-09 第811期 - 關鍵倒數D-90 企業衝刺計畫.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>能力 Learning &amp; Development 2023-09 第811期 - 關鍵倒數D-90 企業衝刺計畫.pdf</strong>
                             <span class='item-time'>06:22:21</span>
@@ -271,7 +493,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\能力 Learning &amp; Development 2023-09 第811期 - 關鍵倒數D-90 企業衝刺計畫.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="醫美時尚 Dr. BEAUTY 2023-09 第194期 - 升級版「4D童妍針」讓你美的宛如精品.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\醫美時尚 Dr. BEAUTY 2023-09 第194期 - 升級版「4D童妍針」讓你美的宛如精品.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="醫美時尚 Dr. BEAUTY 2023-09 第194期 - 升級版「4D童妍針」讓你美的宛如精品.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\醫美時尚 Dr. BEAUTY 2023-09 第194期 - 升級版「4D童妍針」讓你美的宛如精品.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>醫美時尚 Dr. BEAUTY 2023-09 第194期 - 升級版「4D童妍針」讓你美的宛如精品.pdf</strong>
                             <span class='item-time'>06:22:16</span>
@@ -279,7 +501,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\醫美時尚 Dr. BEAUTY 2023-09 第194期 - 升級版「4D童妍針」讓你美的宛如精品.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="幼獅文藝 Youth Literary 2023-09 第837期 - 空想．注意力.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\幼獅文藝 Youth Literary 2023-09 第837期 - 空想．注意力.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="幼獅文藝 Youth Literary 2023-09 第837期 - 空想．注意力.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\幼獅文藝 Youth Literary 2023-09 第837期 - 空想．注意力.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>幼獅文藝 Youth Literary 2023-09 第837期 - 空想．注意力.pdf</strong>
                             <span class='item-time'>06:22:11</span>
@@ -287,7 +509,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\幼獅文藝 Youth Literary 2023-09 第837期 - 空想．注意力.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="大師輕鬆讀 Master 2023-09-13 第938期 - 失敗萬歲.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\大師輕鬆讀 Master 2023-09-13 第938期 - 失敗萬歲.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="大師輕鬆讀 Master 2023-09-13 第938期 - 失敗萬歲.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\大師輕鬆讀 Master 2023-09-13 第938期 - 失敗萬歲.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>大師輕鬆讀 Master 2023-09-13 第938期 - 失敗萬歲.pdf</strong>
                             <span class='item-time'>06:22:06</span>
@@ -295,7 +517,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\大師輕鬆讀 Master 2023-09-13 第938期 - 失敗萬歲.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="一手車訊 Carnews 2023-09 第393期 - Ford Kuga 2.0T 內外進化.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\一手車訊 Carnews 2023-09 第393期 - Ford Kuga 2.0T 內外進化.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="一手車訊 Carnews 2023-09 第393期 - Ford Kuga 2.0T 內外進化.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\一手車訊 Carnews 2023-09 第393期 - Ford Kuga 2.0T 內外進化.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>一手車訊 Carnews 2023-09 第393期 - Ford Kuga 2.0T 內外進化.pdf</strong>
                             <span class='item-time'>06:22:01</span>
@@ -303,7 +525,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\一手車訊 Carnews 2023-09 第393期 - Ford Kuga 2.0T 內外進化.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="先探投資週刊 Wealth Invest Weekly 2023-09-15 第2265期 - 台美日多頭鐵三角.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\先探投資週刊 Wealth Invest Weekly 2023-09-15 第2265期 - 台美日多頭鐵三角.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="先探投資週刊 Wealth Invest Weekly 2023-09-15 第2265期 - 台美日多頭鐵三角.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\先探投資週刊 Wealth Invest Weekly 2023-09-15 第2265期 - 台美日多頭鐵三角.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>先探投資週刊 Wealth Invest Weekly 2023-09-15 第2265期 - 台美日多頭鐵三角.pdf</strong>
                             <span class='item-time'>06:21:56</span>
@@ -311,7 +533,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\先探投資週刊 Wealth Invest Weekly 2023-09-15 第2265期 - 台美日多頭鐵三角.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="先探投資週刊 Wealth Invest Weekly 2023-09-08 第2264期 - 低檔挖寶 消費電子急單到 - 完整版.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\先探投資週刊 Wealth Invest Weekly 2023-09-08 第2264期 - 低檔挖寶 消費電子急單到 - 完整版.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="先探投資週刊 Wealth Invest Weekly 2023-09-08 第2264期 - 低檔挖寶 消費電子急單到 - 完整版.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\先探投資週刊 Wealth Invest Weekly 2023-09-08 第2264期 - 低檔挖寶 消費電子急單到 - 完整版.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>先探投資週刊 Wealth Invest Weekly 2023-09-08 第2264期 - 低檔挖寶 消費電子急單到 - 完整版.pdf</strong>
                             <span class='item-time'>06:21:51</span>
@@ -319,7 +541,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\先探投資週刊 Wealth Invest Weekly 2023-09-08 第2264期 - 低檔挖寶 消費電子急單到 - 完整版.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="改裝車訊 Option Parts 2023-09 第295期 - 一次搞懂拉桿與防傾桿的差異性.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\改裝車訊 Option Parts 2023-09 第295期 - 一次搞懂拉桿與防傾桿的差異性.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="改裝車訊 Option Parts 2023-09 第295期 - 一次搞懂拉桿與防傾桿的差異性.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\改裝車訊 Option Parts 2023-09 第295期 - 一次搞懂拉桿與防傾桿的差異性.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>改裝車訊 Option Parts 2023-09 第295期 - 一次搞懂拉桿與防傾桿的差異性.pdf</strong>
                             <span class='item-time'>06:21:46</span>
@@ -327,7 +549,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\改裝車訊 Option Parts 2023-09 第295期 - 一次搞懂拉桿與防傾桿的差異性.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="商業周刊 Business Weekly 2023-09-18 第1870期 - 中國平價巨獸反噬全球.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\商業周刊 Business Weekly 2023-09-18 第1870期 - 中國平價巨獸反噬全球.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="商業周刊 Business Weekly 2023-09-18 第1870期 - 中國平價巨獸反噬全球.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\商業周刊 Business Weekly 2023-09-18 第1870期 - 中國平價巨獸反噬全球.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>商業周刊 Business Weekly 2023-09-18 第1870期 - 中國平價巨獸反噬全球.pdf</strong>
                             <span class='item-time'>06:21:41</span>
@@ -335,7 +557,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\商業周刊 Business Weekly 2023-09-18 第1870期 - 中國平價巨獸反噬全球.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="今周刊 Business Today 2023-09-14 第1395期 - 兩岸貿易戰全解析.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\今周刊 Business Today 2023-09-14 第1395期 - 兩岸貿易戰全解析.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="今周刊 Business Today 2023-09-14 第1395期 - 兩岸貿易戰全解析.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\今周刊 Business Today 2023-09-14 第1395期 - 兩岸貿易戰全解析.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>今周刊 Business Today 2023-09-14 第1395期 - 兩岸貿易戰全解析.pdf</strong>
                             <span class='item-time'>06:21:36</span>
@@ -343,7 +565,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\今周刊 Business Today 2023-09-14 第1395期 - 兩岸貿易戰全解析.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="時尚家居 House Style 2023-09 第112期 - TID Collection.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\時尚家居 House Style 2023-09 第112期 - TID Collection.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="時尚家居 House Style 2023-09 第112期 - TID Collection.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\時尚家居 House Style 2023-09 第112期 - TID Collection.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>時尚家居 House Style 2023-09 第112期 - TID Collection.pdf</strong>
                             <span class='item-time'>06:21:31</span>
@@ -351,7 +573,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\時尚家居 House Style 2023-09 第112期 - TID Collection.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="財訊執勢贏家 第068期 - 社會住宅超進化.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\財訊執勢贏家 第068期 - 社會住宅超進化.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="財訊執勢贏家 第068期 - 社會住宅超進化.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\財訊執勢贏家 第068期 - 社會住宅超進化.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>財訊執勢贏家 第068期 - 社會住宅超進化.pdf</strong>
                             <span class='item-time'>06:21:26</span>
@@ -359,7 +581,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\財訊執勢贏家 第068期 - 社會住宅超進化.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="摩登家庭 Modern Home 2023-09 第543期 - 彈性開闔 輕透恬靜日常.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\摩登家庭 Modern Home 2023-09 第543期 - 彈性開闔 輕透恬靜日常.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="摩登家庭 Modern Home 2023-09 第543期 - 彈性開闔 輕透恬靜日常.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\摩登家庭 Modern Home 2023-09 第543期 - 彈性開闔 輕透恬靜日常.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>摩登家庭 Modern Home 2023-09 第543期 - 彈性開闔 輕透恬靜日常.pdf</strong>
                             <span class='item-time'>06:21:21</span>
@@ -367,7 +589,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\摩登家庭 Modern Home 2023-09 第543期 - 彈性開闔 輕透恬靜日常.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="iPhone,iPad玩樂誌 2023-09 第209期 - 免費看漫畫.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\iPhone,iPad玩樂誌 2023-09 第209期 - 免費看漫畫.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="iPhone,iPad玩樂誌 2023-09 第209期 - 免費看漫畫.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\iPhone,iPad玩樂誌 2023-09 第209期 - 免費看漫畫.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>iPhone,iPad玩樂誌 2023-09 第209期 - 免費看漫畫.pdf</strong>
                             <span class='item-time'>06:21:16</span>
@@ -375,7 +597,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\iPhone,iPad玩樂誌 2023-09 第209期 - 免費看漫畫.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="ELLE 她 2023-09 第384期 - 柯佳嬿 X 劉以豪 愛在童話故事下集.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\ELLE 她 2023-09 第384期 - 柯佳嬿 X 劉以豪 愛在童話故事下集.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="ELLE 她 2023-09 第384期 - 柯佳嬿 X 劉以豪 愛在童話故事下集.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\ELLE 她 2023-09 第384期 - 柯佳嬿 X 劉以豪 愛在童話故事下集.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>ELLE 她 2023-09 第384期 - 柯佳嬿 X 劉以豪 愛在童話故事下集.pdf</strong>
                             <span class='item-time'>06:21:11</span>
@@ -383,7 +605,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\ELLE 她 2023-09 第384期 - 柯佳嬿 X 劉以豪 愛在童話故事下集.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="阿路巴高爾夫 Alba Tross-View 2023-09 第105期 - 推桿全特集 解決果嶺上煩惱.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\阿路巴高爾夫 Alba Tross-View 2023-09 第105期 - 推桿全特集 解決果嶺上煩惱.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="阿路巴高爾夫 Alba Tross-View 2023-09 第105期 - 推桿全特集 解決果嶺上煩惱.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\阿路巴高爾夫 Alba Tross-View 2023-09 第105期 - 推桿全特集 解決果嶺上煩惱.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>阿路巴高爾夫 Alba Tross-View 2023-09 第105期 - 推桿全特集 解決果嶺上煩惱.pdf</strong>
                             <span class='item-time'>06:21:06</span>
@@ -391,7 +613,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\阿路巴高爾夫 Alba Tross-View 2023-09 第105期 - 推桿全特集 解決果嶺上煩惱.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="VOGUE 2023-0910 第324期 - ARCHIVES！.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\VOGUE 2023-0910 第324期 - ARCHIVES！.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="VOGUE 2023-0910 第324期 - ARCHIVES！.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\VOGUE 2023-0910 第324期 - ARCHIVES！.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>VOGUE 2023-0910 第324期 - ARCHIVES！.pdf</strong>
                             <span class='item-time'>06:21:01</span>
@@ -399,7 +621,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\VOGUE 2023-0910 第324期 - ARCHIVES！.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="商業周刊 Business Weekly 2023-09-11 第1869期 - 綜效有陷阱！博客來虧損啟示錄.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\商業周刊 Business Weekly 2023-09-11 第1869期 - 綜效有陷阱！博客來虧損啟示錄.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="商業周刊 Business Weekly 2023-09-11 第1869期 - 綜效有陷阱！博客來虧損啟示錄.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\商業周刊 Business Weekly 2023-09-11 第1869期 - 綜效有陷阱！博客來虧損啟示錄.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>商業周刊 Business Weekly 2023-09-11 第1869期 - 綜效有陷阱！博客來虧損啟示錄.pdf</strong>
                             <span class='item-time'>06:20:56</span>
@@ -407,7 +629,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\商業周刊 Business Weekly 2023-09-11 第1869期 - 綜效有陷阱！博客來虧損啟示錄.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="大師輕鬆讀 Master 2023-09-06 第937期 - 經理級教戰手冊.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\大師輕鬆讀 Master 2023-09-06 第937期 - 經理級教戰手冊.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="大師輕鬆讀 Master 2023-09-06 第937期 - 經理級教戰手冊.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\大師輕鬆讀 Master 2023-09-06 第937期 - 經理級教戰手冊.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>大師輕鬆讀 Master 2023-09-06 第937期 - 經理級教戰手冊.pdf</strong>
                             <span class='item-time'>06:20:51</span>
@@ -415,7 +637,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\大師輕鬆讀 Master 2023-09-06 第937期 - 經理級教戰手冊.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="先探投資週刊 Wealth Invest Weekly 2023-09-01 第2263期 - 漢翔催落去 航太軍工沒有天花板 - 完整版.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\先探投資週刊 Wealth Invest Weekly 2023-09-01 第2263期 - 漢翔催落去 航太軍工沒有天花板 - 完整版.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="先探投資週刊 Wealth Invest Weekly 2023-09-01 第2263期 - 漢翔催落去 航太軍工沒有天花板 - 完整版.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\先探投資週刊 Wealth Invest Weekly 2023-09-01 第2263期 - 漢翔催落去 航太軍工沒有天花板 - 完整版.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>先探投資週刊 Wealth Invest Weekly 2023-09-01 第2263期 - 漢翔催落去 航太軍工沒有天花板 - 完整版.pdf</strong>
                             <span class='item-time'>06:20:45</span>
@@ -423,7 +645,7 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2023\202309\先探投資週刊 Wealth Invest Weekly 2023-09-01 第2263期 - 漢翔催落去 航太軍工沒有天花板 - 完整版.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item " data-filename="Live互動英語 2023-09 第269期 - 臺灣水果英語怎麼說.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\Live互動英語 2023-09 第269期 - 臺灣水果英語怎麼說.pdf" data-category="magazine">
+                    <li class="update-item hidden-item" data-filename="Live互動英語 2023-09 第269期 - 臺灣水果英語怎麼說.pdf" data-path="LiangTsaoEBooks\《雜誌》\2023\202309\Live互動英語 2023-09 第269期 - 臺灣水果英語怎麼說.pdf" data-category="magazine">
                        <div class="item-header">
                             <strong>Live互動英語 2023-09 第269期 - 臺灣水果英語怎麼說.pdf</strong>
                             <span class='item-time'>06:20:40</span>
@@ -3791,259 +4013,13 @@
                         <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202003\ABC 互動英語 2020-03 第213期 - 網路英語實用句.pdf</div>
                         <blockquote>雜誌已更新。</blockquote>
                     </li>
-                    <li class="update-item hidden-item" data-filename="先探投資 2020-03-12 第2082期 - 疫情的贏家VS輸家.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202003\先探投資 2020-03-12 第2082期 - 疫情的贏家VS輸家.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>先探投資 2020-03-12 第2082期 - 疫情的贏家VS輸家.pdf</strong>
-                            <span class='item-time'>02:09:37</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202003\先探投資 2020-03-12 第2082期 - 疫情的贏家VS輸家.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="先探投資 2020-03-06 第2081期 - 谷底反彈神救援.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202003\先探投資 2020-03-06 第2081期 - 谷底反彈神救援.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>先探投資 2020-03-06 第2081期 - 谷底反彈神救援.pdf</strong>
-                            <span class='item-time'>02:09:32</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202003\先探投資 2020-03-06 第2081期 - 谷底反彈神救援.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="Advanced 彭蒙惠英語 2020-02 第230期 - 你的優先順序對了嗎？.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\Advanced 彭蒙惠英語 2020-02 第230期 - 你的優先順序對了嗎？.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>Advanced 彭蒙惠英語 2020-02 第230期 - 你的優先順序對了嗎？.pdf</strong>
-                            <span class='item-time'>02:09:27</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\Advanced 彭蒙惠英語 2020-02 第230期 - 你的優先順序對了嗎？.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="英語島 English Island 2020-02 第075期 - 我正在跟世界打交道.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\英語島 English Island 2020-02 第075期 - 我正在跟世界打交道.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>英語島 English Island 2020-02 第075期 - 我正在跟世界打交道.pdf</strong>
-                            <span class='item-time'>02:09:22</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\英語島 English Island 2020-02 第075期 - 我正在跟世界打交道.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="XXL Basketball 美國職籃聯盟雜誌 2020-02 第298期 - Kobe Bryant.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\XXL Basketball 美國職籃聯盟雜誌 2020-02 第298期 - Kobe Bryant.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>XXL Basketball 美國職籃聯盟雜誌 2020-02 第298期 - Kobe Bryant.pdf</strong>
-                            <span class='item-time'>02:09:17</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\XXL Basketball 美國職籃聯盟雜誌 2020-02 第298期 - Kobe Bryant.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="PChome 電腦家庭 2020-02 第289期 - 圖片快手活用技.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\PChome 電腦家庭 2020-02 第289期 - 圖片快手活用技.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>PChome 電腦家庭 2020-02 第289期 - 圖片快手活用技.pdf</strong>
-                            <span class='item-time'>02:09:12</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\PChome 電腦家庭 2020-02 第289期 - 圖片快手活用技.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="理財周刊  2020-02-28 第1018期 - 缺工缺料連鎖效應.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\理財周刊  2020-02-28 第1018期 - 缺工缺料連鎖效應.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>理財周刊  2020-02-28 第1018期 - 缺工缺料連鎖效應.pdf</strong>
-                            <span class='item-time'>02:09:07</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\理財周刊  2020-02-28 第1018期 - 缺工缺料連鎖效應.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="互動日本語 Live Interactive Japanese 2020-02 第038期 - 溫泉.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\互動日本語 Live Interactive Japanese 2020-02 第038期 - 溫泉.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>互動日本語 Live Interactive Japanese 2020-02 第038期 - 溫泉.pdf</strong>
-                            <span class='item-time'>02:09:02</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\互動日本語 Live Interactive Japanese 2020-02 第038期 - 溫泉.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="大家說英語 Let's Talk in English 2020-02 - 走進書香世界.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\大家說英語 Let's Talk in English 2020-02 - 走進書香世界.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>大家說英語 Let's Talk in English 2020-02 - 走進書香世界.pdf</strong>
-                            <span class='item-time'>02:08:57</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\大家說英語 Let's Talk in English 2020-02 - 走進書香世界.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="CNN 互動英語 2020-02 第233期 - 威尼斯將被洪水淹沒.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\CNN 互動英語 2020-02 第233期 - 威尼斯將被洪水淹沒.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>CNN 互動英語 2020-02 第233期 - 威尼斯將被洪水淹沒.pdf</strong>
-                            <span class='item-time'>02:08:52</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\CNN 互動英語 2020-02 第233期 - 威尼斯將被洪水淹沒.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="ABC 互動英語 2020-02 第212期 - 用英語描述天氣.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\ABC 互動英語 2020-02 第212期 - 用英語描述天氣.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>ABC 互動英語 2020-02 第212期 - 用英語描述天氣.pdf</strong>
-                            <span class='item-time'>02:08:47</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\ABC 互動英語 2020-02 第212期 - 用英語描述天氣.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="常春藤解析美語 Ivy League Analytical English 2020-02 第379期 - 貓．美術館.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\常春藤解析美語 Ivy League Analytical English 2020-02 第379期 - 貓．美術館.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>常春藤解析美語 Ivy League Analytical English 2020-02 第379期 - 貓．美術館.pdf</strong>
-                            <span class='item-time'>02:08:42</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\常春藤解析美語 Ivy League Analytical English 2020-02 第379期 - 貓．美術館.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="常春藤生活美語 Ivy League Enjoy English 2020-02 第201期 - 想笑時就開一「罐」笑聲吧！.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\常春藤生活美語 Ivy League Enjoy English 2020-02 第201期 - 想笑時就開一「罐」笑聲吧！.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>常春藤生活美語 Ivy League Enjoy English 2020-02 第201期 - 想笑時就開一「罐」笑聲吧！.pdf</strong>
-                            <span class='item-time'>02:08:37</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\常春藤生活美語 Ivy League Enjoy English 2020-02 第201期 - 想笑時就開一「罐」笑聲吧！.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="天下雜誌 Common Wealth 2020-02-26 第692期 - 新冠肺炎決戰時刻.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\天下雜誌 Common Wealth 2020-02-26 第692期 - 新冠肺炎決戰時刻.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>天下雜誌 Common Wealth 2020-02-26 第692期 - 新冠肺炎決戰時刻.pdf</strong>
-                            <span class='item-time'>02:08:32</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\天下雜誌 Common Wealth 2020-02-26 第692期 - 新冠肺炎決戰時刻.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="先探投資 2020-02-27 第2080期 - 台積電下一個戰場.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202002\先探投資 2020-02-27 第2080期 - 台積電下一個戰場.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>先探投資 2020-02-27 第2080期 - 台積電下一個戰場.pdf</strong>
-                            <span class='item-time'>02:08:27</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202002\先探投資 2020-02-27 第2080期 - 台積電下一個戰場.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="微笑台灣 Smile Taiwan 2020 春季號 第017期 - 和山一起呼吸.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202001\微笑台灣 Smile Taiwan 2020 春季號 第017期 - 和山一起呼吸.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>微笑台灣 Smile Taiwan 2020 春季號 第017期 - 和山一起呼吸.pdf</strong>
-                            <span class='item-time'>02:08:22</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202001\微笑台灣 Smile Taiwan 2020 春季號 第017期 - 和山一起呼吸.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="PChome 電腦家庭 2020-01 第288期 - 26款熱門手機遊戲推薦.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202001\PChome 電腦家庭 2020-01 第288期 - 26款熱門手機遊戲推薦.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>PChome 電腦家庭 2020-01 第288期 - 26款熱門手機遊戲推薦.pdf</strong>
-                            <span class='item-time'>02:08:17</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202001\PChome 電腦家庭 2020-01 第288期 - 26款熱門手機遊戲推薦.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="大家說英語 Let's Talk in English 2020-01 - 西安古都行.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202001\大家說英語 Let's Talk in English 2020-01 - 西安古都行.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>大家說英語 Let's Talk in English 2020-01 - 西安古都行.pdf</strong>
-                            <span class='item-time'>02:08:11</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202001\大家說英語 Let's Talk in English 2020-01 - 西安古都行.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="常春籐生活英語 Ivy League Enjoy English 2020-01 第200期 - 冷眼看破人生的摩羯.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202001\常春籐生活英語 Ivy League Enjoy English 2020-01 第200期 - 冷眼看破人生的摩羯.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>常春籐生活英語 Ivy League Enjoy English 2020-01 第200期 - 冷眼看破人生的摩羯.pdf</strong>
-                            <span class='item-time'>02:08:06</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202001\常春籐生活英語 Ivy League Enjoy English 2020-01 第200期 - 冷眼看破人生的摩羯.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="常春籐解析英語 Ivy League Analytical English 2020-01 第378期 - 水豚君15周年特展.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202001\常春籐解析英語 Ivy League Analytical English 2020-01 第378期 - 水豚君15周年特展.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>常春籐解析英語 Ivy League Analytical English 2020-01 第378期 - 水豚君15周年特展.pdf</strong>
-                            <span class='item-time'>02:08:01</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202001\常春籐解析英語 Ivy League Analytical English 2020-01 第378期 - 水豚君15周年特展.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="英語島 English Island 2020-01 第074期 - 我的夢幻食譜.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202001\英語島 English Island 2020-01 第074期 - 我的夢幻食譜.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>英語島 English Island 2020-01 第074期 - 我的夢幻食譜.pdf</strong>
-                            <span class='item-time'>02:07:56</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202001\英語島 English Island 2020-01 第074期 - 我的夢幻食譜.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="Advanced 彭蒙惠英語 2020-01 - 二零二零年庚子年.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202001\Advanced 彭蒙惠英語 2020-01 - 二零二零年庚子年.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>Advanced 彭蒙惠英語 2020-01 - 二零二零年庚子年.pdf</strong>
-                            <span class='item-time'>02:07:51</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202001\Advanced 彭蒙惠英語 2020-01 - 二零二零年庚子年.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="ABC 互動英語 2020-01 第211期 - 歡歡喜喜過新年.pdf" data-path="LiangTsaoEBooks\《雜誌》\2020\202001\ABC 互動英語 2020-01 第211期 - 歡歡喜喜過新年.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>ABC 互動英語 2020-01 第211期 - 歡歡喜喜過新年.pdf</strong>
-                            <span class='item-time'>02:07:46</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2020\202001\ABC 互動英語 2020-01 第211期 - 歡歡喜喜過新年.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="CNN 互動英語 2019-12 第231期 - Space X 發表地球最強載人太空船.pdf" data-path="LiangTsaoEBooks\《雜誌》\2019\201912\CNN 互動英語 2019-12 第231期 - Space X 發表地球最強載人太空船.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>CNN 互動英語 2019-12 第231期 - Space X 發表地球最強載人太空船.pdf</strong>
-                            <span class='item-time'>02:07:41</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2019\201912\CNN 互動英語 2019-12 第231期 - Space X 發表地球最強載人太空船.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="英語島 English Island 2019-12 第073期 - 2020改變世界的30道力量.pdf" data-path="LiangTsaoEBooks\《雜誌》\2019\201912\英語島 English Island 2019-12 第073期 - 2020改變世界的30道力量.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>英語島 English Island 2019-12 第073期 - 2020改變世界的30道力量.pdf</strong>
-                            <span class='item-time'>02:07:36</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2019\201912\英語島 English Island 2019-12 第073期 - 2020改變世界的30道力量.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="互動日本語 Live Interactive Japanese 2019-12 第036期 - 少女樂園派隊.pdf" data-path="LiangTsaoEBooks\《雜誌》\2019\201912\互動日本語 Live Interactive Japanese 2019-12 第036期 - 少女樂園派隊.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>互動日本語 Live Interactive Japanese 2019-12 第036期 - 少女樂園派隊.pdf</strong>
-                            <span class='item-time'>02:07:31</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2019\201912\互動日本語 Live Interactive Japanese 2019-12 第036期 - 少女樂園派隊.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="PChome 電腦家庭 2019-12 第287期 - 六大串流影音平台怎麼選？.pdf" data-path="LiangTsaoEBooks\《雜誌》\2019\201912\PChome 電腦家庭 2019-12 第287期 - 六大串流影音平台怎麼選？.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>PChome 電腦家庭 2019-12 第287期 - 六大串流影音平台怎麼選？.pdf</strong>
-                            <span class='item-time'>02:07:26</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2019\201912\PChome 電腦家庭 2019-12 第287期 - 六大串流影音平台怎麼選？.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="快樂工作人 Cheers 2019-12 第225期 - 2020變有錢.pdf" data-path="LiangTsaoEBooks\《雜誌》\2019\201912\快樂工作人 Cheers 2019-12 第225期 - 2020變有錢.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>快樂工作人 Cheers 2019-12 第225期 - 2020變有錢.pdf</strong>
-                            <span class='item-time'>02:07:21</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2019\201912\快樂工作人 Cheers 2019-12 第225期 - 2020變有錢.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="快樂工作人特刊 Cheers Special Issue 2019-11 第207期 - 向阿德勒學習2020更快樂.pdf" data-path="LiangTsaoEBooks\《雜誌》\2019\201911\快樂工作人特刊 Cheers Special Issue 2019-11 第207期 - 向阿德勒學習2020更快樂.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>快樂工作人特刊 Cheers Special Issue 2019-11 第207期 - 向阿德勒學習2020更快樂.pdf</strong>
-                            <span class='item-time'>02:07:16</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2019\201911\快樂工作人特刊 Cheers Special Issue 2019-11 第207期 - 向阿德勒學習2020更快樂.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="英語島 English Island 2019-11 第072期 - 英文@矽谷.pdf" data-path="LiangTsaoEBooks\《雜誌》\2019\201911\英語島 English Island 2019-11 第072期 - 英文@矽谷.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>英語島 English Island 2019-11 第072期 - 英文@矽谷.pdf</strong>
-                            <span class='item-time'>02:07:11</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2019\201911\英語島 English Island 2019-11 第072期 - 英文@矽谷.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
-                    <li class="update-item hidden-item" data-filename="Advanced 彭蒙惠美語 2019-11 第227期 - 登上世界最高的雪梨港灣大橋.pdf" data-path="LiangTsaoEBooks\《雜誌》\2019\201911\Advanced 彭蒙惠美語 2019-11 第227期 - 登上世界最高的雪梨港灣大橋.pdf" data-category="magazine">
-                       <div class="item-header">
-                            <strong>Advanced 彭蒙惠美語 2019-11 第227期 - 登上世界最高的雪梨港灣大橋.pdf</strong>
-                            <span class='item-time'>02:07:06</span>
-                       </div>
-                        <div class='file-path'>LiangTsaoEBooks\《雜誌》\2019\201911\Advanced 彭蒙惠美語 2019-11 第227期 - 登上世界最高的雪梨港灣大橋.pdf</div>
-                        <blockquote>雜誌已更新。</blockquote>
-                    </li>
                 </ul>
                 <button class="load-more-button day-pagination" data-target-list="#list-magazine-20250512" style="display: none;">顯示更多</button>
             </div>
         </div>
- </div> <p class="footer-time"><small>頁面最後生成時間: 2025-05-12 06:23:11</small></p> </div>
+ </div> <p class="footer-time"><small>頁面最後生成時間: 2025-05-12 08:46:14</small></p>
+        <p style="text-align:center; margin-top:20px; font-size:1.1em;"><a href="archive.html" title="檢視所有歷史記錄並可進階搜尋">🔎 檢視完整歷史記錄</a></p>
+    </div>
     <script>
         const tsMap = {'剧':'劇','集':'集','电':'電','影':'影','杂':'雜','志':'誌','时':'時','间':'間','档':'檔','案':'案','更':'更','新':'新','列':'列','表':'表','签':'簽','标':'標','题':'題','内':'內','容':'容','搜':'搜','寻':'尋','显':'顯','示':'示','隐':'隱','藏':'藏','数':'數','据':'據','库': '庫','简':'簡','繁':'繁','体':'體','字':'字','转':'轉','换':'換','优':'優','化':'化','验':'驗','证':'證','权':'權','限':'限','设':'設','置':'置','错':'錯','误':'誤','讯':'訊','息':'息','系':'系','统':'統','环':'環','境':'境','版':'版','本':'本','处':'處','理':'理','回':'回','应': '應','网':'網','页':'頁','浏':'瀏','览':'覽','器':'器','缓':'緩','存':'存','清':'清','除':'除','模':'模','块':'塊','组':'組','织':'織','结':'結','构':'構','状':'狀','态':'態','负':'負','载':'載','压':'壓','力':'力','测':'測','试':'試','性':'性','能':'能','调':'調','优':'優','部':'部', '署':'署','迭':'疊','代':'代','开':'開','发':'發','周':'週','期':'期','计':'計','划':'劃','实':'實','现':'現','功':'功','能':'能','需':'需','求':'求','规':'規','范':'範','说':'說','明':'明','书':'書','用':'用','户':'戶','体':'體','验':'驗','界':'界','面':'面','计':'計','交互':'互動', '动':'動','画':'畫','视':'視','觉':'覺','元':'元','素':'素','图':'圖','标':'標','颜':'顏','色':'色','体':'體','排':'排','版':'版','布':'佈','局':'局','响':'響','应':'應','式':'式','适':'適','配':'配','不':'不','同':'同','备':'備','屏':'屏','幕':'幕','尺':'尺','寸':'寸','全':'全','漫':'漫', ' ': ' '};
         const stMap = {}; for (const t in tsMap) { stMap[tsMap[t]] = t; }
