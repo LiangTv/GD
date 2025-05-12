@@ -1,5 +1,505 @@
 [
     {
+        "filename": "ABC互動英語 2025-01 第271期.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2025\\202501\\ABC互動英語 2025-01 第271期.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2025\\202501\\ABC互動英語 2025-01 第271期.pdf",
+        "timestamp": "2025-05-12T10:20:21.181077",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "A+English 空中美語 2025-0102 第293期.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2025\\202501\\A+English 空中美語 2025-0102 第293期.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2025\\202501\\A+English 空中美語 2025-0102 第293期.pdf",
+        "timestamp": "2025-05-12T10:20:16.172202",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "英語學習誌 HELLO！ENGLISH 2025-01.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2025\\202501\\英語學習誌 HELLO！ENGLISH 2025-01.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2025\\202501\\英語學習誌 HELLO！ENGLISH 2025-01.pdf",
+        "timestamp": "2025-05-12T10:20:11.167127",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "哈潑時尚 Harper's BAZAAR 2025-01.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2025\\202501\\哈潑時尚 Harper's BAZAAR 2025-01.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2025\\202501\\哈潑時尚 Harper's BAZAAR 2025-01.pdf",
+        "timestamp": "2025-05-12T10:20:06.156660",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "GQ 2025-01.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2025\\202501\\GQ 2025-01.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2025\\202501\\GQ 2025-01.pdf",
+        "timestamp": "2025-05-12T10:20:01.140813",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "enya FASHION QUEEN時尚女王 2025-01.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2025\\202501\\enya FASHION QUEEN時尚女王 2025-01.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2025\\202501\\enya FASHION QUEEN時尚女王 2025-01.pdf",
+        "timestamp": "2025-05-12T10:19:56.132857",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "活用空中美語 English 4U 2025-0102.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2025\\202501\\活用空中美語 English 4U 2025-0102.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2025\\202501\\活用空中美語 English 4U 2025-0102.pdf",
+        "timestamp": "2025-05-12T10:19:51.127233",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "CNN 互動英語 2025-01.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2025\\202501\\CNN 互動英語 2025-01.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2025\\202501\\CNN 互動英語 2025-01.pdf",
+        "timestamp": "2025-05-12T10:19:46.113029",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "號外 City Magazine 2025-01.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2025\\202501\\號外 City Magazine 2025-01.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2025\\202501\\號外 City Magazine 2025-01.pdf",
+        "timestamp": "2025-05-12T10:19:41.107510",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Ciao 潮旅 2025-0102.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2025\\202501\\Ciao 潮旅 2025-0102.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2025\\202501\\Ciao 潮旅 2025-0102.pdf",
+        "timestamp": "2025-05-12T10:19:36.102317",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "BBC知識 Knowledge 2025-01.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2025\\202501\\BBC知識 Knowledge 2025-01.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2025\\202501\\BBC知識 Knowledge 2025-01.pdf",
+        "timestamp": "2025-05-12T10:19:31.096687",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "ALL+互動英語 2025-01.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2025\\202501\\ALL+互動英語 2025-01.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2025\\202501\\ALL+互動英語 2025-01.pdf",
+        "timestamp": "2025-05-12T10:19:26.092791",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經理人月刊202504.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2025\\202504\\經理人月刊202504.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2025\\202504\\經理人月刊202504.pdf",
+        "timestamp": "2025-05-12T10:19:21.079277",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經理人 Manager Today 2015-04 第125期 - 柯文哲的18堂管理課.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2015\\201504\\經理人 Manager Today 2015-04 第125期 - 柯文哲的18堂管理課.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2015\\201504\\經理人 Manager Today 2015-04 第125期 - 柯文哲的18堂管理課.pdf",
+        "timestamp": "2025-05-12T10:19:16.054345",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經理人 Manager Today 2015-03 第124期 - 超強企畫力.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2015\\201503\\經理人 Manager Today 2015-03 第124期 - 超強企畫力.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2015\\201503\\經理人 Manager Today 2015-03 第124期 - 超強企畫力.pdf",
+        "timestamp": "2025-05-12T10:19:11.035362",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經理人 Manager Today 2013-05 第102期 - 高效記憶術 卡內基、大前研一、BCG都在使用.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2013\\201305\\經理人 Manager Today 2013-05 第102期 - 高效記憶術 卡內基、大前研一、BCG都在使用.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2013\\201305\\經理人 Manager Today 2013-05 第102期 - 高效記憶術 卡內基、大前研一、BCG都在使用.pdf",
+        "timestamp": "2025-05-12T10:19:06.012113",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "經理人 Manager Today 2009-05 第054期 - 逆轉力 A+企業實戰指南.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2009\\200905\\經理人 Manager Today 2009-05 第054期 - 逆轉力 A+企業實戰指南.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2009\\200905\\經理人 Manager Today 2009-05 第054期 - 逆轉力 A+企業實戰指南.pdf",
+        "timestamp": "2025-05-12T10:19:00.989770",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "ABC互動英語 2024-12 第270期.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202412\\ABC互動英語 2024-12 第270期.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202412\\ABC互動英語 2024-12 第270期.pdf",
+        "timestamp": "2025-05-12T10:18:55.968527",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "A+English 空中美語 2024-12 第292期.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202412\\A+English 空中美語 2024-12 第292期.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202412\\A+English 空中美語 2024-12 第292期.pdf",
+        "timestamp": "2025-05-12T10:18:50.963416",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Hi Fi聖經 2024-12.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202412\\Hi Fi聖經 2024-12.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202412\\Hi Fi聖經 2024-12.pdf",
+        "timestamp": "2025-05-12T10:18:45.953899",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "英語學習誌 HELLO！ENGLISH 2024-12.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202412\\英語學習誌 HELLO！ENGLISH 2024-12.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202412\\英語學習誌 HELLO！ENGLISH 2024-12.pdf",
+        "timestamp": "2025-05-12T10:18:40.945753",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "哈潑時尚 Harper's BAZAAR 2024-12.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202412\\哈潑時尚 Harper's BAZAAR 2024-12.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202412\\哈潑時尚 Harper's BAZAAR 2024-12.pdf",
+        "timestamp": "2025-05-12T10:18:35.939195",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "GQ 2024-12.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202412\\GQ 2024-12.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202412\\GQ 2024-12.pdf",
+        "timestamp": "2025-05-12T10:18:30.934849",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "enya FASHION QUEEN時尚女王 2024-12.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202412\\enya FASHION QUEEN時尚女王 2024-12.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202412\\enya FASHION QUEEN時尚女王 2024-12.pdf",
+        "timestamp": "2025-05-12T10:18:25.926178",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "活用空中美語 English 4U 2024-12.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202412\\活用空中美語 English 4U 2024-12.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202412\\活用空中美語 English 4U 2024-12.pdf",
+        "timestamp": "2025-05-12T10:18:20.919706",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "ELLE 她 2024-12.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202412\\ELLE 她 2024-12.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202412\\ELLE 她 2024-12.pdf",
+        "timestamp": "2025-05-12T10:18:15.914227",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "DECO居家 2024-12.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202412\\DECO居家 2024-12.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202412\\DECO居家 2024-12.pdf",
+        "timestamp": "2025-05-12T10:18:10.908349",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "CNN 互動英語 2024-12.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202412\\CNN 互動英語 2024-12.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202412\\CNN 互動英語 2024-12.pdf",
+        "timestamp": "2025-05-12T10:18:05.902158",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Big大時商業誌 2024-12.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202412\\Big大時商業誌 2024-12.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202412\\Big大時商業誌 2024-12.pdf",
+        "timestamp": "2025-05-12T10:18:00.893246",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "BBC知識 Knowledge 2024-12.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202412\\BBC知識 Knowledge 2024-12.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202412\\BBC知識 Knowledge 2024-12.pdf",
+        "timestamp": "2025-05-12T10:17:55.888778",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "ALL+互動英語 2024-12.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202412\\ALL+互動英語 2024-12.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202412\\ALL+互動英語 2024-12.pdf",
+        "timestamp": "2025-05-12T10:17:50.883431",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Hi Fi聖經 2024-08.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202408\\Hi Fi聖經 2024-08.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202408\\Hi Fi聖經 2024-08.pdf",
+        "timestamp": "2025-05-12T10:17:45.867157",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "英語學習誌 HELLO！ENGLISH 2024-08.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202408\\英語學習誌 HELLO！ENGLISH 2024-08.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202408\\英語學習誌 HELLO！ENGLISH 2024-08.pdf",
+        "timestamp": "2025-05-12T10:17:40.861692",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "哈潑時尚 Harper's BAZAAR 2024-08.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202408\\哈潑時尚 Harper's BAZAAR 2024-08.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202408\\哈潑時尚 Harper's BAZAAR 2024-08.pdf",
+        "timestamp": "2025-05-12T10:17:35.853101",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "enya FASHION QUEEN時尚女王 2024-08.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202408\\enya FASHION QUEEN時尚女王 2024-08.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202408\\enya FASHION QUEEN時尚女王 2024-08.pdf",
+        "timestamp": "2025-05-12T10:17:30.843615",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "ELLE 她 2024-08.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202408\\ELLE 她 2024-08.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202408\\ELLE 她 2024-08.pdf",
+        "timestamp": "2025-05-12T10:17:25.838445",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "CNN 互動英語 2024-08.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202408\\CNN 互動英語 2024-08.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202408\\CNN 互動英語 2024-08.pdf",
+        "timestamp": "2025-05-12T10:17:20.832630",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "恰女生 Choc 2024-08.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202408\\恰女生 Choc 2024-08.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202408\\恰女生 Choc 2024-08.pdf",
+        "timestamp": "2025-05-12T10:17:15.826292",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Big大時商業誌 2024-08.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202408\\Big大時商業誌 2024-08.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202408\\Big大時商業誌 2024-08.pdf",
+        "timestamp": "2025-05-12T10:17:10.821687",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "BBC知識 Knowledge 2024-08.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202408\\BBC知識 Knowledge 2024-08.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202408\\BBC知識 Knowledge 2024-08.pdf",
+        "timestamp": "2025-05-12T10:17:05.814222",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "ALL+互動英語 2024-08 第237期 - 亞莉安娜.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202408\\ALL+互動英語 2024-08 第237期 - 亞莉安娜.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202408\\ALL+互動英語 2024-08 第237期 - 亞莉安娜.pdf",
+        "timestamp": "2025-05-12T10:17:00.808941",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "ABC互動英語 2024-08 第266期 - 實用英語對話：銀行篇.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202408\\ABC互動英語 2024-08 第266期 - 實用英語對話：銀行篇.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202408\\ABC互動英語 2024-08 第266期 - 實用英語對話：銀行篇.pdf",
+        "timestamp": "2025-05-12T10:16:55.804340",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "BBC知識 Knowledge 2024-06.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202406\\BBC知識 Knowledge 2024-06.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202406\\BBC知識 Knowledge 2024-06.pdf",
+        "timestamp": "2025-05-12T10:16:50.793202",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "Hi Fi聖經 2024-06.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202406\\Hi Fi聖經 2024-06.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202406\\Hi Fi聖經 2024-06.pdf",
+        "timestamp": "2025-05-12T10:16:45.788029",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "哈潑時尚 Harper's BAZAAR 2024-06.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202406\\哈潑時尚 Harper's BAZAAR 2024-06.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202406\\哈潑時尚 Harper's BAZAAR 2024-06.pdf",
+        "timestamp": "2025-05-12T10:16:40.783023",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "英語學習誌 HELLO！ENGLISH 2024-06.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202406\\英語學習誌 HELLO！ENGLISH 2024-06.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202406\\英語學習誌 HELLO！ENGLISH 2024-06.pdf",
+        "timestamp": "2025-05-12T10:16:35.779671",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "活用空中美語 English 4U 2024-06.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202406\\活用空中美語 English 4U 2024-06.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202406\\活用空中美語 English 4U 2024-06.pdf",
+        "timestamp": "2025-05-12T10:16:30.772470",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "ELLE 她 2024-06.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202406\\ELLE 她 2024-06.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202406\\ELLE 她 2024-06.pdf",
+        "timestamp": "2025-05-12T10:16:25.764655",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "CNN 互動英語 2024-06.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202406\\CNN 互動英語 2024-06.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202406\\CNN 互動英語 2024-06.pdf",
+        "timestamp": "2025-05-12T10:16:20.739441",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
+        "filename": "恰女生 Choc 2024-06.pdf",
+        "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202406\\恰女生 Choc 2024-06.pdf",
+        "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202406\\恰女生 Choc 2024-06.pdf",
+        "timestamp": "2025-05-12T10:16:15.732983",
+        "category": "magazine",
+        "tmdb_id": null,
+        "tmdb_url": null,
+        "plot": "雜誌已更新。"
+    },
+    {
         "filename": "資本雜誌 Capital 2024-06.pdf",
         "absolute_path": "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》\\2024\\202406\\資本雜誌 Capital 2024-06.pdf",
         "relative_path": "LiangTsaoEBooks\\《雜誌》\\2024\\202406\\資本雜誌 Capital 2024-06.pdf",
