@@ -1,0 +1,5 @@
+# 忽略 Python 的快取檔案
+__pycache__/
+
+# 忽略日誌目錄
+GDLogs/
