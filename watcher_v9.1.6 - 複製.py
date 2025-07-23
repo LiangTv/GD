@@ -14,25 +14,13 @@ import json
 # import re # escape_html 函數中未使用 re
 
 # --- 設定 ---
-# 透過此設定，讓程式能同時辨識 H 槽與 I 槽
-PATH_CONFIG = [
-    # 原本的 H 槽路徑 (保留)
-    {'path': "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\電影", 'category': 'movie', 'base': "H:\\共用雲端硬碟"},
-    {'path': "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\連載中", 'category': 'tvshow', 'base': "H:\\共用雲端硬碟"},
-    {'path': "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》", 'category': 'magazine', 'base': "H:\\共用雲端硬碟"},
-    {'path': "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集", 'category': 'collection', 'base': "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新"},
-    {'path': "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation", 'category': 'animation', 'base': "H:\\共用雲端硬碟"},
-    # 新增的 I 槽路徑
-    {'path': "I:\\共用雲端硬碟\\2025_Liang_本期更新\\《電影》", 'category': 'movie', 'base': "I:\\共用雲端硬碟"},
-    {'path': "I:\\共用雲端硬碟\\2025_Liang_本期更新\\《連載中》", 'category': 'tvshow', 'base': "I:\\共用雲端硬碟"},
-    {'path': "I:\\共用雲端硬碟\\2025_Liang_本期更新\\《全集》", 'category': 'collection', 'base': "I:\\共用雲端硬碟\\2025_Liang_本期更新"},
-    {'path': "I:\\共用雲端硬碟\\2025_LiangEBooks\\《雜誌》", 'category': 'magazine', 'base': "I:\\共用雲端硬碟"},
-    {'path': "I:\\共用雲端硬碟\\2025_LiangAnimation", 'category': 'animation', 'base': "I:\\共用雲端硬碟"},
+MONITORED_DIRECTORIES = [
+    "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\電影",
+    "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\連載中",
+    "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》",
+    "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集",
+    "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation"
 ]
-
-# 讓 MONITORED_DIRECTORIES 自動從上面的設定產生
-MONITORED_DIRECTORIES = [item['path'] for item in PATH_CONFIG]
-
 POLLING_INTERVAL_SECONDS = 300 
 TARGET_EXTENSIONS = ('.mkv', '.mp4', '.pdf') 
 OUTPUT_HTML_FILE = 'index.html'
@@ -141,21 +129,6 @@ def find_nfo_path(media_filepath):
          if os.path.exists(tvshow_nfo_path_gp): logging.info(f"找到上上層 tvshow.nfo: {tvshow_nfo_path_gp}"); return tvshow_nfo_path_gp, 'grandparent'
     logging.warning(f"找不到與 {media_filepath} 對應的 NFO 檔案"); return None, None
 
-
-# --- 輔助函數: 根據路徑取得設定 ---
-def get_media_config(filepath):
-    """根據檔案或目錄的絕對路徑，從 PATH_CONFIG 中找到最匹配的設定"""
-    abs_filepath_lower = os.path.abspath(filepath).lower()
-    # 為了找到最精確的匹配(例如 H:\...\A\B 會優先匹配 H:\...\A\B 而不是 H:\...\A)
-    # 我們將設定按路徑長度倒序排序
-    sorted_config = sorted(PATH_CONFIG, key=lambda x: len(x['path']), reverse=True)
-    for config in sorted_config:
-        if abs_filepath_lower.startswith(os.path.abspath(config['path']).lower()):
-            return config
-    return None
-
-   
-    
 # --- HTML Escape 函數 ---
 def escape_html(text):
     if not text: return ""
@@ -166,99 +139,52 @@ def process_new_media(filepath, is_directory_event=False):
     item_name = os.path.basename(filepath)
     logging.debug(f"[{item_name}] (process_new_media) >> 開始處理 {'目錄' if is_directory_event else '檔案'}: {filepath}...")
     try:
-        config = get_media_config(filepath)
-        if not config:
-            logging.warning(f"[{item_name}] (process_new_media) << 在 PATH_CONFIG 中找不到對應設定，忽略。")
-            return None
-
-        category = config['category']
-        base_path = config['base']
-
         if is_directory_event:
-            if category != 'collection':
-                logging.debug(f"[{item_name}] (process_new_media) << 非 'collection' 目錄事件 (分類為 {category})，忽略。")
-                return None
-            
-            logging.debug(f"[{item_name}] (process_new_media) >> 目錄分類為 'collection'，等待 5 秒...")
-            time.sleep(5)
-            
-            nfo_path = os.path.join(filepath, 'tvshow.nfo')
-            tmdb_id, plot = None, None
-            if os.path.exists(nfo_path):
-                time.sleep(2)
-                tmdb_id, plot = parse_nfo(nfo_path)
-            else:
-                logging.warning(f"[{item_name}] (process_new_media) >> 在 collection 目錄中未找到 tvshow.nfo。")
-
+            collection_base_path = "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集"
+            is_in_collection_dir = False
             try:
-                relative_path = os.path.relpath(filepath, base_path)
-            except ValueError:
-                relative_path = item_name
-
-            update_info = {
-                'filename': item_name, 'absolute_path': filepath, 'relative_path': relative_path,
-                'timestamp': datetime.datetime.now(), 'category': 'collection',
-                'tmdb_id': tmdb_id, 'tmdb_url': f"https://www.themoviedb.org/tv/{tmdb_id}" if tmdb_id else None,
-                'plot': plot
-            }
-            logging.debug(f"[{item_name}] (process_new_media) << 目錄處理完成。")
-            return update_info
-
+                 if os.path.abspath(filepath).lower().startswith(os.path.abspath(collection_base_path).lower()): is_in_collection_dir = True
+            except Exception as path_e: logging.warning(f"[{item_name}] 判斷路徑歸屬時出錯: {path_e}")
+            if not is_in_collection_dir: logging.debug(f"[{item_name}] (process_new_media) << 非 '全集' 目錄事件，忽略。"); return None
+            logging.debug(f"[{item_name}] (process_new_media) >> 目錄在 '全集' 路徑下，等待 5 秒..."); time.sleep(5)
+            nfo_path = os.path.join(filepath, 'tvshow.nfo'); tmdb_id, plot = None, None
+            if os.path.exists(nfo_path): time.sleep(2); tmdb_id, plot = parse_nfo(nfo_path)
+            else: logging.warning(f"[{item_name}] (process_new_media) >> 未找到 tvshow.nfo。")
+            try: relative_path = os.path.relpath(filepath, collection_base_path)
+            except ValueError: relative_path = item_name
+            update_info = {'filename': item_name, 'absolute_path': filepath, 'relative_path': relative_path, 'timestamp': datetime.datetime.now(), 'category': 'collection', 'tmdb_id': tmdb_id, 'tmdb_url': f"https://www.themoviedb.org/tv/{tmdb_id}" if tmdb_id else None, 'plot': plot }
+            logging.debug(f"[{item_name}] (process_new_media) << 目錄處理完成。"); return update_info
         elif os.path.isfile(filepath):
-            if category == 'collection':
-                logging.debug(f"[{item_name}] (process_new_media) << 檔案位於 'collection' 目錄下，由目錄事件統一處理，忽略此檔案事件。")
-                return None
-            
-            if not item_name.lower().endswith(TARGET_EXTENSIONS):
-                logging.debug(f"[{item_name}] (process_new_media) << 副檔名不符，忽略。")
-                return None
-
-            logging.debug(f"[{item_name}] (process_new_media) >> 等待 5 秒...")
-            time.sleep(5)
-            
-            try:
-                relative_path = os.path.relpath(filepath, base_path)
-            except ValueError:
-                relative_path = filepath
-            
-            update_info = {
-                'filename': item_name, 'absolute_path': filepath, 'relative_path': relative_path,
-                'timestamp': datetime.datetime.now(), 'category': category,
-                'tmdb_id': None, 'tmdb_url': None, 'plot': None
-            }
-
+            if not item_name.lower().endswith(TARGET_EXTENSIONS): logging.debug(f"[{item_name}] (process_new_media) << 副檔名不符，忽略。"); return None
+            logging.debug(f"[{item_name}] (process_new_media) >> 等待 5 秒..."); time.sleep(5)
+            try: relative_path = os.path.relpath(filepath, "H:\\共用雲端硬碟")
+            except ValueError: relative_path = filepath
+            category = 'unknown'
+            animation_base_path = "H:\\共用雲端硬碟\\LiangTsaoEmbyAnimation"; movie_base_path = "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\電影"; tvshow_base_path = "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\連載中"; magazine_base_path = "H:\\共用雲端硬碟\\LiangTsaoEBooks\\《雜誌》"; collection_base_path = "H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集"
+            abs_filepath = os.path.abspath(filepath).lower()
+            if abs_filepath.startswith(os.path.abspath(collection_base_path).lower()): logging.debug(f"[{item_name}] (process_new_media) << 在 '全集' 目錄下，忽略檔案。"); return None
+            elif abs_filepath.startswith(os.path.abspath(animation_base_path).lower()) and item_name.lower().endswith(('.mkv', '.mp4')): category = 'animation'
+            elif abs_filepath.startswith(os.path.abspath(movie_base_path).lower()) and item_name.lower().endswith(('.mkv', '.mp4')): category = 'movie'
+            elif abs_filepath.startswith(os.path.abspath(tvshow_base_path).lower()) and item_name.lower().endswith(('.mkv', '.mp4')): category = 'tvshow'
+            elif abs_filepath.startswith(os.path.abspath(magazine_base_path).lower()) and item_name.lower().endswith('.pdf'): category = 'magazine'
+            if category == 'unknown': logging.warning(f"[{item_name}] (process_new_media) 無法根據路徑確定分類 ({filepath})，歸為未分類。")
+            update_info = {'filename': item_name, 'absolute_path': filepath, 'relative_path': relative_path, 'timestamp': datetime.datetime.now(), 'category': category, 'tmdb_id': None, 'tmdb_url': None, 'plot': None }
             if category in ['movie', 'tvshow']:
                 nfo_path, nfo_type = find_nfo_path(filepath)
                 if nfo_path:
-                    time.sleep(5)
-                    tmdb_id, plot = parse_nfo(nfo_path)
+                    time.sleep(5); tmdb_id, plot = parse_nfo(nfo_path)
                     if not tmdb_id and nfo_type == 'self' and category == 'tvshow':
-                        logging.info(f"[{item_name}] 本地 NFO ({nfo_path}) 缺少 TMDb ID，嘗試父級...")
-                        parent_nfo_path, parent_nfo_type = find_nfo_path(os.path.dirname(filepath))
+                        logging.info(f"[{item_name}] 本地 NFO ({nfo_path}) 缺少 TMDb ID，嘗試父級..."); parent_nfo_path, parent_nfo_type = find_nfo_path(os.path.dirname(filepath))
                         if parent_nfo_path and parent_nfo_type != 'self':
                              tmdb_id_parent, plot_parent = parse_nfo(parent_nfo_path)
-                             if tmdb_id_parent:
-                                 tmdb_id = tmdb_id_parent
-                                 plot = plot if plot else plot_parent
-                                 logging.info(f"[{item_name}] 從父級 NFO ({parent_nfo_path}) 獲取到 TMDb ID: {tmdb_id}")
-                    if tmdb_id:
-                        update_info['tmdb_id'] = tmdb_id
-                        update_info['tmdb_url'] = f"https://www.themoviedb.org/{'movie' if category == 'movie' else 'tv'}/{tmdb_id}"
-                    if plot:
-                        update_info['plot'] = plot
-            elif category == 'magazine':
-                update_info['plot'] = "雜誌已更新。"
-            elif category == 'animation':
-                update_info['plot'] = "動漫已更新。"
-
-            logging.debug(f"[{item_name}] (process_new_media) << 檔案處理完成。")
-            return update_info
-        else:
-            logging.warning(f"[{item_name}] (process_new_media) << 路徑既不是檔案也不是目錄，忽略。")
-            return None
-    except Exception as e:
-        logging.exception(f"[{item_name}] (process_new_media) !! 處理時發生未預期錯誤: {e}")
-        return None
+                             if tmdb_id_parent: tmdb_id = tmdb_id_parent; plot = plot if plot else plot_parent; logging.info(f"[{item_name}] 從父級 NFO ({parent_nfo_path}) 獲取到 TMDb ID: {tmdb_id}")
+                    if tmdb_id: update_info['tmdb_id'] = tmdb_id; update_info['tmdb_url'] = f"https://www.themoviedb.org/{'movie' if category == 'movie' else 'tv'}/{tmdb_id}"
+                    if plot: update_info['plot'] = plot
+            elif category == 'magazine': update_info['plot'] = "雜誌已更新。"
+            elif category == 'animation': update_info['plot'] = "動漫已更新。"
+            logging.debug(f"[{item_name}] (process_new_media) << 檔案處理完成。"); return update_info
+        else: logging.warning(f"[{item_name}] (process_new_media) << 路徑既不是檔案也不是目錄，忽略。"); return None
+    except Exception as e: logging.exception(f"[{item_name}] (process_new_media) !! 處理時發生未預期錯誤: {e}"); return None
 
 # --- HTML 生成函數 ---
 # --- HTML 生成函數 (V9.1.3 - 徹底移除錯誤註解，調整歷史連結位置) ---
@@ -604,66 +530,52 @@ def scan_and_process_new_files():
     logging.info(">>> 開始定期輪詢新檔案/目錄...")
     batch_items_for_update = [] 
     for monitored_dir in MONITORED_DIRECTORIES:
-        if not os.path.exists(monitored_dir):
-            logging.warning(f"(輪詢) 監控目錄不存在: {monitored_dir}")
-            continue
-
-        config = get_media_config(monitored_dir)
-        if not config:
-            logging.error(f"(輪詢) 監控目錄 {monitored_dir} 在 PATH_CONFIG 中沒有對應設定，跳過。")
-            continue
-
-        if config['category'] == 'collection':
+        if not os.path.exists(monitored_dir): logging.warning(f"(輪詢) 監控目錄不存在: {monitored_dir}"); continue
+        abs_monitored_dir = os.path.abspath(monitored_dir).lower()
+        abs_collection_root = os.path.abspath("H:\\共用雲端硬碟\\@LiangTsaoEmby_本月更新\\全集").lower()
+        if abs_monitored_dir == abs_collection_root:
             try:
                 for item_name in os.listdir(monitored_dir):
                     item_path = os.path.join(monitored_dir, item_name)
                     if os.path.isdir(item_path):
                         abs_item_path_lower = os.path.abspath(item_path).lower()
                         if abs_item_path_lower not in processed_paths_set:
-                            logging.info(f"(輪詢) 發現新目錄 (collection): {item_path}")
+                            logging.info(f"(輪詢) 發現新目錄 (全集): {item_path}")
                             update_info = process_new_media(item_path, is_directory_event=True)
                             if update_info:
                                 if abs_item_path_lower not in processed_paths_set:
-                                    media_updates.append(update_info)
-                                    processed_paths_set.add(abs_item_path_lower)
+                                    media_updates.append(update_info); processed_paths_set.add(abs_item_path_lower)
                                     batch_items_for_update.append(update_info)
                                     if len(batch_items_for_update) >= POLLING_BATCH_SAVE_COUNT:
                                         logging.info(f"(輪詢) 達到批次數量 {POLLING_BATCH_SAVE_COUNT} (目錄)，觸發儲存與 Git 更新...")
                                         media_updates.sort(key=lambda x: x.get('timestamp', datetime.datetime.min), reverse=True)
-                                        trigger_update_process()
-                                        batch_items_for_update = []
-            except Exception as e_list_dir:
-                logging.exception(f"(輪詢) 遍歷 collection 目錄 {monitored_dir} 時出錯: {e_list_dir}")
+                                        trigger_update_process(); batch_items_for_update = []
+                                else: logging.warning(f"(輪詢) 目錄 {item_name} 已被處理，跳過。")
+            except Exception as e_list_dir: logging.exception(f"(輪詢) 遍歷目錄 {monitored_dir} 時出錯: {e_list_dir}")
             continue
-
         try:
             for root, _, files in os.walk(monitored_dir):
                 for filename in files:
-                    filepath = os.path.join(root, filename)
-                    abs_filepath_lower = os.path.abspath(filepath).lower()
+                    filepath = os.path.join(root, filename); abs_filepath_lower = os.path.abspath(filepath).lower()
                     if filename.lower().endswith(TARGET_EXTENSIONS):
                         if abs_filepath_lower not in processed_paths_set:
                             logging.info(f"(輪詢) 發現新檔案: {filepath}")
                             update_info = process_new_media(filepath, is_directory_event=False)
                             if update_info:
                                 if abs_filepath_lower not in processed_paths_set:
-                                    media_updates.append(update_info)
-                                    processed_paths_set.add(abs_filepath_lower)
+                                    media_updates.append(update_info); processed_paths_set.add(abs_filepath_lower)
                                     batch_items_for_update.append(update_info)
                                     if len(batch_items_for_update) >= POLLING_BATCH_SAVE_COUNT:
                                         logging.info(f"(輪詢) 達到批次數量 {POLLING_BATCH_SAVE_COUNT} (檔案)，觸發儲存與 Git 更新...")
                                         media_updates.sort(key=lambda x: x.get('timestamp', datetime.datetime.min), reverse=True)
-                                        trigger_update_process()
-                                        batch_items_for_update = []
-        except Exception as e_walk:
-            logging.exception(f"(輪詢) 遍歷目錄 {monitored_dir} 時 (os.walk) 出錯: {e_walk}")
-
+                                        trigger_update_process(); batch_items_for_update = []
+                                else: logging.warning(f"(輪詢) 項目 {filename} 已被處理，跳過。")
+        except Exception as e_walk: logging.exception(f"(輪詢) 遍歷目錄 {monitored_dir} 時 (os.walk) 出錯: {e_walk}")
     if batch_items_for_update:
         logging.info(f"(輪詢) 完成，處理剩餘 {len(batch_items_for_update)} 個新項目。觸發儲存與 Git 更新...")
         media_updates.sort(key=lambda x: x.get('timestamp', datetime.datetime.min), reverse=True)
         trigger_update_process()
-    else:
-        logging.info(">>> 定期輪詢完成，本輪無新檔案/目錄被實際加入列表。")
+    else: logging.info(">>> 定期輪詢完成，本輪無新檔案/目錄被實際加入列表。")
 
 # --- 主程式 ---
 if __name__ == "__main__":
